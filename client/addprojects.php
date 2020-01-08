@@ -15,6 +15,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  
   <title>
     ikodar
   </title>
@@ -44,7 +45,7 @@
         <ul class="nav">
           <li class="nav-item active  ">
             <a class="nav-link" href="home.html">
-              <!--<i class="material-icons">dashboard</i>-->
+              <!--<i class="material-icons">dashboaaard</i>-->
               <p>Dashboard</p>
             </a>
           </li>
