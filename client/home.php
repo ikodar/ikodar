@@ -1,18 +1,4 @@
-<!--
-=========================================================
- Material Dashboard - v2.1.1
-=========================================================
-
- Product Page: https://www.creative-tim.com/product/material-dashboard
- Copyright 2019 Creative Tim (https://www.creative-tim.com)
- Licensed under MIT (https://github.com/creativetimofficial/material-dashboard/blob/master/LICENSE.md)
-
- Coded by Creative Tim
-
-=========================================================
-
- The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
- <?php include ('process.php');
+<?php include ('process.php');
   if (!isLoggedIn()) {
   $_SESSION['msg'] = "You must log in first";
   header('location: ../login.php');
@@ -38,7 +24,7 @@
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- CSS Files -->
-  <link href="../assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
+  <link href="css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
 </head>
@@ -65,31 +51,31 @@
             </a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="./addprojects.html">
+            <a class="nav-link" href="./addprojects.php">
               
               <p>Add Projects</p>
             </a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="./viewopen.html">
+            <a class="nav-link" href="./viewopen.php">
               <!--<i class="material-icons">content_paste</i>-->
               <p>View Open Projects</p>
             </a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="./viewpast.html">
+            <a class="nav-link" href="./viewpast.php">
               <!--<i class="material-icons">library_books</i>-->
               <p>View Past Project</p>
             </a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="./myprofile.html">
+            <a class="nav-link" href="./myprofile.php">
               <!--<i class="material-icons">bubble_chart</i>-->
               <p>My Profile</p>
             </a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="./payments.html">
+            <a class="nav-link" href="./payments.php">
               <!--<i class="material-icons">location_ons</i>-->
               <p>Payments</p>
             </a>
