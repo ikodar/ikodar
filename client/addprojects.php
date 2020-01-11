@@ -42,7 +42,7 @@
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="nav-item active  ">
-            <a class="nav-link" href="home.php">
+            <a class="nav-link" href="dashboard.php">
               <!--<i class="material-icons">dashboaaard</i>-->
               <p>Dashboard</p>
             </a>
@@ -117,13 +117,13 @@
               <li class="nav-item dropdown">
                 
               <li class="nav-item">
-                <a class="nav-link" href="contactus.html">Contact Us</a>
+                <a class="nav-link" href="contactus.php">Contact Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="aboutus.html">About Us</a>
+                <a class="nav-link" href="aboutus.php">About Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="help.html">Help</a>
+                <a class="nav-link" href="help.php">Help</a>
               </li>
               <li class="nav-item"> 
                 <a class="nav-link" href="../index.php?logout='1'">Logout</a>
