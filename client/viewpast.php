@@ -44,7 +44,7 @@
  
  <body class="">
    <div class="wrapper ">
-     <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+     <div class="sidebar" data-color="azure" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
        <!--
          Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
  
@@ -58,37 +58,37 @@
        <div class="sidebar-wrapper">
          <ul class="nav">
            <li class="nav-item active  ">
-             <a class="nav-link" href="./dashboard.html">
+             <a class="nav-link" href="./dashboard.php">
                <!--<i class="material-icons">dashboard</i>-->
                <p>Dashboard</p>
              </a>
            </li>
            <li class="nav-item active">
-             <a class="nav-link" href="./addprojects.html">
+             <a class="nav-link" href="./addprojects.php">
                
                <p>Add Projects</p>
              </a>
            </li>
            <li class="nav-item active">
-             <a class="nav-link" href="./viewopen.html">
+             <a class="nav-link" href="./viewopen.php">
                <!--<i class="material-icons">content_paste</i>-->
                <p>View Open Projects</p>
              </a>
            </li>
            <li class="nav-item active">
-             <a class="nav-link" href="./viewpast.html">
+             <a class="nav-link" href="./viewpast.php">
                <!--<i class="material-icons">library_books</i>-->
                <p>View Past Project</p>
              </a>
            </li>
            <li class="nav-item active">
-             <a class="nav-link" href="./myprofile.html">
+             <a class="nav-link" href="./myprofile.php">
                <!--<i class="material-icons">bubble_chart</i>-->
                <p>My Profile</p>
              </a>
            </li>
            <li class="nav-item active">
-             <a class="nav-link" href="./payments.html">
+             <a class="nav-link" href="./payments.php">
                <!--<i class="material-icons">location_ons</i>-->
                <p>Payments</p>
              </a>
@@ -177,13 +177,13 @@
                  </div>
                </li>-->
                <li class="nav-item">
-                 <a class="nav-link" href="contactus.html">Contact Us</a>
+                 <a class="nav-link" href="contactus.php">Contact Us</a>
                </li>
                <li class="nav-item">
-                 <a class="nav-link" href="aboutus.html">About Us</a>
+                 <a class="nav-link" href="aboutus.php">About Us</a>
                </li>
                <li class="nav-item">
-                 <a class="nav-link" href="help.html">Help</a>
+                 <a class="nav-link" href="help.php">Help</a>
                </li>
                <li class="nav-item"> 
                  <a class="nav-link" href="../index.php?logout='1'">Logout</a>
