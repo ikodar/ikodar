@@ -28,13 +28,17 @@
    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
    <!-- CSS Files -->
+<<<<<<< HEAD
    <link href="assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
+=======
+   <link href="css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
+>>>>>>> ee651bdd0e8d832e9484403498fb83787949fc13
    
  </head>
  
  <body class="">
    <div class="wrapper ">
-     <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+     <div class="sidebar" data-color="azure" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
        <!--
          Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
  
@@ -48,7 +52,11 @@
        <div class="sidebar-wrapper">
          <ul class="nav">
            <li class="nav-item active  ">
+<<<<<<< HEAD
              <a class="nav-link" href="./home.php">
+=======
+             <a class="nav-link" href="./dashboard.php">
+>>>>>>> ee651bdd0e8d832e9484403498fb83787949fc13
                <!--<i class="material-icons">dashboard</i>-->
                <p>Home</p>
              </a>
@@ -122,13 +130,13 @@
                <li class="nav-item dropdown">
                  
                <li class="nav-item">
-                 <a class="nav-link" href="contactus.html">Contact Us</a>
+                 <a class="nav-link" href="contactus.php">Contact Us</a>
                </li>
                <li class="nav-item">
-                 <a class="nav-link" href="aboutus.html">About Us</a>
+                 <a class="nav-link" href="aboutus.php">About Us</a>
                </li>
                <li class="nav-item">
-                 <a class="nav-link" href="help.html">Help</a>
+                 <a class="nav-link" href="help.php">Help</a>
                </li>
                <li class="nav-item"> 
                  <a class="nav-link" href="../index.php?logout='1'">Logout</a>

@@ -1,36 +1,38 @@
-
-<?php include ('process.php'); 
+<?php 
+     include ('process.php'); 
      if (!isLoggedIn()) {
      $_SESSION['msg'] = "You must log in first";
      header('location: ../login.php');
      }
- ?>
+
+?>
 
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   
-  <title>
-    ikodar
-  </title>
+  <title>ikodar</title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- CSS Files -->
+<<<<<<< HEAD
   <link href="assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
+=======
+  <link href="css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
+>>>>>>> ee651bdd0e8d832e9484403498fb83787949fc13
   
 </head>
 
 <body class="">
   <div class="wrapper ">
-    <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+    <div class="sidebar" data-color="azure" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -44,38 +46,44 @@
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="nav-item active  ">
+<<<<<<< HEAD
             <a class="nav-link" href="dashboard.html">
               <!--<i class="material-icons">dashboard</i>-->
               <p>Home</p>
+=======
+            <a class="nav-link" href="dashboard.php">
+              <!--<i class="material-icons">dashboaaard</i>-->
+              <p>Dashboard</p>
+>>>>>>> ee651bdd0e8d832e9484403498fb83787949fc13
             </a>
           </li>
           
           <li class="nav-item active">
-            <a class="nav-link" href="./addprojects.html">
+            <a class="nav-link" href="./addprojects.php">
               
               <p>Add Projects</p>
             </a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="./viewopen.html">
+            <a class="nav-link" href="./viewopen.php">
               <!--<i class="material-icons">content_paste</i>-->
               <p>View Open Projects</p>
             </a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="./viewpast.html">
+            <a class="nav-link" href="./viewpast.php">
               <!--<i class="material-icons">library_books</i>-->
               <p>View Past Project</p>
             </a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="./myprofile.html">
+            <a class="nav-link" href="./myprofile.php">
               <!--<i class="material-icons">bubble_chart</i>-->
               <p>My Profile</p>
             </a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="./payments.html">
+            <a class="nav-link" href="./payments.php">
               <!--<i class="material-icons">location_ons</i>-->
               <p>Payments</p>
             </a>
@@ -119,13 +127,13 @@
               <li class="nav-item dropdown">
                 
               <li class="nav-item">
-                <a class="nav-link" href="contactus.html">Contact Us</a>
+                <a class="nav-link" href="contactus.php">Contact Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="aboutus.html">About Us</a>
+                <a class="nav-link" href="aboutus.php">About Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="help.html">Help</a>
+                <a class="nav-link" href="help.php">Help</a>
               </li>
               <li class="nav-item"> 
                 <a class="nav-link" href="../index.php?logout='1'">Logout</a>
@@ -150,8 +158,6 @@
                                 <input name="name" type="text" class="input" id=name required/><br><br>
                                 
                                 <label>Description: </label><br>
-                              
-                                
                                 <textarea rows="5" cols="60" name="description" value="description">Enter description hereee...</textarea></br></br>
                                 
                                 

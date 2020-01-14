@@ -1,5 +1,9 @@
 
+<<<<<<< HEAD
  <?php include ('process.php');
+=======
+ <?php include ('clientprocess.php');
+>>>>>>> ee651bdd0e8d832e9484403498fb83787949fc13
     if (!isLoggedIn()) {
     $_SESSION['msg'] = "You must log in first";
     header('location: ../login.php');
@@ -25,13 +29,19 @@
    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
    <!-- CSS Files -->
+<<<<<<< HEAD
    <link href="assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
   
+=======
+   <link href="css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
+   <!-- CSS Just for demo purpose, don't include it in your project -->
+   <link href="../assets/demo/demo.css" rel="stylesheet" />
+>>>>>>> ee651bdd0e8d832e9484403498fb83787949fc13
  </head>
  
  <body class="">
    <div class="wrapper ">
-     <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+     <div class="sidebar" data-color="azure" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
        <!--
          Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
  
@@ -45,7 +55,11 @@
        <div class="sidebar-wrapper">
          <ul class="nav">
            <li class="nav-item active  ">
+<<<<<<< HEAD
              <a class="nav-link" href="./home.php">
+=======
+             <a class="nav-link" href="./dashboard.php">
+>>>>>>> ee651bdd0e8d832e9484403498fb83787949fc13
                <!--<i class="material-icons">dashboard</i>-->
                <p>Home</p>
              </a>
@@ -81,7 +95,10 @@
               <p>Payments</p>
             </a>
           </li>
+<<<<<<< HEAD
            
+=======
+>>>>>>> ee651bdd0e8d832e9484403498fb83787949fc13
          </ul>
        </div>
      </div>
@@ -120,13 +137,13 @@
                <li class="nav-item dropdown">
                  
                <li class="nav-item">
-                 <a class="nav-link" href="contactus.html">Contact Us</a>
+                 <a class="nav-link" href="contactus.php">Contact Us</a>
                </li>
                <li class="nav-item">
-                 <a class="nav-link" href="aboutus.html">About Us</a>
+                 <a class="nav-link" href="aboutus.php">About Us</a>
                </li>
                <li class="nav-item">
-                 <a class="nav-link" href="help.html">Help</a>
+                 <a class="nav-link" href="help.php">Help</a>
                </li>
                <li class="nav-item"> 
                  <a class="nav-link" href="../index.php?logout='1'">Logout</a>
@@ -147,65 +164,66 @@
                  </div>
                  <div class="card-body">
                    <form>
+                      <div class="col-md-3">
+                         <div class="form-group">
+                           <label>Username</label>
+                           <input name="username" type="text" class="input" value="" required>
+                         </div>
+                       </div>
                      <div class="row">
                        <div class="col-md-5">
                          <div class="form-group">
-                           <label class="bmd-label-floating">Company (disabled)</label>
-                           <input type="text" class="form-control" disabled>
+                           <label>Company</label>
+                           <input name="company" type="text" class="input" value="" required>
                          </div>
                        </div>
-                       <div class="col-md-3">
-                         <div class="form-group">
-                           <label class="bmd-label-floating">Username</label>
-                           <input type="text" class="form-control">
-                         </div>
-                       </div>
+                       
                        <div class="col-md-4">
                          <div class="form-group">
-                           <label class="bmd-label-floating">Email address</label>
-                           <input type="email" class="form-control">
+                            <label>Email address</label>
+                           <input name="email" type="email"  class="input" value="" required>
                          </div>
                        </div>
                      </div>
                      <div class="row">
                        <div class="col-md-6">
                          <div class="form-group">
-                           <label class="bmd-label-floating">Fist Name</label>
-                           <input type="text" class="form-control">
+                           <label>Fist Name</label>
+                           <input name="firstname" type="text"  class="input" value="" required>
                          </div>
                        </div>
                        <div class="col-md-6">
                          <div class="form-group">
-                           <label class="bmd-label-floating">Last Name</label>
-                           <input type="text" class="form-control">
+                           <label>Last Name</label>
+                           <input name="lastname" type="text"  class="input" value="" required>
                          </div>
                        </div>
                      </div>
                      <div class="row">
                        <div class="col-md-12">
                          <div class="form-group">
-                           <label class="bmd-label-floating">Adress</label>
-                           <input type="text" class="form-control">
+                           <label>Adress</label>
+                           <input name="address" type="text"  class="input" value="" required>
                          </div>
                        </div>
                      </div>
                      <div class="row">
                        <div class="col-md-4">
                          <div class="form-group">
-                           <label class="bmd-label-floating">City</label>
-                           <input type="text" class="form-control">
+                           <label>City</label>
+                           <input name="city" type="text"  class="input" value="" required>
                          </div>
                        </div>
                        <div class="col-md-4">
                          <div class="form-group">
-                           <label class="bmd-label-floating">Country</label>
-                           <input type="text" class="form-control">
+                           <label>Country</label>
+                           <input name="country" type="text"  class="input" value="" required>
                          </div>
                        </div>
                        <div class="col-md-4">
                          <div class="form-group">
-                           <label class="bmd-label-floating">Postal Code</label>
-                           <input type="text" class="form-control">
+                           <label>Postal Code</label>
+                           <input name="postalcode" type="text"  class="input" value="" required>
                          </div>
                        </div>
                      </div>
@@ -214,13 +232,12 @@
                          <div class="form-group">
                            <label>About Me</label>
                            <div class="form-group">
-                             
-                             <textarea class="form-control" rows="5"></textarea>
+                             <textarea name =about class="input" rows="5"></textarea>
                            </div>
                          </div>
                        </div>
                      </div>
-                     <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
+                     <button name="submit" type="submit" value="submit" class="btn btn-primary pull-right">Update Profile</button>
                      <div class="clearfix"></div>
                    </form>
                  </div>
