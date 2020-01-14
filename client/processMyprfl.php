@@ -12,6 +12,11 @@ function isLoggedIn()
 	}
 }
 
+	$sql = "select email from users";
+	$rs = mysqli_query($conn, $sql);
+	//get row
+	$fetchRow = mysqli_fetch_assoc($rs);
+
 // log user out if LOGOUT BUTTON clicked
 if (isset($_GET['logout'])) {
     // remove all session variables
@@ -23,7 +28,7 @@ if (isset($_GET['logout'])) {
 
 
 // variable declaration
-$username = $company = $email = $firstname = $lastname = $address = $city = $country = $postalcode = "";
+$company = $email = $firstname = $lastname = $address = $city = $country = $postalcode = $about = "";
 $errors   = 0; 
 
 // call the register() function if submit is clicked
@@ -34,11 +39,11 @@ if (isset($_POST['submit'])) {
 // updating profile
 function update(){
 	// call these variables with the global keyword to make them available in function
-	global $conn, $errors, $username, $company, $email, $firstname, $lastname, $address, $city, $country, $postalcode;
+	global $conn, $errors, $company, $email, $firstname, $lastname, $address, $city, $country, $postalcode, $about;
 
 	// receive all input values from the form.
     // defined below to escape form values
-	$username     =  $_POST['username'];
+	//$username     =  $_POST['username'];
 	$company     =  $_POST['company'];
     $email = $_POST['email'];
 	$firstname  =  $_POST['firstname'];
@@ -47,7 +52,7 @@ function update(){
 	$city = $_POST['city'];
 	$country = $_POST['country'];
 	$postalcode = $_POST['postalcode'];
-	
+	$about = $_POST['about'];
 /*
 	// form validation: ensure that dates are correctly filled
 	$currentdate=date("Y-m-d");

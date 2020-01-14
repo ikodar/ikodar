@@ -1,5 +1,5 @@
 
- <?php include ('clientprocess.php');
+ <?php include ('processMyprfl.php');
     if (!isLoggedIn()) {
     $_SESSION['msg'] = "You must log in first";
     header('location: ../login.php');
@@ -8,7 +8,13 @@
 
  ?>
 
+<?php 
+	$sql = "select email from users";
+	$rs = mysqli_query($conn, $sql);
  
+	$fetchRow = mysqli_fetch_assoc($rs);
+?>
+
  <!DOCTYPE html>
  <html lang="en">
  
@@ -118,35 +124,7 @@
                  </a>
                </li>
                <li class="nav-item dropdown">
-                 <!--<a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                   <i class="material-icons">notifications</i>
-                   <span class="notification">5</span>
-                   <p class="d-lg-none d-md-block">
-                     Some Actions
-                   </p>
-                 </a>
-                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                   <a class="dropdown-item" href="#">Mike John responded to your email</a>
-                   <a class="dropdown-item" href="#">You have 5 new tasks</a>
-                   <a class="dropdown-item" href="#">You're now friend with Andrew</a>
-                   <a class="dropdown-item" href="#">Another Notification</a>
-                   <a class="dropdown-item" href="#">Another One</a>
-                 </div>
-               </li>
-               <li class="nav-item dropdown">
-                 <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                   <i class="material-icons">person</i>
-                   <p class="d-lg-none d-md-block">
-                     Account
-                   </p>
-                 </a>
-                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                   <a class="dropdown-item" href="#">Profile</a>
-                   <a class="dropdown-item" href="#">Settings</a>
-                   <div class="dropdown-divider"></div>
-                   <a class="dropdown-item" href="#">Log out</a>
-                 </div>
-               </li>-->
+                 
                <li class="nav-item">
                  <a class="nav-link" href="contactus.php">Contact Us</a>
                </li>
@@ -192,7 +170,7 @@
                        <div class="col-md-4">
                          <div class="form-group">
                             <label>Email address</label>
-                           <input name="email" type="email"  class="input" value="" required>
+                           <input name="email" type="email"  class="input" value="<?php echo $fetchRow['post_title']?>" required>
                          </div>
                        </div>
                      </div>
@@ -255,139 +233,8 @@
                </div>
              </div>
  
-             <div class="content">
-                 <div class="container-fluid">
-                   <div class="row">
-                     <div class="col-md-8">
-                       <div class="card">
-                         <div class="card-header card-header-primary">
-                           <h4 class="card-title">Add New Project</h4>
-                           <!--<p class="card-category">Complete your profile</p>-->
-                         <!--</div>
-                         <div class="card-body">
-                           <form>
-                             <div class="row">
-                               <div class="col-md-5">
-                                 <div class="form-group">
-                                   <label class="bmd-label-floating">Name of the project</label>
-                                   <input type="text" class="form-control" disabled>
-                                 </div>
-                               </div>
-                               <div class="col-md-3">
-                                 <div class="form-group">
-                                   <label class="bmd-label-floating">Description</label>-->
-                                   <!--<input type="text" class="form-control">-->
-                                   <!--<textarea rows="5" cols="60" name="comment" form="usrform">Enter description here...</textarea>
-                                 </div>
-                               </div>
-                               <div class="col-md-4">
-                                 <div class="form-group">
-                                   <label class="bmd-label-floating">Skills Required</label>
-                                   <input type="text" class="form-control">
-                                 </div>
-                               </div>
-                             </div>
-                             <div class="row">
-                               <div class="col-md-6">
-                                 <div class="form-group">
-                                   <label class="bmd-label-floating">Bid end date</label>
-                                   <input type="date" class="form-control">
-                                 </div>
-                               </div>
-                               <div class="col-md-6">
-                                 <div class="form-group">
-                                   <label class="bmd-label-floating">Tentative shedule </label>
-                                   <input type="file" class="form-control">
-                                 </div>
-                               </div>
-                             </div>
-                             <div class="row">
-                               <div class="col-md-12">
-                                 <div class="form-group">
-                                   <label class="bmd-label-floating">Tentative deadline</label>
-                                   <input type="date" class="form-control">
-                                 </div>
-                               </div>
-                             </div>
-                             <div class="row">
-                               <div class="col-md-4">
-                                 <div class="form-group">
-                                   <label class="bmd-label-floating">Payments</label>
-                                   <input type="text" class="form-control">
-                                 </div>
-                               </div>
-                               <div class="col-md-4">
-                                 <div class="form-group">
-                                   <label class="bmd-label-floating">Additional requirements</label>
-                                   <input type="text" class="form-control">
-                                 </div>
-                               </div>-->
-                               <!--<div class="col-md-4">
-                                 <div class="form-group">
-                                   <label class="bmd-label-floating">Postal Code</label>
-                                   <input type="text" class="form-control">
-                                 </div>
-                               </div>
-                             </div>
-                             <div class="row">
-                               <div class="col-md-12">
-                                 <div class="form-group">
-                                   <label>About Me</label>
-                                   <div class="form-group">
-                                     <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
-                                     <textarea class="form-control" rows="5"></textarea>
-                                   </div>
-                                 </div>
-                               </div>-->
- 
-                               <!--<form class="myform" action="dashboard.html" method="post">
-                                 <label>Project Name: </label><br>
-                                 <input name="name" type="text" class="input" required/><br><br>
-                                 
-                                 <label>Description: </label><br>
-                                 </form>
-                                 
-                                 <textarea rows="5" cols="60" name="comment" form="usrform">Enter description here...</textarea></br></br>
-                                 
-                                 
-                                 <form class="myform" action="dashboard.html" method="post">-->
-                                 <!--<label>Skills Required: </label><br>
-                                 <input name="skills" type="date" class="input" required/></br></br>-->
-                                 
-                                 <!--<label>Skills required</label></br>
-                                 <select name="Skills required" onChange="combo(this, 'theinput')">
-                                 <option value="business">Business Analyst</option>
-                                 <option value="developer">Developer</option>
-                                 <option value="quality">Quality Assuarance</option>
-                                 </select></br></br>
-                                 
-                                 <label>Bid end date: </label><br>
-                                 <input name="Bidend" type="date" class="input" required/></br></br>
- 
-                                 <label>Tentative shedule: </label><br>
-                                 <input name="fileupload" type="file" value="fileupload" class="input" required/>
-                                 <label for="fileupload">Select a file to upload</label>
-                                 <input type="submit" value="submit"></br></br>
- 
-                                 <label>Tentative deadline: </label><br>
-                                 <input name="deadline" type="date" class="input" required/></br></br>
- 
-                                 <label>Payment: </label><br>
-                                 <select name="payment" onChange="combo(this, 'theinput')">
-                                 <option value="Hourly">Hourly basis</option>
-                                 <option value="full">Fully payment</option>
-                                 </select></br>
-                                 <input name="name" type="text" class="input" required/><br><br></br>
-                                 
- 
-                              </div>-->
-                             <button type="submit" class="btn btn-primary pull-right">Post</button>
-                             <div class="clearfix"></div>
-                           </form>
-                         </div>
-                       </div>
-                     </div>
- 
+             
+                           
              <!--<div class="col-md-4">
                <div class="card card-profile">
                  <div class="card-avatar">
