@@ -1,18 +1,5 @@
-<!--
-=========================================================
- Material Dashboard - v2.1.1
-=========================================================
 
- Product Page: https://www.creative-tim.com/product/material-dashboard
- Copyright 2019 Creative Tim (https://www.creative-tim.com)
- Licensed under MIT (https://github.com/creativetimofficial/material-dashboard/blob/master/LICENSE.md)
-
- Coded by Creative Tim
-
-=========================================================
-
- The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
- <?php include ('process.php');
+ <?php include ('clientprocess.php');
     if (!isLoggedIn()) {
     $_SESSION['msg'] = "You must log in first";
     header('location: ../login.php');
@@ -95,24 +82,6 @@
               <p>Payments</p>
             </a>
           </li>
-           <!--<li class="nav-item ">
-             <a class="nav-link" href="./notifications.html">
-               <i class="material-icons">notifications</i>
-               <p>Notifications</p>
-             </a>
-           </li>
-           <li class="nav-item ">
-             <a class="nav-link" href="./rtl.html">
-               <i class="material-icons">language</i>
-               <p>RTL Support</p>
-             </a>
-           </li>
-           <li class="nav-item active-pro ">
-             <a class="nav-link" href="./upgrade.html">
-               <i class="material-icons">unarchive</i>
-               <p>Upgrade to PRO</p>
-             </a>
-           </li>-->
          </ul>
        </div>
      </div>
@@ -206,65 +175,66 @@
                  </div>
                  <div class="card-body">
                    <form>
+                      <div class="col-md-3">
+                         <div class="form-group">
+                           <label>Username</label>
+                           <input name="username" type="text" class="input" value="" required>
+                         </div>
+                       </div>
                      <div class="row">
                        <div class="col-md-5">
                          <div class="form-group">
-                           <label class="bmd-label-floating">Company (disabled)</label>
-                           <input type="text" class="form-control" disabled>
+                           <label>Company</label>
+                           <input name="company" type="text" class="input" value="" required>
                          </div>
                        </div>
-                       <div class="col-md-3">
-                         <div class="form-group">
-                           <label class="bmd-label-floating">Username</label>
-                           <input type="text" class="form-control">
-                         </div>
-                       </div>
+                       
                        <div class="col-md-4">
                          <div class="form-group">
-                           <label class="bmd-label-floating">Email address</label>
-                           <input type="email" class="form-control">
+                            <label>Email address</label>
+                           <input name="email" type="email"  class="input" value="" required>
                          </div>
                        </div>
                      </div>
                      <div class="row">
                        <div class="col-md-6">
                          <div class="form-group">
-                           <label class="bmd-label-floating">Fist Name</label>
-                           <input type="text" class="form-control">
+                           <label>Fist Name</label>
+                           <input name="firstname" type="text"  class="input" value="" required>
                          </div>
                        </div>
                        <div class="col-md-6">
                          <div class="form-group">
-                           <label class="bmd-label-floating">Last Name</label>
-                           <input type="text" class="form-control">
+                           <label>Last Name</label>
+                           <input name="lastname" type="text"  class="input" value="" required>
                          </div>
                        </div>
                      </div>
                      <div class="row">
                        <div class="col-md-12">
                          <div class="form-group">
-                           <label class="bmd-label-floating">Adress</label>
-                           <input type="text" class="form-control">
+                           <label>Adress</label>
+                           <input name="address" type="text"  class="input" value="" required>
                          </div>
                        </div>
                      </div>
                      <div class="row">
                        <div class="col-md-4">
                          <div class="form-group">
-                           <label class="bmd-label-floating">City</label>
-                           <input type="text" class="form-control">
+                           <label>City</label>
+                           <input name="city" type="text"  class="input" value="" required>
                          </div>
                        </div>
                        <div class="col-md-4">
                          <div class="form-group">
-                           <label class="bmd-label-floating">Country</label>
-                           <input type="text" class="form-control">
+                           <label>Country</label>
+                           <input name="country" type="text"  class="input" value="" required>
                          </div>
                        </div>
                        <div class="col-md-4">
                          <div class="form-group">
-                           <label class="bmd-label-floating">Postal Code</label>
-                           <input type="text" class="form-control">
+                           <label>Postal Code</label>
+                           <input name="postalcode" type="text"  class="input" value="" required>
                          </div>
                        </div>
                      </div>
@@ -273,13 +243,12 @@
                          <div class="form-group">
                            <label>About Me</label>
                            <div class="form-group">
-                             
-                             <textarea class="form-control" rows="5"></textarea>
+                             <textarea name =about class="input" rows="5"></textarea>
                            </div>
                          </div>
                        </div>
                      </div>
-                     <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
+                     <button name="submit" type="submit" value="submit" class="btn btn-primary pull-right">Update Profile</button>
                      <div class="clearfix"></div>
                    </form>
                  </div>

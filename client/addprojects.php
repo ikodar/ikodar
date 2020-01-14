@@ -148,8 +148,6 @@
                                 <input name="name" type="text" class="input" id=name required/><br><br>
                                 
                                 <label>Description: </label><br>
-                              
-                                
                                 <textarea rows="5" cols="60" name="description" value="description">Enter description hereee...</textarea></br></br>
                                 
                                 

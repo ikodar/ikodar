@@ -1,17 +1,4 @@
-<!--
-=========================================================
- Material Dashboard - v2.1.1
-=========================================================
 
- Product Page: https://www.creative-tim.com/product/material-dashboard
- Copyright 2019 Creative Tim (https://www.creative-tim.com)
- Licensed under MIT (https://github.com/creativetimofficial/material-dashboard/blob/master/LICENSE.md)
-
- Coded by Creative Tim
-
-=========================================================
-
- The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
  <?php include ('process.php');
     if (!isLoggedIn()) {
     $_SESSION['msg'] = "You must log in first";
@@ -193,7 +180,7 @@
          </div>
        </nav>
        <!-- End Navbar -->
-       <!--<div class="content">
+       <div class="content">
          <div class="container-fluid">
            <div class="row">
              <div class="col-lg-3 col-md-6 col-sm-6">
@@ -644,7 +631,7 @@
          </div>
        </footer>
      </div>
-   </div>-->
+   </div>
   <!--<div class="fixed-plugin">
      <div class="dropdown show-dropdown">
        <a href="#" data-toggle="dropdown">
