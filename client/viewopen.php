@@ -28,11 +28,7 @@
    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
    <!-- CSS Files -->
-<<<<<<< HEAD
-   <link href="assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
-=======
    <link href="css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
->>>>>>> ee651bdd0e8d832e9484403498fb83787949fc13
    
  </head>
  
@@ -52,11 +48,7 @@
        <div class="sidebar-wrapper">
          <ul class="nav">
            <li class="nav-item active  ">
-<<<<<<< HEAD
-             <a class="nav-link" href="./home.php">
-=======
              <a class="nav-link" href="./dashboard.php">
->>>>>>> ee651bdd0e8d832e9484403498fb83787949fc13
                <!--<i class="material-icons">dashboard</i>-->
                <p>Home</p>
              </a>

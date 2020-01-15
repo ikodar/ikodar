@@ -1,9 +1,5 @@
 
-<<<<<<< HEAD
- <?php include ('process.php');
-=======
  <?php include ('clientprocess.php');
->>>>>>> ee651bdd0e8d832e9484403498fb83787949fc13
     if (!isLoggedIn()) {
     $_SESSION['msg'] = "You must log in first";
     header('location: ../login.php');
@@ -29,14 +25,9 @@
    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
    <!-- CSS Files -->
-<<<<<<< HEAD
-   <link href="assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
-  
-=======
    <link href="css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
    <!-- CSS Just for demo purpose, don't include it in your project -->
    <link href="../assets/demo/demo.css" rel="stylesheet" />
->>>>>>> ee651bdd0e8d832e9484403498fb83787949fc13
  </head>
  
  <body class="">
@@ -55,11 +46,7 @@
        <div class="sidebar-wrapper">
          <ul class="nav">
            <li class="nav-item active  ">
-<<<<<<< HEAD
-             <a class="nav-link" href="./home.php">
-=======
              <a class="nav-link" href="./dashboard.php">
->>>>>>> ee651bdd0e8d832e9484403498fb83787949fc13
                <!--<i class="material-icons">dashboard</i>-->
                <p>Home</p>
              </a>
@@ -95,10 +82,6 @@
               <p>Payments</p>
             </a>
           </li>
-<<<<<<< HEAD
-           
-=======
->>>>>>> ee651bdd0e8d832e9484403498fb83787949fc13
          </ul>
        </div>
      </div>
