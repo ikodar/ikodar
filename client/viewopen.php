@@ -172,7 +172,7 @@
                     <tr>
                         <td><?php echo $row['pid']; ?></td>
                         <td><?php echo $row['name']; ?></td>
-                        <td><button type="submit" class="btn btn-primary pull-right" value="submit" name="submit">VIEW</button>
+                        <td><button type="submit" onclick="./project.php" class="Redirect" value="Click here to redirect" name="view">VIEW</button></td>
                         
                         
                     </tr>
