@@ -133,6 +133,7 @@
                               <td><?php echo $row['description']; ?></td>
                               <td>
                                 <div class="input-group">
+                                <a class="btn btn-primary" href="#" role="button">Link</a>
                                   <button type="button" class="btn" name="view_btn">View</button>
                                 </div>
                               </td>
