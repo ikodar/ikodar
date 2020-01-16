@@ -92,15 +92,16 @@
 
       <!--Data section-->
       <div class="content">
+      <div class="container-fluid row col--md-8">
         <ul class="nav nav-tabs" style="background-color:purple;">
           <li class="nav-item active">
-            <a class="nav-link" href="active.php">Active Bids</a>
+            <a class="nav-link" href="projects.php">New Projects</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="current.php">Current Work</a>
+            <a class="nav-link" href="projects2.php">Open Projects</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="past.php">Past Work</a>
+            <a class="nav-link" href="projects3.php">Past Projects</a>
           </li>
         </ul>
       </div>
