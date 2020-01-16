@@ -170,15 +170,15 @@
                          </div>
                        </div>
                        
-                       <div class="col-md-4">
+                       <div class="col-md-8">
                          <div class="form-group">
                             <label>Email address</label>
-                           <input name="email" type="email"  class="input" value="<?php echo $_SESSION['users'];?>" required>
+                           <input name="email" type="email"  class="input" value="<?php echo $_SESSION['email'];?>" required>
                          </div>
                        </div>
                      </div>
                      <div class="row">
-                       <div class="col-md-6">
+                       <div class="col-md-5">
                          <div class="form-group">
                            <label>Fist Name</label>
                            <input name="firstname" type="text"  class="input" value="" required>
