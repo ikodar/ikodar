@@ -1,6 +1,5 @@
 <?php 
-  include('../connection.php');
-	include('functions.php');
+  include('functions.php');
 	if (!isLoggedIn()) {
 	$_SESSION['msg'] = "You must log in first";
 	header('location: ../login.php');
@@ -92,60 +91,65 @@
 
       <!--Data section-->
       <div class="content">
-        <ul class="nav nav-tabs" style="background-color:purple;">
-          <li class="nav-item active">
-            <a class="nav-link" href="active.php">Active Bids</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="current.php">Current Work</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="past.php">Past Work</a>
-          </li>
-        </ul>
-      </div>
+        <div class="container-fluid row col--md-8">
+          <ul class="nav nav-tabs" style="background-color:purple;">
+            <li class="nav-item active">
+              <a class="nav-link" href="projects.php">New Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="projects2.php">Open Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="projects3.php">Past Projects</a>
+            </li>
+          </ul>
+        </div>
       <div>
       <!--retrieve data from database-->
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php 
-            //retrieve data from project table
-              $sql = "SELECT * FROM projects";
-              $results = $conn->query($sql);
+      <div class="card">
+        <div class="card-body mt-3">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class="thead-dark text-primary">
+                <tr>
+                  <th width="18%">ID</th>
+                  <th width="18%">Name</th>
+                  <th width="18%">Description</th>
+                  <th width="18%">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php 
+                  //retrieve data from project table
+                  $query = "SELECT * FROM projects";
+                  $results = $conn->query($query);
+                  if ($results->num_rows > 0){
+                    //output data of each row
+                    while ($row = $results->fetch_assoc()) { 
+                        if ($row['status']=="new"){ ?>			
+                          <tr>
+                              <td><?php echo $row['pid']; ?></td>
+                              <td><?php echo $row['name']; ?></td>
+                              <td><?php echo $row['description']; ?></td>
+                              <td>
+                                <div class="input-group">
+                                <a class="btn btn-primary" href="#" role="button">Link</a>
+                                  <button type="button" class="btn" name="view_btn">View</button>
+                                </div>
+                              </td>
+                          </tr>
+                  <?php   }
+                    }
 
-              if ($results->num_rows > 0) {
-              // output data of each row
-              while ($row = $results->fetch_assoc()) { 
-                  if ($row['status']=="new"){ ?>			
-                    <tr>
-                        <td><?php echo $row['pid']; ?></td>
-                        <td><?php echo $row['name']; ?></td>
-                        <td><?php echo $row['pdesc']; ?></td>
-                        <td>
-                          <div class="input-group">
-                        <button type="button" class="btn" name="view_btn">View</button>
-                      </div>
-                        </td>
-                    </tr>
-            <?php   }
-              }
-
-            }else{
-              echo "0 results";
-            }
-
-              ?>
-        </tbody>
-      </table>
+                  }else{
+                    echo "0 results";
+                  }
+                    ?>
+              </tbody>
+            </table>
       <!--end retrieve data-->
+          </div>
+        </div>
       </div>
       <!--End of data section-->
 
