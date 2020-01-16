@@ -155,80 +155,42 @@
                  </div>
                  <div class="card-body">
                    <form>
-                     <!--<div class="col-md-3">
-                         <div class="form-group">
-                           <label>Username</label>
-                           <input name="username" type="text" class="input" value="" required>
-                         </div>
-                       </div>vv//
-                     <div class="row">
-                     -->
-                       <div class="col-md-5">
-                         <div class="form-group">
-                           <label>Company</label>
-                           <input name="company" type="text" class="input" value="" required>
-                         </div>
-                       </div>
+                     
                        
-                       <div class="col-md-8">
-                         <div class="form-group">
+                           <label>Company</label>
+                           <input name="company" type="text" class="input" value="" required></br></br>
+                         
+                       
+                       
                             <label>Email address</label>
-                           <input name="email" type="email"  class="input" value="<?php echo $_SESSION['email'];?>" required>
-                         </div>
-                       </div>
-                     </div>
-                     <div class="row">
-                       <div class="col-md-5">
-                         <div class="form-group">
+                           <input name="email" type="email"  cols="70" class="input" value="<?php echo $_SESSION['email'];?>" required></br></br>
+                           <!--<div class="form-group" >
+                             <textarea name="proposal" class="form-control" rows="1" style="border: 1px solid #bdbdbd;" value="<?php echo $_SESSION['email'];?>" ></textarea>
+                           </div>
+                          -->
                            <label>Fist Name</label>
                            <input name="firstname" type="text"  class="input" value="" required>
-                         </div>
-                       </div>
-                       <div class="col-md-6">
-                         <div class="form-group">
+                         
                            <label>Last Name</label>
-                           <input name="lastname" type="text"  class="input" value="" required>
-                         </div>
-                       </div>
-                     </div>
-                     <div class="row">
-                       <div class="col-md-12">
-                         <div class="form-group">
+                           <input name="lastname" type="text"  class="input" value="" required></br></br>
+                         
+                     
                            <label>Adress</label>
-                           <input name="address" type="text"  class="input" value="" required>
-                         </div>
-                       </div>
-                     </div>
-                     <div class="row">
-                       <div class="col-md-4">
-                         <div class="form-group">
+                           <input name="address" type="text"  class="input" value="" required></br></br>
+                         
                            <label>City</label>
-                           <input name="city" type="text"  class="input" value="" required>
-                         </div>
-                       </div>
-                       <div class="col-md-4">
-                         <div class="form-group">
+                           <input name="city" type="text"  class="input" value="" required></br></br>
+                         
                            <label>Country</label>
-                           <input name="country" type="text"  class="input" value="" required>
-                         </div>
-                       </div>
-                       <div class="col-md-4">
-                         <div class="form-group">
+                           <input name="country" type="text"  class="input" value="" required></br></br>
+                         
                            <label>Postal Code</label>
-                           <input name="postalcode" type="text"  class="input" value="" required>
-                         </div>
-                       </div>
-                     </div>
-                     <div class="row">
-                       <div class="col-md-12">
-                         <div class="form-group">
+                           <input name="postalcode" type="text"  class="input" value="" required></br></br>
+                         
                            <label>About Me</label>
                            <div class="form-group">
-                             <textarea name =about class="input" rows="5"></textarea>
-                           </div>
-                         </div>
-                       </div>
-                     </div>
+                             <textarea name =about class="input" cols="70" rows="5"></textarea></br></br>
+                           
                      <button name="submit" type="submit" value="submit" class="btn btn-primary pull-right">Update Profile</button>
                      <div class="clearfix"></div>
                    </form>

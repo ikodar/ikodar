@@ -28,7 +28,7 @@ if (isset($_GET['logout'])) {
 
 
 // variable declaration
-$company = $email = $firstname = $lastname = $address = $city = $country = $postalcode = $about = "";
+$company =  $firstname = $lastname = $address = $city = $country = $postalcode = $about = "";
 $errors   = 0; 
 
 // call the register() function if submit is clicked
@@ -39,13 +39,13 @@ if (isset($_POST['submit'])) {
 // updating profile
 function update(){
 	// call these variables with the global keyword to make them available in function
-	global $conn, $errors, $company, $email, $firstname, $lastname, $address, $city, $country, $postalcode, $about;
+	global $conn, $errors, $company, $firstname, $lastname, $address, $city, $country, $postalcode, $about;
 
 	// receive all input values from the form.
     // defined below to escape form values
 	//$username     =  $_POST['username'];
 	$company     =  $_POST['company'];
-    $email = $_POST['email'];
+    //$email = $_POST['email'];
 	$firstname  =  $_POST['firstname'];
     $lastname = $_POST['lastname'];
     $address  =  $_POST['address'];
@@ -53,6 +53,23 @@ function update(){
 	$country = $_POST['country'];
 	$postalcode = $_POST['postalcode'];
 	$about = $_POST['about'];
+
+	if ($errors== 0) {
+		
+		$query = "INSERT INTO users where email='$_SESSION'(company, firstname, lastname, address, city, country, postalcode, about) 
+				  VALUES('$company', '$firstname', '$lastname','$address','$city','$country','$postalcode','$about')";
+		if ($conn->query($query) == TRUE) {
+		    echo "New record created successfully";
+		} else {
+		    echo "Error: " . $query . "<br>" . $conn->error;
+		}
+	}else{
+		echo '<script language="javascript">';
+
+// echo "window.location.reload();";
+echo '</script>';
+ 
+	}
 
 	$conn->close();
 }
