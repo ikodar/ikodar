@@ -28,11 +28,7 @@
    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
    <!-- CSS Files -->
-<<<<<<< HEAD
-   <link href="assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
-=======
    <link href="css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
->>>>>>> ee651bdd0e8d832e9484403498fb83787949fc13
    
  </head>
  
@@ -52,11 +48,7 @@
        <div class="sidebar-wrapper">
          <ul class="nav">
            <li class="nav-item active  ">
-<<<<<<< HEAD
-             <a class="nav-link" href="./home.php">
-=======
              <a class="nav-link" href="./dashboard.php">
->>>>>>> ee651bdd0e8d832e9484403498fb83787949fc13
                <!--<i class="material-icons">dashboard</i>-->
                <p>Home</p>
              </a>
@@ -146,51 +138,62 @@
          </div>
        </nav>
        <!-- End Navbar -->
+       <div class="content">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-md-12">
+                          
 
-       <table>
-			<thead>
-				<tr>
-					<th>Project Name</th>
-					<th>Description</th>
-					<th>Skills</th>
-					<th>Bid Date</th>
-					<th>Shedule</th>
-          <th>Deadline</th>
-          <th>Payment</th>
-          <th>Amount</th>
-					<th colspan="2">Action</th>
-				</tr>
-			</thead>
-			<tbody>
-       <?php 
-					//retrieve data from project table
-    				$query = "SELECT * FROM projects";
-    				$results = $conn->query($query);
-    				//$client=$_SESSION['username'];
-    				if ($results->num_rows > 0) {
-    				// output data of each row
-						while($row = mysqli_fetch_array($result)) {
-              ?>
-              <tr>
-                  <td><?php echo $row["name"]; ?></td>
-                  <td><?php echo $row["description"]; ?></td>
-                  <td><?php echo $row["skills"]; ?></td>
-                  <td><?php echo $row["biddate"]; ?></td>
-                  <td><?php echo $row["shedule"]; ?></td>
-                  <td><?php echo $row["deadline"]; ?></td>
-                  <td><?php echo $row["payment"]; ?></td>
-                  <td><?php echo $row["amount"]; ?></td>
-              </tr>
-					<?php   }
-						}
+      
+                            
+                      
+                    <div class="card">
+                      <div class="card-body mt-3">
+                        <div class="table-responsive">
+                          <table class="table">
+                            <thead class="thead-dark text-primary">
+                              <tr>
+                                <th width="18%">PROJECT ID</th>
+                                <th width="18%">PROJECT NAME</th>
+                                <th width="16%">MORE</th>
+                                
+                              </tr>
+                            </thead>
+                            <tbody>
+          <?php 
+					    //retrieve data from project table
+              $query = "SELECT * FROM projects";
+              $results = $conn->query($query);
+              if ($results->num_rows > 0) {
+              //output data of each row
+              while ($row = $results->fetch_assoc()) { 
+                $date=date("Y-m-d");	
+                if ($date<$row['biddate']){ ?>			
+                    <tr>
+                        <td><?php echo $row['pid']; ?></td>
+                        <td><?php echo $row['name']; ?></td>
+                        <td><button type="submit" onclick="./project.php" class="Redirect" value="Click here to redirect" name="view">VIEW</button></td>
+                        
+                        
+                    </tr>
+                <?php   }
+                  }
 
-					}else{
-						echo "0 results";
-					}
-
-			    	?>
-            	</tbody>
-		</table>
+                    }else{
+                  echo "0 results";
+                  }
+                ?>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+       
+       
        
 
      
@@ -235,7 +238,7 @@
   <script src="assets/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="assets/js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
-  script>
+  
    
    
  </body>
