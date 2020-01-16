@@ -37,7 +37,7 @@
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="nav-item active  ">
-            <a class="nav-link" href="dashboard.php">
+            <a class="nav-link" href="home.php">
               <p>Dashboard</p>
             </a>
           </li>
@@ -118,8 +118,53 @@
           </div>
         </div>
       </nav>
-      <!-- End Navbar -->
+      <!-- End Navbar
+      style="height:40px; width:40px; margin:0;" -->
       
+      <div class="content" >
+         <div class="container-fluid" >
+           <div class="row">
+             <div class="col-lg-3 col-md-6 col-sm-6" >
+               <div class="card card-stats" >
+                 
+                   <div class="card-icon" style="background-color:#00008b">
+                     <i class="material-icons">content_copy</i>
+                   </div>
+                   <p class="card-category" style="font-weight:bold " >New projects</p>
+                   <h3 class="card-title" >5
+                     <small></small>
+                   </h3>
+                </div>
+                
+               </div>
+             
+
+             <div class="col-lg-3 col-md-6 col-sm-6" >
+               <div class="card card-stats" >
+                 
+                   <div class="card-icon" style="background-color:#0077bb">
+                     <i class="material-icons" >content_copy</i>
+                   </div>
+                   <p class="card-category" style="font-weight:bold " >Open projects</p>
+                   <h3 class="card-title" >10
+                     <small></small>
+                   </h3>
+                </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-6" >
+               <div class="card card-stats" >
+                 
+                   <div class="card-icon" style="background-color:#4db4d7">
+                     <i class="material-icons">content_copy</i>
+                   </div>
+                   <p class="card-category" style="font-weight:bold " >Past projects</p>
+                   <h3 class="card-title" >10
+                     <small></small>
+                   </h3>
+                </div>
+             </div>
+
 </body>
 
 </html>
