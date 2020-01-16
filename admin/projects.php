@@ -135,6 +135,7 @@
                               <td>
                                 <div class="input-group">
                                   <a class="btn btn-primary" href="view.php" role="button" name="view_btn">View</a>
+                                  <a class="btn btn-primary" href="" role="button" name="view_btn">Delete</a>
                                 </div>
                               </td>
                           </tr>
