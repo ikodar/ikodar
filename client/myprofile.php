@@ -173,7 +173,7 @@
                        <div class="col-md-4">
                          <div class="form-group">
                             <label>Email address</label>
-                           <input name="email" type="email"  class="input" value="<?php echo $fetchRow['post_title']?>" required>
+                           <input name="email" type="email"  class="input" value="<?php echo $_SESSION['users'];?>" required>
                          </div>
                        </div>
                      </div>
