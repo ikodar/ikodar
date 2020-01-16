@@ -92,7 +92,7 @@
       <!--Data section-->
       <div class="content">
         <div class="container-fluid row col--md-8">
-          <ul class="nav nav-tabs" style="font-color:black;">
+          <ul class="nav nav-tabs" style="background-color:purple;">
             <li class="nav-item">
               <a class="nav-link" href="projects.php">New Projects</a>
             </li>

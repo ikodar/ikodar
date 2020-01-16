@@ -1,17 +1,4 @@
-<!--
-=========================================================
- Material Dashboard - v2.1.1
-=========================================================
 
- Product Page: https://www.creative-tim.com/product/material-dashboard
- Copyright 2019 Creative Tim (https://www.creative-tim.com)
- Licensed under MIT (https://github.com/creativetimofficial/material-dashboard/blob/master/LICENSE.md)
-
- Coded by Creative Tim
-
-=========================================================
-
- The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
  <?php include ('process.php');
     if (!isLoggedIn()) {
     $_SESSION['msg'] = "You must log in first";
@@ -60,7 +47,7 @@
            <li class="nav-item active  ">
              <a class="nav-link" href="./dashboard.php">
                <!--<i class="material-icons">dashboard</i>-->
-               <p>Dashboard</p>
+               <p>Home</p>
              </a>
            </li>
            <li class="nav-item active">
@@ -93,24 +80,7 @@
                <p>Payments</p>
              </a>
            </li>
-           <!--<li class="nav-item ">
-             <a class="nav-link" href="./notifications.html">
-               <i class="material-icons">notifications</i>
-               <p>Notifications</p>
-             </a>
-           </li>
-           <li class="nav-item ">
-             <a class="nav-link" href="./rtl.html">
-               <i class="material-icons">language</i>
-               <p>RTL Support</p>
-             </a>
-           </li>
-           <li class="nav-item active-pro ">
-             <a class="nav-link" href="./upgrade.html">
-               <i class="material-icons">unarchive</i>
-               <p>Upgrade to PRO</p>
-             </a>
-           </li>-->
+           
          </ul>
        </div>
      </div>
@@ -147,35 +117,7 @@
                  </a>
                </li>
                <li class="nav-item dropdown">
-                 <!--<a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                   <i class="material-icons">notifications</i>
-                   <span class="notification">5</span>
-                   <p class="d-lg-none d-md-block">
-                     Some Actions
-                   </p>
-                 </a>
-                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                   <a class="dropdown-item" href="#">Mike John responded to your email</a>
-                   <a class="dropdown-item" href="#">You have 5 new tasks</a>
-                   <a class="dropdown-item" href="#">You're now friend with Andrew</a>
-                   <a class="dropdown-item" href="#">Another Notification</a>
-                   <a class="dropdown-item" href="#">Another One</a>
-                 </div>
-               </li>
-               <li class="nav-item dropdown">
-                 <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                   <i class="material-icons">person</i>
-                   <p class="d-lg-none d-md-block">
-                     Account
-                   </p>
-                 </a>
-                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                   <a class="dropdown-item" href="#">Profile</a>
-                   <a class="dropdown-item" href="#">Settings</a>
-                   <div class="dropdown-divider"></div>
-                   <a class="dropdown-item" href="#">Log out</a>
-                 </div>
-               </li>-->
+                 
                <li class="nav-item">
                  <a class="nav-link" href="contactus.php">Contact Us</a>
                </li>
@@ -193,7 +135,7 @@
          </div>
        </nav>
        <!-- End Navbar -->
-       <!--<div class="content">
+       <div class="content">
          <div class="container-fluid">
            <div class="row">
              <div class="col-lg-3 col-md-6 col-sm-6">
@@ -644,7 +586,7 @@
          </div>
        </footer>
      </div>
-   </div>-->
+   </div>
   <!--<div class="fixed-plugin">
      <div class="dropdown show-dropdown">
        <a href="#" data-toggle="dropdown">
