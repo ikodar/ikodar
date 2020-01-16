@@ -134,7 +134,22 @@
            </div>
          </div>
        </nav>
-       <!-- End Navbar -->
+       <!-- End Navbar 
+       <div class="col-lg-3 col-md-6 col-sm-6" >
+               <div class="card card-stats" >
+                 
+                   <div class="card-icon" style="background-color:#00008b">
+                     <i class="material-icons" style="background-color:blue">content_copy</i>
+                   </div>
+                   <p class="card-category" style="font-weight:bold " >New projects</p>
+                   <h3 class="card-title" >5
+                     <small></small>
+                   </h3>
+                </div>
+                
+               </div>
+             </div>
+       -->
        <div class="content">
          <div class="container-fluid">
            <div class="row">
@@ -587,7 +602,7 @@
        </footer>
      </div>
    </div>
-  <!--<div class="fixed-plugin">
+  <div class="fixed-plugin">
      <div class="dropdown show-dropdown">
        <a href="#" data-toggle="dropdown">
          <i class="fa fa-cog fa-2x"> </i>
@@ -636,8 +651,8 @@
                  <a href="https://www.creative-tim.com/product/material-dashboard-pro" target="_blank" class="btn btn-warning btn-block">
                    Get the pro version
                  </a>
-             </li> -->
-         <!--<li class="button-container">
+             </li> 
+         <li class="button-container">
            <a href="https://demos.creative-tim.com/material-dashboard/docs/2.1/getting-started/introduction.html" target="_blank" class="btn btn-default btn-block">
              View Documentation
            </a>
@@ -654,7 +669,7 @@
          </li>
        </ul>
      </div>
-   </div>-->
+   </div>
    <!--   Core JS Files   -->
    <script src="../assets/js/core/jquery.min.js"></script>
    <script src="../assets/js/core/popper.min.js"></script>
