@@ -2,7 +2,7 @@
 
 session_start();
 
-include ('../connection.php');
+include('../connection.php');
 
 function isLoggedIn()
 {
@@ -22,5 +22,13 @@ if (isset($_GET['logout'])) {
 	header("location: ../index.php");
 }
 
-$conn->close();
+//call view function when view button is clicked.
+if(isset($_POST['view_btn'])){
+	view();
+}
+
+//VIEW PROJECT in detail.
+function view(){
+	header('location: view.php');
+}
 ?>
