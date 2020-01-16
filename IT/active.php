@@ -175,7 +175,6 @@
                     <tr>
                         <td><?php echo $row['pid']; ?></td>
                         <td><?php echo $row['name']; ?></td>
-                        
                         <td><?php echo $row['biddate']; ?></td>
                     </tr>
                 <?php   }

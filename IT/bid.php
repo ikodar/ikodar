@@ -146,7 +146,7 @@
                  </div>
                  <div class="card-body">
 
-                   <form action="bid.php" method="post">
+                   <form action="bid.php" method="post" class="was-validated">
                    
                    <h1 style="font-size:17px;"><b>Bid Details</b></h>
                    <div class="row">
@@ -156,21 +156,25 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text" style="background-color:#d3d3d3; border: 1px solid #bdbdbd; padding:5px;">$</span>
                           </div>
-                          <input name="bid"type="number" class="form-control" aria-label="Amount (to the nearest dollar)" style="border: 1px solid #bdbdbd;"  placeholder="Enter bid amount">
-                          <div class="input-group-append">
-                            <span class="input-group-text" style="background-color:#d3d3d3; border: 1px solid #bdbdbd; padding:3px;">USD</span>
+                          <input name="bid"type="number" class="form-control" aria-label="Amount (to the nearest dollar)" style="border: 1px solid #bdbdbd;"  placeholder="Enter bid amount" required>
+                          <div class="input-group-append"> 
+                          <span class="input-group-text" style="background-color:#d3d3d3; border: 1px solid #bdbdbd; padding:3px;">USD</span>
+                            
                           </div>
+                          <div class="invalid-feedback">Please enter a value.</div>
                         </div>
                         </div>
 
                         <div class="col-md-5">
                         <label style="margin-top:8px;">This project will be delivered in:</label>
                         <div class="input-group mb-3">
-                          <input name="days" type="number" class="form-control" style="border: 1px solid #bdbdbd;"  placeholder="Enter number of days">
+                          <input name="days" type="number" class="form-control" style="border: 1px solid #bdbdbd;"  placeholder="Enter number of days" required>
                           <div class="input-group-append">
                             <span class="input-group-text" style="background-color:#d3d3d3; border: 1px solid #bdbdbd; padding:3px">Days</span>
                           </div>
+                          <div class="invalid-feedback">Please enter number of days.</div>
                         </div>
+                      
                         </div>
                         </div>
 
