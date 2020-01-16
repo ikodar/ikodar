@@ -160,7 +160,7 @@
                            <label>Username</label>
                            <input name="username" type="text" class="input" value="" required>
                          </div>
-                       </div>
+                       </div>vv
                      <div class="row">
                      -->
                        <div class="col-md-5">
