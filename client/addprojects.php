@@ -108,7 +108,7 @@
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a class="nav-link" href="#pablo">
-                  <!--<i class="material-icons">Dashboard</i>-->
+                  
                   <p class="d-lg-none d-md-block">
                     Dashboard
                   </p>
@@ -155,14 +155,11 @@
                                 
                                 
                                 <label>Skills required</label></br>
-                                <select name="skill1" multiple onChange="combo(this, 'theinput')" value="skill1">
-                                <option value="business">Business Analyst</option>
-                                <option value="developer">Developer</option>
-                                <option value="quality">Quality Assuarance</option>
-                                </select>
-                                <p>Hold down the Ctrl (windows) / Command (Mac) button to select multiple options.</p>
-                                <p>You can choose maximum only 3 skills</p>
-                                </br></br>
+                               
+                                <input type="checkbox" name="skills" value="Business Analyst"><label>Business Analyst</label><br/>
+                                <input type="checkbox" name="skills" value="Developer"><label></label>Developer<br/>
+                                <input type="checkbox" name="skills" value="Quality Assuarance"><label>Quality Assuarance</label><br/>
+                                
                                 
                                 <label>Bid end date: </label><br>
                                 <input name="biddate" type="date" class="input" id="biddate" required/>
@@ -196,7 +193,7 @@
 
                             </div>
                             </div><br><br>
-                            <button type="submit" class="btn btn-primary pull-right" value="submit" name="submit">Post</button>
+                            <button type="submit" class="btn btn-primary pull-right" value="Submit" name="Submit">Post</button>
                             <div class="clearfix"></div>
                           </form>
                         </div>
