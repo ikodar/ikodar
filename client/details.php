@@ -202,7 +202,7 @@ ikodar
                        <div class="col-md-6">
                          <div class="form-group">
                            <label class="bmd-label-floating">Description</label>
-                           <input type="text" class="form-control">
+                           
                          </div>
                        </div>
                        <?php 
@@ -231,7 +231,7 @@ ikodar
                        <div class="col-md-12">
                          <div class="form-group">
                            <label class="bmd-label-floating">Skills</label>
-                           <input type="text" class="form-control">
+                           
                          </div>
                        </div>
                      </div>

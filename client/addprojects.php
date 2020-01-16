@@ -152,15 +152,17 @@
                                 
                                 
                                 
-                                <!--<label>Skills Required: </label><br>
-                                <input name="skills" type="date" class="input" required/></br></br>-->
+                                
                                 
                                 <label>Skills required</label></br>
-                                <select name="skills" onChange="combo(this, 'theinput')" value="skills">
+                                <select name="skill1" multiple onChange="combo(this, 'theinput')" value="skill1">
                                 <option value="business">Business Analyst</option>
                                 <option value="developer">Developer</option>
                                 <option value="quality">Quality Assuarance</option>
-                                </select></br></br>
+                                </select>
+                                <p>Hold down the Ctrl (windows) / Command (Mac) button to select multiple options.</p>
+                                <p>You can choose maximum only 3 skills</p>
+                                </br></br>
                                 
                                 <label>Bid end date: </label><br>
                                 <input name="biddate" type="date" class="input" id="biddate" required/>
@@ -181,12 +183,19 @@
                                 <option value="full">Fully payment</optio n>
                                 </select></br></br>
 
-                                <label>Amount: </label></br>
-                                <input name="amount" type="int" class="input" value="" placeholder="Value" id="amount" required/></br></br>
-                                <!-- <input name="name" type="text" class="input" /><br><br></br> -->
                                 
+                                <label style="margin-top:8px;">Bid Amount:</label>
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" style="background-color:#d3d3d3; border: 1px solid #bdbdbd; padding:5px;">$</span>
+                          </div>
+                          <input name="amount"type="int" class="input" aria-label="Amount (to the nearest dollar)" style="border: 1px solid #bdbdbd;"  placeholder="Enter bid amount">
+                          <div class="input-group-append">
+                            <span class="input-group-text" style="background-color:#d3d3d3; border: 1px solid #bdbdbd; padding:3px;">USD</span>
+                          </div>
 
                             </div>
+                            </div><br><br>
                             <button type="submit" class="btn btn-primary pull-right" value="submit" name="submit">Post</button>
                             <div class="clearfix"></div>
                           </form>
