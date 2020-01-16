@@ -1,9 +1,7 @@
 
-<<<<<<< HEAD
+
  <?php include ('processMyprfl.php');
-=======
- <?php include ('clientprocess.php');
->>>>>>> d598550c5329e407a436635cc169fcc02f54b3d6
+
     if (!isLoggedIn()) {
     $_SESSION['msg'] = "You must log in first";
     header('location: ../login.php');
@@ -157,13 +155,14 @@
                  </div>
                  <div class="card-body">
                    <form>
-                      <div class="col-md-3">
+                     <!--<div class="col-md-3">
                          <div class="form-group">
                            <label>Username</label>
                            <input name="username" type="text" class="input" value="" required>
                          </div>
                        </div>
                      <div class="row">
+                     -->
                        <div class="col-md-5">
                          <div class="form-group">
                            <label>Company</label>
