@@ -42,7 +42,7 @@
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="nav-item active  ">
-            <a class="nav-link" href="dashboard.php">
+            <a class="nav-link" href="home.php">
               <!--<i class="material-icons">dashboaaard</i>-->
               <p>Dashboard</p>
             </a>
