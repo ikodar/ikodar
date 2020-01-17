@@ -16,7 +16,7 @@
    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
    <title>
-     myprofile sjjjj
+     myprofile 
    </title>
    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
    <!--     Fonts and icons     -->
@@ -24,12 +24,11 @@
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
    <!-- CSS Files -->
    <link href="css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
-<<<<<<< HEAD
-=======
-   <!-- CSS Just for demo purpose, don't include it in your project -->
+
+   <!-- CSS dfdfJust for demo purpose, don't include it in your project -->
    <link href="../assets/demo/demo.css" rel="stylesheet" />
->>>>>>> 99e006391c3d9aa617fae075462df94656172226
-   <link href="css/custom.css" rel="stylesheet" />
+
+   <!--<link href="css/custom.css" rel="stylesheet" />-->
  </head>
  
  <body class="">
