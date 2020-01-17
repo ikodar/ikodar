@@ -29,7 +29,7 @@ ikodar
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 <!-- CSS Files -->
 <link href="css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
-
+<link href="css/custom.css" rel="stylesheet">
 </head>
 
 <body class="">
@@ -48,7 +48,7 @@ ikodar
  <div class="sidebar-wrapper">
    <ul class="nav">
      <li class="nav-item active  ">
-       <a class="nav-link" href="./dashboard.php">
+       <a class="nav-link" href="./home.php">
          <!--<i class="material-icons">dashboard</i>-->
          <p>Home</p>
        </a>

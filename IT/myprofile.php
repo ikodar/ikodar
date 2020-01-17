@@ -1,5 +1,6 @@
 <?php 
-	include('functions.php');
+  
+  include('processMyprfl.php');
 	if (!isLoggedIn()) {
 	$_SESSION['msg'] = "You must log in first";
 	header('location: ../login.php');
@@ -15,7 +16,7 @@
    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
    <title>
-     Active bids
+     myprofile
    </title>
    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
    <!--     Fonts and icons     -->
@@ -47,7 +48,7 @@
                <!--<i class="material-icons">dashboard</i>-->
                <p>Dashboard</p>
              </a>
- 
+             </li>
              <li class="nav-item active  ">
                <a class="nav-link" href="./myprojects.php">
                  <!--<i class="material-icons">dashboard</i>-->
@@ -138,38 +139,26 @@
                    <p class="card-category">Complete your profile</p>
                  </div>
                  <div class="card-body">
-                   <form>
+                   <form method="post" action="myprofile.php"  >
                      <div class="row">
-                       <div class="col-md-5">
-                         <div class="form-group">
-                           <label class="bmd-label-floating">Company (disabled)</label>
-                           <input type="text" class="form-control" disabled>
-                         </div>
-                       </div>
-                       <div class="col-md-3">
-                         <div class="form-group">
-                           <label class="bmd-label-floating">Username</label>
-                           <input type="text" class="form-control">
-                         </div>
-                       </div>
                        <div class="col-md-4">
                          <div class="form-group">
-                           <label class="bmd-label-floating">Email address</label>
-                           <input type="email" class="form-control">
+                           <label class="bmd-label-floating" >Email address</label>
+                           <input name="email" type="email" class="form-control" style="width:500px" value="<?php echo $_SESSION['email'];?>">
                          </div>
                        </div>
                      </div>
                      <div class="row">
                        <div class="col-md-6">
                          <div class="form-group">
-                           <label class="bmd-label-floating">Fist Name</label>
-                           <input type="text" class="form-control">
+                           <label class="bmd-label-floating">First Name</label>
+                           <input name="firstname" type="text" class="form-control">
                          </div>
                        </div>
                        <div class="col-md-6">
                          <div class="form-group">
                            <label class="bmd-label-floating">Last Name</label>
-                           <input type="text" class="form-control">
+                           <input name="lastname" type="text" class="form-control">
                          </div>
                        </div>
                      </div>
@@ -177,7 +166,7 @@
                        <div class="col-md-12">
                          <div class="form-group">
                            <label class="bmd-label-floating">Adress</label>
-                           <input type="text" class="form-control">
+                           <input name="address" type="text" class="form-control">
                          </div>
                        </div>
                      </div>
@@ -185,19 +174,19 @@
                        <div class="col-md-4">
                          <div class="form-group">
                            <label class="bmd-label-floating">City</label>
-                           <input type="text" class="form-control">
+                           <input name="city" type="text" class="form-control">
                          </div>
                        </div>
                        <div class="col-md-4">
                          <div class="form-group">
                            <label class="bmd-label-floating">Country</label>
-                           <input type="text" class="form-control">
+                           <input name="country" type="text" class="form-control">
                          </div>
                        </div>
                        <div class="col-md-4">
                          <div class="form-group">
                            <label class="bmd-label-floating">Postal Code</label>
-                           <input type="text" class="form-control">
+                           <input name="postalcode" type="text" class="form-control">
                          </div>
                        </div>
                      </div>
@@ -207,25 +196,20 @@
                            <label>About Me</label>
                            <div class="form-group">
                              
-                             <textarea class="form-control" rows="5"></textarea>
+                             <textarea name="about" style="width:520px" class="input" rows="5"></textarea>
                            </div>
                          </div>
                        </div>
                      </div>
-                     <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
+                     
+                     <input class="btn btn-primary pull-right" type="submit" name="submit_btn" value="Update Profile">
                      <div class="clearfix"></div>
                    </form>
                  </div>
                </div>
              </div>
  
-             <div class="content">
-                 <div class="container-fluid">
-                   <div class="row">
-                     <div class="col-md-8">
-                       <div class="card">
-                         <div class="card-header card-header-primary">
-                           <h4 class="card-title">Add New Project</h4>
+             
                          
    <!--   Core JS Files   -->
    <script src="../assets/js/core/jquery.min.js"></script>
