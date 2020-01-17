@@ -23,7 +23,12 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- CSS Files -->
   <link href="css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
+<<<<<<< HEAD
   <link href="css/custom.css" rel="stylesheet">
+=======
+  <link href="css/custom.css" rel="stylesheet" />
+  
+>>>>>>> 99e006391c3d9aa617fae075462df94656172226
 </head>
 
 <body class="">
@@ -193,7 +198,7 @@
 
                             </div>
                             </div><br><br>
-                            <button type="submit" class="btn btn-primary pull-right" value="submit" name="submit">Post</button>
+                            <button type="submit" background-color: rgb(11, 22, 88) class="btn btn-primary pull-right" value="submit" name="submit">Post</button>
                             <div class="clearfix"></div>
                           </form>
                         </div>

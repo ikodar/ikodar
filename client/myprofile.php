@@ -24,6 +24,11 @@
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
    <!-- CSS Files -->
    <link href="css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
+<<<<<<< HEAD
+=======
+   <!-- CSS Just for demo purpose, don't include it in your project -->
+   <link href="../assets/demo/demo.css" rel="stylesheet" />
+>>>>>>> 99e006391c3d9aa617fae075462df94656172226
    <link href="css/custom.css" rel="stylesheet" />
  </head>
  

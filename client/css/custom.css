@@ -1,4 +1,5 @@
 .sidebar[data-color="azure"] li.active>a {
+<<<<<<< HEAD
     background-color: rgb(11, 22, 88);
     box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(0, 188, 212, 0.4);
   }
@@ -17,3 +18,31 @@
   }
 
   
+=======
+  background-color: rgb(11, 22, 88);
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(0, 188, 212, 0.4);
+}
+
+.card .card-header-primary .card-icon,
+.card .card-header-primary .card-text,
+.card .card-header-primary:not(.card-header-icon):not(.card-header-text),
+.card.bg-primary,
+.card.card-rotate.bg-primary .front,
+.card.card-rotate.bg-primary .back {
+  background: linear-gradient(60deg, #113849,#20779c);
+}
+
+.btn.btn-primary {
+  color: #fff;
+  background:linear-gradient(60deg, #113849,#20779c);
+  border-color: #132b35;
+  box-shadow: 0 2px 2px 0 rgba(156, 39, 176, 0.14), 0 3px 1px -2px rgba(156, 39, 176, 0.2), 0 1px 5px 0 rgba(156, 39, 176, 0.12);
+}
+
+.nav-tabs {
+
+  background:linear-gradient(60deg, #113849,#20779c);
+  padding:20px; 
+  margin-left:15%;
+}
+>>>>>>> 99e006391c3d9aa617fae075462df94656172226

@@ -8,6 +8,8 @@
       header('location: ../login.php');
       }
 
+      
+
 
  ?>
 
@@ -29,7 +31,12 @@
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
    <!-- CSS Files -->
    <link href="css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
+<<<<<<< HEAD
    <link href="css/custom.css" rel="stylesheet">
+=======
+   <link href="css/custom.css" rel="stylesheet" />
+   
+>>>>>>> 99e006391c3d9aa617fae075462df94656172226
  </head>
  
  <body class="">
@@ -172,7 +179,8 @@
                     <tr>
                         <td><?php echo $row['pid']; ?></td>
                         <td><?php echo $row['name']; ?></td>
-                        <td><button type="submit" onclick="./details.php" class="Redirect" value="Click here to redirect" name="view">VIEW</button></td>
+                        <td><a class="btn btn-primary" href="details.php" role="button" name="view_btn">View</a>
+                        
                         
                         
                     </tr>

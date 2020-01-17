@@ -134,7 +134,7 @@
                     <div class="container-fluid">
                       <div class="row">
                         <div class="col-md-12">
-                                <ul class="nav nav-tabs col-md-8" style="background-color:#113849; padding:20px; margin-left:15%">
+                                <ul class="nav nav-tabs col-md-8" >
                                   </li>
                                     <li class="nav-item active  px-4">
                                       <a class="nav-link" href="active.php">Active Bids</a>
