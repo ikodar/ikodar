@@ -5,7 +5,7 @@ include ('connection.php');
 
 function isLoggedIn()
 {
-	if (isset($_SESSION['email']) && $_SESSION['user_type'] == "client") {
+	if (isset($_SESSION['email']) && $_SESSION['user_type'] == "IT") {
 		return true;
 	}else{
 		return false;
@@ -28,7 +28,7 @@ if (isset($_GET['logout'])) {
 
 
 // variable declaration
-$company =  $firstname = $lastname = $address = $city = $country = $postalcode = $about = $email ="";
+$firstname = $lastname = $address = $city = $country = $postalcode = $about = $email ="";
 $errors   = 0; 
 
 // call the update() function if submit is clicked
@@ -39,7 +39,7 @@ if (isset($_POST['submit_btn'])) {
 // updating profile
 function update(){
 	// call these variables with the global keyword to make them available in function
-	global $conn, $errors, $company, $firstname, $lastname, $address, $city, $country, $postalcode, $about;
+	global $conn, $errors,$firstname, $lastname, $address, $city, $country, $postalcode, $about;
 
 	// receive all input values from the form.
     // defined below to escape form values
