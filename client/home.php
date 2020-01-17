@@ -44,7 +44,7 @@
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="./projects.php">
-              <p>Projects</p>
+              <p>My Projects</p>
             </a>
           </li>
           
