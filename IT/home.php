@@ -148,7 +148,7 @@
               $results = $conn->query($query);
               if ($results->num_rows > 0) {
               //output data of each row
-              while ($row = $results->fetch_assoc()) { 
+              while ($row = $results->fetch_assoc() { 
                 $date=date("Y-m-d");	
                 if ($date<$row['biddate']){ ?>			
                     <tr>
