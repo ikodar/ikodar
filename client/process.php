@@ -61,31 +61,15 @@ function postproject(){
 	if ($biddate > $deadline) {
 		$dateErr2 = "Dates are not linked.";
 		$errors=$errors+1;
-// 		echo '<script language="javascript">';
-// echo 'alert("Incorrect date selecte")';
-// echo '</script>';
+
 	}
 
 
-	/* form validation: ensure that the form is correctly filled
-	if (empty($name)) { 
-		array_push($errors, "Name is required."); 
-	}
-	if (empty($desc)) { 
-		array_push($errors, "Description is required."); 
-	}
-	if (empty($biddate)) { 
-		array_push($errors, "Bid ending date is required."); 
-	}
-	if (empty($enddate)) {
-		array_push($errors, "Project ending date is required.");
-    }*/
-    
-    // register project if there are no errors in the form
+	
 	if ($errors== 0) {
 		
-		$query = "INSERT INTO projects (name, description, skills, biddate, schedule, deadline, payment, amount,status) 
-				  VALUES('$name', '$description', '$skills','$biddate','$schedule','$deadline','$payment','$amount', '$new')";
+		$query = "INSERT INTO projects (name, description, skills, biddate, schedule, deadline, payment, amount, status) 
+				  VALUES('$name', '$description', '$skills','$biddate','$schedule','$deadline','$payment','$amount', 'new')";
 		if ($conn->query($query) === TRUE) {
 		    echo "New record created successfully";
 		} else {

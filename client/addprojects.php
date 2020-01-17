@@ -157,7 +157,7 @@
                                 <label>Skills required</label></br>
                                
                                 <input type="checkbox" name="skills" value="Business Analyst"><label>Business Analyst</label><br/>
-                                <input type="checkbox" name="skills" value="Developer"><label></label>Developer<br/>
+                                <input type="checkbox" name="skills" value="Developer"><label>Developer</label><br/>
                                 <input type="checkbox" name="skills" value="Quality Assuarance"><label>Quality Assuarance</label><br/>
                                 
                                 
@@ -193,7 +193,7 @@
 
                             </div>
                             </div><br><br>
-                            <button type="submit" class="btn btn-primary pull-right" value="Submit" name="Submit">Post</button>
+                            <button type="submit" class="btn btn-primary pull-right" value="submit" name="submit">Post</button>
                             <div class="clearfix"></div>
                           </form>
                         </div>
