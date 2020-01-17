@@ -55,23 +55,12 @@ ikodar
        </a>
      </li>
      <li class="nav-item active">
-       <a class="nav-link" href="./addprojects.php">
+       <a class="nav-link" href="./projects.php">
          
-         <p>Add Projects</p>
+         <p>Projects</p>
        </a>
      </li>
-     <li class="nav-item active">
-       <a class="nav-link" href="./viewopen.php">
-         <!--<i class="material-icons">content_paste</i>-->
-         <p>View Open Projects</p>
-       </a>
-     </li>
-     <li class="nav-item active">
-       <a class="nav-link" href="./viewpast.php">
-         <!--<i class="material-icons">library_books</i>-->
-         <p>View Past Project</p>
-       </a>
-     </li>
+     <
      <li class="nav-item active">
        <a class="nav-link" href="./myprofile.php">
          <!--<i class="material-icons">bubble_chart</i>-->

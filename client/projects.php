@@ -77,7 +77,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Add Projects</a>
+            <a class="navbar-brand" href="#pablo">Projects</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -124,71 +124,24 @@
       </nav>
       
 
-            <div class="content">
-                <div class="container-fluid">
-                  <div class="row">
-                    <div class="col-md-8">
-                      <div class="card">
-                        <div class="card-header card-header-primary">
-                          <h4 class="card-title">Add New Project</h4>
-                          
-
-                              <form class="myform" action="" method="post">
-                                <label>Project Name: </label><br>
-                                <input name="name" type="text" class="input" id=name required/><br><br>
-                                
-                                <label>Description: </label><br>
-                                <textarea rows="5" cols="60" name="description" value="description">Enter description hereee...</textarea></br></br>
-                                
-                                
-                                
-                                
-                                
-                                <label>Skills required</label></br>
-                               
-                                <input type="checkbox" name="skills" value="Business Analyst"><label>Business Analyst</label><br/>
-                                <input type="checkbox" name="skills" value="Developer"><label>Developer</label><br/>
-                                <input type="checkbox" name="skills" value="Quality Assuarance"><label>Quality Assuarance</label><br/>
-                                
-                                
-                                <label>Bid end date: </label><br>
-                                <input name="biddate" type="date" class="input" id="biddate" required/>
-                                <span class="error"><?php echo $dateErr;?></span></br></br>
-
-                                <label>Tentative shedule: </label><br>
-							                	<label for="fileupload">Select a file to upload</label>
-                                <input name="shedule" type="file" value="fileupload" class="input"required/>
-                                </br></br>
-
-                                <label>Tentative deadline: </label><br>
-                                <input name="deadline" type="date" class="input" required/>
-                                <span class="error"><?php echo $dateErr2;?></span></br></br></br></br>
-
-                                <label>Payment: </label><br>
-                                <select name="payment" onChange="combo(this, 'theinput')">
-                                <option value="Hourly">Hourly basis</option>
-                                <option value="full">Fully payment</optio n>
-                                </select></br></br>
-
-                                
-                                <label style="margin-top:8px;">Bid Amount:</label>
-                        <div class="input-group mb-3">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text" style="background-color:#d3d3d3; border: 1px solid #bdbdbd; padding:5px;">$</span>
-                          </div>
-                          <input name="amount"type="int" class="input" aria-label="Amount (to the nearest dollar)" style="border: 1px solid #bdbdbd;"  placeholder="Enter bid amount">
-                          <div class="input-group-append">
-                            <span class="input-group-text" style="background-color:#d3d3d3; border: 1px solid #bdbdbd; padding:3px;">USD</span>
-                          </div>
-
-                            </div>
-                            </div><br><br>
-                            <button type="submit" background-color: rgb(11, 22, 88) class="btn btn-primary pull-right" value="submit" name="submit">Post</button>
-                            <div class="clearfix"></div>
-                          </form>
-                        </div>
+      <div class="content">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-md-12">
+                                <ul class="nav nav-tabs col-md-8" style="background-color:#113849; padding:20px; margin-left:15%">
+                                  </li>
+                                    <li class="nav-item active  px-4">
+                                      <a class="nav-link" href="addprojects.php">Add Projects</a>
+                                    </li>
+                                    <li class="nav-item  px-4">
+                                      <a class="nav-link" href="viewopen.php">Open Projects</a>
+                                    </li>
+                                    <li class="nav-item  px-4">
+                                      <a class="nav-link" href="viewpast.php">Past Projects</a>
+                                  </li>
+                              </ul>
+                      
                       </div>
-                    </div>
 
             
   <!--   Core JS Files   -->

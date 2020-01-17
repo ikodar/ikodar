@@ -43,20 +43,11 @@
             </a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="./addprojects.php">
-              <p>Add Projects</p>
+            <a class="nav-link" href="./projects.php">
+              <p>Projects</p>
             </a>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="./viewopen.php">
-              <p>View Open Projects</p>
-            </a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="./viewpast.php">
-              <p>View Past Project</p>
-            </a>
-          </li>
+          
           <li class="nav-item active">
             <a class="nav-link" href="./myprofile.php">
               <p>My Profile</p>
