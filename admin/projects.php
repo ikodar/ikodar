@@ -21,6 +21,7 @@
   <link href="css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="css/custom.css" rel="stylesheet" />
 
 </head>
 <body class="">
@@ -133,8 +134,8 @@
                               <td><?php echo $row['description']; ?></td>
                               <td>
                                 <div class="input-group">
-                                <a class="btn btn-primary" href="#" role="button">Link</a>
-                                  <button type="button" class="btn" name="view_btn">View</button>
+                                  <a class="btn btn-primary" href="view.php" role="button" name="view_btn">View</a>
+                                  <a class="btn btn-primary" href="" role="button" name="view_btn">Delete</a>
                                 </div>
                               </td>
                           </tr>

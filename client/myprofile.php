@@ -1,20 +1,10 @@
-
-
  <?php include ('processMyprfl.php');
 
     if (!isLoggedIn()) {
-    $_SESSION['msg'] = "You must log in first";
-    header('location: ../login.php');
+      $_SESSION['msg'] = "You must log in first";
+      header('location: ../login.php');
     }
 
-
- ?>
-
-<?php 
-	$sql = "select email from users";
-	$rs = mysqli_query($conn, $sql);
- 
-	$fetchRow = mysqli_fetch_assoc($rs);
 ?>
 
  <!DOCTYPE html>
@@ -154,14 +144,11 @@
                    <p class="card-category">Complete your profile</p>
                  </div>
                  <div class="card-body">
-                   <form>
-                     
-                       
+                   <form method="post" action="myprofile.php">
+                                        
                            <label>Company</label>
                            <input name="company" type="text" class="input" value="" required></br></br>
                          
-                       
-                       
                             <label>Email address</label>
                            <input name="email" type="email"  cols="70" class="input" value="<?php echo $_SESSION['email'];?>" required></br></br>
                            <!--<div class="form-group" >
@@ -189,11 +176,9 @@
                          
                            <label>About Me</label>
                            <div class="form-group">
-                             <textarea name =about class="input" cols="70" rows="5"></textarea></br></br>
-                           
-                     <button name="submit" type="submit" value="submit" class="btn btn-primary pull-right">Update Profile</button>
-                     <div class="clearfix"></div>
-                   </form>
+                          <textarea name =about class="input" cols="70" rows="5"></textarea></br></br>
+                          <input class="btn btn-primary pull-right" type="submit" name="submit_btn" value="Update Profile">
+                    </form>
                  </div>
                </div>
              </div>

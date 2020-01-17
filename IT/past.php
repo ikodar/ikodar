@@ -23,6 +23,7 @@
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
    <!-- CSS Files -->
    <link href="css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
+   <link href="css/custom.css" rel="stylesheet" />
  </head>
  
  <body class="">
@@ -133,7 +134,7 @@
                           
 
       
-                            <ul class="nav nav-tabs col-md-8" style="background-color:purple; padding:20px; margin-left:15%">
+                            <ul class="nav nav-tabs col-md-8" style="background-color:#113849; padding:20px; margin-left:15%">
                                   </li>
                                     <li class="nav-item px-4">
                                       <a class="nav-link" href="active.php">Active Bids</a>

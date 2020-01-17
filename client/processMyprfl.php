@@ -28,11 +28,11 @@ if (isset($_GET['logout'])) {
 
 
 // variable declaration
-$company =  $firstname = $lastname = $address = $city = $country = $postalcode = $about = "";
+$company =  $firstname = $lastname = $address = $city = $country = $postalcode = $about = $email ="";
 $errors   = 0; 
 
-// call the register() function if submit is clicked
-if (isset($_POST['submit'])) {
+// call the update() function if submit is clicked
+if (isset($_POST['submit_btn'])) {
 	update();
 }
 
@@ -53,11 +53,15 @@ function update(){
 	$country = $_POST['country'];
 	$postalcode = $_POST['postalcode'];
 	$about = $_POST['about'];
+	$email = $_POST['email'];
 
 	if ($errors== 0) {
 		
-		$query = "INSERT INTO users where email='$_SESSION'(company, firstname, lastname, address, city, country, postalcode, about) 
-				  VALUES('$company', '$firstname', '$lastname','$address','$city','$country','$postalcode','$about')";
+		$query = "UPDATE users  
+				  SET company = '$company', firstname='$firstname',lastname='$lastname',
+				      address='$address',city = '$city',country = '$country',
+					  postalcode = '$postalcode',about = '$about'
+				  WHERE email='$email'";
 		if ($conn->query($query) == TRUE) {
 		    echo "New record created successfully";
 		} else {

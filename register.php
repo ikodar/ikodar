@@ -27,7 +27,7 @@
     </nav>
 
   <div class="login-box">
-    <form class="" method="post" action="register.php">
+    <form  method="post" action="register.php">
     <h1><center>Sign Up</center></h1>
     <div class="radiobox">
       <h5>User Type:</h5>

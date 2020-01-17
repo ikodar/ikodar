@@ -1,5 +1,5 @@
 <?php 
-	include('functions.php');
+  include('functions.php');
 	if (!isLoggedIn()) {
 	$_SESSION['msg'] = "You must log in first";
 	header('location: ../login.php');
@@ -21,6 +21,7 @@
   <link href="css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="css/custom.css" rel="stylesheet" />
 
 </head>
 <body class="">
@@ -93,7 +94,7 @@
       <div class="content">
         <div class="container-fluid row col--md-8">
           <ul class="nav nav-tabs" style="background-color:purple;">
-            <li class="nav-item">
+            <li class="nav-item active">
               <a class="nav-link" href="projects.php">New Projects</a>
             </li>
             <li class="nav-item">
@@ -104,8 +105,52 @@
             </li>
           </ul>
         </div>
+      <div>
+      <!--retrieve data from database-->
+      <div class="card">
+        <div class="card-body mt-3">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class="thead-dark text-primary">
+                <tr>
+                  <th width="18%">ID</th>
+                  <th width="18%">Name</th>
+                  <th width="18%">Description</th>
+                  <th width="18%">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php 
+                  //retrieve data from project table
+                  $query = "SELECT * FROM projects";
+                  $results = $conn->query($query);
+                  if ($results->num_rows > 0){
+                    //output data of each row
+                    while ($row = $results->fetch_assoc()) { 
+                        if ($row['status']=="past"){ ?>			
+                          <tr>
+                              <td><?php echo $row['pid']; ?></td>
+                              <td><?php echo $row['name']; ?></td>
+                              <td><?php echo $row['description']; ?></td>
+                              <td>
+                                <div class="input-group">
+                                  <a class="btn btn-primary" href="view.php" role="button" name="view_btn">View</a>
+                                </div>
+                              </td>
+                          </tr>
+                  <?php   }
+                    }
+
+                  }else{
+                    echo "0 results";
+                  }
+                    ?>
+              </tbody>
+            </table>
+      <!--end retrieve data-->
+          </div>
+        </div>
       </div>
-       
       <!--End of data section-->
 
     </div>
