@@ -39,7 +39,7 @@ if (isset($_POST['submit_btn'])) {
 // updating profile
 function update(){
 	// call these variables with the global keyword to make them available in function
-	global $conn, $errors, $company, $firstname, $lastname, $address, $city, $country, $postalcode, $about;
+	global $conn, $errors, $firstname, $lastname, $address, $city, $country, $postalcode, $about;
 
 	// receive all input values from the form.
     // defined below to escape form values
@@ -75,6 +75,12 @@ echo '</script>';
  
 	}
 
+	if (isset($_POST['submit'])){
+		$email = $_POST["email"];
+		$query = "DELETE FROM users WHERE email='$email'";
+		mysqli_query($conn,$query);
+		mysqli_close($conn);
+		}
 	$conn->close();
 }
 

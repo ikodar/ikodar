@@ -1,6 +1,6 @@
 <?php 
   
-  include('processMyprfl.php');
+  include('profileProcess.php');
 	if (!isLoggedIn()) {
 	$_SESSION['msg'] = "You must log in first";
 	header('location: ../login.php');
@@ -61,7 +61,7 @@
  
            </li>
            <li class="nav-item active">
-             <a class="nav-link" href="./myprofile.php">
+             <a class="nav-link" href="./profile.php">
                <!--<i class="material-icons">bubble_chart</i>-->
                <p>My Profile</p>
              </a>
@@ -120,17 +120,35 @@
        </nav>
  
        <!-- End Navbar -->
-       <div class="content">
-         <div class="container-fluid">
+       <div class="content" style="width:1500px">
+         <div class="container-fluid" style="width:1500px">
+           
+           
            <div class="row">
-             <div class="col-md-8">
+             <div class="col-lg-6 col-md-12">
                <div class="card">
-                 <div class="card-header card-header-primary">
-                   <h4 class="card-title">Edit Profile</h4>
-                   <p class="card-category">Complete your profile</p>
+                 <div class="card-header card-header-tabs card-header-primary">
+                   
+                 
+                
+                        
+                                <ul class="nav nav-tabs col-md-8" style="background-color:#113849; padding:20px; margin-left:15%">
+                                  
+                                   
+                                    
+                                      <a style="color:white; font-size:20px; text-align:center">My Profile</a>
+                                    
+                                    
+                                      
+                                  
+                              </ul>
+                  
+                     
+                      
+
                  </div>
                  <div class="card-body">
-                   <form method="post" action="myprofile.php"  >
+                   <form method="post" action="profile.php"  >
                      <div class="row">
                        <div class="col-md-4">
                          <div class="form-group">
@@ -193,8 +211,12 @@
                        </div>
                      </div>
                      
-                     <input class="btn btn-primary pull-right" type="submit" name="submit_btn" value="Update Profile">
-                     <div class="clearfix"></div>
+                     <input class="btn btn-primary pull-right" type="submit" name="submit_btn" value="SAVE">
+                     
+                     <input class="btn btn-primary pull-right" type="submit" name="submit_btn" value="DELETE">
+
+                    
+                     
                    </form>
                  </div>
                </div>
