@@ -92,23 +92,10 @@ ikodar
      </button>
      <div class="collapse navbar-collapse justify-content-end">
        <form class="navbar-form">
-         <div class="input-group no-border">
-           <input type="text" value="" class="form-control" placeholder="Search...">
-           <!--<button type="submit" class="btn btn-white btn-round btn-just-icon">
-             <i class="material-icons">search</i>-->
-             <div class="ripple-container"></div>
-           </button>
-         </div>
+         
        </form>
        <ul class="navbar-nav">
-         <li class="nav-item">
-           <a class="nav-link" href="#pablo">
-             <i class="material-icons">Dashboard</i>
-             <p class="d-lg-none d-md-block">
-               Stats
-             </p>
-           </a>
-         </li>
+         
          <li class="nav-item dropdown">
            
          <li class="nav-item">
@@ -134,6 +121,104 @@ ikodar
    </div>
  </nav>
  <!-- End Navbar -->
+
+ <div class="content">
+         <div class="container-fluid">
+           <div class="row">
+             <div class="col-md-10">
+
+             <div class="card">
+                 <div class="card-header card-header-primary">
+                   <h4 class="card-title">Tasks</h4>
+                 </div>
+                 <div class="card-body">
+                   </div>
+                   </div>
+
+                   <div class="card">
+                 <div class="card-header card-header-primary">
+                   <h4 class="card-title">Create a New Task</h4>
+                 </div>
+                 <div class="card-body">
+
+                   <form action="bid.php" method="post" class="was-validated">
+                   
+                   
+                   <div class="row">
+                   <div class="col-md-5">
+                       
+                        </div>
+
+                        
+                        </div>
+
+                        <div class="row">
+                       <div class="col-md-10">
+                         <div class="form-group">
+                           <label>Decribe your task:</label>
+                           <div class="form-group" >
+                             <textarea name="proposal" class="form-control" rows="5" style="border: 1px solid #bdbdbd;"  placeholder="what makes you best candidate for this project?"></textarea>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                     <button type="submit" background-color: rgb(11, 22, 88) class="btn btn-primary pull-right" value="submit1" name="submit1">ADD</button>
+                            <div class="clearfix"></div>
+                   </form>
+                 </div>
+               </div>
+             </div>
+
+             <div class="card-body">
+                   </div>
+                   </div>
+
+                   <div class="card">
+                 <div class="card-header card-header-primary">
+                   <h4 class="card-title">All Task</h4>
+                 </div>
+                 <div class="card-body">
+
+                   <form action="bid.php" method="post" class="was-validated">
+                   
+                   
+                   <div class="row">
+                   <div class="col-md-5">
+                       
+                        </div>
+
+                        
+                        </div>
+
+                        <?php 
+					    //retrieve data from project table
+              $query = "SELECT task FROM projects";
+              $results = $conn->query($query);
+              if ($results->num_rows > 0) {
+              //output data of each row
+              while ($row = $results->fetch_assoc()) { 
+                $date=date("Y-m-d");	
+                if ($date<$row['biddate']){ ?>			
+                    <tr>
+                        <?php echo $row['task']; ?>
+                    </tr>
+                    
+                <?php   }
+                  }
+
+                    }else{
+                  echo "0 results";
+                  }
+                ?>
+                       
+                     </div>
+                     
+             
+
+
+                 </div>
+               </div>
+             </div>
  
 
 
