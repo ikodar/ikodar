@@ -61,7 +61,7 @@
            
            
            <li class="nav-item active">
-             <a class="nav-link" href="./myprofile.php">
+             <a class="nav-link" href="./profile.php">
                <!--<i class="material-icons">bubble_chart</i>-->
                <p>My Profile</p>
              </a>

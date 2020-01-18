@@ -49,7 +49,7 @@
           </li>
           
           <li class="nav-item active">
-            <a class="nav-link" href="./myprofile.php">
+            <a class="nav-link" href="./profile.php">
               <p>My Profile</p>
             </a>
           </li>
