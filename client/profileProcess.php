@@ -75,12 +75,12 @@ echo '</script>';
  
 	}
 
-	if (isset($_POST['submit'])){
+	/*if (isset($_POST['submit'])){
 		$email = $_POST["email"];
 		$query = "DELETE FROM users WHERE email='$email'";
 		mysqli_query($conn,$query);
 		mysqli_close($conn);
-		}
+		}*/
 	$conn->close();
 }
 
