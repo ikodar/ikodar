@@ -110,9 +110,7 @@ ikodar
          <li class="nav-item">
            <a class="nav-link" href="tasks.php">Tasks</a>
          </li>
-         <li class="nav-item">
-           <a class="nav-link" href="share.php">Share</a>
-         </li>
+         
          <li class="nav-item"> 
            <a class="nav-link" href="../index.php?logout='1'">Logout</a>
          </li>
@@ -122,7 +120,77 @@ ikodar
  </nav>
  <!-- End Navbar -->
  
+ <div class="content">
+         <div class="container-fluid">
+           <div class="row">
+             <div class="col-md-10">
 
+             <div class="card">
+                 <div class="card-header card-header-primary">
+                   <h4 class="card-title">Files</h4>
+                 </div>
+                 <div class="card-body">
+                   </div>
+                   </div>
+
+                   <div class="content">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <div class="card">
+                        <div class="card-header card-header-primary">
+                          <h4 class="card-title">Upload File</h4>
+                          
+
+                              <form class="myform" action="" method="post">
+                                
+
+                                
+							                	<label for="fileupload">Select a file to upload</label>
+                                <input name="shedule" type="file" value="fileupload" class="input"required/>
+                                </br></br>
+
+                                
+                                
+                                
+                            <button type="submit" background-color: rgb(11, 22, 88) class="btn btn-primary pull-right" value="submit" name="submit">Upload</button>
+                            <div class="clearfix"></div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+
+
+             <div class="card-body">
+                   </div>
+                   </div>
+
+                   <div class="card">
+                 <div class="card-header card-header-primary">
+                   <h4 class="card-title">All Files</h4>
+                 </div>
+                 <div class="card-body">
+
+                   <form action="bid.php" method="post" class="was-validated">
+                   
+                   
+                   <div class="row">
+                   <div class="col-md-5">
+                       
+                        </div>
+
+                        
+                        </div>
+
+                       
+                     </div>
+                     
+             
+
+
+                 </div>
+               </div>
+             </div>
 
 <!--   Core JS Files   -->
 <script src="assets/js/core/jquery.min.js"></script>

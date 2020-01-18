@@ -110,9 +110,7 @@ ikodar
          <li class="nav-item">
            <a class="nav-link" href="tasks.php">Tasks</a>
          </li>
-         <li class="nav-item">
-           <a class="nav-link" href="share.php">Share</a>
-         </li>
+         
          <li class="nav-item"> 
            <a class="nav-link" href="../index.php?logout='1'">Logout</a>
          </li>
@@ -141,7 +139,7 @@ ikodar
                  </div>
                  <div class="card-body">
 
-                   <form action="bid.php" method="post" class="was-validated">
+                   <form action="myform" method="post" class="was-validated">
                    
                    
                    <div class="row">
@@ -175,7 +173,7 @@ ikodar
 
                    <div class="card">
                  <div class="card-header card-header-primary">
-                   <h4 class="card-title">All Task</h4>
+                   <h4 class="card-title">All Tasks</h4>
                  </div>
                  <div class="card-body">
 
@@ -190,26 +188,6 @@ ikodar
                         
                         </div>
 
-                        <?php 
-					    //retrieve data from project table
-              $query = "SELECT task FROM projects";
-              $results = $conn->query($query);
-              if ($results->num_rows > 0) {
-              //output data of each row
-              while ($row = $results->fetch_assoc()) { 
-                $date=date("Y-m-d");	
-                if ($date<$row['biddate']){ ?>			
-                    <tr>
-                        <?php echo $row['task']; ?>
-                    </tr>
-                    
-                <?php   }
-                  }
-
-                    }else{
-                  echo "0 results";
-                  }
-                ?>
                        
                      </div>
                      

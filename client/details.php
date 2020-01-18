@@ -112,9 +112,7 @@ ikodar
          <li class="nav-item">
            <a class="nav-link" href="tasks.php">Tasks</a>
          </li>
-         <li class="nav-item">
-           <a class="nav-link" href="share.php">Share</a>
-         </li>
+         
          <li class="nav-item"> 
            <a class="nav-link" href="../index.php?logout='1'">Logout</a>
          </li>

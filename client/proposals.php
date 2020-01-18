@@ -60,7 +60,7 @@ ikodar
          <p>My Projects</p>
        </a>
      </li>
-     <
+     
      <li class="nav-item active">
        <a class="nav-link" href="./myprofile.php">
          <!--<i class="material-icons">bubble_chart</i>-->
@@ -110,9 +110,7 @@ ikodar
          <li class="nav-item">
            <a class="nav-link" href="tasks.php">Tasks</a>
          </li>
-         <li class="nav-item">
-           <a class="nav-link" href="share.php">Share</a>
-         </li>
+         
          <li class="nav-item"> 
            <a class="nav-link" href="../index.php?logout='1'">Logout</a>
          </li>
@@ -123,6 +121,55 @@ ikodar
  <!-- End Navbar -->
  
 
+
+ <div class="content">
+
+ <div align = "right">
+      Sort By:<br>
+      <button type="submit" background-color: rgb(11, 22, 88) class="btn btn-primary pull-right" value="submit" name="submit">Best rank</button>
+      <button type="submit" background-color: rgb(11, 22, 88) class="btn btn-primary pull-right" value="submit" name="submit">Amount lowest</button>
+      <button type="submit" background-color: rgb(11, 22, 88) class="btn btn-primary pull-right" value="submit" name="submit">Amount highest</button><br><br><br><br>
+      
+      Nu of Bids: 
+
+  </div>
+
+         <div class="container-fluid">
+           <div class="row">
+             <div class="col-md-8">
+               <div class="card">
+                 <div class="card-header card-header-primary">
+                   
+                   
+               
+                
+                 </div>
+
+                 
+                 <div class="card-body">
+                   <form>
+                     
+                     <div class="row">
+                       <div class="col-md-6">
+                         <div class="form-group">
+                           
+                           
+                         </div>
+                       </div>
+                       
+                       
+                     
+                  
+                   </form>
+
+                   <button type="submit" background-color: rgb(11, 22, 88) class="btn btn-primary pull-right" value="submit2" name="submit2">Chat</button>
+                   <button type="submit" background-color: rgb(11, 22, 88) class="btn btn-primary pull-right" value="submit3" name="submit3">Award</button>
+
+                 </div>
+               </div>
+             </div> 
+
+          
 
 <!--   Core JS Files   -->
 <script src="assets/js/core/jquery.min.js"></script>

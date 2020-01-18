@@ -130,6 +130,25 @@
                       
                       </div>
 
+                      <section id="about">
+    <div class="container-fluid bg-2 text-center">
+        <h2></h2>
+        <h3></h3>
+        <div class="row text-center">
+            
+
+             
+        
+            <div class="col-sm-4">
+              <div class="thumbnail">
+                <img src="img/graphic.jpg" alt="Image">
+                
+              </div>
+            </div>
+        </div>
+    </div>
+    </section>    
+
             
   <!--   Core JS Files   -->
   <script src="assets/js/core/jquery.min.js"></script>
