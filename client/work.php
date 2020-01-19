@@ -30,7 +30,10 @@
 <body class="">
   <div class="wrapper ">
     <div class="sidebar" data-color="azure" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
-      
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+        Tip 2: you can also add an image using data-image tag
     -->
     <div class="logo">
         <a href="http://www.creative-tim.com" class="simple-text logo-normal">
@@ -41,7 +44,7 @@
         <ul class="nav">
           <li class="nav-item active  ">
             <a class="nav-link" href="home.php">
-              
+              <!--<i class="material-icons">dashboaaard</i>-->
               <p>Dashboard</p>
             </a>
           </li>
@@ -82,7 +85,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">About Us</a>
+            <a class="navbar-brand" href="#pablo">Help</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -115,83 +118,51 @@
         </div>
       </nav>
 
-
       <div class="content">
-                    <div class="container-fluid">
-                      
-                      
-                    <section id="about">
-    <div class="container-fluid bg-2 text-center">
-        
-        <h3><b>Freelancing and Crowdsourcing Marketplace</b></h3>
-        <div class="row text-center">
-            
+         <div class="container-fluid">
+           <div class="row">
+             <div class="col-md-10">
 
+             <div class="card">
+                 <div class="card-header card-header-primary">
+                   <h4 class="card-title">Finding Work</h4>
+                 </div>
+                 <div class="card-body">
+                   </div>
+                   </div>
+
+                   
+             <div class="card-body">
+                   </div>
+                   </div>
+
+                   <div class="card">
+                 <div class="card-header card-header-primary">
+                   <h4 class="card-title">By being a Service Provider</h4>
+                 </div>
+                 <div class="card-body">
+
+                   <form action="bid.php" method="post" class="was-validated">
+                   
+                   
+                   <div class="row">
+                   <div class="col-md-5">
+                       
+                        </div>
+
+                        
+                        </div>
+
+                       
+                     </div>
+                     
              
-        
-            <div class="col-sm-2">
-              <div class="thumbnail">
-                <img src="img/free1.jpg" alt="Image" height="10%" width="700%">
-
-                
-                
-              </div>
-            </div>
-        </div>
-        <h2></h2>
-        <p><b>Through our marketplace, employers can hire freelancers to do work in areas such as software development, writing, data entry and design right through to engineering, the sciences, sales and marketing services.</b></p>
-    </div>
-    </section> 
-
-                      </div>
-    </div>
-
-    <div class="container-fluid bg-1 text-center">
-        <h1>Need Work Done?</h1>
-        <h4></h4>
-    </div>        
-   
-    <section id="about">
-    <div class="container-fluid bg-2 text-center">
-        <h2></h2>
-        <h3></h3>
-        <div class="row text-center">
-            <div class="col-sm-4">
-              <div class="thumbnail">
-                <img src="img/job.png" alt="Image" height="200" width="200">
-                <h2></h2>
-                <p><strong><b>Post a Job</b></strong></p>
-                <p>It's easy. Simply post a job you need completed and receive competitive bids from freelancers within minutes.</p>
-              </div>
-            </div>
-
-             <div class="col-sm-4">
-              <div class="thumbnail">
-                <img src="img/work.jpg" alt="Image" height="200" width="200">
-                <h2></h2>
-                <p><strong><b>Choose Freelancers</b></strong></p>
-                <p>Whatever your needs, there will be a freelancer to get it done: from web design, mobile app development, virtual assistants, product manufacturing, and graphic design (and a whole lot more).Yes, we built efficient systems which suit your differing needs.</p>
-              </div>
-            </div>
-        
-            <div class="col-sm-4">
-              <div class="thumbnail">
-                <img src="img/pay.jpg" alt="Image" height="200" width="200">
-                <h2></h2>
-                <p><strong><b>Pay Safely</b></strong></p>
-                <p>With secure payments and thousands of reviewed professionals to choose from, Freelancer.com is the simplest and safest way to get work done online.</p>
-              </div>
-            </div>
-        </div>
-    </div>
-    </section>    
 
 
-         
+                 </div>
+               </div>
+             </div>
 
-      
-
-     
 
             
   <!--   Core JS Files   -->
@@ -199,7 +170,6 @@
   <script src="assets/js/core/popper.min.js"></script>
   <script src="assets/js/core/bootstrap-material-design.min.js"></script>
   <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-  
   
 </body>
 

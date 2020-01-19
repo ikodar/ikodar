@@ -23,7 +23,7 @@ if (isset($_GET['logout'])) {
 
 
 // variable declaration
-$name = $description  = $skills = $biddate = $schedule = $deadline = $dateErr = $dateErr2= $payment= $amount = $task = $status= "";
+$name = $description  = $skills = $biddate = $schedule = $deadline = $dateErr = $dateErr2= $payment= $amount = $status= "";
 $errors   = 0; 
 
 // call the register() function if submit is clicked
@@ -31,17 +31,13 @@ if (isset($_POST['submit'])) {
 	postproject();
 }
 
-// call the register() function if submit1 is clicked
-if (isset($_POST['submit1'])) {
-	addtask();
-}
 
 
 
 // POST PROJECTS
 function postproject(){
 	// call these variables with the global keyword to make them available in function
-	global $conn, $errors, $name, $description, $skills, $biddate, $schedule, $deadline, $payment, $amount, $task, $status, $dateErr, $dateErr2;
+	global $conn, $errors, $name, $description, $skills, $biddate, $schedule, $deadline, $payment, $amount,  $status, $dateErr, $dateErr2;
 
 	// receive all input values from the form.
     // defined below to escape form values
@@ -55,7 +51,7 @@ function postproject(){
     $deadline  =  $_POST['deadline'];
 	$payment = $_POST['payment'];
 	$amount = $_POST['amount'];
-	$task = $_POST['task'];
+	
 	
 	//$client   =  $_SESSION['username'];
 
@@ -93,45 +89,7 @@ echo '</script>';
 	$conn->close();
 }
 
-// ADD TASK
-function addtask(){
-	// call these variables with the global keyword to make them available in function
-	global $conn, $errors, $task;
 
-	// receive all input values from the form.
-    // defined below to escape form values
-	
-	
-	$task = $_POST['task'];
-	
-	//$client   =  $_SESSION['username'];
-
-	// form validation: ensure that dates are correctly filled
-	
-	
-		
-	
-
-
-	
-	if ($errors== 0) {
-		
-		$query = "INSERT INTO projects (task) 
-				  VALUES('$task')";
-		if ($conn->query($query) === TRUE) {
-		    echo "New record created successfully";
-		} else {
-		    echo "Error: " . $query . "<br>" . $conn->error;
-		}
-	}else{
-		echo '<script language="javascript">';
-echo 'alert("Incorrect date selected");';
-// echo "window.location.reload();";
-echo '</script>';
- 
-	}
-	$conn->close();
-}
 
 
 ?>

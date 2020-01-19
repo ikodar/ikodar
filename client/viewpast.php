@@ -66,6 +66,14 @@
                <p>My Profile</p>
              </a>
            </li>
+
+           <li class="nav-item active">
+            <a class="nav-link" href="./projects.php">
+              
+              <p>Messages</p>
+            </a>
+          </li>
+
            <li class="nav-item active">
              <a class="nav-link" href="./payments.php">
                <!--<i class="material-icons">location_ons</i>-->
@@ -113,22 +121,7 @@
            </div>
          </div>
        </nav>
-       <!-- End Navbar 
-       <div class="col-lg-3 col-md-6 col-sm-6" >
-               <div class="card card-stats" >
-                 
-                   <div class="card-icon" style="background-color:#00008b">
-                     <i class="material-icons" style="background-color:blue">content_copy</i>
-                   </div>
-                   <p class="card-category" style="font-weight:bold " >New projects</p>
-                   <h3 class="card-title" >5
-                     <small></small>
-                   </h3>
-                </div>
-                
-               </div>
-             </div>
-       -->
+       
        <div class="content">
          <div class="container-fluid">
            <div class="row">
