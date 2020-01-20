@@ -79,45 +79,51 @@
     <section id="projects">
     <div class="container-fluid bg-5 text-center">
         <h2>Our Projects</h2>
-        <div class="row text-center">
-          <table class="table">
-              <thead class="thead-dark text-primary">
-                <tr>
-                  <th width="18%">ID</th>
-                  <th width="18%">Name</th>
-                  <th width="18%">Description</th>
-                  <th width="18%">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php 
-                  //retrieve data from project table
-                  $query = "SELECT * FROM projects";
-                  $results = $conn->query($query);
-                  if ($results->num_rows > 0){
-                    //output data of each row
-                    while ($row = $results->fetch_assoc()) { 
-                        if ($row['status']=="new"){ ?>			
-                          <tr>
-                              <td><?php echo $row['pid']; ?></td>
-                              <td><?php echo $row['name']; ?></td>
-                              <td><?php echo $row['description']; ?></td>
-                              <td>
-                                <div class="input-group">
-                                  <a class="btn btn-primary" href="view.php" role="button" name="view_btn">View</a>
-                                  <a class="btn btn-primary" href="login.php" role="button">Bid</a>
-                                </div>
-                              </td>
-                          </tr>
-                  <?php   }
-                    }
+        <div class="container">
+          <div class="row text-center">
+            <table class="table" style="padding-left:100px; padding-right:100px;">
+                <thead class="thead-dark text-primary">
+                  <tr>
+                    <th width="18%">ID</th>
+                    <th width="18%">Name</th>
+                    <th width="18%">Description</th>
+                    <th width="18%">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php 
+                    //retrieve data from project table
+                    $query = "SELECT * FROM projects";
+                    $results = $conn->query($query);
+                    if ($results->num_rows > 0){
+                      //output data of each row
+                      while ($row = $results->fetch_assoc()) { 
+                          if ($row['status']=="new"){ ?>			
+                            <tr>
+                                <td><?php echo $row['pid']; ?></td>
+                                <td><?php echo $row['name']; ?></td>
+                                <td><?php echo $row['description']; ?></td>
+                                <td style="float:center">
+                                  <div class="input-group" >
+                                    <div style="padding-right:20px;">
+                                      <a class="btn btn-primary" href="view.php" role="button" name="view_btn">View</a>
+                                    </div>
+                                    <div>
+                                      <a class="btn btn-primary" href="login.php" role="button">Bid</a>
+                                    </div>
+                                  </div>
+                                </td>
+                            </tr>
+                    <?php   }
+                      }
 
-                  }else{
-                    echo "0 results";
-                  }
-                    ?>
-              </tbody>
-          </table>
+                    }else{
+                      echo "0 results";
+                    }
+                      ?>
+                </tbody>
+            </table>
+          </div>
         </div>
     </div>
     </section> 
