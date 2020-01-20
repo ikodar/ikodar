@@ -118,55 +118,33 @@
            
            <div class="col-lg-3 col-md-6 col-sm-6" >
                <div class="card card-stats" >
-                 
-                   <div class="card-icon" style="background-color:#0077bb">
-                     <i class="material-icons">content_copy</i>
-                   </div>
-
                    <!--<p class="card-category" style="font-weight:bold " >New projects</p>-->
                    <button type="submit" background-color: rgb(11, 22, 88) class="btn btn-primary pull-right" value="submit" name="submit">Software Design</button>
-                   <div class="card-footer">
-                   <div class="stats">
-                     <i class="material-icons"></i>
-                   </div>
-                 </div>
+                   <img src="./img/design.jpg" style="width:202px; length:202px align:center">
                 </div>
-                
+               </div>
+
+
+               <div class="col-lg-3 col-md-6 col-sm-6" >
+               <div class="card card-stats" >
+                   <!--<p class="card-category" style="font-weight:bold " >New projects</p>-->
+                   <button type="submit" background-color: rgb(11, 22, 88) class="btn btn-primary pull-right" value="submit" name="submit">Software Development</button>
+                   <img src="./img/deve.jpg" style="width:202px; length:202px align:center">
+                </div>
+               </div>
+
+               <div class="col-lg-3 col-md-6 col-sm-6" >
+               <div class="card card-stats" >
+                   <!--<p class="card-category" style="font-weight:bold " >New projects</p>-->
+                   <button type="submit" background-color: rgb(11, 22, 88) class="btn btn-primary pull-right" value="submit" name="submit">Software Management</button>
+                   <img src="./img/mng.jpg" style="width:202px; length:200px align:center">
+                </div>
                </div>
              
 
-             <div class="col-lg-3 col-md-6 col-sm-6" >
-               <div class="card card-stats" >
-                 
-                   <div class="card-icon" style="background-color:#0077bb">
-                     <i class="material-icons" >content_copy</i>
-                   </div>
-                   <button type="submit" background-color: rgb(11, 22, 88) class="btn btn-primary pull-right" value="submit" name="submit">Software Development</button>
-                   <div class="card-footer">
-                   <div class="stats">
-                     <i class="material-icons"></i>
-                   </div>
-                 </div>
-                </div>
-                </div>
+             
 
-                <div class="col-lg-3 col-md-6 col-sm-6" >
-               <div class="card card-stats" >
-                 
-                   <div class="card-icon" style="background-color:#0077bb">
-                     <i class="material-icons">content_copy</i>
-                   </div>
-                   <button type="submit" background-color: rgb(11, 22, 88) class="btn btn-primary pull-right" value="submit" name="submit">Project Management</button>
-                   <div class="card-footer">
-                   <div class="stats">
-                     <i class="material-icons"></i>
-                   </div>
-                 </div>
-                </div>
-                
-             </div>
-
-             </div>
+            
              </div>
              <p class="card-category" style="font-weight:bold " >Best software developers...</p>
              <div class="row">
