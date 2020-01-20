@@ -210,12 +210,20 @@
                          </div>
                        </div>
                      </div>
-                     
-                     <input class="btn btn-primary pull-right" type="submit" name="submit_btn" value="SAVE">
-                     
-                     <input class="btn btn-primary pull-right" type="submit" name="submit_btn" value="DELETE">
 
-                    
+                     <p style="color:red;">
+                        <?php
+                            if(isset($error)){
+                              echo $error;
+                            }
+                        ?>
+                     <div class="col-md-12">
+                     <input class="btn btn-primary pull-right" type="submit" name="submit_btn" value="SAVE">
+
+                     <input class="btn btn-primary pull-right" type="submit" name="view" value="VIEW" formaction="profileView.php">
+                     
+                     
+                     </div>
                      
                    </form>
                  </div>

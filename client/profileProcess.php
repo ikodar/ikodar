@@ -12,10 +12,12 @@ function isLoggedIn()
 	}
 }
 
-	$sql = "select email from users";
-	$rs = mysqli_query($conn, $sql);
-	//get row
-	$fetchRow = mysqli_fetch_assoc($rs);
+
+$sql = "select email from users";
+$rs = mysqli_query($conn, $sql);
+//get row
+$fetchRow = mysqli_fetch_assoc($rs);
+	
 
 // log user out if LOGOUT BUTTON clicked
 if (isset($_GET['logout'])) {
@@ -34,6 +36,32 @@ $errors   = 0;
 // call the update() function if submit is clicked
 if (isset($_POST['submit_btn'])) {
 	update();
+
+	if(empty($firstname)){
+		$error = "First Name is required";
+	}
+	else if(empty($lastname)){
+		$error = "Last Name is required";
+	}
+	else if(empty($address)){
+		$error = "Address is required";
+	}
+	else if(empty($city)){
+		$error = "City is required";
+	}
+	else if(empty($country)){
+		$error = "Country is required";
+	}
+	else if(empty($postalcode)){
+		$error = "Postalcode is required";
+	}
+	else if(empty($about)){
+		$error = "About is required";
+	}
+	
+		
+	
+	
 }
 
 // updating profile
@@ -55,6 +83,7 @@ function update(){
 	$about = $_POST['about'];
 	$email = $_POST['email'];
 
+	
 	if ($errors== 0) {
 		
 		$query = "UPDATE users  
