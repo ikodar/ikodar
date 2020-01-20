@@ -301,7 +301,7 @@
                          <div class="form-group">
                            <label>Describe Your Proposal:</label>
                            <div class="form-group" >
-                             <textarea name="proposal" class="form-control" rows="5" style="border: 1px solid #bdbdbd;"  placeholder="what makes you best candidate for this project?"></textarea>
+                             <textarea name="proposal" class="form-control" rows="5" style="border: 1px solid #bdbdbd;"  placeholder="what makes you best candidate for this project?" required></textarea>
                            </div>
                          </div>
                        </div>
