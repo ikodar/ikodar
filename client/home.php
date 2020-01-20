@@ -40,6 +40,7 @@
           <li class="nav-item active  ">
             <a class="nav-link" href="home.php">
               <p>Dashboard</p>
+              
             </a>
           </li>
           <li class="nav-item active">
@@ -74,7 +75,9 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Dashboard</a>
+            <a class="navbar-brand" href="#pablo">Hi</a>
+            
+            <input name="email" type="email" class="form-control" style="width:100px" value="<?php echo $_SESSION['email'];?>">
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -108,48 +111,138 @@
       
       <div class="content" >
          <div class="container-fluid" >
+         <p class="card-category" style="font-weight:bold " >Explore more projects..</p>
            <div class="row">
-             <div class="col-lg-3 col-md-6 col-sm-6" >
+           
+           <div class="col-lg-3 col-md-6 col-sm-6" >
                <div class="card card-stats" >
-                 
-                   <div class="card-icon" style="background-color:#00008b">
-                     <i class="material-icons">content_copy</i>
-                   </div>
-                   <p class="card-category" style="font-weight:bold " >New projects</p>
-                   <h3 class="card-title" >5
-                     <small></small>
-                   </h3>
+                   <!--<p class="card-category" style="font-weight:bold " >New projects</p>-->
+                   <button type="submit" background-color: rgb(11, 22, 88) class="btn btn-primary pull-right" value="submit" name="submit">Software Design</button>
+                   <img src="./img/design.jpg" style="width:202px; length:202px align:center">
                 </div>
-                
+               </div>
+
+
+               <div class="col-lg-3 col-md-6 col-sm-6" >
+               <div class="card card-stats" >
+                   <!--<p class="card-category" style="font-weight:bold " >New projects</p>-->
+                   <button type="submit" background-color: rgb(11, 22, 88) class="btn btn-primary pull-right" value="submit" name="submit">Software Development</button>
+                   <img src="./img/deve.jpg" style="width:202px; length:202px align:center">
+                </div>
+               </div>
+
+               <div class="col-lg-3 col-md-6 col-sm-6" >
+               <div class="card card-stats" >
+                   <!--<p class="card-category" style="font-weight:bold " >New projects</p>-->
+                   <button type="submit" background-color: rgb(11, 22, 88) class="btn btn-primary pull-right" value="submit" name="submit">Software Management</button>
+                   <img src="./img/mng.jpg" style="width:202px; length:200px align:center">
+                </div>
                </div>
              
 
-             <div class="col-lg-3 col-md-6 col-sm-6" >
-               <div class="card card-stats" >
-                 
-                   <div class="card-icon" style="background-color:#0077bb">
-                     <i class="material-icons" >content_copy</i>
-                   </div>
-                   <p class="card-category" style="font-weight:bold " >Open projects</p>
-                   <h3 class="card-title" >10
-                     <small></small>
-                   </h3>
-                </div>
-                </div>
+             
 
-                <div class="col-lg-3 col-md-6 col-sm-6" >
-               <div class="card card-stats" >
-                 
-                   <div class="card-icon" style="background-color:#4db4d7">
-                     <i class="material-icons">content_copy</i>
-                   </div>
-                   <p class="card-category" style="font-weight:bold " >Past projects</p>
-                   <h3 class="card-title" >10
-                     <small></small>
-                   </h3>
-                </div>
+            
              </div>
+             <p class="card-category" style="font-weight:bold " >Best software developers...</p>
+             <div class="row">
+             <div class="col-md-4" >
+               <div class="card card-chart">
+                 
+                   <div class="ct-chart" id="dailySalesChart" style="background-color:#d8ecff">fgdf</div>
+                 
+                 <div class="card-body" >
+                   <h4 class="card-title">Daily Sales</h4>
+                   <p class="card-category">
+                     <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p>
+                 </div>
+                 <div class="card-footer">
+                   <div class="stats">
+                     <i class="material-icons">access_time</i> updated 4 minutes ago
+                   </div>
+                 </div>
+               </div>
+             </div>
+             <div class="col-md-4">
+               <div class="card card-chart">
+               <div class="ct-chart" id="dailySalesChart" style="background-color:#d8ecff">fgdf</div>
+                 <div class="card-body">
+                   <h4 class="card-title">Email Subscriptions</h4>
+                   <p class="card-category">Last Campaign Performance</p>
+                 </div>
+                 <div class="card-footer">
+                   <div class="stats">
+                     <i class="material-icons">access_time</i> campaign sent 2 days ago
+                   </div>
+                 </div>
+               </div>
+             </div>
+             <div class="col-md-4">
+               <div class="card card-chart">
+               <div class="ct-chart" id="dailySalesChart" style="background-color:#d8ecff">fgdf</div>
+                 <div class="card-body">
+                   <h4 class="card-title">Completed Tasks</h4>
+                   <p class="card-category">Last Campaign Performance</p>
+                 </div>
+                 <div class="card-footer">
+                   <div class="stats">
+                     <i class="material-icons">access_time</i> campaign sent 2 days ago
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
 
+           <p class="card-category" style="font-weight:bold " >Best Software Designers...</p>
+             <div class="row">
+             <div class="col-md-4">
+               <div class="card card-chart">
+               <div class="ct-chart" id="dailySalesChart" style="background-color:#d8ecff">fgdf</div>
+                 <div class="card-body">
+                   <h4 class="card-title">Daily Sales</h4>
+                   <p class="card-category">
+                     <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p>
+                 </div>
+                 <div class="card-footer">
+                   <div class="stats">
+                     <i class="material-icons">access_time</i> updated 4 minutes ago
+                   </div>
+                 </div>
+               </div>
+             </div>
+             <div class="col-md-4">
+               <div class="card card-chart">
+                 <div class="card-header card-header-warning">
+                   <div class="ct-chart" id="websiteViewsChart"></div>
+                 </div>
+                 <div class="card-body">
+                   <h4 class="card-title">Email Subscriptions</h4>
+                   <p class="card-category">Last Campaign Performance</p>
+                 </div>
+                 <div class="card-footer">
+                   <div class="stats">
+                     <i class="material-icons">access_time</i> campaign sent 2 days ago
+                   </div>
+                 </div>
+               </div>
+             </div>
+             <div class="col-md-4">
+               <div class="card card-chart">
+                 <div class="card-header card-header-danger">
+                   <div class="ct-chart" id="completedTasksChart"></div>
+                 </div>
+                 <div class="card-body">
+                   <h4 class="card-title">Completed Tasks</h4>
+                   <p class="card-category">Last Campaign Performance</p>
+                 </div>
+                 <div class="card-footer">
+                   <div class="stats">
+                     <i class="material-icons">access_time</i> campaign sent 2 days ago
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
 </body>
 
 </html>
