@@ -148,12 +148,11 @@
               $results = $conn->query($query);
               if ($results->num_rows > 0) {
               //output data of each row
-              while ($row = $results->fetch_assoc() { 
+              while ($row = $results->fetch_assoc()) { 
                 $date=date("Y-m-d");	
                 if ($date<$row['biddate']){ ?>			
                     <tr>
-                       
-                        <td><a href="bid.php"><?php echo $row['name']; ?></a></td>
+                        <td><a href='bid.php?name=<?php echo $row['name']; ?>' ><?php echo $row['name']; ?></a></td>
                         <td><?php echo $row['description']; ?></td>
                         
                     </tr>

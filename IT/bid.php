@@ -136,8 +136,30 @@
              <div class="card">
                  <div class="card-header card-header-primary">
                    <h4 class="card-title">Project Details</h4>
+                   <?php $name = $_GET['name'];
+                   echo $name;
+                   ?>
                  </div>
                  <div class="card-body">
+                 <?php
+              $query = "SELECT * FROM projects where name='$name'";
+              $results = $conn->query($query);
+              if ($results->num_rows > 0) {
+              //output data of each row
+              while ($row = $results->fetch_assoc()) { 
+               { ?>			
+                    <tr>
+                        <td><?php echo $row['name']; ?></a></td>
+                        <td><?php echo $row['description']; ?></td>
+                        
+                    </tr>
+                <?php   }
+                  }
+
+                    }else{
+                  echo "0 results";
+                  }
+                ?>
                    </div>
                    </div>
 
