@@ -140,17 +140,26 @@
                    echo $name;
                    ?>
                  </div>
+
                  <div class="card-body">
-                 <?php
-              $query = "SELECT * FROM projects where name='$name'";
+                 <form>
+                     
+                    
+                     
+                     <div class="row">
+                       <div class="col-md-4">
+                         <div class="form-group">
+                           <label class="bmd-label-floating">Amount :</label>
+                           <?php
+                  $query = "SELECT * FROM projects where name='$name'";
               $results = $conn->query($query);
               if ($results->num_rows > 0) {
               //output data of each row
               while ($row = $results->fetch_assoc()) { 
                { ?>			
                     <tr>
-                        <td><?php echo $row['name']; ?></a></td>
-                        <td><?php echo $row['description']; ?></td>
+                        <td><?php echo $row['amount']; ?></a></td>
+                        
                         
                     </tr>
                 <?php   }
@@ -160,6 +169,92 @@
                   echo "0 results";
                   }
                 ?>
+                           
+                         </div>
+                       </div>
+                       <div class="col-md-4">
+                         <div class="form-group">
+                           <label class="bmd-label-floating">Bid End Date :</label>
+
+                           <?php
+                  $query = "SELECT * FROM projects where name='$name'";
+              $results = $conn->query($query);
+              if ($results->num_rows > 0) {
+              //output data of each row
+              while ($row = $results->fetch_assoc()) { 
+               { ?>			
+                    <tr>
+                        <td><?php echo $row['biddate']; ?></a></td>
+                        
+                        
+                    </tr>
+                <?php   }
+                  }
+
+                    }else{
+                  echo "0 results";
+                  }
+                ?>
+                           
+                         </div>
+                       </div>
+                       <div class="col-md-4">
+                         <div class="form-group">
+                           <label class="bmd-label-floating">Deadline:</label>
+                           <?php
+                  $query = "SELECT * FROM projects where name='$name'";
+              $results = $conn->query($query);
+              if ($results->num_rows > 0) {
+              //output data of each row
+              while ($row = $results->fetch_assoc()) { 
+               { ?>			
+                    <tr>
+                        <td><?php echo $row['deadline']; ?></a></td>
+                        
+                        
+                    </tr>
+                <?php   }
+                  }
+
+                    }else{
+                  echo "0 results";
+                  }
+                ?>
+                           
+                         </div>
+                       </div>
+                     </div>
+                     <div class="row">
+                       <div class="col-md-12">
+                         <div class="form-group">
+                           <label>Description:</label>
+
+                           <?php
+                  $query = "SELECT * FROM projects where name='$name'";
+              $results = $conn->query($query);
+              if ($results->num_rows > 0) {
+              //output data of each row
+              while ($row = $results->fetch_assoc()) { 
+               { ?>			
+                    <tr>
+                        <td><?php echo $row['description']; ?></a></td>
+                        
+                   </tr>
+                <?php   }
+                  }
+
+                    }else{
+                  echo "0 results";
+                  }
+                ?>
+                           
+                         </div>
+                       </div>
+                     </div>
+                     
+                   </form>
+                   
+              
                    </div>
                    </div>
 

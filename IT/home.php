@@ -152,7 +152,7 @@
                 $date=date("Y-m-d");	
                 if ($date<$row['biddate']){ ?>			
                     <tr>
-                        <td><a href='bid.php?name=<?php echo $row['name']; ?>' ><?php echo $row['name']; ?></a></td>
+                        <td><a href="bid.php?name=<?php echo $row['name']; ?>" ><?php echo $row['name']; ?></a></td>
                         <td><?php echo $row['description']; ?></td>
                         
                     </tr>
