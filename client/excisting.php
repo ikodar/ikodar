@@ -12,9 +12,6 @@
  <html lang="en">
   <head>
    <meta charset="utf-8" />
-   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
    <title>
      ikodar
    </title>
@@ -25,19 +22,11 @@
    <!-- CSS Files -->
    <link href="css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
    <link href="css/custom.css" rel="stylesheet" />
-   
-   
-   
  </head>
  
  <body class="">
    <div class="wrapper ">
      <div class="sidebar" data-color="azure" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
-       <!--
-         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
- 
-         Tip 2: you can also add an image using data-image tag
-     -->
        <div class="logo">
          <a href="http://www.creative-tim.com" class="simple-text logo-normal">
            ikodar
@@ -47,34 +36,30 @@
          <ul class="nav">
            <li class="nav-item active  ">
              <a class="nav-link" href="./home.php">
-               <!--<i class="material-icons">dashboard</i>-->
                <p>Home</p>
              </a>
            </li>
+
            <li class="nav-item active">
              <a class="nav-link" href="./projects.php">
-               
                <p>My Projects</p>
              </a>
            </li>
            
            <li class="nav-item active">
              <a class="nav-link" href="./profile.php">
-               <!--<i class="material-icons">bubble_chart</i>-->
                <p>My Profile</p>
              </a>
            </li>
 
            <li class="nav-item active">
             <a class="nav-link" href="./projects.php">
-              
               <p>Messages</p>
             </a>
           </li>
 
            <li class="nav-item active">
              <a class="nav-link" href="./payments.php">
-               <!--<i class="material-icons">location_ons</i>-->
                <p>Payments</p>
              </a>
            </li>
@@ -87,7 +72,7 @@
        <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
          <div class="container-fluid">
            <div class="navbar-wrapper">
-             <a class="navbar-brand" href="#pablo">View Open Projects</a>
+             <a class="navbar-brand" href="#pablo">Excisting Projects</a>
            </div>
            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
              <span class="sr-only">Toggle navigation</span>
@@ -96,16 +81,10 @@
              <span class="navbar-toggler-icon icon-bar"></span>
            </button>
            <div class="collapse navbar-collapse justify-content-end">
-             <form class="navbar-form">
-               
+             <form class="navbar-form"> 
              </form>
              <ul class="navbar-nav">
-               
-               <li class="nav-item dropdown">
-                 
-               <li class="nav-item">
-                 <a class="nav-link" href="contactus.php">Contact Us</a>
-               </li>
+               <li class="nav-item dropdown">             
                <li class="nav-item">
                  <a class="nav-link" href="aboutus.php">About Us</a>
                </li>

@@ -1,46 +1,31 @@
 <?php 
 
-include_once 'connection.php';
-$result = mysqli_query($conn,"SELECT * FROM projects");
-include('process.php');
-if (!isLoggedIn()) {
-$_SESSION['msg'] = "You must log in first";
-header('location: ../login.php');
-}
-
-
+  include_once 'connection.php';
+  $result = mysqli_query($conn,"SELECT * FROM projects");
+  include('process.php');
+  if (!isLoggedIn()) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: ../login.php');
+  }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-<meta charset="utf-8" />
-<link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-<link rel="icon" type="image/png" href="../assets/img/favicon.png">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>
-ikodar
-</title>
-<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <head>
+  <meta charset="utf-8" />
+    <title>
+      ikodar
+    </title>
 <!--     Fonts and icons     -->
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 <!-- CSS Files -->
 <link href="css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
 <link href="css/custom.css" rel="stylesheet" />
-
 </head>
-
 <body class="">
 <div class="wrapper ">
 <div class="sidebar" data-color="azure" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
- <!--
-   Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-
-   Tip 2: you can also add an image using data-image tag
--->
  <div class="logo">
    <a href="http://www.creative-tim.com" class="simple-text logo-normal">
      ikodar
@@ -50,38 +35,33 @@ ikodar
    <ul class="nav">
      <li class="nav-item active  ">
        <a class="nav-link" href="./home.php">
-         <!--<i class="material-icons">dashboard</i>-->
          <p>Home</p>
        </a>
      </li>
+
      <li class="nav-item active">
-       <a class="nav-link" href="./projects.php">
-         
+       <a class="nav-link" href="./projects.php">         
          <p>My Projects</p>
        </a>
      </li>
      
      <li class="nav-item active">
        <a class="nav-link" href="./profile.php">
-         <!--<i class="material-icons">bubble_chart</i>-->
          <p>My Profile</p>
        </a>
      </li>
 
      <li class="nav-item active">
-            <a class="nav-link" href="./projects.php">
-              
+            <a class="nav-link" href="./projects.php">              
               <p>Messages</p>
             </a>
           </li>
 
      <li class="nav-item active">
        <a class="nav-link" href="./payments.php">
-         <!--<i class="material-icons">location_ons</i>-->
          <p>Payments</p>
        </a>
-     </li>
-     
+     </li>    
    </ul>
  </div>
 </div>
@@ -99,112 +79,112 @@ ikodar
        <span class="navbar-toggler-icon icon-bar"></span>
      </button>
      <div class="collapse navbar-collapse justify-content-end">
-       <form class="navbar-form">
-         
+       <form class="navbar-form">        
        </form>
-       <ul class="navbar-nav">
-         
-         <li class="nav-item dropdown">
-           
-         <li class="nav-item">
-           <a class="nav-link" href="details.php">Details</a>
-         </li>
-         <li class="nav-item">
-           <a class="nav-link" href="proposals.php">Proposals</a>
-         </li>
-         <li class="nav-item">
-           <a class="nav-link" href="files.php">Files</a>
-         </li>
-         <li class="nav-item">
-           <a class="nav-link" href="tasks.php">Tasks</a>
-         </li>
-         
-         <li class="nav-item"> 
-           <a class="nav-link" href="../index.php?logout='1'">Logout</a>
-         </li>
-       </ul>
-     </div>
-   </div>
- </nav>
- <!-- End Navbar -->
+       <ul class="navbar-nav">         
+         <li class="nav-item dropdown">        
+            <li class="nav-item">
+              <a class="nav-link" href="aboutus.php">About Us</a>
+            </li>
 
- <div class="content">
-         <div class="container-fluid">
-           <div class="row">
-             <div class="col-md-10">
+            <li class="nav-item">
+              <a class="nav-link" href="help.php">Help</a>
+            </li>
+         
+            <li class="nav-item"> 
+              <a class="nav-link" href="../index.php?logout='1'">Logout</a>
+            </li>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+ <!-- End Navbar -->
+      <div class="content">
+        <div class="container-fluid">
+          <div class="card-body">
+            <form>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <h4><strong><a class="nav-link" href="details.php">Details</a></strong></h4>                          
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <h4><strong><a class="nav-link" href="proposals.php">Proposals</a></h4></strong>                          
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <h4><strong><a class="nav-link" href="tasks.php">Tasks</a></h4></strong>                          
+                  </div>
+                </div>
+              </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-10">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Tasks</h4>
+                </div>
+                <div class="card-body">
+                </div>
+              </div>
 
              <div class="card">
-                 <div class="card-header card-header-primary">
-                   <h4 class="card-title">Tasks</h4>
-                 </div>
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Create a New Task</h4>
+                </div>
                  <div class="card-body">
-                   </div>
-                   </div>
+                  <form action="myform" method="post" class="was-validated">                                      
+                    <div class="row">
+                      <div class="col-md-5">                      
+                      </div>                        
+                    </div>
 
-                   <div class="card">
-                 <div class="card-header card-header-primary">
-                   <h4 class="card-title">Create a New Task</h4>
-                 </div>
-                 <div class="card-body">
-
-                   <form action="myform" method="post" class="was-validated">
-                   
-                   
-                   <div class="row">
-                   <div class="col-md-5">
-                       
+                    <div class="row">
+                      <div class="col-md-10">
+                        <div class="form-group">
+                          <label>Decribe your task:</label>
+                            <div class="form-group" >
+                              <textarea name="task" class="form-control" rows="5" style="border: 1px solid #bdbdbd;"  placeholder="what makes you best candidate for this project?"></textarea>
+                            </div>
                         </div>
+                      </div>
+                    </div>
 
-                        
-                        </div>
+                    <button type="submit"  class="btn btn-primary pull-right" value="add" name="task_btn">ADD</button>
+                    <div class="clearfix"></div>
+                  </form>
+                </div>
+              </div>
+            </div>
 
-                        <div class="row">
-                       <div class="col-md-10">
-                         <div class="form-group">
-                           <label>Decribe your task:</label>
-                           <div class="form-group" >
-                             <textarea name="proposal" class="form-control" rows="5" style="border: 1px solid #bdbdbd;"  placeholder="what makes you best candidate for this project?"></textarea>
-                           </div>
-                         </div>
-                       </div>
-                     </div>
-                     <button type="submit" background-color: rgb(11, 22, 88) class="btn btn-primary pull-right" value="submit1" name="submit1">ADD</button>
-                            <div class="clearfix"></div>
-                   </form>
-                 </div>
-               </div>
-             </div>
+            <div class="card-body">
+              </div>
+            </div>
 
-             <div class="card-body">
-                   </div>
-                   </div>
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title">All Tasks</h4>
+              </div>
+            <div class="card-body">
 
-                   <div class="card">
-                 <div class="card-header card-header-primary">
-                   <h4 class="card-title">All Tasks</h4>
-                 </div>
-                 <div class="card-body">
-
-                   <form action="bid.php" method="post" class="was-validated">
-                   
-                   
-                   <div class="row">
-                   <div class="col-md-5">
-                       
-                        </div>
-
-                        
-                        </div>
-
-                       
-                     </div>
-                     
-             
-
-
-                 </div>
-               </div>
-             </div>
+              <form action="bid.php" method="post" class="was-validated">                  
+                <div class="row">
+                  <div class="col-md-5">                       
+                  </div>                       
+                </div>                     
+            </div>
+          </div>
+        </div>
+      </div>
  
 
 

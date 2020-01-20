@@ -23,12 +23,17 @@ if (isset($_GET['logout'])) {
 
 
 // variable declaration
-$type = $name = $description = $biddate = $schedule = $deadline = $dateErr = $dateErr2= $payment= $amount = $status= "";
+$type = $name = $description = $biddate = $schedule = $deadline = $dateErr = $dateErr2= $payment= $amount = $status = $task="";
 $errors   = 0; 
 
 // call the postproject() function if submit is clicked
 if (isset($_POST['submit'])) {
 	postproject();
+}
+
+// call the add() function if task_btn is clicked
+if (isset($_POST['task_btn'])) {
+	add();
 }
 
 
@@ -91,6 +96,28 @@ echo '</script>';
 }
 
 
+// ADD Task
+function add(){
+	// call these variables with the global keyword to make them available in function
+	global $conn, $errors, $task;
+
+	// receive all input values from the form.
+	$task    =  $_POST['task'];
+	
+	if ($errors== 0) {
+		
+		$query = "INSERT INTO task (task) 
+				  VALUES('$task')";
+		if ($conn->query($query) === TRUE) {
+		    echo "New record created successfully";
+		} else {
+		    echo "Error: " . $query . "<br>" . $conn->error;
+		}
+		
+
+	}
+	$conn->close();
+}
 
 
 ?>
