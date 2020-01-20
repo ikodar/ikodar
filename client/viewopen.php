@@ -3,20 +3,14 @@
       include_once 'connection.php';
       include('process.php');
       if (!isLoggedIn()) {
-      $_SESSION['msg'] = "You must log in first";
-      header('location: ../login.php');
+        $_SESSION['msg'] = "You must log in first";
+        header('location: ../login.php');
       }
-
-      
-
-
  ?>
 
- 
  <!DOCTYPE html>
  <html lang="en">
- 
- <head>
+  <head>
    <meta charset="utf-8" />
    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
@@ -127,64 +121,51 @@
        </nav>
        <!-- End Navbar -->
        <div class="content">
-                    <div class="container-fluid">
-                      <div class="row">
-                        <div class="col-md-12">
-                          
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-body mt-3">
+                    <div class="table-responsive">
+                      <table class="table">
+                        <thead class="thead-dark text-primary">
+                          <tr>
+                            <th width="18%">PROJECT ID</th>
+                            <th width="18%">PROJECT NAME</th>
+                            <th width="16%">MORE</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        <?php 
+                            //retrieve data from project table
+                            $query = "SELECT * FROM projects";
+                            $results = $conn->query($query);
+                            if ($results->num_rows > 0) {
+                            //output data of each row
+                            while ($row = $results->fetch_assoc()) { 
+                              $date=date("Y-m-d");	
+                              if ($date<$row['biddate']){ ?>			
+                                  <tr>
+                                      <td><?php echo $row['pid']; ?></td>
+                                      <td><?php echo $row['name']; ?></td>
+                                      <td><a class="btn btn-primary" href="details.php" role="button" name="view_btn">View</a>
+                                  </tr>
+                              <?php   }
+                                }
 
-      
-                            
-                      
-                    <div class="card">
-                      <div class="card-body mt-3">
-                        <div class="table-responsive">
-                          <table class="table">
-                            <thead class="thead-dark text-primary">
-                              <tr>
-                                <th width="18%">PROJECT ID</th>
-                                <th width="18%">PROJECT NAME</th>
-                                <th width="16%">MORE</th>
-                                
-                              </tr>
-                            </thead>
-                            <tbody>
-          <?php 
-					    //retrieve data from project table
-              $query = "SELECT * FROM projects";
-              $results = $conn->query($query);
-              if ($results->num_rows > 0) {
-              //output data of each row
-              while ($row = $results->fetch_assoc()) { 
-                $date=date("Y-m-d");	
-                if ($date<$row['biddate']){ ?>			
-                    <tr>
-                        <td><?php echo $row['pid']; ?></td>
-                        <td><?php echo $row['name']; ?></td>
-                        <td><a class="btn btn-primary" href="details.php" role="button" name="view_btn">View</a>
-                        
-                        
-                        
-                    </tr>
-                <?php   }
-                  }
-
-                    }else{
-                  echo "0 results";
-                  }
-                ?>
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
+                                  }else{
+                                echo "0 results";
+                                }
+                              ?>
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-       
-       
-       
-
+          </div>
+        </div>
      
   <!--   Core JS Files   -->
   <script src="assets/js/core/jquery.min.js"></script>

@@ -52,7 +52,7 @@
           <li class="nav-item active">
             <a class="nav-link" href="./projects.php">
               
-              <p>MY Projects</p>
+              <p>My Projects</p>
             </a>
           </li>
           
