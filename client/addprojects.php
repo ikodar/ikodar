@@ -128,23 +128,20 @@
                           <h4 class="card-title">Add New Project</h4>
                           
 
-                              <form class="myform" action="" method="post">
+                              <form class="myform" action="addprojects.php" method="post">
+
+                               <label>Project Type</label></br>
+                                <select name="type" onChange="combo(this, 'theinput')" value="type">
+                                <option value="Software">Software Development</option>
+                                <option value="web">Web Designing</option>
+                                <option value="graphic">Graphic Designing</option>
+                                </select></br></br>
+
                                 <label>Project Name: </label><br>
                                 <input name="name" type="text" class="input" id=name required/><br><br>
                                 
                                 <label>Description: </label><br>
                                 <textarea rows="5" cols="60" name="description" value="description">Enter description hereee...</textarea></br></br>
-                                
-                                
-                                
-                                
-                                
-                                <label>Skills required</label></br>
-                               
-                                <input type="checkbox" name="skills" value="Business Analyst"><label>Business Analyst</label><br/>
-                                <input type="checkbox" name="skills" value="Developer"><label>Developer</label><br/>
-                                <input type="checkbox" name="skills" value="Quality Assuarance"><label>Quality Assuarance</label><br/>
-                                
                                 
                                 <label>Bid end date: </label><br>
                                 <input name="biddate" type="date" class="input" id="biddate" required/>
