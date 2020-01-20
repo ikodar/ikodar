@@ -5,8 +5,8 @@
   border: 0;
   border-radius: 0;
   margin-bottom: 0;
-  font-size: 12px;
-  letter-spacing: 5px;
+  font-size: 17px;
+  padding-left: 10px;
 }
 
 .navbar-nav li a:hover {
@@ -30,13 +30,18 @@
 }
 
 .bg-3 {
-    background-color: #ddffe7; /* White */
+    background-color: #ddffe7; /* Mint */
     color: #555555;
 }
 
 .bg-4 {
   background-color: #2f2f2f;
   color: #ffffff;
+}
+
+.bg-5 {
+  background-color: #98d7c2; /* Spearmint */
+  color: #555555;
 }
 
 .thumbnail {
