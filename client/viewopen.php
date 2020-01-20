@@ -1,7 +1,6 @@
  <?php 
 
       include_once 'connection.php';
-      $result = mysqli_query($conn,"SELECT * FROM projects");
       include('process.php');
       if (!isLoggedIn()) {
       $_SESSION['msg'] = "You must log in first";

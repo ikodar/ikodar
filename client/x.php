@@ -137,7 +137,48 @@ ikodar
                <div class="card">
                  <div class="card-header card-header-primary">
                    <h4 class="card-title">Project Details</h4>
-                   
+                   <center><h6 class="card-title">$</h6></center>
+                   <?php 
+					    //retrieve data from project table
+              $query = "SELECT * FROM projects";
+              $results = $conn->query($query);
+              if ($results->num_rows > 0) {
+              //output data of each row
+              while ($row = $results->fetch_assoc()) { 
+                $date=date("Y-m-d");	
+                if ($date<$row['biddate']){ ?>			
+                    <tr>
+                    <center><?php echo $row['amount']; ?><br></center>
+                    </tr>
+                    
+                <?php   }
+                  }
+
+                    }else{
+                  echo "0 results";
+                  }
+                ?>
+                <center><h6 class="card-title">Bid End Date</h6></center>
+                <?php 
+					    //retrieve data from project table
+              $query = "SELECT * FROM projects";
+              $results = $conn->query($query);
+              if ($results->num_rows > 0) {
+              //output data of each row
+              while ($row = $results->fetch_assoc()) { 
+                $date=date("Y-m-d");	
+                if ($date<$row['biddate']){ ?>			
+                    <tr>
+                    <center><?php echo $row['biddate']; ?><br></center>
+                    </tr>
+                    
+                <?php   }
+                  }
+
+                    }else{
+                  echo "0 results";
+                  }
+                ?>
                  </div>
                  <div class="card-body">
                    <form>
@@ -145,47 +186,33 @@ ikodar
                      <div class="row">
                        <div class="col-md-6">
                          <div class="form-group">
-                           <label class="bmd-label-floating">Project Name</label>
+                           <label class="bmd-label-floating">Description</label>
                            
                          </div>
                        </div>
+                       <?php 
+					    //retrieve data from project table
+              $query = "SELECT * FROM projects";
+              $results = $conn->query($query);
+              if ($results->num_rows > 0) {
+              //output data of each row
+              while ($row = $results->fetch_assoc()) { 
+                $date=date("Y-m-d");	
+                if ($date<$row['biddate']){ ?>			
+                    <tr>
+                        <?php echo $row['description']; ?>
+                    </tr>
+                    
+                <?php   }
+                  }
+
+                    }else{
+                  echo "0 results";
+                  }
+                ?>
                        
                      </div>
                      
-                     <div class="row">
-                       <div class="col-md-4">
-                         <div class="form-group">
-                           <label class="bmd-label-floating">Amount</label>
-                           
-                         </div>
-                       </div>
-                       <div class="col-md-4">
-                         <div class="form-group">
-                           <label class="bmd-label-floating">Bid End Date</label>
-                           
-                         </div>
-                       </div>
-                       <div class="col-md-4">
-                         <div class="form-group">
-                           <label class="bmd-label-floating">Deadline</label>
-                           
-                         </div>
-                       </div>
-                     </div>
-                     <div class="row">
-                       <div class="col-md-12">
-                         <div class="form-group">
-                           <label>Description</label>
-                           
-                         </div>
-                       </div>
-                     </div>
-                     
-                   </form>
-                 </div>
-               </div>
-             </div>
- 
 
 
 <!--   Core JS Files   -->
