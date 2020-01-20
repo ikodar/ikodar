@@ -79,6 +79,7 @@ function register(){
         }
      
     }
+    $conn->close();
 }
 
 //LOGIN USER
@@ -117,6 +118,7 @@ function login(){
     }else { //user not found
         $passwordErr= "Wrong username/password combination.";
     }
+    $conn->close();
 }
 
 //SEND MESSAGE in index page
@@ -137,8 +139,9 @@ function message(){
     } else{
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
+    $conn->close();
 }
 
-$conn->close();
+
 
 ?>

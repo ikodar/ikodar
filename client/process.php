@@ -23,10 +23,10 @@ if (isset($_GET['logout'])) {
 
 
 // variable declaration
-$name = $description  = $skills = $biddate = $schedule = $deadline = $dateErr = $dateErr2= $payment= $amount = $status= "";
+$type = $name = $description = $biddate = $schedule = $deadline = $dateErr = $dateErr2= $payment= $amount = $status= "";
 $errors   = 0; 
 
-// call the register() function if submit is clicked
+// call the postproject() function if submit is clicked
 if (isset($_POST['submit'])) {
 	postproject();
 }
@@ -37,14 +37,15 @@ if (isset($_POST['submit'])) {
 // POST PROJECTS
 function postproject(){
 	// call these variables with the global keyword to make them available in function
-	global $conn, $errors, $name, $description, $skills, $biddate, $schedule, $deadline, $payment, $amount,  $status, $dateErr, $dateErr2;
+	global $conn, $errors, $type, $name, $description,  $biddate, $schedule, $deadline, $payment, $amount,  $status, $dateErr, $dateErr2;
 
 	// receive all input values from the form.
-    // defined below to escape form values
+	// defined below to escape form values
+	$type = $_POST['type'];
 	$name     =  $_POST['name'];
 	$description     =  $_POST['description'];
 	//$description     =  "test"
-    $skills = $_POST['skills'];
+    
 	// $biddate  =  $_POST['biddate'];
 	$biddate  =  $_POST['biddate'];
     $schedule = $_POST['shedule'];
@@ -72,8 +73,8 @@ function postproject(){
 	
 	if ($errors== 0) {
 		
-		$query = "INSERT INTO projects (name, description, skills, biddate, schedule, deadline, payment, amount, task, status) 
-				  VALUES('$name', '$description', '$skills','$biddate','$schedule','$deadline','$payment','$amount', '$task', 'new')";
+		$query = "INSERT INTO projects (type, name, description,  biddate, schedule, deadline, payment, amount, status) 
+				  VALUES('$type','$name', '$description', '$biddate','$schedule','$deadline','$payment','$amount',  'new')";
 		if ($conn->query($query) === TRUE) {
 		    echo "New record created successfully";
 		} else {

@@ -52,7 +52,7 @@
           <li class="nav-item active">
             <a class="nav-link" href="./projects.php">
               
-              <p>MY Projects</p>
+              <p>My Projects</p>
             </a>
           </li>
           
@@ -121,35 +121,49 @@
 
       <div class="content">
                     <div class="container-fluid">
-                      <div class="row">
-                        <div class="col-md-12">
-                                <ul class="nav nav-tabs col-md-8" style="background-color:#113849; padding:20px; margin-left:15%">
-                                  </li>
-                                    <li class="nav-item active  px-4">
-                                      <a class="nav-link" href="addprojects.php">Add Projects</a>
-                                    </li>
-                                    <li class="nav-item  px-4">
-                                      <a class="nav-link" href="viewopen.php">Open Projects</a>
-                                    </li>
-                                    <li class="nav-item  px-4">
-                                      <a class="nav-link" href="viewpast.php">Past Projects</a>
-                                  </li>
-                              </ul>
                       
-                      </div>
-
                       <section id="about">
     <div class="container-fluid bg-2 text-center">
         <h2></h2>
         <h3></h3>
         <div class="row text-center">
-            
-
-             
-        
-            <div class="col-sm-4">
+            <div class="col-sm-10">
               <div class="thumbnail">
-                <img src="img/graphic.jpg" alt="Image">
+              <ul class="nav nav-tabs col-md-8" style="background-color:#113849; padding:20px; margin-left:20%">
+                                  </li>
+                                    <li class="nav-item active  px-4">
+                                      <a class="nav-link" href="addprojects.php">Add Projects</a>
+                                    </li>
+                                    </ul>
+                <h2></h2>
+                <br><br>
+                
+              </div>
+            </div>
+
+             <div class="col-sm-10">
+              <div class="thumbnail">
+              <ul class="nav nav-tabs col-md-8" style="background-color:#113849; padding:20px; margin-left:20%">
+                                  </li>
+                                    <li class="nav-item active  px-4">
+                                      <a class="nav-link" href="viewopen.php">Open Projects</a>
+                                    </li>
+                                    </ul>
+                <h2></h2>
+                <br><br>
+                
+              </div>
+            </div>
+        
+            <div class="col-sm-10">
+              <div class="thumbnail">
+              <ul class="nav nav-tabs col-md-8" style="background-color:#113849; padding:20px; margin-left:20%">
+                                  </li>
+                                    <li class="nav-item active  px-4">
+                                      <a class="nav-link" href="viewpast.php">Past Projects</a>
+                                    </li>
+                                    </ul>
+                <h2></h2>
                 
               </div>
             </div>
@@ -157,6 +171,9 @@
     </div>
     </section>    
 
+
+
+  
             
   <!--   Core JS Files   -->
   <script src="assets/js/core/jquery.min.js"></script>
