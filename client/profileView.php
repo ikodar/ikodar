@@ -61,7 +61,7 @@
            
            
            <li class="nav-item active">
-             <a class="nav-link" href="./profileEdit.php">
+             <a class="nav-link" href="./profile.php">
                <!--<i class="material-icons">bubble_chart</i>-->
                <p>My Profile</p>
              </a>
@@ -239,7 +239,7 @@
                        <div class="col-md-12">
                      
 
-                     <input class="btn btn-primary pull-right" type="submit" name="delete" value="DELETE" formaction="profileDelete.php">
+                     <input class="btn btn-primary pull-right" type="submit" name="delete" value="DELETE" onClick="location.href ='profileDelete.php'">
                      
                      <input class="btn btn-primary pull-right" type="submit" name="update" value="UPDATE" onClick="location.href ='profile.php'">
                      </div>

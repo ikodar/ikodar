@@ -13,7 +13,7 @@ if (isset($_GET['email']) && is_numeric($_GET['email']))
 $email = $_GET['email'];
 
 // delete record from database
-if ($stmt = $mysqli->prepare("DELETE FROM users WHERE email = ? IMIT 1"L))
+if ($stmt = $mysqli->prepare("DELETE FROM users WHERE email = ? LIMIT 1"))
 {
 $stmt->bind_param("i",$email);
 $stmt->execute();
@@ -26,12 +26,12 @@ echo "ERROR: could not prepare SQL statement.";
 $mysqli->close();
 
 // redirect user after delete is successful
-header("Location: profileView.php");
+header("Location: profile.php");
 }
 else
 // if the 'id' variable isn't set, redirect the user
 {
-header("Location: profileView.php");
+header("Location: profile.php");
 }
 
 ?>
