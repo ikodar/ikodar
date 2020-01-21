@@ -136,9 +136,30 @@
              <div class="card">
                  <div class="card-header card-header-primary">
                    <h4 class="card-title">Project Details</h4>
-                   <?php $name = $_GET['name'];
-                   echo $name;
-                   ?>
+                   <?php 
+                   if (isset($_POST['pid'])) {
+                    $pid = $_POST['pid'];
+                   }
+                   $query = "SELECT * FROM projects where pid='$pid'";
+                   $results = $conn->query($query);
+                   if ($results->num_rows > 0) {
+                   //output data of each row
+                   while ($row = $results->fetch_assoc()) { 
+                    { ?>			
+                         <tr>
+                             <td><?php echo $row['name']; ?></a></td>
+                             
+                             
+                         </tr>
+                     <?php   }
+                       }
+     
+                         }else{
+                       echo "0 results";
+                       }
+                     ?>
+                   
+                   
                  </div>
 
                  <div class="card-body">
@@ -151,7 +172,7 @@
                          <div class="form-group">
                            <label class="bmd-label-floating">Amount :</label>
                            <?php
-                  $query = "SELECT * FROM projects where name='$name'";
+                  $query = "SELECT * FROM projects where pid='$pid'";
               $results = $conn->query($query);
               if ($results->num_rows > 0) {
               //output data of each row
@@ -177,7 +198,7 @@
                            <label class="bmd-label-floating">Bid End Date :</label>
 
                            <?php
-                  $query = "SELECT * FROM projects where name='$name'";
+                  $query = "SELECT * FROM projects where pid='$pid'";
               $results = $conn->query($query);
               if ($results->num_rows > 0) {
               //output data of each row
@@ -202,7 +223,7 @@
                          <div class="form-group">
                            <label class="bmd-label-floating">Deadline:</label>
                            <?php
-                  $query = "SELECT * FROM projects where name='$name'";
+                  $query = "SELECT * FROM projects where pid='$pid'";
               $results = $conn->query($query);
               if ($results->num_rows > 0) {
               //output data of each row
@@ -230,7 +251,7 @@
                            <label>Description:</label>
 
                            <?php
-                  $query = "SELECT * FROM projects where name='$name'";
+                  $query = "SELECT * FROM projects where pid='$pid'";
               $results = $conn->query($query);
               if ($results->num_rows > 0) {
               //output data of each row
@@ -264,7 +285,8 @@
                  </div>
                  <div class="card-body">
 
-                   <form action="bid.php" method="post" class="was-validated">
+                   <form action="" method="post" class="was-validated">
+                   <input type="hidden" name="pid" value="<?=$pid;?>">
                    
                    <h1 style="font-size:17px;"><b>Bid Details</b></h>
                    <div class="row">
@@ -295,7 +317,7 @@
                       
                         </div>
                         </div>
-
+          
                         <div class="row">
                        <div class="col-md-10">
                          <div class="form-group">
@@ -316,6 +338,7 @@
                  </div>
                </div>
              </div>
+             
  
 
    <!--   Core JS Files   -->

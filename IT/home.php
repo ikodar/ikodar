@@ -151,18 +151,31 @@
               while ($row = $results->fetch_assoc()) { 
                 $date=date("Y-m-d");	
                 if ($date<$row['biddate']){ ?>			
+                  
+                        <td><?php $pid= $row['pid']; ?></td>
+                        <td><?php $name=$row['name']; ?></td>
+                        <td><?php $description=$row['description']; ?></td>
+                    
+               <?php echo '
+                <form action="bid.php" method="post">
+                <input type="hidden" name="" value="'.$name.'">
+                <input type="hidden" name="pid" value="'.$pid.'">
+            
                     <tr>
-                        <td><a href="bid.php?name=<?php echo $row['name']; ?>" ><?php echo $row['name']; ?></a></td>
-                        <td><?php echo $row['description']; ?></td>
-                        
+                    <td>'.$pid.'</td>
+                    <td><input type="submit" class="btn btn-link btn-lg" value="'.$name.'"></td>
+                    <td>'.$description.'</td>
                     </tr>
-                <?php   }
+                </form>
+                ';?>
+<?php   }
                   }
 
                     }else{
                   echo "0 results";
                   }
                 ?>
+                
                             </tbody>
                           </table>
                   </div>
