@@ -132,8 +132,9 @@
             <table class="table">
               <thead class="thead-dark text-primary">
                 <tr>
-                  <th width="18%">ID</th>
-                  <th width="18%">Name</th>
+                  <th width="18%">Email</th>
+                  <th width="18%">Bid</th>
+                  <th width="18%">Days</th>
                   <th width="18%">Description</th>
                   <th width="18%">Action</th>
                 </tr>
@@ -141,16 +142,16 @@
               <tbody>
                 <?php 
                   //retrieve data from project table
-                  $query = "SELECT * FROM projects";
+                  $query = "SELECT * FROM bid WHERE pid='1'";
                   $results = $conn->query($query);
                   if ($results->num_rows > 0){
                     //output data of each row
-                    while ($row = $results->fetch_assoc()) { 
-                        if ($row['status']=="new"){ ?>			
+                    while ($row = $results->fetch_assoc()) { ?>		
                           <tr>
-                              <td><?php echo $row['pid']; ?></td>
-                              <td><?php echo $row['name']; ?></td>
-                              <td><?php echo $row['description']; ?></td>
+                              <td><?php echo $row['email']; ?></td>
+                              <td><?php echo $row['Bid']; ?></td>
+                              <td><?php echo $row['Days']; ?></td>
+                              <td><?php echo $row['Proposal']; ?></td>
                               <td>
                                 <div class="input-group">
                                   <a class="btn btn-primary" href="view.php" role="button" name="view_btn">View</a>
@@ -158,7 +159,7 @@
                                 </div>
                               </td>
                           </tr>
-                  <?php   }
+                  <?php   
                     }
 
                   }else{
@@ -174,59 +175,7 @@
       <!--End of data section-->
 </div>     
 
-</div>
-<!--
- <div class="content">
-  <div align = "right">
-      Sort By:<br>
-      <button type="submit" background-color: rgb(11, 22, 88) class="btn btn-primary pull-right" value="submit" name="submit">Best rank</button>
-      <button type="submit" background-color: rgb(11, 22, 88) class="btn btn-primary pull-right" value="submit" name="submit">Amount lowest</button>
-      <button type="submit" background-color: rgb(11, 22, 88) class="btn btn-primary pull-right" value="submit" name="submit">Amount highest</button><br><br><br><br>
-      
-      <?php  //retrieve data from bid table
-              $query = "SELECT COUNT (pid) FROM bid WHERE pid='$pid'";
-              $results = $conn->query($query);?>
-
-      No. of Bids: <?php echo $results; ?>
-  </div>
-  <div class="card">
-    <div class="card-body mt-3">
-      <div class="table-responsive">
-        <table class="table">
-          <thead class="thead-dark text-primary">
-            <tr>
-              <th width="18%">PROJECT ID</th>
-              <th width="18%">PROJECT NAME</th>
-              <th width="16%">MORE</th>
-            </tr>
-          </thead>
-          <tbody>
-              <?php 
-                  //retrieve data from project table
-                  $query = "SELECT * FROM projects";
-                  $results = $conn->query($query);
-                  if ($results->num_rows > 0) {
-                    //output data of each row
-                    while ($row = $results->fetch_assoc()) { 
-                      $date=date("Y-m-d");	
-                      if ($date<$row['biddate']){ ?>			
-                      <tr>
-                          <td><?php echo $row['pid']; ?></td>
-                          <td><?php echo $row['name']; ?></td>
-                          <td><a class="btn btn-primary" href="details.php" role="button" name="view_btn">View</a>
-                        </tr>
-                <?php }
-                    }
-                  }else{
-                    echo "0 results";
-                  } ?>
-          </tbody>
-        </table>
-      </div>       
-     </div>
-   </div>
- </div>
-                -->        
+</div>       
 
 <!--   Core JS Files   -->
 <script src="assets/js/core/jquery.min.js"></script>
