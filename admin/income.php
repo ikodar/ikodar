@@ -46,8 +46,13 @@
             </a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="users.php">
+            <a class="nav-link" href="users2.php">
               <p>Users</p>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="profile.php">
+              <p>My Profile</p>
             </a>
           </li>
           <li class="nav-item active">
