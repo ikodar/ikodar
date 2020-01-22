@@ -218,7 +218,7 @@
                      <div class="col-md-12">
                      <input class="btn btn-primary pull-right" type="submit" name="submit_btn" value="SAVE">
 
-                     <input class="btn btn-primary pull-right" type="submit" name="view" value="VIEW" formaction="profileView.php">
+                     <input class="btn btn-primary pull-right" type="submit" name="delete_btn" value="DELETE">
                      
                      
                      </div>

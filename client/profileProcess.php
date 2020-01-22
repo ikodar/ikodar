@@ -12,6 +12,11 @@ function isLoggedIn()
 	}
 }
 
+/* call the register() function if register_btn is clicked
+if (isset($_POST['register_btn'])) {
+	register();
+}
+*/
 
 $sql = "select email from users";
 $rs = mysqli_query($conn, $sql);
