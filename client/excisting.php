@@ -101,50 +101,44 @@
        <!-- End Navbar -->
        <div class="content">
           <div class="container-fluid">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="card">
-                  <div class="card-body mt-3">
-                    <div class="table-responsive">
-                      <table class="table">
-                        <thead class="thead-dark text-primary">
-                          <tr>
-                            <th width="18%">PROJECT ID</th>
-                            <th width="18%">PROJECT NAME</th>
-                            <th width="16%">MORE</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                        <?php 
-                            //retrieve data from project table
-                            $query = "SELECT * FROM projects";
-                            $results = $conn->query($query);
-                            if ($results->num_rows > 0) {
-                            //output data of each row
-                            while ($row = $results->fetch_assoc()) { 
-                              $date=date("Y-m-d");	
-                              if ($date<$row['biddate']){ ?>			
-                                  <tr>
-                                      <td><?php echo $row['pid']; ?></td>
-                                      <td><?php echo $row['name']; ?></td>
-                                      <td><a class="btn btn-primary" href="details.php" role="button" name="view_btn">View</a>
-                                  </tr>
-                              <?php   }
-                                }
-
-                                  }else{
-                                echo "0 results";
-                                }
-                              ?>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title">Recent Projects</h4>
               </div>
-            </div>
+                <div class="card-body">
+                  <div class="row">    
+                      <div class="table-responsive">
+                          <table class="table">
+                            <tbody>
+
+                            <?php 
+					    //retrieve data from project table
+              $query = "SELECT * FROM projects";
+              $results = $conn->query($query);
+              if ($results->num_rows > 0) {
+              //output data of each row
+              while ($row = $results->fetch_assoc()) { 
+                $date=date("Y-m-d");	
+                if ($date<$row['biddate']){ ?>			
+                    <tr>
+                        <td><a href="details.php?name=<?php echo $row['name']; ?>" ><?php echo $row['name']; ?></a></td>
+                        <td><?php echo $row['description']; ?></td>
+                        
+                    </tr>
+                <?php   }
+                  }
+
+                    }else{
+                  echo "0 results";
+                  }
+                ?>
+                            </tbody>
+                          </table>
+                  </div>
+              </div>
+            </div> 
           </div>
-        </div>
+       </div>
      
   <!--   Core JS Files   -->
   <script src="assets/js/core/jquery.min.js"></script>

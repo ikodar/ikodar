@@ -70,7 +70,9 @@
  <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
    <div class="container-fluid">
      <div class="navbar-wrapper">
-       <a class="navbar-brand" href="#pablo">Project 1</a>
+       <a class="navbar-brand" href="#pablo"><?php $name = $_GET['name'];
+                   echo $name;
+                   ?></a>
      </div>
      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
        <span class="sr-only">Toggle navigation</span>
@@ -184,6 +186,29 @@
                                       <label>Description</label>                          
                                     </div>
                                   </div>
+                                  <?php 
+					    //retrieve data from project table
+              $query = "SELECT * FROM projects";
+              $results = $conn->query($query);
+              if ($results->num_rows > 0) {
+              //output data of each row
+              while ($row = $results->fetch_assoc()) { 
+                $date=date("Y-m-d");	
+                if ($date<$row['biddate']){ ?>			
+                    <tr>
+                        
+                    <?php echo $row['description']; ?>
+                   
+                        
+                    </tr>
+                    
+                <?php   }
+                  }
+
+                    }else{
+                  echo "0 results";
+                  }
+                ?>
                                 </div>
 
                                 <div class="row">
