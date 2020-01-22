@@ -92,7 +92,7 @@ function update(){
 					  postalcode = '$postalcode',about = '$about'
 				  WHERE email='$email'";
 		if ($conn->query($query) == TRUE) {
-		    echo "New record created successfully";
+		    echo "Record updated successfully";
 		} else {
 		    echo "Error: " . $query . "<br>" . $conn->error;
 		}

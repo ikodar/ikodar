@@ -53,11 +53,6 @@
             </a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="profile.php">
-              <p>My Profile</p>
-            </a>
-          </li>
-          <li class="nav-item active">
             <a class="nav-link" href="messages.php">
               <p>Messages</p>
             </a>
@@ -97,32 +92,53 @@
 
       <!--Data section-->
       <div class="content">
-        <div class="container-fluid row col--md-8">
-          <ul class="nav nav-tabs" style="background-color:purple;">
-            <li class="nav-item active">
-              <a class="nav-link" href="projects.php">New Projects</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="projects2.php">Open Projects</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="projects3.php">Past Projects</a>
-            </li>
-          </ul>
-        </div>
-      <div>
       <!--retrieve data from database-->
       <div class="card">
         <div class="card-body mt-3">
           <div class="table-responsive">
-          
-            
+            <table class="table">
+              <thead class="thead-dark text-primary">
+                <tr>
+                  <th width="18%">ID</th>
+                  <th width="18%">Name</th>
+                  <th width="18%">Description</th>
+                  <th width="18%">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php 
+                  //retrieve data from project table
+                  $query = "SELECT * FROM projects";
+                  $results = $conn->query($query);
+                  if ($results->num_rows > 0){
+                    //output data of each row
+                    while ($row = $results->fetch_assoc()) { 
+                        if ($row['status']=="open"){ ?>			
+                          <tr>
+                              <td><?php echo $row['pid']; ?></td>
+                              <td><?php echo $row['name']; ?></td>
+                              <td><?php echo $row['description']; ?></td>
+                              <td>
+                                <div class="input-group">
+                                  <a class="btn btn-primary" href="view.php" role="button" name="view_btn">View</a>
+                                </div>
+                              </td>
+                          </tr>
+                  <?php   }
+                    }
+
+                  }else{
+                    echo "0 results";
+                  }
+                    ?>
+              </tbody>
+            </table>
       <!--end retrieve data-->
           </div>
         </div>
       </div>
       <!--End of data section-->
-
+      </div>
     </div>
     <!-- End of Content -->
   </div>

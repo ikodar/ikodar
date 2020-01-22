@@ -48,8 +48,13 @@
             </a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="users.php">
+            <a class="nav-link" href="users2.php">
               <p>Users</p>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="profile.php">
+              <p>My Profile</p>
             </a>
           </li>
           <li class="nav-item active">
@@ -94,9 +99,6 @@
       <div class="content">
         <div class="container-fluid row col--md-8">
           <ul class="nav nav-tabs" style="background-color:purple;">
-            <li class="nav-item active">
-              <a class="nav-link" href="users.php">Admin</a>
-            </li>
             <li class="nav-item">
               <a class="nav-link" href="users2.php">Clients</a>
             </li>

@@ -23,18 +23,20 @@ if (isset($_GET['logout'])) {
 
 
 // variable declaration
-$bid = $proposal = $days= $email ="";
+$bid = $proposal = $days= $email=$pid ="";
 $errors = array(); 
 
 // call the register() function if add_btn is clicked
 if (isset($_POST['submit'])) {
 	placebid();
+	header("Location:home.php");
 }
+
 
 // POST PROJECTS
 function placebid(){
 	// call these variables with the global keyword to make them available in function
-	global $conn, $errors, $bid, $days, $proposal,$email;
+	global $conn, $errors, $bid, $days, $proposal,$email,$pid;
 
 	// receive all input values from the form.
     // defined below to escape form values
@@ -43,6 +45,7 @@ function placebid(){
 	$days =  $_POST['days'];
 	$proposal =  $_POST['proposal'];
 	$email = $_SESSION['email'];
+	$pid =  $_POST['pid'];
 	
 
 	// form validation: ensure that the form is correctly filled
@@ -62,8 +65,8 @@ function placebid(){
 	// register user if there are no errors in the form
 	if (count($errors) == 0) {
 		
-		$query = "INSERT INTO bid (Bid, Days, Proposal,email) 
-				  VALUES('$bid', '$days', '$proposal', '$email')";
+		$query = "INSERT INTO bid (Bid, Days, Proposal,pid,email) 
+				  VALUES('$bid', '$days', '$proposal', '$pid','$email')";
 		if ($conn->query($query) === TRUE) {
 		    echo "New record created successfully";
 		} else {

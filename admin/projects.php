@@ -48,8 +48,13 @@
             </a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="users.php">
+            <a class="nav-link" href="users2.php">
               <p>Users</p>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="profile.php">
+              <p>My Profile</p>
             </a>
           </li>
           <li class="nav-item active">
@@ -89,72 +94,32 @@
         </div>
       </nav>
       <!-- End Navbar -->
-
       <!--Data section-->
-      <div class="content">
-        <ul class="nav nav-tabs" style="background-color:purple;">
-          <li class="nav-item active">
-            <a class="nav-link" href="projects.php">New Projects</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="projects2.php">Open Projects</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="projects3.php">Past Projects</a>
-          </li>
-        </ul>
-      </div>
-    <div>
-      <!--retrieve data from database-->
-      <div class="card">
-        <div class="card-body mt-3">
-          <div class="table-responsive">
-            <table class="table">
-              <thead class="thead-dark text-primary">
-                <tr>
-                  <th width="18%">ID</th>
-                  <th width="18%">Name</th>
-                  <th width="18%">Description</th>
-                  <th width="18%">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php 
-                  //retrieve data from project table
-                  $query = "SELECT * FROM projects";
-                  $results = $conn->query($query);
-                  if ($results->num_rows > 0){
-                    //output data of each row
-                    while ($row = $results->fetch_assoc()) { 
-                        if ($row['status']=="new"){ ?>			
-                          <tr>
-                              <td><?php echo $row['pid']; ?></td>
-                              <td><?php echo $row['name']; ?></td>
-                              <td><?php echo $row['description']; ?></td>
-                              <td>
-                                <div class="input-group">
-                                  <a class="btn btn-primary" href="view.php" role="button" name="view_btn">View</a>
-                                  <a class="btn btn-primary" href="" role="button" name="view_btn">Delete</a>
-                                </div>
-                              </td>
-                          </tr>
-                  <?php   }
-                    }
-
-                  }else{
-                    echo "0 results";
-                  }
-                    ?>
-              </tbody>
-            </table>
-      <!--end retrieve data-->
+      <div class="content" >
+        <div class="row">
+          <div class="col-lg-3 col-md-6 col-sm-6" >
+            <div class="card card-stats" >
+              <a background-color: rgb(11, 22, 88) class="btn btn-primary pull-right" href="newprojects.php">New Projects</a>
+              <img src="./img/design.jpg" style="width:202px; length:202px align:center">
+            </div>
           </div>
-        </div>
-      </div>
+           <div class="col-lg-3 col-md-6 col-sm-6" >
+             <div class="card card-stats" >
+              <a background-color: rgb(11, 22, 88) class="btn btn-primary pull-right" href="existingprojects.php">Existing Projects</a>
+               <img src="./img/deve.jpg" style="width:202px; length:202px align:center">
+            </div>
+           </div>
+           <div class="col-lg-3 col-md-6 col-sm-6" >
+             <div class="card card-stats" >
+              <a background-color: rgb(11, 22, 88) class="btn btn-primary pull-right" href="pastprojects.php">Past Projects</a>
+              <img src="./img/mng.jpg" style="width:202px; length:200px align:center">
+             </div>
+           </div>
+        </div> 
+      </div>       
       <!--End of data section-->
-
-    </div>
+    </div>  
     <!-- End of Content -->
-  </div>
+   </div>
 </body>
 </html>
