@@ -12,11 +12,11 @@ function isLoggedIn()
 	}
 }
 
-/* call the register() function if register_btn is clicked
-if (isset($_POST['register_btn'])) {
-	register();
+//delete
+if (isset($_POST['delete_btn'])) {
+	delete();
 }
-*/
+
 
 $sql = "select email from users";
 $rs = mysqli_query($conn, $sql);
@@ -38,47 +38,13 @@ if (isset($_GET['logout'])) {
 $company =  $firstname = $lastname = $address = $city = $country = $postalcode = $about = $email ="";
 $errors   = 0; 
 
-// call the update() function if submit is clicked
-if (isset($_POST['submit_btn'])) {
-	update();
-
-	if(empty($firstname)){
-		$error = "First Name is required";
-	}
-	else if(empty($lastname)){
-		$error = "Last Name is required";
-	}
-	else if(empty($address)){
-		$error = "Address is required";
-	}
-	else if(empty($city)){
-		$error = "City is required";
-	}
-	else if(empty($country)){
-		$error = "Country is required";
-	}
-	else if(empty($postalcode)){
-		$error = "Postalcode is required";
-	}
-	else if(empty($about)){
-		$error = "About is required";
-	}
-	
-		
-	
-	
-}
 
 // updating profile
 function update(){
 	// call these variables with the global keyword to make them available in function
 	global $conn, $errors, $firstname, $lastname, $address, $city, $country, $postalcode, $about;
 
-	// receive all input values from the form.
-    // defined below to escape form values
-	//$username     =  $_POST['username'];
-	//$company     =  $_POST['company'];
-    //$email = $_POST['email'];
+	
 	$firstname  =  $_POST['firstname'];
     $lastname = $_POST['lastname'];
     $address  =  $_POST['address'];
@@ -96,7 +62,9 @@ function update(){
 				      address='$address',city = '$city',country = '$country',
 					  postalcode = '$postalcode',about = '$about'
 				  WHERE email='$email'";
+
 		if ($conn->query($query) == TRUE) {
+
 		    echo "Record updated successfully";
 		} else {
 		    echo "Error: " . $query . "<br>" . $conn->error;
@@ -108,14 +76,24 @@ function update(){
 echo '</script>';
  
 	}
-
-	/*if (isset($_POST['submit'])){
-		$email = $_POST["email"];
-		$query = "DELETE FROM users WHERE email='$email'";
-		mysqli_query($conn,$query);
-		mysqli_close($conn);
-		}*/
 	$conn->close();
 }
+
+
+
+
+
+//deleting profile
+function delete(){
+	$query = "DELETE FROM users WHERE email='$email'"; 
+if($conn->query($query) == TRUE){ 
+    echo "Record was deleted successfully."; 
+} else{ 
+    echo "ERROR: Could not able to execute $sql. "  
+                                         . $conn->error; 
+} 
+	
+}
+
 
 ?>

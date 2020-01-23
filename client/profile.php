@@ -1,11 +1,26 @@
 <?php 
-  
+//view 
   include('profileProcess.php');
 	if (!isLoggedIn()) {
 	$_SESSION['msg'] = "You must log in first";
 	header('location: ../login.php');
   }
  
+  $email=$_SESSION['email'];
+  $sql = "SELECT * FROM users WHERE email='$email'";
+	$results=$conn->query($sql);
+  $row = $results->fetch_assoc();
+
+  $firstname  =  $row['firstname'];
+  $lastname = $row['lastname'];
+  $address  =  $row['address'];
+	$city = $row['city'];
+	$country = $row['country'];
+	$postalcode = $row['postalcode'];
+	$about = $row['about'];
+  
+
+  
 ?>
  <!DOCTYPE html>
  <html lang="en">
@@ -159,13 +174,13 @@
                        <div class="col-md-6">
                          <div class="form-group">
                            <label class="bmd-label-floating">First Name</label>
-                           <input name="firstname" type="text" class="form-control">
+                           <input name="firstname" type="text" class="form-control" value="<?php echo $firstname?>">
                          </div>
                        </div>
                        <div class="col-md-6">
                          <div class="form-group">
                            <label class="bmd-label-floating">Last Name</label>
-                           <input name="lastname" type="text" class="form-control">
+                           <input name="lastname" type="text" class="form-control" value="<?php echo $lastname?>">
                          </div>
                        </div>
                      </div>
@@ -173,7 +188,7 @@
                        <div class="col-md-12">
                          <div class="form-group">
                            <label class="bmd-label-floating">Adress</label>
-                           <input name="address" type="text" class="form-control">
+                           <input name="address" type="text" class="form-control" value="<?php echo $address?>">
                          </div>
                        </div>
                      </div>
@@ -181,19 +196,19 @@
                        <div class="col-md-4">
                          <div class="form-group">
                            <label class="bmd-label-floating">City</label>
-                           <input name="city" type="text" class="form-control">
+                           <input name="city" type="text" class="form-control" value="<?php echo $city?>">
                          </div>
                        </div>
                        <div class="col-md-4">
                          <div class="form-group">
                            <label class="bmd-label-floating">Country</label>
-                           <input name="country" type="text" class="form-control">
+                           <input name="country" type="text" class="form-control" value="<?php echo $country?>">
                          </div>
                        </div>
                        <div class="col-md-4">
                          <div class="form-group">
                            <label class="bmd-label-floating">Postal Code</label>
-                           <input name="postalcode" type="text" class="form-control">
+                           <input name="postalcode" type="text" class="form-control" value="<?php echo $postalcode?>">
                          </div>
                        </div>
                      </div>
@@ -203,7 +218,7 @@
                            <label>About Me</label>
                            <div class="form-group">
                              
-                             <textarea name="about" style="width:520px" class="input" rows="5"></textarea>
+                             <textarea name="about" style="width:520px" class="input" rows="5"><?php echo $about?></textarea>
                            </div>
                          </div>
                        </div>
@@ -218,7 +233,7 @@
                      <div class="col-md-12">
                      <input class="btn btn-primary pull-right" type="submit" name="submit_btn" value="SAVE">
 
-                     <input class="btn btn-primary pull-right" type="submit" name="delete_btn" value="DELETE">
+                     <input class="btn btn-primary pull-right" type="submit" name="delete_btn" value="DELETE" formaction="profile.php">
                      
                      
                      </div>
