@@ -121,12 +121,12 @@
                     while ($row = $results->fetch_assoc()) { 
                         if ($row['status']=="new"){ ?>			
                           <tr>
-                              <td><?php echo $pid = $row['pid']; ?> <?php echo ' <input type="hidden" name="pid" value="'.$pid.'">' ?></td>
+                              <td><?php echo $pid = $row['pid']; ?></td>
                               <td><?php echo $row['name']; ?></td>
                               <td><?php echo $row['description']; ?></td>
                               <td>
                                 <div class="input-group">
-                                  <a class="btn btn-primary" href="view.php" role="button" name="view_btn">View</a>
+                                  <a class="btn btn-primary" href="view.php" value="$pid" role="button" name="view_btn">View</a>
                                   <a class="btn btn-primary" href="" role="button" name="delete_btn">Delete</a>
                                 </div>
                               </td>
