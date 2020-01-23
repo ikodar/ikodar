@@ -14,9 +14,10 @@
     <link rel="stylesheet" type="text/css" href="css/bootsrap-reboot.css">
     <link rel="stylesheet" type="text/css" href="css/bootsrap-reboot.min.css">
     <link rel="stylesheet" type="text/css" href="css/index.css">
+    
 
-    <script src="jquery/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="jquery/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
 </head>
 <body id="page-top" style="background:#DDFFE7;">
@@ -48,33 +49,49 @@
     <div class="container-fluid bg-2 text-center">
         <h2>About Us</h2>
         <h3>About what we do</h3>
-        <div class="row text-center">
-            <div class="col-sm-4">
-              <div class="thumbnail">
-                <img src="img/web.jpg" alt="Image">
-                <p><strong>Website Development</strong></p>
-                <p>Yes, we built creatuve websites which suit your needs.</p>
-              </div>
-            </div>
+      
+   <div class="row text-center">
+    <div class="col-md-12">
+      <div id="carousel" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner px-5 py-5">
+        <div class="carousel-item active ">
+          <img class="d-inline-block w-100" style="width: 100px; height: 400px;" src="img/web.jpg" alt="First slide">
+          <div class="carousel-caption d-none d-md-block">
+            <h5><strong>Website Development</strong></h5>
+            <p>Yes, we built creatuve websites which suit your needs.</p>
+          </div>
+       </div>
+   
+      <div class="carousel-item">
+         <img class="d-inline-block w-100" style="width: 100px; height: 400px;" src="img/system.jpg" alt="Second slide">
+          <div class="carousel-caption d-none d-md-block">
+            <h5><strong>System Development</strong></h>
+            <p>Yes, we built efficient systems which suit your differing needs.</p>
+          </div>
+      </div>
 
-             <div class="col-sm-4">
-              <div class="thumbnail">
-                <img src="img/system.jpg" alt="Image">
-                <p><strong>System Development</strong></p>
-                <p>Yes, we built efficient systems which suit your differing needs.</p>
-              </div>
-            </div>
-        
-            <div class="col-sm-4">
-              <div class="thumbnail">
-                <img src="img/graphic.jpg" alt="Image">
-                <p><strong>Graphic Design</strong></p>
-                <p>Yes, we do the graphic designs which will stun you and go beyind your expectations.</p>
-              </div>
-            </div>
+       <div class="carousel-item">
+          <img class="d-inline-block w-100" style="width: 100px; height: 400px;" src="img/graphic.jpg" alt="Third slide">
+          <div class="carousel-caption d-none d-md-block">
+            <p><strong>Graphic Design</strong></p>
+            <p>Yes, we do the graphic designs which will stun you and go beyind your expectations.</p>
+          </div>
         </div>
+      </div>
+
+      <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+      </div>
     </div>
-    </section>    
+    </div>
+  </section>    
+
 
     <section id="projects">
     <div class="container-fluid bg-5 text-center">

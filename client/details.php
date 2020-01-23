@@ -7,6 +7,14 @@
     $_SESSION['msg'] = "You must log in first";
     header('location: ../login.php');
   }
+
+  if(isset($_SESSION["pid"])){
+    $pid=$_SESSION["pid"];
+  }
+  else{
+    $pid="";
+    //header("location: index.php");
+  }
 ?>
 
 <!DOCTYPE html>
@@ -72,9 +80,7 @@
      <div class="navbar-wrapper">
        <a class="navbar-brand" href="#pablo">
        <?php 
-                   if (isset($_POST['pid'])) {
-                    $pid = $_POST['pid'];
-                   }
+                  
                    $query = "SELECT * FROM projects where pid='$pid'";
                    $results = $conn->query($query);
                    if ($results->num_rows > 0) {

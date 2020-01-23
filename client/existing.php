@@ -6,6 +6,11 @@ if (!isLoggedIn()) {
   $_SESSION['msg'] = "You must log in first";
   header('location: ../login.php');
 }
+
+if(isset($_POST["pid"])){
+  $_SESSION["pid"]=$_POST["pid"];
+  header("location: details.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -126,8 +131,7 @@ ikodar
                   <td><?php $description=$row['description']; ?></td>
               
                   <?php echo '
-                    <form action="details.php" method="post">
-                    <input type="hidden" name="" value="'.$name.'">
+                    <form action="existing.php" method="post">
                     <input type="hidden" name="pid" value="'.$pid.'">
                 
                         <tr>
