@@ -5,6 +5,14 @@
 	header('location: ../login.php');
   }
  
+  
+if(isset($_SESSION["pid"])){
+  $pid=$_SESSION["pid"];
+}
+else{
+  $pid="";
+  //header("location: index.php");
+}
 ?>
  <!DOCTYPE html>
  <html lang="en">
