@@ -23,12 +23,12 @@
 <body id="page-top" style="background:#DDFFE7;">
 
     <!-- Navigation bar-->
-    <nav class="navbar navbar-default navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background:#0C1446;">
+    <nav class="navbar navbar-default navbar-expand-lg navbar-light fixed-top" id="mainNav" style="background:black;">
       <div class="container">
         <div class="navbar-header">
             <h4 style="color: white;">i-කෝඩර්</h4>
         </div>
-          <ul class="nav navbar-nav navbar-right">
+          <ul class="nav navbar-nav navbar-right" >
             <li style="padding-left:20px;"><a href="#page-top">Home</a></li>
             <li style="padding-left:20px;"><a href="#about">About Us</a></li>
             <li style="padding-left:20px;"><a href="#projects">Projects</a></li>
@@ -40,22 +40,29 @@
     </nav>
     <!-- End of navigation bar-->
 
-    <div class="container-fluid bg-1 text-center">
-        <h3 style="padding-top:50px;">i-කෝඩර් We Connect You All</h3>
-        <h4>Welcome To Freelancing and Crowdsourcing !</h4>
-    </div>        
-   
-    <section id="about">
-    <div class="container-fluid bg-2 text-center">
-        <h2>About Us</h2>
-        <h3>About what we do</h3>
-      
-   <div class="row text-center">
-    <div class="col-md-12">
+<div class="container-fluid bg-1 text-center">
+    <div class="row header">
+	<div class="col-lg-4">
+			<div class="container text-center" style = "padding-top: 70px;">
+        <h3>i-කෝඩර් We Connect You All</h3>
+        <h4>Welcome To Freelancing and Crowdsourcing !</h4><br/>
+				<p>Remember, time is money. Use it properly. Do not waste your time thinking when others are getting things done here.</p>
+				<a href="Register.php" class="btn btn-warning btn-lg">It's Free!! Join Now!!!</a>
+				<p></p>
+				<div class="btn-group">
+					<a href="#how" type="button" class="btn btn-info">How it works</a>
+					<a href="#faq" type="button" class="btn btn-light">FAQ</a>
+					<a href="#category" type="button" class="btn btn-info">Catagories</a>
+				</div>
+			</div>
+		</div>	
+	
+  
+    <div class="col-lg-8">
       <div id="carousel" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner px-5 py-5">
+      <div class="carousel-inner ">
         <div class="carousel-item active ">
-          <img class="d-inline-block w-100" style="width: 100px; height: 400px;" src="img/web.jpg" alt="First slide">
+          <img class="d-inline-block w-100" style="width: 120px; height: 500px;" src="img/web.jpg" alt="First slide">
           <div class="carousel-caption d-none d-md-block">
             <h5><strong>Website Development</strong></h5>
             <p>Yes, we built creatuve websites which suit your needs.</p>
@@ -63,7 +70,7 @@
        </div>
    
       <div class="carousel-item">
-         <img class="d-inline-block w-100" style="width: 100px; height: 400px;" src="img/system.jpg" alt="Second slide">
+         <img class="d-inline-block w-100" style="width: 120px; height: 500px;" src="img/system.jpg" alt="Second slide">
           <div class="carousel-caption d-none d-md-block">
             <h5><strong>System Development</strong></h>
             <p>Yes, we built efficient systems which suit your differing needs.</p>
@@ -71,7 +78,7 @@
       </div>
 
        <div class="carousel-item">
-          <img class="d-inline-block w-100" style="width: 100px; height: 400px;" src="img/graphic.jpg" alt="Third slide">
+          <img class="d-inline-block w-100" style="width: 120px; height: 500px;" src="img/graphic.jpg" alt="Third slide">
           <div class="carousel-caption d-none d-md-block">
             <p><strong>Graphic Design</strong></p>
             <p>Yes, we do the graphic designs which will stun you and go beyind your expectations.</p>
@@ -90,56 +97,61 @@
       </div>
     </div>
     </div>
-  </section>    
+    </div>
+    
+    
+
+  <div style="background:#cce5ff">
+<div class="container fluid text-center" style="padding:5%;">
+<div class="row header">
+
+		<div class=" card" style="padding:40px 80px 40px 80px;margin-top:15px;box-shadow: 4px 4px 2px 5px rgba(0, 0, 0, 0.2), 0 6px 0px 0 rgba(0, 0, 0, 0.19);background:#fff">
+			<h1>Need works done?</h1>
+			<p>It's easy. Simply post a job you need completed and receive competitive bids from freelancers within minutes. Whatever your needs, there will be a freelancer to get it done: from web design, mobile app development, virtual assistants, product manufacturing, and graphic design (and a whole lot more). It is the simplest and safest way to get work done online.</p>
+			
+			<a href="login.php" class="btn btn-primary btn-lg" style="background-color:#0d3f6e">Get Started</a>
+    </div>
+    
+		<div class=" card" style="padding:40px 80px 40px 80px;margin-top:15px;box-shadow: 4px 4px 2px 5px rgba(0, 0, 0, 0.2), 0 6px 0px 0 rgba(0, 0, 0, 0.19);background:#fff">
+			<h1>Looking for work?</h1>
+			<p>If you are an expert in any kind of computer related or online work, then do not hesitate to join our platform. It is easy to use and payment is secured. It is a great platform to those people who are skillful. So do not miss the chance to explore the job posts and make some money.</p>
+			<p></p>
+			<a href="login.php" class="btn btn-primary btn-lg" style="background-color:#0d3f6e">Get Started</a>
+		</div>
+	</div>
+</div>
+</div>
+
 
 
     <section id="projects">
-    <div class="container-fluid bg-5 text-center">
-        <h2>Our Projects</h2>
-        <div class="container">
-          <div class="row text-center">
-            <table class="table" style="padding-left:100px; padding-right:100px;">
-                <thead class="thead-dark text-primary">
-                  <tr>
-                    <th width="18%">ID</th>
-                    <th width="18%">Name</th>
-                    <th width="18%">Description</th>
-                    <th width="18%">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php 
-                    //retrieve data from project table
-                    $query = "SELECT * FROM projects";
-                    $results = $conn->query($query);
-                    if ($results->num_rows > 0){
-                      //output data of each row
-                      while ($row = $results->fetch_assoc()) { 
-                          if ($row['status']=="new"){ ?>			
-                            <tr>
-                                <td><?php echo $row['pid']; ?></td>
-                                <td><?php echo $row['name']; ?></td>
-                                <td><?php echo $row['description']; ?></td>
-                                <td style="float:center">
-                                  <div class="input-group" >
-                                    <div style="padding-right:20px;">
-                                      <a class="btn btn-primary" href="view.php" role="button" name="view_btn">View</a>
-                                    </div>
-                                    <div>
-                                      <a class="btn btn-primary" href="login.php" role="button">Bid</a>
-                                    </div>
-                                  </div>
-                                </td>
-                            </tr>
-                    <?php   }
-                      }
-
-                    }else{
-                      echo "0 results";
-                    }
-                      ?>
-                </tbody>
-            </table>
+    <div class="container-fluid bg-5 text-center" style="color:black;">
+        <h2>Latest Projects</h2><br/><br/>
+        <div class="row">
+          
+          <?php 
+          /* Show any 4 random job post
+           * 
+           * Store sql query result in $result variable and loop through it if we have any rows
+           * returned from database. $result->num_rows will return total number of rows returned from database.
+          */
+          $sql = "SELECT * FROM projects Order By Rand() Limit 4";
+          $result = $conn->query($sql);
+          if($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) 
+            {
+             ?>
+            <div class="col-md-6 fixHeight">             
+              <h3><?php echo $row['name']; ?></h3>
+              <p><?php echo $row['description']; ?></p>
+              <a href="login.php" button type="button" class="btn btn-outline-dark">View</button></a>
+             
+            </div>
+          <?php
+            }
+          }
+          ?>
+       
           </div>
         </div>
     </div>

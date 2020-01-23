@@ -135,7 +135,7 @@
                           
 
       
-                            <ul class="nav nav-tabs col-md-8" style="background-color:#113849; padding:20px; margin-left:15%">
+                            <ul class="nav nav-tabs col-md-6" style="background-color:#113849; padding:20px; margin-left:15%">
                                   </li>
                                     <li class="nav-item px-4">
                                       <a class="nav-link active" href="active.php">Active Bids</a>

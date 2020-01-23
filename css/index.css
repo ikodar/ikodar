@@ -9,18 +9,22 @@
   padding-left: 10px;
 }
 
+.navbar-nav li {
+  color: #fdfdfd !important;
+}
+
 .navbar-nav li a:hover {
   color: #1abc9c !important;
 }
 
 .container-fluid {
-  padding-top: 70px;
+  padding-top: 120px;
   padding-bottom: 70px;
 }
 
 .bg-1 {
 
-    background-color: #1abc9c; /* Green */
+    background-color: #073764; /* Green */
     color: #ffffff;
 }
 
@@ -40,7 +44,7 @@
 }
 
 .bg-5 {
-  background-color: #98d7c2; /* Spearmint */
+  background-color: #2183aa; /* Spearmint */
   color: #555555;
 }
 
@@ -56,3 +60,11 @@
   margin-bottom: 10px;
 }
 
+.carousel .item img {
+   left: -9999px;  /*important */
+   right: -9999px;  /*important */
+   margin: 0 auto;  /*important */
+   max-width: none;  /*important */
+   min-width: 100%;
+   position: absolute;
+}
