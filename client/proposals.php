@@ -146,9 +146,9 @@
                   //retrieve data from project table
                   $query = "SELECT * FROM bid WHERE pid='1'";
                   $results = $conn->query($query);
-                  if ($results->num_rows > 0){
+                    if ($results->num_rows > 0){
                     //output data of each row
-                    while ($row = $results->fetch_assoc()) { ?>		
+                     while ($row = $results->fetch_assoc()) { ?>		
                           <tr>
                               <td><?php echo $row['email']; ?></td>
                               <td><?php echo $row['Bid']; ?></td>
