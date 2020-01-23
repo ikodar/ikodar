@@ -4,7 +4,24 @@
 	$_SESSION['msg'] = "You must log in first";
 	header('location: ../login.php');
   }
- 
+
+  $pid = "";
+
+  if (isset($_POST['view_btn']) {
+    global $pid = $_POST['pid'];
+   }
+
+   $query = "SELECT * FROM projects where pid='$pid'";
+   $results = $conn->query($query);
+   if ($results->num_rows > 0) {
+      //output data of each row
+      while ($row = $results->fetch_assoc()) { 
+      }
+
+   }else{
+       echo "0 results";
+   }
+
 ?>
 
 <!DOCTYPE html>
@@ -97,30 +114,209 @@
 
       <!--Data section-->
       <div class="content">
-        <div class="container-fluid row col--md-8">
-          <ul class="nav nav-tabs" style="background-color:purple;">
-            <li class="nav-item active">
-              <a class="nav-link" href="projects.php">New Projects</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="projects2.php">Open Projects</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="projects3.php">Past Projects</a>
-            </li>
-          </ul>
-        </div>
-      <div>
-      <!--retrieve data from database-->
-      <div class="card">
-        <div class="card-body mt-3">
-          <div class="table-responsive">
-          
-            
-      <!--end retrieve data-->
-          </div>
-        </div>
-      </div>
+         <div class="container-fluid">
+          <div class="card-body">
+            <form>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <h4><strong><a class="nav-link" href="details.php">Details</a></strong></h4>                          
+                  </div>
+                </div>
+                
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <h4><strong><a class="nav-link" href="proposals.php">Proposals</a></h4></strong>                          
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                     <h4><strong><a class="nav-link" href="tasks.php">Tasks</a></h4></strong>                          
+                    </div>
+                   </div>
+                </div>
+ 
+                <div class="content">
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-md-8">
+                         <div class="card">
+                            <div class="card-header card-header-primary">
+                               <h4 class="card-title">Project Details</h4>                   
+                            </div>
+                             <div class="card-body">
+                              <form>
+                     
+                                  <div class="row">
+                                   <div class="col-md-6">
+                                     <div class="form-group">
+                                        <label class="bmd-label-floating">Project Name: </label> 
+                                          <?php
+                                            $query = "SELECT * FROM projects where pid='$pid'";
+                                            $results = $conn->query($query);
+                                            if ($results->num_rows > 0) {
+                                            //output data of each row
+                                              while ($row = $results->fetch_assoc()) { 
+                                              { ?>			
+                                                <tr>
+                                                  <td><?php echo $row['name']; ?></a></td>    
+                                                </tr>
+                                                <?php   }
+                                                  }
+
+                                                  }else{
+                                                    echo "0 results";
+                                                  }
+                                                   ?>                         
+                                        </div>
+                                      </div>                                             
+                                    </div>
+
+                                   <div class="row">
+                                     <div class="col-md-6">
+                                       <div class="form-group">
+                                          <label class="bmd-label-floating">Project Type:</label>   
+                                          <?php
+                                            $query = "SELECT * FROM projects where pid='$pid'";
+                                            $results = $conn->query($query);
+                                            if ($results->num_rows > 0) {
+                                            //output data of each row
+                                              while ($row = $results->fetch_assoc()) { 
+                                              { ?>			
+                                              <tr>
+                                                <td><?php echo $row['type']; ?></a></td>    
+                                              </tr>
+                                              <?php   }
+                                              }
+
+                                              }else{
+                                                echo "0 results";
+                                              }
+                                            ?>                       
+                                          </div>
+                                        </div>                      
+                                      </div>
+
+                                    <div class="row">
+                                      <div class="col-md-6">
+                                        <div class="form-group">
+                                          <label class="bmd-label-floating">IT Individual:</label>                           
+                                        </div>
+                                      </div>                                            
+                                    </div>
+                     
+                                    <div class="row">
+                                      <div class="col-md-4">
+                                        <div class="form-group">
+                                          <label class="bmd-label-floating">Amount:</label>  
+                                            <?php
+                                              $query = "SELECT * FROM projects where pid='$pid'";
+                                              $results = $conn->query($query);
+                                              if ($results->num_rows > 0) {
+                                              //output data of each row
+                                                while ($row = $results->fetch_assoc()) { 
+                                                { ?>			
+                                                <tr>
+                                                  <td><?php echo $row['amount']; ?></a></td>    
+                                                </tr>
+                                                  <?php   }
+                                                }
+
+                                                }else{
+                                                  echo "0 results";
+                                                }
+                                            ?>
+
+                                        </div>
+                                      </div>
+                                    <div class="col-md-4">
+                                      <div class="form-group">
+                                        <label class="bmd-label-floating">Bid End Date:</label>  
+                                          <?php
+                                            $query = "SELECT * FROM projects where pid='$pid'";
+                                            $results = $conn->query($query);
+                                              if ($results->num_rows > 0) {
+                                              //output data of each row
+                                                while ($row = $results->fetch_assoc()) { 
+                                                { ?>			
+                                                <tr>
+                                                  <td><?php echo $row['biddate']; ?></a></td>     
+                                                </tr>
+                                                <?php   }
+                                                }
+
+                                                }else{
+                                                  echo "0 results";
+                                                }
+                                          ?>                        
+                                        </div>
+                                      </div>
+                                    <div class="col-md-4">
+                                      <div class="form-group">
+                                        <label class="bmd-label-floating">Deadline:</label>
+                                          <?php
+                                            $query = "SELECT * FROM projects where pid='$pid'";
+                                            $results = $conn->query($query);
+                                              if ($results->num_rows > 0) {
+                                              //output data of each row
+                                              while ($row = $results->fetch_assoc()) { 
+                                              { ?>			
+                                              <tr>
+                                                <td><?php echo $row['deadline']; ?></a></td>    
+                                              </tr>
+                                              <?php   }
+                                              }
+
+                                              }else{
+                                                echo "0 results";
+                                              }
+                                          ?>                           
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="row">
+                                      <div class="col-md-12">
+                                        <div class="form-group">
+                                          <label>Description:</label>
+                                            
+                                            <?php
+                                              $query = "SELECT * FROM projects where pid='$pid'";
+                                              $results = $conn->query($query);
+                                              if ($results->num_rows > 0) {
+                                              //output data of each row
+                                                while ($row = $results->fetch_assoc()) { 
+                                                { ?>			
+                                                <tr>
+                                                  <td><?php echo $row['description']; ?></a></td>
+                                                </tr>
+                                              <?php   }
+                                              }
+
+                                              }else{
+                                                echo "0 results";
+                                              }
+                                              ?>                          
+                                        </div>
+                                      </div>
+                                  
+                                    </div>
+
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                      <label class="bmd-label-floating">Shedule:</label>  
+                                                              
+                                    </div>
+                                  </div>                                             
+                                  </div>
+                     
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
       <!--End of data section-->
 
     </div>

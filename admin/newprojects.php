@@ -101,6 +101,7 @@
       <div class="card">
         <div class="card-body mt-3">
           <div class="table-responsive">
+          <form action="view.php" method="post">
             <table class="table">
               <thead class="thead-dark text-primary">
                 <tr>
@@ -120,13 +121,13 @@
                     while ($row = $results->fetch_assoc()) { 
                         if ($row['status']=="new"){ ?>			
                           <tr>
-                              <td><?php echo $row['pid']; ?></td>
+                              <td><?php echo $pid = $row['pid']; ?> <?php echo ' <input type="hidden" name="pid" value="'.$pid.'">' ?></td>
                               <td><?php echo $row['name']; ?></td>
                               <td><?php echo $row['description']; ?></td>
                               <td>
                                 <div class="input-group">
                                   <a class="btn btn-primary" href="view.php" role="button" name="view_btn">View</a>
-                                  <a class="btn btn-primary" href="" role="button" name="view_btn">Delete</a>
+                                  <a class="btn btn-primary" href="" role="button" name="delete_btn">Delete</a>
                                 </div>
                               </td>
                           </tr>
@@ -139,6 +140,7 @@
                     ?>
               </tbody>
             </table>
+            </form>
       <!--end retrieve data-->
           </div>
         </div>

@@ -125,25 +125,25 @@ ikodar
                   <td><?php $name=$row['name']; ?></td>
                   <td><?php $description=$row['description']; ?></td>
               
-         <?php echo '
-          <form action="details.php" method="post">
-          <input type="hidden" name="" value="'.$name.'">
-          <input type="hidden" name="pid" value="'.$pid.'">
-      
-              <tr>
-              <td>'.$pid.'</td>
-              <td><input type="submit" class="btn btn-link btn-lg" value="'.$name.'"></td>
-              <td>'.$description.'</td>
-              </tr>
-          </form>
-          ';?>
-<?php   }
-            }
+                  <?php echo '
+                    <form action="details.php" method="post">
+                    <input type="hidden" name="" value="'.$name.'">
+                    <input type="hidden" name="pid" value="'.$pid.'">
+                
+                        <tr>
+                        <td>'.$pid.'</td>
+                        <td><input type="submit" class="btn btn-link btn-lg" value="'.$name.'"></td>
+                        <td>'.$description.'</td>
+                        </tr>
+                    </form>
+                    ';?>
+          <?php   }
+                      }
 
-              }else{
-            echo "0 results";
-            }
-          ?>
+                        }else{
+                      echo "0 results";
+                      }
+                    ?>
           
                       </tbody>
                     </table>
