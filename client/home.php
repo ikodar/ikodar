@@ -100,7 +100,7 @@
                 <a class="nav-link" href="help.php">Help</a>
               </li>
               <li class="nav-item"> 
-                <a class="nav-link" href="../index.php?logout='1'">Logout</a>
+                <a class="nav-link" href="home.php?logout='1'">Logout</a>
               </li>
             </ul>
           </div>
