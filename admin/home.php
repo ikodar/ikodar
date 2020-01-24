@@ -88,7 +88,7 @@
           <div class="collapse navbar-collapse justify-content-end">
             <ul class="navbar-nav">
               <li class="nav-item"> 
-                <a class="nav-link" href="../index.php?logout='1'">Logout</a><!--HREF HERE CHECK-->
+                <a class="nav-link" href="functions.php?logout='1'">Logout</a><!--HREF HERE CHECK-->
               </li>
             </ul>
           </div>
