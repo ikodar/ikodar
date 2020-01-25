@@ -6,6 +6,11 @@ if (!isLoggedIn()) {
   $_SESSION['msg'] = "You must log in first";
   header('location: ../login.php');
 }
+
+if(isset($_POST["pid"])){
+  $_SESSION["pid"]=$_POST["pid"];
+  header("location: details.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -92,7 +97,7 @@ ikodar
            <a class="nav-link" href="help.php">Help</a>
          </li>
          <li class="nav-item"> 
-           <a class="nav-link" href="../index.php?logout='1'">Logout</a>
+           <a class="nav-link" href="process.php?logout='1'">Logout</a>
          </li>
        </ul>
      </div>
@@ -126,8 +131,7 @@ ikodar
                   <td><?php $description=$row['description']; ?></td>
               
                   <?php echo '
-                    <form action="details.php" method="post">
-                    <input type="hidden" name="" value="'.$name.'">
+                    <form action="existing.php" method="post">
                     <input type="hidden" name="pid" value="'.$pid.'">
                 
                         <tr>

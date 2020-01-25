@@ -87,7 +87,7 @@
           <div class="collapse navbar-collapse justify-content-end">
             <ul class="navbar-nav">
               <li class="nav-item"> 
-                <a class="nav-link" href="../index.php?logout='1'">Logout</a><!--HREF HERE CHECK-->
+                <a class="nav-link" href="functions.php?logout='1'">Logout</a><!--HREF HERE CHECK-->
               </li>
             </ul>
           </div>
@@ -119,18 +119,20 @@
                   if ($results->num_rows > 0){
                     //output data of each row
                     while ($row = $results->fetch_assoc()) { 
-                        if ($row['status']=="new"){ ?>			
+                        if ($row['status']=="new"){ ?>		
+                          <form action="view.php" method="post">	
                           <tr>
-                              <td><?php echo $pid = $row['pid']; ?> <?php echo ' <input type="hidden" name="pid" value="'.$pid.'">' ?></td>
+                              <td><?php echo $row['pid']; ?></td>
                               <td><?php echo $row['name']; ?></td>
                               <td><?php echo $row['description']; ?></td>
+                              <input type="hidden" name="pid" value="<?php echo $row['pid']; ?>">
                               <td>
                                 <div class="input-group">
-                                  <a class="btn btn-primary" href="view.php" role="button" name="view_btn">View</a>
-                                  <a class="btn btn-primary" href="" role="button" name="delete_btn">Delete</a>
+                                  <button class="btn btn-primary" type="submit">View</button>
                                 </div>
                               </td>
                           </tr>
+                          </form>
                   <?php   }
                     }
 

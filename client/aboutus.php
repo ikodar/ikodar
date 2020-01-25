@@ -1,7 +1,6 @@
 <?php 
 
   include_once 'connection.php';
-  $result = mysqli_query($conn,"SELECT * FROM projects");
   include('process.php');
   if (!isLoggedIn()) {
     $_SESSION['msg'] = "You must log in first";
@@ -92,7 +91,7 @@
             </li>
          
             <li class="nav-item"> 
-              <a class="nav-link" href="../index.php?logout='1'">Logout</a>
+              <a class="nav-link" href="process.php?logout='1'">Logout</a>
             </li>
           </li>
         </ul>
