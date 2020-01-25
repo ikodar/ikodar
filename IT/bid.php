@@ -285,7 +285,7 @@
                  </div>
                  <div class="card-body">
 
-                   <form action="" method="post" class="was-validated" >
+                   <form action="" method="post" class="was-validated">
                    <input type="hidden" name="pid" value="<?=$pid;?>">
                    
                    <h1 style="font-size:17px;"><b>Bid Details</b></h>
