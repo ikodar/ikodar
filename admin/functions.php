@@ -53,13 +53,16 @@ function saveprofile(){
 	 $lastname  = $_POST['lastname'];
 	 $address   = $_POST['address'];
 
-	 $sql = "UPDATE users SET  firstname='$firstname', lastname='$lastname', addresss='$address' WHERE email='$email'";
+	 $sql = "UPDATE users 
+	 		 SET  firstname='$firstname', lastname='$lastname', 
+			  address='$address' 
+			  WHERE email='$email'";
     if($conn->query($sql) == TRUE){
 		echo "Record updated successfully";
 	}else{
 		echo "Error: " . $sql . "<br>" . $conn->error;
 	}
-	$conn->close();
-	header('location: profile.php');
+	
+	
 }
 ?>

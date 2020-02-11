@@ -5,7 +5,17 @@
   header('location: ../login.php');
   
   }
- 
+  
+  //retrieve current data 
+  $email=$_SESSION['email'];
+  $sql = "SELECT * FROM users WHERE email='$email'";
+	$results=$conn->query($sql);
+  $row = $results->fetch_assoc();
+
+  $firstname  =  $row['firstname'];
+  $lastname = $row['lastname'];
+  $address  =  $row['address'];
+
 ?>
  <!DOCTYPE html>
  <html lang="en">
@@ -98,16 +108,14 @@
        <!-- End Navbar -->
        <div class="content" style="width:1500px">
          <div class="container-fluid" style="width:1500px">
-           <div class="row">
+         <!--  <div class="row">-->
              <div class="col-lg-6 col-md-12">
                <div class="card">
-                 <div class="card-header card-header-tabs card-header-primary">
-                    <ul class="nav nav-tabs col-md-8" style="background-color:#113849; padding:20px; margin-left:15%">
-                      <a style="color:white; font-size:20px; text-align:center">Details</a>
-                    </ul>
-                  </div>
+                 <div class="card-header card-header-primary">
+                  <h4 class="card-title">Profile Details</h4>                   
+                 </div>
                  <div class="card-body">
-                   <form method="post" action="functions.php"  >
+                   <form method="post" action="profile.php"  >
                      <div class="row">
                        <div class="col-md-4">
                          <div class="form-group">
@@ -120,13 +128,13 @@
                        <div class="col-md-6">
                          <div class="form-group">
                            <label class="bmd-label-floating">First Name</label>
-                           <input name="firstname" type="text" class="form-control" value="">
+                           <input name="firstname" type="text" class="form-control" value="<?php echo $firstname?>">
                          </div>
                        </div>
                        <div class="col-md-6">
                          <div class="form-group">
                            <label class="bmd-label-floating">Last Name</label>
-                           <input name="lastname" type="text" class="form-control">
+                           <input name="lastname" type="text" class="form-control" value="<?php echo $lastname?>">
                          </div>
                        </div>
                      </div>
@@ -134,9 +142,10 @@
                        <div class="col-md-12">
                          <div class="form-group">
                            <label class="bmd-label-floating">Adress</label>
-                           <input name="address" type="text" class="form-control">
+                           <input name="address" type="text" class="form-control" value="<?php echo $address?>">
                          </div>
                        </div>
+                     </div> 
                      <div class="col-md-12">
                         <input class="btn btn-primary pull-right" type="submit" name="save_btn" value="SAVE"> 
                      </div>
@@ -144,11 +153,9 @@
                  </div>
                </div>
                <div class="card">
-                 <div class="card-header card-header-tabs card-header-primary">
-                    <ul class="nav nav-tabs col-md-8" style="background-color:#113849; padding:20px; margin-left:15%">
-                      <a style="color:white; font-size:20px; text-align:center">Change Password</a>
-                    </ul>
-                  </div>
+                 <div class="card-header card-header-primary">
+                  <h4 class="card-title">Change Password</h4>                   
+                 </div>
                  <div class="card-body">
                    <form method="post" action="profile.php">
                      <div class="row">
