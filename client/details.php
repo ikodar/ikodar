@@ -119,7 +119,7 @@
             </li>
          
             <li class="nav-item"> 
-              <a class="nav-link" href="process.php?logout='1'">Logout</a>
+              <a class="nav-link" href="process.php?logout='1'">Logout </a>
             </li>
           </li>
         </ul>
