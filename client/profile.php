@@ -1,11 +1,11 @@
 <?php 
-//view 
+
   include('profileProcess.php');
 	if (!isLoggedIn()) {
 	$_SESSION['msg'] = "You must log in first";
 	header('location: ../login.php');
   }
- 
+ //view 
   $email=$_SESSION['email'];
   $sql = "SELECT * FROM users WHERE email='$email'";
 	$results=$conn->query($sql);

@@ -5,7 +5,17 @@
   header('location: ../login.php');
   
   }
- 
+
+  //retrieve current data 
+  $email=$_SESSION['email'];
+  $sql = "SELECT * FROM users WHERE email='$email'";
+	$results=$conn->query($sql);
+  $row = $results->fetch_assoc();
+
+  $firstname  =  $row['firstname'];
+  $lastname = $row['lastname'];
+  $address  =  $row['address'];
+
 ?>
  <!DOCTYPE html>
  <html lang="en">
@@ -98,16 +108,14 @@
        <!-- End Navbar -->
        <div class="content" style="width:1500px">
          <div class="container-fluid" style="width:1500px">
-           <div class="row">
+         <!--  <div class="row">-->
              <div class="col-lg-6 col-md-12">
                <div class="card">
-                 <div class="card-header card-header-tabs card-header-primary">
-                    <ul class="nav nav-tabs col-md-8" style="background-color:#113849; padding:20px; margin-left:15%">
-                      <a style="color:white; font-size:20px; text-align:center">Details</a>
-                    </ul>
-                  </div>
+                 <div class="card-header card-header-primary">
+                  <h4 class="card-title">Profile Details</h4>                   
+                 </div>
                  <div class="card-body">
-                   <form method="post" action="functions.php"  >
+                   <form method="post" action="profile.php"  >
                      <div class="row">
                        <div class="col-md-4">
                          <div class="form-group">
@@ -120,13 +128,13 @@
                        <div class="col-md-6">
                          <div class="form-group">
                            <label class="bmd-label-floating">First Name</label>
-                           <input name="firstname" type="text" class="form-control" value="">
+                           <input name="firstname" type="text" class="form-control" value="<?php echo $firstname?>">
                          </div>
                        </div>
                        <div class="col-md-6">
                          <div class="form-group">
                            <label class="bmd-label-floating">Last Name</label>
-                           <input name="lastname" type="text" class="form-control">
+                           <input name="lastname" type="text" class="form-control" value="<?php echo $lastname?>">
                          </div>
                        </div>
                      </div>
@@ -134,9 +142,10 @@
                        <div class="col-md-12">
                          <div class="form-group">
                            <label class="bmd-label-floating">Adress</label>
-                           <input name="address" type="text" class="form-control">
+                           <input name="address" type="text" class="form-control" value="<?php echo $address?>">
                          </div>
                        </div>
+                     </div> 
                      <div class="col-md-12">
                         <input class="btn btn-primary pull-right" type="submit" name="save_btn" value="SAVE"> 
                      </div>
@@ -144,18 +153,17 @@
                  </div>
                </div>
                <div class="card">
-                 <div class="card-header card-header-tabs card-header-primary">
-                    <ul class="nav nav-tabs col-md-8" style="background-color:#113849; padding:20px; margin-left:15%">
-                      <a style="color:white; font-size:20px; text-align:center">Change Password</a>
-                    </ul>
-                  </div>
+                 <div class="card-header card-header-primary">
+                  <h4 class="card-title">Change Password</h4>                   
+                 </div>
                  <div class="card-body">
                    <form method="post" action="profile.php">
                      <div class="row">
                        <div class="col-md-6">
                          <div class="form-group">
                            <label class="bmd-label-floating">Current Password</label>
-                           <input name="oldpass" type="password" class="form-control">
+                           <input name="oldpass" type="password" class="form-control" required>
+                           <span class="error"><?php echo $passwordErr1;?></span>
                          </div>
                        </div>
                      </div>
@@ -163,7 +171,8 @@
                        <div class="col-md-6">
                          <div class="form-group">
                            <label class="bmd-label-floating">New Password</label>
-                           <input name="password1" type="password" class="form-control">
+                           <input name="password1" type="password" class="form-control" id="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                            title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters." required>
                          </div>
                        </div>
                      </div>
@@ -171,7 +180,8 @@
                        <div class="col-md-6">
                          <div class="form-group">
                            <label class="bmd-label-floating">Confirm Password</label>
-                           <input name="password2" type="password" class="form-control">
+                           <input name="password2" type="password" class="form-control" required>
+                           <span class="error"><?php echo $passwordErr;?></span>
                          </div>
                        </div>
                      </div>
@@ -183,7 +193,68 @@
                </div>
              </div>
              </div>
-             
+
+             <script>
+    var myInput = document.getElementById("psw");
+    var letter = document.getElementById("letter");
+    var capital = document.getElementById("capital");
+    var number = document.getElementById("number");
+    var length = document.getElementById("length");
+
+    // When the user clicks on the password field, show the message box
+    myInput.onfocus = function() {
+      document.getElementById("message").style.display = "block";
+    }
+
+    // When the user clicks outside of the password field, hide the message box
+    myInput.onblur = function() {
+      document.getElementById("message").style.display = "none";
+    }
+
+    // When the user starts to type something inside the password field
+    myInput.onkeyup = function() {
+      // Validate lowercase letters
+      var lowerCaseLetters = /[a-z]/g;
+      if(myInput.value.match(lowerCaseLetters)) {
+        letter.classList.remove("invalid");
+        letter.classList.add("valid");
+      } else {
+        letter.classList.remove("valid");
+        letter.classList.add("invalid");
+    }
+
+      // Validate capital letters
+      var upperCaseLetters = /[A-Z]/g;
+      if(myInput.value.match(upperCaseLetters)) {
+        capital.classList.remove("invalid");
+        capital.classList.add("valid");
+      } else {
+        capital.classList.remove("valid");
+        capital.classList.add("invalid");
+      }
+
+      // Validate numbers
+      var numbers = /[0-9]/g;
+      if(myInput.value.match(numbers)) {
+        number.classList.remove("invalid");
+        number.classList.add("valid");
+      } else {
+        number.classList.remove("valid");
+        number.classList.add("invalid");
+      }
+
+      // Validate length
+      if(myInput.value.length >= 8) {
+        length.classList.remove("invalid");
+        length.classList.add("valid");
+      } else {
+        length.classList.remove("valid");
+        length.classList.add("invalid");
+      }
+    }
+  </script>
+
+
    <!--   Core JS Files   -->
    <script src="../assets/js/core/jquery.min.js"></script>
    <script src="../assets/js/core/popper.min.js"></script>

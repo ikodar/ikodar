@@ -72,8 +72,8 @@ function update(){
 	}else{
 		echo '<script language="javascript">';
 
-// echo "window.location.reload();";
-echo '</script>';
+		// echo "window.location.reload();";
+		echo '</script>';
  
 	}
 	$conn->close();

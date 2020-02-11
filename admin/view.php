@@ -119,27 +119,7 @@
       <div class="content">
          <div class="container-fluid">
           <div class="card-body">
-            <form>
-              <div class="row">
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <h4><strong><a class="nav-link" href="view.php">Details</a></strong></h4>                          
-                  </div>
-                </div>
-                
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <h4><strong><a class="nav-link" href="proposals.php">Proposals</a></h4></strong>                          
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="form-group">
-                     <h4><strong><a class="nav-link" href="tasks.php">Tasks</a></h4></strong>                          
-                    </div>
-                   </div>
-                </div>
- 
-                <div class="content">
+            <div class="content">
                   <div class="container-fluid">
                     <div class="row">
                       <div class="col-md-8">
