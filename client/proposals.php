@@ -6,6 +6,14 @@
     $_SESSION['msg'] = "You must log in first";
     header('location: ../login.php');
   }
+
+  if(isset($_SESSION["pid"])){
+    $pid=$_SESSION["pid"];
+  }
+  else{
+    $pid="";
+    //header("location: index.php");
+  }
 ?>
 
 <!DOCTYPE html>
@@ -70,6 +78,26 @@
    <div class="container-fluid">
      <div class="navbar-wrapper">
        <a class="navbar-brand" href="#pablo">
+       <?php 
+                  
+                  $query = "SELECT * FROM projects where pid='$pid'";
+                  $results = $conn->query($query);
+                  if ($results->num_rows > 0) {
+                  //output data of each row
+                  while ($row = $results->fetch_assoc()) { 
+                   { ?>			
+                        <tr>
+                            <td><?php echo $row['name']; ?></a></td>
+                            
+                            
+                        </tr>
+                    <?php   }
+                      }
+    
+                        }else{
+                      echo "0 results";
+                      }
+                    ?>
        
        </a>
      </div>

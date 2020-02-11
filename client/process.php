@@ -32,8 +32,9 @@ if (isset($_POST['submit'])) {
 }
 
 // call the add() function if task_btn is clicked
-if (isset($_POST['task_btn'])) {
-	add();
+if (isset($_POST['submit'])) {
+	addtask();
+	//header("Location:tasks.php");
 }
 
 
@@ -96,25 +97,38 @@ echo '</script>';
 }
 
 
-// ADD Task
-function add(){
+// POST PROJECTS
+function addtask(){
 	// call these variables with the global keyword to make them available in function
-	global $conn, $errors, $task;
+	global $conn, $errors, $task, $pid, $email;
 
 	// receive all input values from the form.
-	$task    =  $_POST['task'];
+    // defined below to escape form values
 	
-	if ($errors== 0) {
+	$task =  $_POST['task'];
+	$pid =  $_POST['pid'];
+	$email = $_SESSION['email'];
+	
+	
+
+	// form validation: ensure that the form is correctly filled
+
+	if (empty($task)) { 
+		array_push($errors, "Task is required."); 
+	}
+
+	
+
+	// register user if there are no errors in the form
+	if (count($errors) == 0) {
 		
-		$query = "INSERT INTO task (task) 
-				  VALUES('$task')";
+		$query = "INSERT INTO tasks (task,pid,email) 
+				  VALUES('$task',$pid','$email')";
 		if ($conn->query($query) === TRUE) {
 		    echo "New record created successfully";
 		} else {
 		    echo "Error: " . $query . "<br>" . $conn->error;
 		}
-		
-
 	}
 	$conn->close();
 }

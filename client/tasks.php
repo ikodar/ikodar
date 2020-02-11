@@ -6,6 +6,14 @@
     $_SESSION['msg'] = "You must log in first";
     header('location: ../login.php');
   }
+
+  if(isset($_SESSION["pid"])){
+    $pid=$_SESSION["pid"];
+  }
+  else{
+    $pid="";
+    //header("location: index.php");
+  }
 ?>
 
 <!DOCTYPE html>
@@ -69,7 +77,27 @@
  <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
    <div class="container-fluid">
      <div class="navbar-wrapper">
-       <a class="navbar-brand" href="#pablo">Project 1</a>
+       <a class="navbar-brand" href="#pablo">
+       <?php 
+                  
+                   $query = "SELECT * FROM projects where pid='$pid'";
+                   $results = $conn->query($query);
+                   if ($results->num_rows > 0) {
+                   //output data of each row
+                   while ($row = $results->fetch_assoc()) { 
+                    { ?>			
+                         <tr>
+                             <td><?php echo $row['name']; ?></a></td>
+                             
+                             
+                         </tr>
+                     <?php   }
+                       }
+     
+                         }else{
+                       echo "0 results";
+                       }
+                     ?>
      </div>
      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
        <span class="sr-only">Toggle navigation</span>
@@ -152,13 +180,13 @@
                         <div class="form-group">
                           <label>Decribe your task:</label>
                             <div class="form-group" >
-                              <textarea name="task" class="form-control" rows="5" style="border: 1px solid #bdbdbd;"  placeholder="what makes you best candidate for this project?"></textarea>
+                              <textarea name="task" class="form-control" rows="5" style="border: 1px solid #bdbdbd;"  placeholder="add your task here"></textarea>
                             </div>
                         </div>
                       </div>
                     </div>
 
-                    <button type="submit"  class="btn btn-primary pull-right" value="add" name="task_btn">ADD</button>
+                    <button type="submit"  class="btn btn-primary pull-right" value="add" name="submit">ADD</button>
                     <div class="clearfix"></div>
                   </form>
                 </div>
