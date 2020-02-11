@@ -5,6 +5,14 @@
   header('location: ../login.php');
   }
 
+  //view name on top
+  $email=$_SESSION['email'];
+  $sql = "SELECT * FROM users WHERE email='$email'";
+	$results=$conn->query($sql);
+  $row = $results->fetch_assoc();
+
+  $firstname  =  $row['firstname'];
+
 ?>
 
 <!DOCTYPE html>
@@ -77,7 +85,7 @@
           <div class="navbar-wrapper">
             <a class="navbar-brand" href="#pablo">Hi</a>
             
-            <input name="email" type="email" class="form-control" style="width:100px" value="<?php echo $_SESSION['email'];?>">
+            <input name="email" type="email" class="form-control" style="width:100px" value="<?php echo $firstname?>">
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
