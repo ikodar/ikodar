@@ -21,13 +21,13 @@
   <!-- including links and necessary deatils for the pie chart-->
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript">
-    google.charts.load('current',{packages:['corechart']});
+    google.charts.load('current',{'packages':['corechart']});
     google.charts.setOnLoadCallback(drawChart);
     function drawChart(){
       var data = google.visualization.arrayToDataTable([
         ['Type','Number'],
         <?php 
-            while($row = $results->fetch_assoc()){
+            while($row = mysqli_fetch_array($results)){
               echo "['".$row["type"]."',".$row["number"]."],";
 
             }

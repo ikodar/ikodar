@@ -5,6 +5,10 @@
 	header('location: ../login.php');
   }
  
+  //retrieve current data 
+  $email=$_POST['email'];
+  $message=$_POST['message'];
+
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +16,7 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>Income</title>
+  <title>Reply</title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!-- Fonts and icons -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
@@ -106,18 +110,16 @@
                      <div class="row">
                        <div class="col-md-4">
                          <div class="form-group">
-                           <label class="bmd-label-floating" >Email address</label>
-                           <input name="email" type="email" class="form-control" style="width:500px" value="<?php echo $_SESSION['email'];?>">
-                         </div>
+                           <label class="bmd-label-floating" >Sender's Email:</label><br>
+                           <label class="bmd-label-floating" ><?php echo $email;?></label>
+                        </div>
                        </div>
                      </div>
                      <div class="row">
                        <div class="col-md-12">
                          <div class="form-group">
-                           <label class="bmd-label-floating">Message</label>
-                           <div class="form-group">
-                             <textarea name="about" style="width:520px" class="input" rows="5"><?php echo $message?></textarea>
-                           </div>
+                           <label class="bmd-label-floating">Message:</label><br>
+                           <label class="bmd-label-floating"><?php echo $message?></label>
                          </div>
                        </div>
                     </div>
@@ -128,12 +130,12 @@
                   <h4 class="card-title">Reply Message</h4>                   
                  </div>
                  <div class="card-body">
-                   <form method="post" action="reply.php">
+                   <form method="post" action="messages.php">
                      <div class="row">
                        <div class="col-md-6">
                          <div class="form-group">
                            <label class="bmd-label-floating">To:</label>
-                           <input name="oldpass" type="password" class="form-control" required>
+                           <input name="receiver" type="text" class="form-control" value="<?php echo $email;?>">
                            <span class="error"><?php echo $passwordErr1;?></span>
                          </div>
                        </div>
@@ -142,8 +144,7 @@
                        <div class="col-md-6">
                          <div class="form-group">
                            <label class="bmd-label-floating">From:</label>
-                           <input name="password1" type="password" class="form-control" id="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
-                            title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters." required>
+                           <input name="sender" type="text" class="form-control" value="ikodar@gmail.com">
                          </div>
                        </div>
                      </div>
@@ -152,13 +153,13 @@
                          <div class="form-group">
                            <label class="bmd-label-floating">Message:</label>
                            <div class="form-group">
-                             <textarea name="about" style="width:520px" class="input" rows="5"><?php echo $message?></textarea>
+                             <textarea name="reply" style="width:520px" class="input" rows="5" >Reply with respect to :"<?php echo $message;?>"</textarea>
                            </div>
                          </div>
                        </div>
                      </div>
                      <div class="col-md-12">
-                        <input class="btn btn-primary pull-right" type="submit" name="update_btn" value="UPDATE"> 
+                        <input class="btn btn-primary pull-right" type="submit" name="send_btn" value="Send"> 
                      </div>
                   </form>
                  </div>

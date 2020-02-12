@@ -42,12 +42,17 @@ if(isset($_POST['delete_btn'])){
 	delete();
 }
 
+//call send function if send_btn is clicked. (email sending)
+if(isset($_POST['send_btn'])){
+	send();
+}
+
 //VIEW PROJECT in detail.
 function view(){
 	header('location: view.php');
 }
 
-//UPDATE the profile details.
+//UPDATE the profile details, for the admin only.
 function saveprofile(){
 	 // variable declaration
 	 global $conn;
@@ -140,5 +145,13 @@ function delete(){
 	}
 }
 
+//SEND email function
+function send(){
+	$msg = $_POST['reply'];
+	     //sender's email,subject of the email, message to be sent
+	mail('vinethrip@gmail.com','Reply for the ikodar contact us form',$msg);
+	header('location: messages.php');
+
+}
 
 ?>
