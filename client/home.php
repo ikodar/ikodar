@@ -112,7 +112,7 @@ img {vertical-align: middle;}
 
  
 .active {
-  background-color: #717171;
+  background-color: #2E3B7F;
 }
 
 /* Fading animation */
