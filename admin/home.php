@@ -5,6 +5,9 @@
 	$_SESSION['msg'] = "You must log in first";
 	header('location: ../login.php');
   }
+
+  $sql = "SELECT type, count(*) as number FROM projects GROUP BY type";
+  $results = $conn->query($sql);
  
 ?>
 
@@ -14,6 +17,32 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>Dashboard</title>
+
+  <!-- including links and necessary deatils for the pie chart-->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current',{'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart(){
+      var data = google.visualization.arrayToDataTable([
+        ['Type','Number'],
+        <?php 
+            while($row = $results->fetch_assoc()){
+              echo "['".$row['type']."',".$row['number']."],";
+
+            }
+        ?>
+      ]);
+      var option:{
+        title:'Percentage of Project types',
+        pieHole:0.4
+      };
+      var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+      chart.draw(data,option);
+
+    } 
+  </script>
+
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!-- Fonts & icons -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
@@ -107,9 +136,9 @@
            <p class="card-category">Overall Project divisions</p>
          </div>
          <div class="card-body ">
-          <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
+          <div id="piechart" style="width:900px; height:500px;"></div>
            <div class="legend">
-            <i class="fa fa-circle text-info"></i> System development
+            <i class="fa fa-circle text-info"> </i> System development
             <i class="fa fa-circle text-danger"></i> Web development
             <i class="fa fa-circle text-warning"></i> Graphics
            </div>
