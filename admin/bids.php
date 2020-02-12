@@ -5,7 +5,7 @@
     header('location: ../login.php');
   }
 
-  $pid =  $name = $description = $biddate = $deadline = $type = $amount ="";
+  $pid =  $name ="";
 
   if(isset($_SESSION["pid"])){
     $pid=$_SESSION["pid"];
@@ -13,6 +13,18 @@
   else{
     $pid="";
   }
+
+  $query = "SELECT * FROM projects where pid='$pid'";
+  $results = $conn->query($query);
+  if ($results->num_rows > 0) {
+    //output data of each row
+    while ($row = $results->fetch_assoc()) { 
+      $name = $row ['name'];
+    }
+ }else{
+     echo "0 results";
+ }
+
 ?>
 
 <!DOCTYPE html>

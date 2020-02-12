@@ -5,7 +5,7 @@
     header('location: ../login.php');
   }
 
-  $pid =  $name = $description = $biddate = $deadline = $type = $amount ="";
+  $pid =  $name ="";
 
   if(isset($_SESSION["pid"])){
     $pid=$_SESSION["pid"];
@@ -13,6 +13,17 @@
   else{
     $pid="";
   }
+
+  $query = "SELECT * FROM projects where pid='$pid'";
+  $results = $conn->query($query);
+  if ($results->num_rows > 0) {
+    //output data of each row
+    while ($row = $results->fetch_assoc()) { 
+      $name = $row ['name'];
+    }
+ }else{
+     echo "0 results";
+ }
 
 ?>
 
@@ -134,87 +145,12 @@
                       <div class="col-md-8">
                          <div class="card">
                             <div class="card-header card-header-primary">
-                               <h4 class="card-title">Project Details</h4>                   
+                               <h4 class="card-title">Project Tasks</h4>                   
                             </div>
                              <div class="card-body">
                                  <div class="row">
                                    <div class="col-md-6">
-                                     <div class="form-group">
-                                        <label class="bmd-label-floating">Project Name: </label> 
-                                          <tr>
-                                            <td><?php echo $name; ?></a></td>    
-                                          </tr>               
-                                        </div>
-                                      </div>                                             
-                                    </div>
-
-                                   <div class="row">
-                                     <div class="col-md-6">
-                                       <div class="form-group">
-                                          <label class="bmd-label-floating">Project Type:</label>   
-                                         		<tr>
-                                                <td><?php echo $type; ?></a></td>    
-                                              </tr>                     
-                                          </div>
-                                        </div>                      
-                                      </div>
-
-                                    <div class="row">
-                                      <div class="col-md-6">
-                                        <div class="form-group">
-                                          <label class="bmd-label-floating">IT Individual:</label>                           
-                                        </div>
-                                      </div>                                            
-                                    </div>
-                     
-                                    <div class="row">
-                                      <div class="col-md-4">
-                                        <div class="form-group">
-                                          <label class="bmd-label-floating">Amount:</label>  
-                                            <tr>
-                                              <td><?php echo $amount ?></a></td>    
-                                            </tr>
-                                        </div>
-                                      </div>
-                                    <div class="col-md-4">
-                                      <div class="form-group">
-                                        <label class="bmd-label-floating">Bid End Date:</label>  
-                                          <tr>
-                                            <td><?php echo $biddate ?></a></td>     
-                                          </tr>                      
-                                        </div>
-                                      </div>
-                                    <div class="col-md-4">
-                                      <div class="form-group">
-                                        <label class="bmd-label-floating">Deadline:</label>
-                                          <tr>
-                                            <td><?php echo $deadline; ?></a></td>    
-                                          </tr>                          
-                                        </div>
-                                      </div>
-                                    </div>
-
-                                    <div class="row">
-                                      <div class="col-md-12">
-                                        <div class="form-group">
-                                          <label>Description:</label>			
-                                            <tr>
-                                              <td><?php echo $description; ?></a></td>
-                                            </tr>                        
-                                        </div>
-                                      </div>
-                                  
-                                    </div>
-
-                                <div class="row">
-                                  <div class="col-md-6">
-                                    <div class="form-group">
-                                      <label class="bmd-label-floating">Shedule:</label>  
-                                         
-                                    </div>
-                                  </div>                                             
-                                  </div>
-                               </form>
+                               
                               </div>
                             </div>
                           </div>
