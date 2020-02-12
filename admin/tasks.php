@@ -13,23 +13,6 @@
   else{
     $pid="";
   }
-  
-   $query = "SELECT * FROM projects where pid='$pid'";
-   $results = $conn->query($query);
-   if ($results->num_rows > 0) {
-      //output data of each row
-      while ($row = $results->fetch_assoc()) { 
-        $name = $row ['name'];
-        $type = $row['type'];
-        $description = $row['description'];
-        $biddate = $row['biddate'];
-        $deadline = $row['deadline'];
-        $amount = $row['amount'];
-      }
-
-   }else{
-       echo "0 results";
-   }
 
 ?>
 
@@ -38,7 +21,7 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>Project Details</title>
+  <title>Projects Tasks</title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!-- Fonts and icons -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
