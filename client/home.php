@@ -145,6 +145,7 @@
       <!-- End Navbar
       style="height:40px; width:40px; margin:0;" -->
       
+      
       <div class="content" >
          <div class="container-fluid" >
          <p class="card-category" style="font-weight:bold " >Explore more projects..</p>
