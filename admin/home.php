@@ -21,14 +21,14 @@
   <!-- including links and necessary deatils for the pie chart-->
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript">
-    google.charts.load('current',{'packages':['corechart']});
+    google.charts.load('current',{packages:['corechart']});
     google.charts.setOnLoadCallback(drawChart);
     function drawChart(){
       var data = google.visualization.arrayToDataTable([
         ['Type','Number'],
         <?php 
             while($row = $results->fetch_assoc()){
-              echo "['".$row['type']."',".$row['number']."],";
+              echo "['".$row["type"]."',".$row["number"]."],";
 
             }
         ?>
@@ -136,7 +136,7 @@
            <p class="card-category">Overall Project divisions</p>
          </div>
          <div class="card-body ">
-          <div id="piechart" style="width:900px; height:500px;"></div>
+          <div id="piechart" style="width:900px; height:300px;"></div>
            <div class="legend">
             <i class="fa fa-circle text-info"> </i> System development
             <i class="fa fa-circle text-danger"></i> Web development
