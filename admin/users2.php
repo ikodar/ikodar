@@ -78,7 +78,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <p class="navbar-brand">Users</p> <!--CHECK THE HREF HERE-->
+            <p class="navbar-brand">Users (Clients)</p> <!--CHECK THE HREF HERE-->
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -128,17 +128,20 @@
                   $results = $conn->query($query);
                   if ($results->num_rows > 0){
                     //output data of each row
-                    while ($row = $results->fetch_assoc()) {  ?>			
-                          <tr>
+                    while ($row = $results->fetch_assoc()) { 	
+                          $email=	$row['email'];	?>
+                          <tr>                            
+                            <form action="userprofile.php" method="post">
                               <td><?php echo $row['email']; ?></td>
                               <td><?php echo $row['firstname']; ?></td>
                               <td><?php echo $row['lastname']; ?></td>
                               <td>
                                 <div class="input-group">
-                                  <a class="btn btn-primary" href="view.php" role="button" name="view_btn">View</a>
-                                  <a class="btn btn-primary" href="" role="button" name="view_btn">Delete</a>
+                                  <input type="hidden" name="email" value="<?php echo $email; ?>">
+                                  <input type="submit" name="viewprofile_btn" class="btn btn-primary" value="View">
                                 </div>
                               </td>
+                            </form>  
                           </tr>
                     <?php }
                   }else{
@@ -146,7 +149,7 @@
                   } ?>
               </tbody>
             </table>
-      <!--end retrieve data-->
+           <!--end retrieve data-->
           </div>
         </div>
       </div>

@@ -1,24 +1,26 @@
 <?php 
-
-  include('profileProcess.php');
+  include('functions.php');
 	if (!isLoggedIn()) {
 	$_SESSION['msg'] = "You must log in first";
-	header('location: ../login.php');
+  header('location: ../login.php');
+  
   }
- //view 
-  $email=$_SESSION['email'];
+
+  //retrieve current data 
+  $email=$_POST['email'];
+
   $sql = "SELECT * FROM users WHERE email='$email'";
-	$results=$conn->query($sql);
+  $results=$conn->query($sql);
   $row = $results->fetch_assoc();
 
   $firstname  =  $row['firstname'];
   $lastname = $row['lastname'];
   $address  =  $row['address'];
-	$city = $row['city'];
-	$country = $row['country'];
-	$postalcode = $row['postalcode'];
-	$about = $row['about'];
-  
+  $city = $row['city'];
+  $country = $row['country'];
+  $postalcode = $row['postalcode'];
+  $about = $row['about'];
+
 ?>
  <!DOCTYPE html>
  <html lang="en">
@@ -37,134 +39,93 @@
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
    <!-- CSS Files -->
    <link href="css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
-
-   <!-- CSS dfdfJust for demo purpose, don't include it in your project -->
-   <link href="../assets/demo/demo.css" rel="stylesheet" />
-
    <link href="css/custom.css" rel="stylesheet" />
  </head>
  
  <body class="">
    <div class="wrapper ">
-     <div class="sidebar" data-color="azure" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
-       <!--
-         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
- 
-         Tip 2: you can also add an image using data-image tag
-     -->
-     <div class="logo">
-         <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-           ikodar
-         </a>
-       </div>
-       
-       <div class="sidebar-wrapper">
-         <ul class="nav">
-           <li class="nav-item active  ">
-             <a class="nav-link" href="./home.php">
-               <!--<i class="material-icons">dashboard</i>-->
-               <p>Dashboard</p>
-             </a>
-             </li>
-             <li class="nav-item active  ">
-               <a class="nav-link" href="./projects.php">
-                 <!--<i class="material-icons">dashboard</i>-->
-                 <p>My Projects</p>
-               </a>
- 
-           </li>
-           <li class="nav-item active">
-             <a class="nav-link" href="./profile.php">
-               <!--<i class="material-icons">bubble_chart</i>-->
-               <p>My Profile</p>
-             </a>
-           </li>
+     <!--Dashboard panel-->
+    <div class="sidebar" data-color="azure" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+      <!--Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+        Tip 2: you can also add an image using data-image tag-->
+      <div class="logo">
+        <a class="simple-text logo-normal">
+        i-කෝඩර්
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item active  ">
+            <a class="nav-link" href="home.php">
+              <p>Dashboard</p>
+            </a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="./projects.php">
-              
+            <a class="nav-link" href="projects.php">
+              <p>Projects</p>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="users2.php">
+              <p>Users</p>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="profile.php">
+              <p>My Profile</p>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="messages.php">
               <p>Messages</p>
             </a>
           </li>
-           <li class="nav-item active">
-             <a class="nav-link" href="./payments.php">
-               <!--<i class="material-icons">location_ons</i>-->
-               <p>Payments</p>
-             </a>
-           </li>
-         </ul>
-       </div>
-     </div>
+          <li class="nav-item active">
+            <a class="nav-link" href="income.php">
+              <p>Income</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- End of dashboard panel-->
+    <!--Content-->
      <div class="main-panel">
        <!-- Navbar -->
        <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
-         <div class="container-fluid">
-           <div class="navbar-wrapper">
-             <a class="navbar-brand" href="#pablo">My Profile</a>
-           </div>
-           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-             <span class="sr-only">Toggle navigation</span>
-             <span class="navbar-toggler-icon icon-bar"></span>
-             <span class="navbar-toggler-icon icon-bar"></span>
-             <span class="navbar-toggler-icon icon-bar"></span>
-           </button>
-           <div class="collapse navbar-collapse justify-content-end">
-             <form class="navbar-form">
-               
-             </form>
-             <ul class="navbar-nav">
-               
-
-               
-               <li class="nav-item">
-                 <a class="nav-link" href="aboutus.php">About Us</a>
-               </li>
-               <li class="nav-item">
-                 <a class="nav-link" href="help.php">Help</a>
-               </li>
-               <li class="nav-item"> 
-                 <a class="nav-link" href="profileProcess.php?logout='1'">Logout</a>
-               </li>
-             </ul>
-           </div>
-         </div>
-       </nav>
- 
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <p class="navbar-brand">User Profile</p> <!--CHECK THE HREF HERE-->
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end">
+            <ul class="navbar-nav">
+              <li class="nav-item"> 
+                <a class="nav-link" href="functions.php?logout='1'">Logout</a><!--HREF HERE CHECK-->
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
        <!-- End Navbar -->
        <div class="content" style="width:1500px">
          <div class="container-fluid" style="width:1500px">
-           
-           
-           <div class="row">
+         <!--  <div class="row">-->
              <div class="col-lg-6 col-md-12">
                <div class="card">
-                 <div class="card-header card-header-tabs card-header-primary">
-                   
-                 
-                
-                        
-                                <ul class="nav nav-tabs col-md-8" style="background-color:#113849; padding:20px; margin-left:15%">
-                                  
-                                   
-                                    
-                                      <a style="color:white; font-size:20px; text-align:center">My Profile</a>
-                                    
-                                    
-                                      
-                                  
-                              </ul>
-                  
-                     
-                      
-
+                 <div class="card-header card-header-primary">
+                  <h4 class="card-title">Profile Details</h4>                   
                  </div>
                  <div class="card-body">
-                   <form method="post" action="profile.php"  >
+                   <form method="post" action="userprofile.php"  >
                      <div class="row">
                        <div class="col-md-4">
                          <div class="form-group">
                            <label class="bmd-label-floating" >Email address</label>
-                           <input name="email" type="email" class="form-control" style="width:500px" value="<?php echo $_SESSION['email'];?>">
+                           <input name="email" type="email" class="form-control" style="width:500px" value="<?php echo $email;?>">
                          </div>
                        </div>
                      </div>
@@ -185,11 +146,11 @@
                      <div class="row">
                        <div class="col-md-12">
                          <div class="form-group">
-                           <label class="bmd-label-floating">Adress</label>
+                           <label class="bmd-label-floating">Address</label>
                            <input name="address" type="text" class="form-control" value="<?php echo $address?>">
                          </div>
                        </div>
-                     </div>
+                     </div> 
                      <div class="row">
                        <div class="col-md-4">
                          <div class="form-group">
@@ -215,40 +176,29 @@
                          <div class="form-group">
                            <label>About Me</label>
                            <div class="form-group">
-                             
                              <textarea name="about" style="width:520px" class="input" rows="5"><?php echo $about?></textarea>
+                             <span class="error"><?php echo $deleteErr;?></span>
                            </div>
                          </div>
                        </div>
                      </div>
-
-                     <p style="color:red;">
-                        <?php
-                            if(isset($error)){
-                              echo $error;
-                            }
-                        ?>
                      <div class="col-md-12">
-                     <input class="btn btn-primary pull-right" type="submit" name="submit_btn" value="SAVE">
-
-                     <input class="btn btn-primary pull-right" type="submit" name="delete_btn" value="DELETE" formaction="profile.php">
-                     
-                     
+                        <input class="btn btn-primary pull-right" type="submit" name="delete_btn" value="Delete"> 
                      </div>
-                     
-                   </form>
+                  </form>
                  </div>
                </div>
+               
              </div>
- 
-             
-                         
+
+   
+
+
    <!--   Core JS Files   -->
    <script src="../assets/js/core/jquery.min.js"></script>
    <script src="../assets/js/core/popper.min.js"></script>
    <script src="../assets/js/core/bootstrap-material-design.min.js"></script>
    <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
   
- </body>
- 
- </html>
+</body>
+</html>
