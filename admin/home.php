@@ -19,9 +19,11 @@
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- CSS Files -->
+  <link href="../css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../css/light-bootstrap-dashboard.css?v=2.0.0 " rel="stylesheet" />
+
   <link href="css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
   <link href="css/custom.css" rel="stylesheet" />
-  
 </head>
 <body class="">
   <div class="wrapper ">
@@ -95,7 +97,29 @@
         </div>
       </nav>
       <!-- End Navbar -->
+    <div class="content">
+     <div class="container-fluid">
+      <div class="row">
+       <div class="col-md-5">
+        <div class="card ">
+         <div class="card-header ">
+          <h4 class="card-title">Project Statistics</h4>
+           <p class="card-category">Overall Project divisions</p>
+         </div>
+         <div class="card-body ">
+          <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
+           <div class="legend">
+            <i class="fa fa-circle text-info"></i> System development
+            <i class="fa fa-circle text-danger"></i> Web development
+            <i class="fa fa-circle text-warning"></i> Graphics
+           </div>
+           </div>
+         </div>
+       </div>
+      </div>
+     </div>
     </div>
+   </div>
     <!-- End of Content -->
   </div>
 </body>
