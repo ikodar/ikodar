@@ -1,7 +1,7 @@
 <?php 
 
   include_once 'connection.php';
-  include('process.php');
+  include('functions.php');
   if (!isLoggedIn()) {
     $_SESSION['msg'] = "You must log in first";
     header('location: ../login.php');
@@ -169,7 +169,8 @@
                   <h4 class="card-title">Create a New Task</h4>
                 </div>
                  <div class="card-body">
-                  <form action="myform" method="post" class="was-validated">                                      
+                  <form action="" method="post" class="was-validated">
+                  <input type="hidden" name="pid" value="<?=$pid;?>">                                      
                     <div class="row">
                       <div class="col-md-5">                      
                       </div>                        
@@ -186,7 +187,7 @@
                       </div>
                     </div>
 
-                    <button type="submit"  class="btn btn-primary pull-right" value="add" name="submit">ADD</button>
+                    <button type="submit"  class="btn btn-primary pull-right" name="add">ADD</button>
                     <div class="clearfix"></div>
                   </form>
                 </div>
@@ -203,9 +204,41 @@
               </div>
             <div class="card-body">
 
-              <form action="bid.php" method="post" class="was-validated">                  
+                               
                 <div class="row">
-                  <div class="col-md-5">                       
+                  <div class="col-md-5">  
+                  <div class="table-responsive">
+                    <table class="table">
+                      <tbody>
+
+                      <?php
+                        $query = "SELECT * FROM tasks where pid='$pid'";
+                        $results = $conn->query($query);
+                          if ($results->num_rows > 0) {
+                          //output data of each row
+                             while ($row = $results->fetch_assoc()) { 
+                             { ?>			
+                              <td><?php $tid= $row['tid']; ?></td>
+                              <td><?php $task=$row['task']; ?></td>
+                              <?php echo '
+                               <form action="task.php" method="post">
+                               <input type="hidden" name="pid" value="'.$pid.'">
+                               <tr>
+                                <td>'.$tid.'</td>
+                                <td>'.$task.'</td>
+                              </tr>
+                              </form>
+                       ';?>
+                       <?php   }
+                      }
+
+                        }else{
+                      echo "0 results";
+                      }
+                    ?>
+          
+                      </tbody>
+                    </table>                                   
                   </div>                       
                 </div>                     
             </div>

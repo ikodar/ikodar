@@ -32,9 +32,9 @@ if (isset($_POST['submit'])) {
 }
 
 // call the add() function if task_btn is clicked
-if (isset($_POST['submit'])) {
+if (isset($_POST['add'])) {
 	addtask();
-	//header("Location:tasks.php");
+	header("Location:tasks.php");
 }
 
 
