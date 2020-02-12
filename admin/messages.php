@@ -129,7 +129,10 @@
                   $results = $conn->query($query);
                   if ($results->num_rows > 0){
                     //output data of each row
-                    while ($row = $results->fetch_assoc()) {  ?>			
+                    while ($row = $results->fetch_assoc()) {  	?>	
+                          <form action="reply.php"	method="post">
+                         <?php $email=$row['email'];
+                               $message=$row['message'];?>
                           <tr>
                               <td><?php echo $row['id']; ?></td>
                               <td><?php echo $row['name']; ?></td>
@@ -137,11 +140,13 @@
                               <td><?php echo $row['message']; ?></td>
                               <td>
                                 <div class="input-group">
-                                  <a class="btn btn-primary" href="reply.php" role="button" name="view_btn">Reply</a>
-                                  <a class="btn btn-primary" href="" role="button" name="view_btn">Delete</a>
+                                  <input type="hidden" name="email" value="<?php echo $email; ?>">
+                                  <input type="hidden" name="message" value="<?php echo $message; ?>">
+                                  <input type="submit" name="viewmessage_btn" class="btn btn-primary" value="View">
                                 </div>
                               </td>
                           </tr>
+                          </form>
                     <?php }
 
                   }else{
