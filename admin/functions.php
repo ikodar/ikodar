@@ -22,7 +22,7 @@ if (isset($_GET['logout'])) {
 	header("location: ../index.php");
 }
 
-//call view function when view button is clicked.
+//call view function when view button is clicked, for viewing projects.
 if(isset($_POST['view_btn'])){
 	view();
 }
@@ -35,6 +35,11 @@ if (isset($_POST['update_btn'])) {
 // call the saveprofile() function if save_btn is clicked
 if (isset($_POST['save_btn'])) {
 	saveprofile();
+}
+
+//call the delete function if delete_btn is clicked (for users)
+if(isset($_POST['delete_btn'])){
+	delete();
 }
 
 //VIEW PROJECT in detail.
@@ -110,4 +115,30 @@ function updatepassword(){
 	}
 
 }
+//variable declaration
+$deleteErr="";
+
+//DELETE users 
+function delete(){
+	global $conn, $deleteErr;
+
+	$user=$_POST['email'];
+
+	//check if the person has any on going projects
+	$sql = "SELECT * FROM projects WHERE client ='$user' || IT='$user' && status='open'";
+	$results = $conn->query($sql);
+	if($results->num_rows == 0){
+		$sql = "DELETE FROM users WHERE email ='$user'";
+		if($conn->query($sql) == TRUE){
+			echo "User deleted.";
+			header('location: users2.php');
+		}else{
+			echo "Error: " . $sql . "<br>" . $conn->error;
+		}
+	}else{
+		$deleteErr ="Cannot delete user due open projects.";
+	}
+}
+
+
 ?>
