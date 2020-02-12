@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
 }
 
 // call the add() function if task_btn is clicked
-if (isset($_POST['submit'])) {
+if (isset($_POST['submit_btn'])) {
 	addtask();
 	//header("Location:tasks.php");
 }
@@ -58,9 +58,7 @@ function postproject(){
     $deadline  =  $_POST['deadline'];
 	$payment = $_POST['payment'];
 	$amount = $_POST['amount'];
-	
-	
-	//$client   =  $_SESSION['username'];
+	$client   =  $_SESSION['email'];
 
 	// form validation: ensure that dates are correctly filled
 	$currentdate=date("Y-m-d");
@@ -74,13 +72,11 @@ function postproject(){
 		$errors=$errors+1;
 
 	}
-
-
 	
 	if ($errors== 0) {
 		
-		$query = "INSERT INTO projects (type, name, description,  biddate, schedule, deadline, payment, amount, status) 
-				  VALUES('$type','$name', '$description', '$biddate','$schedule','$deadline','$payment','$amount',  'new')";
+		$query = "INSERT INTO projects (type, name, description,  biddate, schedule, deadline, payment, amount, status,client) 
+				  VALUES('$type','$name', '$description', '$biddate','$schedule','$deadline','$payment','$amount','new','$client')";
 		if ($conn->query($query) === TRUE) {
 		    echo "New record created successfully";
 		} else {
