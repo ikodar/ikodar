@@ -4,6 +4,11 @@
 	$_SESSION['msg'] = "You must log in first";
 	header('location: ../login.php');
   }
+
+  if(isset($_POST["pid"])){
+    $_SESSION["pid"]=$_POST["pid"];
+    header('location: view.php');
+  }
  
 ?>
 
@@ -12,7 +17,7 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>Projects</title>
+  <title>New Projects</title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!-- Fonts and icons -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
@@ -108,7 +113,6 @@
                   <th width="18%">ID</th>
                   <th width="18%">Name</th>
                   <th width="18%">Description</th>
-                  <th width="18%">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -120,19 +124,21 @@
                     //output data of each row
                     while ($row = $results->fetch_assoc()) { 
                         if ($row['status']=="new"){ ?>		
-                          <form action="view.php" method="post">	
                           <tr>
-                              <td><?php echo $row['pid']; ?></td>
-                              <td><?php echo $row['name']; ?></td>
-                              <td><?php echo $row['description']; ?></td>
-                              <input type="hidden" name="pid" value="<?php echo $row['pid']; ?>">
-                              <td>
-                                <div class="input-group">
-                                  <button class="btn btn-primary" type="submit">View</button>
-                                </div>
-                              </td>
+                            <td><?php $pid= $row['pid']; ?></td>
+                            <td><?php $name=$row['name']; ?></td>
+                            <td><?php $description=$row['description']; ?></td>
+                            <?php echo '
+                              <form action="newprojects.php" method="post">
+                              <input type="hidden" name="pid" value="'.$pid.'">
+                                  <tr>
+                                  <td>'.$pid.'</td>
+                                  <td><input type="submit" class="btn btn-link btn-lg" value="'.$name.'"></td>
+                                  <td>'.$description.'</td>
+                                  </tr>
+                              </form>
+                            ';?>
                           </tr>
-                          </form>
                   <?php   }
                     }
 

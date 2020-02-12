@@ -169,7 +169,7 @@
                   <h4 class="card-title">Create a New Task</h4>
                 </div>
                  <div class="card-body">
-                  <form action="myform" method="post" class="was-validated">                                      
+                  <form action="tasks.php" method="post" class="was-validated">                                      
                     <div class="row">
                       <div class="col-md-5">                      
                       </div>                        
@@ -186,7 +186,7 @@
                       </div>
                     </div>
 
-                    <button type="submit"  class="btn btn-primary pull-right" value="add" name="submit">ADD</button>
+                    <button type="submit"  class="btn btn-primary pull-right" value="add" name="submit_btn">ADD</button>
                     <div class="clearfix"></div>
                   </form>
                 </div>
