@@ -26,4 +26,13 @@
     margin-left:15%;
   }
 
-  
+
+.scroll
+		{
+      
+      
+      overflow-y: scroll;
+      overflow-x: hidden;
+      max-height:250px;
+    }
+
