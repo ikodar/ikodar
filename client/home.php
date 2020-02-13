@@ -56,7 +56,7 @@
       ]);
     var options = {
       title: 'Percentage of types of projects'
-      }
+      };
     var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
     chart.draw(data, options);
 
@@ -372,6 +372,7 @@ function showSlides() {
                    <img src="./img/mng.jpg" style="width:202px; length:200px align:center">
                 </div>
                </div>
+<<<<<<< HEAD
              </div>
             <!--Row 3333 end-->
             <div class="col-lg-8">
@@ -417,6 +418,18 @@ function showSlides() {
     <!--End of Row 44444-->
 
             <!--Row 5555-->
+=======
+             
+             </div></br>
+              <!--pie chart-->
+              <div class="row">
+              <div id="piechart1" style="width:700px; height:300px;"></div>
+              
+              </div>
+              
+            </br>
+            
+>>>>>>> 6c55f547bdfdb6c7c258f6cc15465f98b72000bd
              <p class="card-category" style="font-weight:bold " >Best software developers...</p>
              
         <div class="content" >
