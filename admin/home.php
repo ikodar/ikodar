@@ -168,18 +168,24 @@
       <div class="container-fluid">
 
           <!-- client IT individuals count-->
-          <div class="row">
-            <div class="col-md-5">
+          <div class="row d-flex justify-text-center" >
+            <div class="col-md-4">
               <div class="card ">
-                <div class="card-body ">
-                  <p class="card-category">No. of IT individuals <?php echo $ITcount;?></p>
+                <div class="card-header card-header-primary" style="background-color:#175873; font-size:30px; color:white;">
+                      <p class="card-category">No. of IT individuals</p>                  
+                 </div>
+                <div class="card-body " style="font-size:30px;">
+                  <p class="card-category"><?php echo $ITcount;?></p>
                 </div>  
               </div>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-4">
               <div class="card ">
-                <div class="card-body ">
-                  <p class="card-category">No. of Clients <?php echo $clientcount;?></p>
+                <div class="card-header card-header-primary" style="background-color:#175873; font-size:30px; color:white;">
+                  <p class="card-category">No. of Clients</p>                 
+                 </div>
+                <div class="card-body " style="font-size:30px;">
+                  <p class="card-category"><?php echo $clientcount;?></p>
                 </div> 
               </div>
             </div>
