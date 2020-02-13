@@ -12,7 +12,10 @@
   $row = $results->fetch_assoc();
 
   $firstname  =  $row['firstname'];
-
+  
+  //piechart
+  $qry = "SELECT type, count(*) as number FROM projects GROUP BY type ";
+  $result = $conn->query($qry);
 ?>
 
 <!DOCTYPE html>
@@ -31,6 +34,31 @@
   <!-- CSS Files -->
   <link href="css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
   <link href="css/custom.css" rel="stylesheet" />
+
+  <!--piechart library-->
+  <script type="text/javascript" src="http://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+  google.charts.load('current',{'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+  function drawChart()
+  {
+    var data = google.visualization.arrayToDataTable([
+        ['Type', 'Number'],
+        <?php
+        while($row = mysqli_fetch_array($result))
+        {
+          echo "['".$row["type"]."',".$row["number"]."],";
+        }
+        ?>
+      ]);
+    var options = {
+      title: 'Percentage of types of projects'
+      }
+    var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
+    chart.draw(data, options);
+
+  }
+  </script>
 </head>
 
 <body class="">
@@ -142,7 +170,7 @@
                <div class="col-lg-3 col-md-6 col-sm-6" >
                <div class="card card-stats" >
                    <!--<p class="card-category" style="font-weight:bold " >New projects</p>-->
-                   <button type="submit" background-color: rgb(11, 22, 88) class="btn btn-primary pull-right" value="submit" name="submit">Software Management</button>
+                   <button type="submit" background-color: rgb(11, 22, 88) class="btn btn-primary pull-right" value="submit" name="submit">Graphic Design</button>
                    <img src="./img/mng.jpg" style="width:202px; length:200px align:center">
                 </div>
                </div>
@@ -151,21 +179,43 @@
              
 
             
-             </div>
+             </div></br>
+              <!--pie chart-->
+              <div class="row">
+              <div id="piechart1" style="width:700px; height:300px;"></div>
+              
+              </div>
+              
+            </br>
+            
              <p class="card-category" style="font-weight:bold " >Best software developers...</p>
              
-             <table class="table">
-                        <thead class="thead text-primary" style="background-color:#8e1600; color:#000000">
+        <div class="content" >
+        
+          <div class="container-fluid">
+          
+            <div class="row">
+            <div class="scroll" >
+              <div class="col-md-12">
+                
+                  
+                    <div class="table-responsive">
+                    
+                      <table class="table" style="background-color:#c3ccd3; color:#000000; ">
+                        <thead style="background-color:#3A3D9E; color:#ffffff">
                           <tr>
                             <th width="18%">PROJECT ID</th>
-                            <th width="18%">PROJECT NAME</th>
+                            <th width="18%">NAME</th>
                             <th width="16%">MORE</th>
                           </tr>
                         </thead>
+
+                        
                         <tbody>
+                        
                         <?php 
                             //retrieve data from project table
-                            $query = "SELECT * FROM projects";
+                            $query = "SELECT * FROM projects WHERE type='Software'";
                             $results = $conn->query($query);
                             if ($results->num_rows > 0) {
                             //output data of each row
@@ -185,8 +235,19 @@
                                 echo "0 results";
                                 }
                               ?>
+                              
                         </tbody>
+                          
                       </table>
+                      
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+            </div>
+          
                       
              <div class="row">
              <div class="col-md-4" >

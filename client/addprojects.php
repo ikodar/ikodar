@@ -114,9 +114,10 @@
 
                                 <label>Project Type</label></br>
                                 <select name="type" onChange="combo(this, 'theinput')" value="type">
-                                <option value="Software">Software Development</option>
-                                <option value="web">Web Designing</option>
-                                <option value="graphic">Graphic Designing</option>
+                                <option value="Software Development">Software Development</option>
+                                <option value="Web Designing">Web Designing</option>
+                                <option value="Graphic Designing">Graphic Designing</option>
+                                <option value="Other">Other</option>
                                 </select></br></br>
 
                                 <label>Project Name: </label><br>
@@ -140,8 +141,8 @@
 
                                 <label>Payment: </label><br>
                                 <select name="payment" onChange="combo(this, 'theinput')">
-                                <option value="Hourly">Hourly basis</option>
-                                <option value="full">Fully payment</optio n>
+                                <option value="Hourly basis">Hourly basis</option>
+                                <option value="Fully Payment">Fully payment</optio n>
                                 </select></br></br>
 
                                 <label style="margin-top:8px;">Bid Amount:</label>

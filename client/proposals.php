@@ -1,19 +1,24 @@
 <?php 
 
   include_once 'connection.php';
-  include('process.php');
+  include('process1.php');
   if (!isLoggedIn()) {
     $_SESSION['msg'] = "You must log in first";
     header('location: ../login.php');
   }
 
+  $pid;
+
   if(isset($_SESSION["pid"])){
+    global $pid;
     $pid=$_SESSION["pid"];
   }
   else{
     $pid="";
     //header("location: index.php");
   }
+
+  
 ?>
 
 <!DOCTYPE html>
@@ -161,6 +166,8 @@
             <table class="table">
               <thead class="thead-dark text-primary">
                 <tr>
+                
+
                   <th width="18%">Email</th>
                   <th width="18%">Bid</th>
                   <th width="18%">Days</th>
@@ -171,11 +178,13 @@
               <tbody>
                 <?php 
                   //retrieve data from project table
-                  $query = "SELECT * FROM bid WHERE pid='1'";
+                  $query = "SELECT * FROM bid WHERE pid='$pid'";
                   $results = $conn->query($query);
                     if ($results->num_rows > 0){
                     //output data of each row
-                     while ($row = $results->fetch_assoc()) { ?>		
+                     while ($row = $results->fetch_assoc()) { ?>	
+                          <form action =""	method="post" class="was-validated">
+                          <?php $email=$row['email'];?>
                           <tr>
                               <td><?php echo $row['email']; ?></td>
                               <td><?php echo $row['Bid']; ?></td>
@@ -183,11 +192,15 @@
                               <td><?php echo $row['Proposal']; ?></td>
                               <td>
                                 <div class="input-group">
-                                  <a class="btn btn-primary" href="view.php" role="button" name="view_btn">View</a>
-                                  <a class="btn btn-primary" href="" role="button" name="view_btn">Delete</a>
+                                  <input type="hidden" name="IT" value="<?php echo $email?>">
+
+                                  <a class="btn btn-primary" href="view.php" role="button" name="view_btn">View</a> 
+                                  <button type="submit"  class="btn btn-primary pull-right" value="submit" name="accept_btn">Accept</button>
+                                  
                                 </div>
                               </td>
                           </tr>
+                          </form>
                   <?php   
                     }
 
