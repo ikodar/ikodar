@@ -151,8 +151,25 @@ function delete(){
 function send(){
 	$msg = $_POST['reply'];
 	     //sender's email,subject of the email, message to be sent
-	mail('vinethrip@gmail.com','Reply for the ikodar contact us form',$msg);
+	//mail('vinethrip@gmail.com','Reply for the ikodar contact us form',$msg);
 	header('location: messages.php');
+
+	$sender = 'someone@somedomain.tld';
+	$recipient = 'you@yourdomain.tld';
+
+	$subject = "php mail test";
+	$message = "php test message";
+	$headers = 'From:' . $sender;
+
+	if (mail($recipient, $subject, $message, $headers))
+	{
+		echo "Message accepted";
+		header('location: messages.php');
+	}
+	else
+	{
+		echo "Error: Message not accepted";
+	}
 
 }
 

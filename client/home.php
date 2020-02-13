@@ -370,7 +370,6 @@ function showSlides() {
                    <img src="./img/mng.jpg" style="width:202px; length:200px align:center">
                 </div>
                </div>
-<<<<<<< HEAD
              
              </div></br>
               <!--pie chart-->
@@ -381,13 +380,6 @@ function showSlides() {
               
             </br>
             
-=======
-             </div>
-            <!--Row 3333 end-->
-
-
-
->>>>>>> ba121249de1511c7256ba4b061644e6cbf54d096
              <p class="card-category" style="font-weight:bold " >Best software developers...</p>
              
         <div class="content" >
