@@ -78,7 +78,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <p class="navbar-brand">Users</p> <!--CHECK THE HREF HERE-->
+            <p class="navbar-brand">Messages (Visitors)</p> <!--CHECK THE HREF HERE-->
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -98,58 +98,55 @@
       <!--Data section-->
       <div class="content">
         <div class="container-fluid row col--md-8">
-          <ul class="nav nav-tabs" style="background-color:purple;">
-            <li class="nav-item active">
-              <a class="nav-link" href="messages.php">Visitors</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="messages2.php">Registered Users</a>
-            </li>
-          </ul>
-        </div>
-      <div>
-      <!--retrieve data from database-->
-      <div class="card">
-        <div class="card-body mt-3">
-          <div class="table-responsive">
-            <table class="table">
-              <thead class="thead-dark text-primary">
-                <tr>
-                  <th width="18%">ID</th>
-                  <th width="18%">Name</th>
-                  <th width="18%">Email</th>
-                  <th width="18%">Message</th>
-                  <th width="18%">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php 
-                  //retrieve data from project table
-                  $query = "SELECT * FROM messages";
-                  $results = $conn->query($query);
-                  if ($results->num_rows > 0){
-                    //output data of each row
-                    while ($row = $results->fetch_assoc()) {  ?>			
-                          <tr>
-                              <td><?php echo $row['id']; ?></td>
-                              <td><?php echo $row['name']; ?></td>
-                              <td><?php echo $row['email']; ?></td>
-                              <td><?php echo $row['message']; ?></td>
-                              <td>
-                                <div class="input-group">
-                                  <a class="btn btn-primary" href="reply.php" role="button" name="view_btn">Reply</a>
-                                  <a class="btn btn-primary" href="" role="button" name="view_btn">Delete</a>
-                                </div>
-                              </td>
-                          </tr>
-                    <?php }
+         <!--retrieve data from database-->
+              <div class="card">
+                <div class="card-body mt-3">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class="thead-dark text-primary">
+                        <tr>
+                          <th width="18%">ID</th>
+                          <th width="18%">Name</th>
+                          <th width="18%">Email</th>
+                          <th width="18%">Message</th>
+                          <th width="18%">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php 
+                          //retrieve data from project table
+                          $query = "SELECT * FROM messages";
+                          $results = $conn->query($query);
+                          if ($results->num_rows > 0){
+                            //output data of each row
+                            while ($row = $results->fetch_assoc()) {  	?>	
+                                  <form action="reply.php"	method="post">
+                                <?php $email=$row['email'];
+                                      $message=$row['message'];?>
+                                  <tr>
+                                      <td><?php echo $row['id']; ?></td>
+                                      <td><?php echo $row['name']; ?></td>
+                                      <td><?php echo $row['email']; ?></td>
+                                      <td><?php echo $row['message']; ?></td>
+                                      <td>
+                                        <div class="input-group">
+                                          <input type="hidden" name="email" value="<?php echo $email; ?>">
+                                          <input type="hidden" name="message" value="<?php echo $message; ?>">
+                                          <input type="submit" name="viewmessage_btn" class="btn btn-primary" value="View">
+                                        </div>
+                                      </td>
+                                  </tr>
+                                  </form>
+                            <?php }
 
-                  }else{
-                    echo "0 results";
-                  }
-                    ?>
-              </tbody>
-            </table>
+                          }else{
+                            echo "0 results";
+                          }
+                            ?>
+                      </tbody>
+                    </table>
+                 </div>
+            </div>
       <!--end retrieve data-->
           </div>
         </div>

@@ -22,7 +22,7 @@ if (isset($_GET['logout'])) {
 	header("location: ../index.php");
 }
 
-//call view function when view button is clicked.
+//call view function when view button is clicked, for viewing projects.
 if(isset($_POST['view_btn'])){
 	view();
 }
@@ -37,12 +37,22 @@ if (isset($_POST['save_btn'])) {
 	saveprofile();
 }
 
+//call the delete function if delete_btn is clicked (for users)
+if(isset($_POST['delete_btn'])){
+	delete();
+}
+
+//call send function if send_btn is clicked. (email sending)
+if(isset($_POST['send_btn'])){
+	send();
+}
+
 //VIEW PROJECT in detail.
 function view(){
 	header('location: view.php');
 }
 
-//UPDATE the profile details.
+//UPDATE the profile details, for the admin only.
 function saveprofile(){
 	 // variable declaration
 	 global $conn;
@@ -85,8 +95,10 @@ function updatepassword(){
 	if($oldpass != "") {
 		$password = md5($oldpass);
         $sql = "SELECT password FROM users WHERE email='$email'LIMIT 1";
-        $results=$conn->query($sql);
-        if($results != $password){
+		$results=$conn->query($sql);
+		$res = $results->fetch_assoc()['password'];
+		// echo "<script> console.log('$res') </script>";
+        if($res != $password){
             $passwordErr1="Old password incorrect.";
             $errors=$errors+1;
         }
@@ -101,7 +113,7 @@ function updatepassword(){
 	//update/change the password if there are no errors
 	if ($errors == 0) {
 		$password = md5($password1);
-		$sql = "UPDATE users SET password =$password WHERE email='$email'";
+		$sql = "UPDATE users SET password ='$password' WHERE email='$email'";
 		if($conn->query($sql) == TRUE){
 			echo "Record updated successfully";
 		}else{
@@ -110,4 +122,55 @@ function updatepassword(){
 	}
 
 }
+//variable declaration
+$deleteErr="";
+
+//DELETE users 
+function delete(){
+	global $conn, $deleteErr;
+
+	$user=$_POST['email'];
+
+	//check if the person has any on going projects
+	$sql = "SELECT * FROM projects WHERE client ='$user' || IT='$user' && status='open'";
+	$results = $conn->query($sql);
+	if($results->num_rows == 0){
+		$sql = "DELETE FROM users WHERE email ='$user'";
+		if($conn->query($sql) == TRUE){
+			echo "User deleted.";
+			header('location: users2.php');
+		}else{
+			echo "Error: " . $sql . "<br>" . $conn->error;
+		}
+	}else{
+		$deleteErr ="Cannot delete user due open projects.";
+	}
+}
+
+//SEND email function
+function send(){
+	$msg = $_POST['reply'];
+	     //sender's email,subject of the email, message to be sent
+	//mail('vinethrip@gmail.com','Reply for the ikodar contact us form',$msg);
+	header('location: messages.php');
+
+	$sender = 'someone@somedomain.tld';
+	$recipient = 'you@yourdomain.tld';
+
+	$subject = "php mail test";
+	$message = "php test message";
+	$headers = 'From:' . $sender;
+
+	if (mail($recipient, $subject, $message, $headers))
+	{
+		echo "Message accepted";
+		header('location: messages.php');
+	}
+	else
+	{
+		echo "Error: Message not accepted";
+	}
+
+}
+
 ?>

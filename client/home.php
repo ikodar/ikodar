@@ -34,6 +34,9 @@
   <!-- CSS Files -->
   <link href="css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
   <link href="css/custom.css" rel="stylesheet" />
+  
+  <script type="text/javascript" src="../jquery/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="../js/bootstrap.min.js"></script>
 
   <!--piechart library-->
   <script type="text/javascript" src="http://www.gstatic.com/charts/loader.js"></script>
@@ -53,15 +56,136 @@
       ]);
     var options = {
       title: 'Percentage of types of projects'
-      }
+      };
     var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
     chart.draw(data, options);
 
   }
   </script>
+<!--End of piechart library-->
+
+<style>
+* {box-sizing: border-box;}
+body {font-family: Verdana, sans-serif;}
+.mySlides {display: none;}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1200px;
+  
+  position: relative;
+  margin: auto;
+}
+
+/* Caption text */
+.text {
+  color: #801814;
+  font-size: 20px;
+  
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+  font-weight:bold ;
+
+}
+
+/* Number text (1/3 etc) 
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+*/
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 1s ease;
+}
+
+ 
+.active {
+  background-color: #2E3B7F;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 0.5s;
+  animation-name: fade;
+  animation-duration: 6s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 2}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+</style>
+-->
 </head>
 
 <body class="">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="azure" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+    <div class="logo">
+        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+          ikodar
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item active  ">
+            <a class="nav-link" href="home.php">
+              <p>Dashboard</p>
+            </a>
+          </li>
+          
+          <li class="nav-item active">
+            <a class="nav-link" href="./projects.php">              
+              <p>My Projects</p>
+            </a>
+          </li>
+          
+          <li class="nav-item active">
+            <a class="nav-link" href="./profile.php">            
+              <p>My Profile</p>
+            </a>
+          </li>
+
+          <li class="nav-item active">
+            <a class="nav-link" href="./projects.php">              
+              <p>Messages</p>
+            </a>
+          </li>
+
+          <li class="nav-item active">
+            <a class="nav-link" href="./payments.php">
+              <p>Payments</p>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
   <div class="wrapper ">
     <div class="sidebar" data-color="azure" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
       <!--Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
@@ -145,11 +269,85 @@
       <!-- End Navbar
       style="height:40px; width:40px; margin:0;" -->
       
+      
       <div class="content" >
          <div class="container-fluid" >
-         <p class="card-category" style="font-weight:bold " >Explore more projects..</p>
-           <div class="row">
-           
+         <p class="card-category" style="font-weight:bold " >Explore more projects..</p></br>
+
+         
+         <!-- transition -->
+         <div class="card-category" >
+         
+         <div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext">    </div>
+  <img src="./img/design.jpg" style="height:300px; width:100%">
+  <a href="homeR1Sdes.php">
+  <div class="text" >Software Design Projects</div></a>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">    </div>
+  <img src="./img/deve.jpg" style="height:300px; width:100%">
+  <a href="homeR1Sdev.php">
+  <div class="text">Software Development Projects</div></a>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">    </div>
+  <img src="./img/mng.jpg" style="height:300px; width:100%">
+  <a href="homeR1Gdes.php">
+  <div class="text">Graphic Design Projects</div></a>
+</div>
+
+
+</div>
+</br>
+
+<div style="text-align:center">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+</div>
+
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 4000); // Change image every 2 seconds
+}
+</script>
+         </div>
+         
+         <!-- End of transition -->
+
+
+            </br>
+              <!--pie chart-->
+              <div class="card-category">
+              <div id="piechart1" style="width:700px; height:300px;"></div>
+              
+              </div>
+              
+            </br>
+            
+            <!-- Row 33333333 -->
+            <div class="row">
            <div class="col-lg-3 col-md-6 col-sm-6" >
                <div class="card card-stats" >
                    <!--<p class="card-category" style="font-weight:bold " >New projects</p>-->
@@ -174,11 +372,54 @@
                    <img src="./img/mng.jpg" style="width:202px; length:200px align:center">
                 </div>
                </div>
-             
+<<<<<<< HEAD
+             </div>
+            <!--Row 3333 end-->
+            <div class="col-lg-8">
+      <div id="carousel" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner ">
+        <div class="carousel-item active ">
+          <img class="d-inline-block w-100" style="width: 120px; height: 500px;" src="img/web.jpg" alt="First slide">
+          <div class="carousel-caption d-none d-md-block">
+            <h5><strong>Website Development</strong></h5>
+            <p>Yes, we built creatuve websites which suit your needs.</p>
+          </div>
+       </div>
+   
+      <div class="carousel-item">
+         <img class="d-inline-block w-100" style="width: 120px; height: 500px;" src="img/system.jpg" alt="Second slide">
+          <div class="carousel-caption d-none d-md-block">
+            <h5><strong>System Development</strong></h>
+            <p>Yes, we built efficient systems which suit your differing needs.</p>
+          </div>
+      </div>
 
-             
+       <div class="carousel-item">
+          <img class="d-inline-block w-100" style="width: 120px; height: 500px;" src="img/graphic.jpg" alt="Third slide">
+          <div class="carousel-caption d-none d-md-block">
+            <p><strong>Graphic Design</strong></p>
+            <p>Yes, we do the graphic designs which will stun you and go beyind your expectations.</p>
+          </div>
+        </div>
+      </div>
 
-            
+      <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+      
+    </div>
+    </div>
+    </div>
+    <!--End of Row 44444-->
+
+            <!--Row 5555-->
+=======
+             
              </div></br>
               <!--pie chart-->
               <div class="row">
@@ -188,6 +429,7 @@
               
             </br>
             
+>>>>>>> 6c55f547bdfdb6c7c258f6cc15465f98b72000bd
              <p class="card-category" style="font-weight:bold " >Best software developers...</p>
              
         <div class="content" >
@@ -247,7 +489,7 @@
             </div>
             </div>
             </div>
-          
+          <!--Row 4444 end-->
                       
              <div class="row">
              <div class="col-md-4" >
@@ -296,6 +538,8 @@
                </div>
              </div>
            </div>
+
+
 
            <p class="card-category" style="font-weight:bold " >Best Software Designers...</p>
              <div class="row">
