@@ -53,7 +53,7 @@
       ]);
     var options = {
       title: 'Percentage of types of projects'
-      }
+      };
     var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
     chart.draw(data, options);
 
@@ -176,10 +176,6 @@
                 </div>
                </div>
              
-
-             
-
-            
              </div></br>
               <!--pie chart-->
               <div class="row">

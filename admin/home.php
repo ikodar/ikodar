@@ -5,7 +5,22 @@
 	$_SESSION['msg'] = "You must log in first";
 	header('location: ../login.php');
   }
+  //total number of registered users (IT)
+  $sql1 = "SELECT COUNT(email) FROM users WHERE user_type='IT'";
+  $results1 = $conn->query($sql1);
+  $ITcount= $results1->fetch_assoc()['COUNT(email)'];
 
+  //total number of registered users (Clients)
+  $sql2 = "SELECT COUNT(email) FROM users WHERE user_type='client'";
+  $results2 = $conn->query($sql2);
+  $clientcount= $results2->fetch_assoc()['COUNT(email)'];
+
+  //total number of projects
+  $sql6 = "SELECT COUNT(pid) FROM projects";
+  $results6 = $conn->query($sql6);
+  $total= $results6->fetch_assoc()['COUNT(pid)'];
+
+  //for the pie chart
   $sql = "SELECT type, count(*) as number FROM projects GROUP BY type";
   $results = $conn->query($sql);
  
@@ -19,7 +34,7 @@
   <title>Dashboard</title>
 
   <!-- including links and necessary deatils for the pie chart-->
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript" src="http://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript">
     google.charts.load('current',{'packages':['corechart']});
     google.charts.setOnLoadCallback(drawChart);
@@ -38,7 +53,7 @@
         pieHole:0.4
       };
       var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-      chart.draw(data,option);
+      chart.draw(data, options);
 
     } 
   </script>
@@ -57,7 +72,7 @@
 <body class="">
   <div class="wrapper ">
     <!--Dashboard panel-->
-    <div class="sidebar" data-color="azure" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+    <div class="sidebar" data-color="azure" data-background-color="white">
       <!--Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
         Tip 2: you can also add an image using data-image tag-->
       <div class="logo">
@@ -126,29 +141,60 @@
         </div>
       </nav>
       <!-- End Navbar -->
-    <div class="content">
-     <div class="container-fluid">
-      <div class="row">
-       <div class="col-md-5">
-        <div class="card ">
-         <div class="card-header ">
-          <h4 class="card-title">Project Statistics</h4>
-           <p class="card-category">Overall Project divisions</p>
-         </div>
-         <div class="card-body ">
-          <div id="piechart" style="width:900px; height:300px;"></div>
-           <div class="legend">
-            <i class="fa fa-circle text-info"> </i> System development
-            <i class="fa fa-circle text-danger"></i> Web development
-            <i class="fa fa-circle text-warning"></i> Graphics
-           </div>
-           </div>
-         </div>
-       </div>
+      <div class="content">
+      <div class="container-fluid">
+
+          <!-- client IT individuals count-->
+          <div class="row">
+            <div class="col-md-5">
+              <div class="card ">
+                <div class="card-body ">
+                  <p class="card-category">No. of IT individuals <?php echo $ITcount;?></p>
+                </div>  
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="card ">
+                <div class="card-body ">
+                  <p class="card-category">No. of Clients <?php echo $clientcount;?></p>
+                </div> 
+              </div>
+            </div>
+          </div>
+
+          <div class="row"> 
+          <!--Pie chart-->
+            <div class="col-md-5">
+              <div class="card ">
+                <div class="card-header ">
+                  <h4 class="card-title">Project Statistics</h4>
+                  <p class="card-category">Total No. of projects <?php echo $total;?></p>
+                </div>
+                <div class="card-body ">
+                  <div id="piechart" style="width:700px; height:300px;"></div>
+                </div>
+              </div>
+            </div>
+          <!--End of pie chart-->
+          <!--line  chart-->
+           <div class="col-md-5">
+              <div class="card ">
+                <div class="card-header ">
+                  <h4 class="card-title">User Statistics</h4>
+                  <p class="card-category">Total No. of registered users <?php echo $clientcount + $ITcount;?></p>
+                </div>
+                <div class="card-body ">
+                  <div id="piechart" style="width:700px; height:300px;"></div>
+                </div>
+              </div>
+            </div>
+          <!--End of line chart-->
+          </div>
+
       </div>
-     </div>
+      </div>
+
     </div>
-   </div>
     <!-- End of Content -->
   </div>
 </body>

@@ -95,8 +95,10 @@ function updatepassword(){
 	if($oldpass != "") {
 		$password = md5($oldpass);
         $sql = "SELECT password FROM users WHERE email='$email'LIMIT 1";
-        $results=$conn->query($sql);
-        if($results != $password){
+		$results=$conn->query($sql);
+		$res = $results->fetch_assoc()['password'];
+		// echo "<script> console.log('$res') </script>";
+        if($res != $password){
             $passwordErr1="Old password incorrect.";
             $errors=$errors+1;
         }
@@ -111,7 +113,7 @@ function updatepassword(){
 	//update/change the password if there are no errors
 	if ($errors == 0) {
 		$password = md5($password1);
-		$sql = "UPDATE users SET password =$password WHERE email='$email'";
+		$sql = "UPDATE users SET password ='$password' WHERE email='$email'";
 		if($conn->query($sql) == TRUE){
 			echo "Record updated successfully";
 		}else{
