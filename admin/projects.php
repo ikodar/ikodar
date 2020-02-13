@@ -96,23 +96,23 @@
       <!-- End Navbar -->
       <!--Data section-->
       <div class="content" >
-        <div class="row">
+        <div class="row d-flex justify-content-center">
           <div class="col-lg-3 col-md-6 col-sm-6" >
             <div class="card card-stats" >
               <a background-color: rgb(11, 22, 88) class="btn btn-primary pull-right" href="newprojects.php">New Projects</a>
-              <img src="../img/new.jpg" style="width:202px; length:200px; align:center;">
+              <img src="../img/new.jpg" style="width:242px; length:200px;" class="rounded mx-auto d-block">
             </div>
           </div>
            <div class="col-lg-3 col-md-6 col-sm-6" >
              <div class="card card-stats" >
               <a background-color: rgb(11, 22, 88) class="btn btn-primary pull-right" href="existingprojects.php">Existing Projects</a>
-               <img src="../img/open.png" style="width:202px; length:200px; align:center;">
+              <img src="../img/open.png" style="width:202px; length:200px;" class="rounded mx-auto d-block">
             </div>
            </div>
            <div class="col-lg-3 col-md-6 col-sm-6" >
              <div class="card card-stats" >
               <a background-color: rgb(11, 22, 88) class="btn btn-primary pull-right" href="pastprojects.php">Past Projects</a>
-              <img src="../img/past.png" style="width:202px; length:200px; align:center;">
+              <img src="../img/past.png" style="width:202px; length:200px;" class="rounded mx-auto d-block">
              </div>
            </div>
         </div> 

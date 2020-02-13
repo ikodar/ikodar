@@ -152,10 +152,10 @@ function send(){
 	$msg = $_POST['reply'];
 	     //sender's email,subject of the email, message to be sent
 	//mail('vinethrip@gmail.com','Reply for the ikodar contact us form',$msg);
-	header('location: messages.php');
+	//header('location: messages.php');
 
-	$sender = 'someone@somedomain.tld';
-	$recipient = 'you@yourdomain.tld';
+	$sender = 'vinethrip@gmail.com';
+	$recipient = 'vinethrip@yahoo.com';
 
 	$subject = "php mail test";
 	$message = "php test message";
