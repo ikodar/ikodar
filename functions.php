@@ -50,9 +50,9 @@ function register(){
     // register user if there are no errors in the form
 	if ($errors == 0) {
         $password = md5($password_1);//hashing the password before saving in the database
-
-        $sql = "INSERT INTO users (email, password, user_type) 
-                VALUES('$email', '$password','$user_type')";
+        $date     =  date("Y-m-d");
+        $sql = "INSERT INTO users (email, password, user_type,reg_time) 
+                VALUES('$email', '$password','$user_type','$date')";
         
         if ($conn->query($sql) === TRUE) {
             if($user_type=="admin"){
