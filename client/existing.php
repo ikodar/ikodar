@@ -71,7 +71,9 @@ ikodar
  <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
    <div class="container-fluid">
      <div class="navbar-wrapper">
-       <a class="navbar-brand" href="#pablo">Existing Projects</a>
+       <a class="navbar-brand" href="#pablo">
+       <strong><?php echo "Hello "; echo$_SESSION['email']; ?></strong>
+       </a>
      </div>
      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
        <span class="sr-only">Toggle navigation</span>
@@ -118,7 +120,8 @@ ikodar
         //output data of each row
         while ($row = $results->fetch_assoc()) { 
           $date=date("Y-m-d");	
-          if ($date<$row['biddate']){ ?>			
+          if ($date<$row['biddate']){ ?>	
+          		
             
                   <td><?php $pid= $row['pid']; ?></td>
                   <td><?php $name=$row['name']; ?></td>

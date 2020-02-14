@@ -163,7 +163,7 @@
                   <h4 class="card-title">Create a New Task</h4>
                 </div>
                  <div class="card-body">
-                  <form action="" method="post" class="was-validated">
+                  <form action="tasks.php" method="post" class="was-validated">
                   <input type="hidden" name="pid" value="<?=$pid;?>">                                      
                     <div class="row">
                       <div class="col-md-5">                      
@@ -181,7 +181,18 @@
                       </div>
                     </div>
 
-                 
+                  <div class="row">
+                    <div class="col-md-5">
+                        <label style="margin-top:8px;">Task will be completed(in hours):</label>
+                        <div class="input-group mb-3">
+                          <input name="hour" type="int" class="form-control" style="border: 1px solid #bdbdbd;"  placeholder="Enter number of hours" required>
+                          <div class="input-group-append">
+                            <span class="input-group-text" style="background-color:#d3d3d3; border: 1px solid #bdbdbd; padding:3px">Hours</span>
+                          </div>
+                          <div class="invalid-feedback">Please enter number of hours.</div>
+                        </div>
+                      </div>
+                        </div>
 
                     <button type="submit"  class="btn btn-primary pull-right" name="add">ADD</button>
                     <div class="clearfix"></div>
@@ -207,31 +218,38 @@
                     <table class="table">
                       <tbody>
 
-                      <?php
-                        $query = "SELECT * FROM tasks where pid='$pid'";
-                        $results = $conn->query($query);
-                          if ($results->num_rows > 0) {
-                          //output data of each row
-                             while ($row = $results->fetch_assoc()) { 
-                             { ?>			
-                              <td><?php $tid= $row['tid']; ?></td>
-                              <td><?php $task=$row['task']; ?></td>
-                              <?php echo '
-                               <form action="task.php" method="post">
-                               <input type="hidden" name="pid" value="'.$pid.'">
-                               <tr>
-                                <td>'.$tid.'</td>
-                                <td>'.$task.'</td>
-                              </tr>
-                              </form>
-                       ';?>
-                       <?php   }
-                      }
+                      <?php 
+                  //retrieve data from project table
+                  $query = "SELECT * FROM tasks WHERE pid='$pid'";
+                  $results = $conn->query($query);
+                    if ($results->num_rows > 0){
+                    //output data of each row
+                     while ($row = $results->fetch_assoc()) { ?>	
+                          <form action ="tasks.php"	method="post" class="was-validated">
+                          <?php $email=$row['email'];?>
+                          <tr>
+                              <td><?php echo $row['tid']; ?></td>
+                              <td><?php echo $row['task']; ?></td>
+                              
+                              <td>
+                                <div class="input-group">
+                                  
 
-                        }else{
-                      echo "0 results";
-                      }
+                                
+                                  <button type="submit"  class="btn btn-primary pull-right" value="submit" name="satisfy">Satisfy</button>
+                                  
+                                </div>
+                              </td>
+                          </tr>
+                          </form>
+                  <?php   
+                    }
+
+                  }else{
+                    echo "0 results";
+                  }
                     ?>
+                    
           
                       </tbody>
                     </table>                                   
