@@ -244,7 +244,8 @@
                                                 while ($row = $results->fetch_assoc()) { 
                                                 { ?>			
                                                 <tr>
-                                                  <td><?php echo $row['amount']; ?></a></td>    
+                                                  <td><?php echo $row['amount']; ?></a></td> 
+                                                  <td><?php echo $row['payment'];?></a></td>  
                                                 </tr>
                                                   <?php   }
                                                 }
