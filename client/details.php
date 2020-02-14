@@ -210,7 +210,24 @@
                                     <div class="row">
                                       <div class="col-md-6">
                                         <div class="form-group">
-                                          <label class="bmd-label-floating">IT Individual:</label>                           
+                                          <label class="bmd-label-floating">IT Individual:</label> 
+                                          <?php
+                                              $query = "SELECT * FROM projects where pid='$pid'";
+                                              $results = $conn->query($query);
+                                              if ($results->num_rows > 0) {
+                                              //output data of each row
+                                                while ($row = $results->fetch_assoc()) { 
+                                                { ?>			
+                                                <tr>
+                                                  <td><?php echo $row['IT']; ?></a></td>    
+                                                </tr>
+                                                  <?php   }
+                                                }
+
+                                                }else{
+                                                  echo "0 results";
+                                                }
+                                            ?>                          
                                         </div>
                                       </div>                                            
                                     </div>
