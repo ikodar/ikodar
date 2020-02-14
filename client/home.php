@@ -16,6 +16,8 @@
   //piechart
   $qry = "SELECT type, count(*) as number FROM projects GROUP BY type ";
   $result = $conn->query($qry);
+
+  
 ?>
 
 <!DOCTYPE html>
