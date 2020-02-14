@@ -122,14 +122,14 @@
                           $pid= $row['pid']; ?>	
                          <tr>
                          <form action="view.php" method="post">
-                            <td><?php $row['pid']; ?></td>
-                            <td><?php $row['name']; ?></td>
-                            <td><?php $row['description']; ?></td>
+                            <td><?php echo $row['pid']; ?></td>
+                            <td><?php echo $row['name']; ?></td>
+                            <td><?php echo $row['description']; ?></td>
                             <td>
                               <div class="input-group">
                                   <input type="hidden" name="pid" value="<?php echo $pid; ?>">
                                   <input type="submit" name="viewprofileject_btn" class="btn btn-link" value="View">
-                               </div>
+                              </div>
                             </td>
                           </form>
                           </tr>                         
