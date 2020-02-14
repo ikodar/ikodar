@@ -41,6 +41,7 @@
       <div class="logo">
         <a class="simple-text logo-normal">
         i-කෝඩර්
+        <a class="simple-text logo-normal"><?php echo $_SESSION['email'];?></a>
         </a>
       </div>
       <div class="sidebar-wrapper">
@@ -81,7 +82,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <p class="navbar-brand"><?php echo $_SESSION['email'];?></p> <!--CHECK THE HREF HERE-->
+            <p class="navbar-brand">Projects</p> <!--CHECK THE HREF HERE-->
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
