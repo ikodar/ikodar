@@ -23,7 +23,7 @@ if (isset($_GET['logout'])) {
 
 
 // variable declaration
-$email =$message ="";
+$email = $date =$message ="";
 $errors = array(); 
 
 // call the register() function if add_btn is clicked
@@ -54,9 +54,9 @@ function gethelp(){
 
 	// register user if there are no errors in the form
 	if (count($errors) == 0) {
-		
-		$query = "INSERT INTO messages2 (email,message) 
-				  VALUES('$email','$message')";
+		$date = date("Y-m-d");
+		$query = "INSERT INTO helps (email,message,date) 
+				  VALUES('$email','$message','$date')";
 		if ($conn->query($query) === TRUE) {
 		    echo "New record created successfully";
 		} else {
