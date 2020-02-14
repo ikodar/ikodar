@@ -101,13 +101,13 @@
       <div class="card">
         <div class="card-body mt-3">
           <div class="table-responsive">
-          <form action="view.php" method="post">
             <table class="table">
               <thead class="thead-dark text-primary">
                 <tr>
                   <th width="18%">ID</th>
                   <th width="18%">Name</th>
                   <th width="18%">Description</th>
+                  <th width="18%">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -118,22 +118,21 @@
                   if ($results->num_rows > 0){
                     //output data of each row
                     while ($row = $results->fetch_assoc()) { 
-                        if ($row['status']=="new"){ ?>		
-                          <tr>
-                            <td><?php $pid= $row['pid']; ?></td>
-                            <td><?php $name=$row['name']; ?></td>
-                            <td><?php $description=$row['description']; ?></td>
-                            <?php echo '
-                              <form action="newprojects.php" method="post">
-                              <input type="hidden" name="pid" value="'.$pid.'">
-                                  <tr>
-                                  <td>'.$pid.'</td>
-                                  <td><input type="submit" class="btn btn-link btn-lg" value="'.$name.'"></td>
-                                  <td>'.$description.'</td>
-                                  </tr>
-                              </form>
-                            ';?>
-                          </tr>
+                        if ($row['status']=="new"){ 
+                          $pid= $row['pid']; ?>	
+                         <tr>
+                         <form action="view.php" method="post">
+                            <td><?php $row['pid']; ?></td>
+                            <td><?php $row['name']; ?></td>
+                            <td><?php $row['description']; ?></td>
+                            <td>
+                              <div class="input-group">
+                                  <input type="hidden" name="pid" value="<?php echo $pid; ?>">
+                                  <input type="submit" name="viewprofileject_btn" class="btn btn-link" value="View">
+                               </div>
+                            </td>
+                          </form>
+                          </tr>                         
                   <?php   }
                     }
 
@@ -143,8 +142,7 @@
                     ?>
               </tbody>
             </table>
-            </form>
-      <!--end retrieve data-->
+          <!--end retrieve data-->
           </div>
         </div>
       </div>
