@@ -146,50 +146,16 @@ img {vertical-align: middle;}
 </head>
 
 <body class="">
-  <div class="wrapper ">
-    <div class="sidebar" data-color="azure" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
-    <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          ikodar
-        </a>
-      </div>
-      <div class="sidebar-wrapper">
-        <ul class="nav">
-          <li class="nav-item active  ">
-            <a class="nav-link" href="home.php">
-              <p>Dashboard</p>
-            </a>
-          </li>
-          
-          <li class="nav-item active">
-            <a class="nav-link" href="./projects.php">              
-              <p>My Projects</p>
-            </a>
-          </li>
-          
-          <li class="nav-item active">
-            <a class="nav-link" href="./profile.php">            
-              <p>My Profile</p>
-            </a>
-          </li>
-
-          <li class="nav-item active">
-            <a class="nav-link" href="./payments.php">
-              <p>Payments</p>
-            </a>
-          </li>
-          
-        </ul>
-      </div>
-    </div>
+  
   <div class="wrapper ">
     <div class="sidebar" data-color="azure" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
       <!--Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
           Tip 2: you can also add an image using data-image tag -->
       <div class="logo">
         <a class="simple-text logo-normal">
-          ikodar
+        i-කෝඩර්
         </a>
+        <a class="simple-text logo-normal"><?php echo $_SESSION['email'];?></a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
