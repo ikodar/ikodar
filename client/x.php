@@ -1,16 +1,25 @@
-<div class="content">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="card">
-                <div class="card-header card-header-primary">                  
-                  <center><h2>How may we help you?</h2></center>                  
-                    <textarea rows="3" cols="120" name="description" value="description">I have a question about...</textarea>
-                    <button type="submit" background-color: rgb(11, 22, 88) class="btn btn-primary pull-right"  name="help">Get Help</button>
-                    <div class="clearfix"></div>             
-                </div>                
-              <div class="card-body">     
-            </div>
-          </div>
-        </div> 
-      </div>
+<?php
+                        $query = "SELECT * FROM tasks where pid='$pid'";
+                        $results = $conn->query($query);
+                          if ($results->num_rows > 0) {
+                          //output data of each row
+                             while ($row = $results->fetch_assoc()) { 
+                             { ?>			
+                              <td><?php $tid= $row['tid']; ?></td>
+                              <td><?php $task=$row['task']; ?></td>
+                              <?php echo '
+                               <form action="task.php" method="post">
+                               <input type="hidden" name="pid" value="'.$pid.'">
+                               <tr>
+                                <td>'.$tid.'</td>
+                                <td>'.$task.'</td>
+                              </tr>
+                              </form>
+                       ';?>
+                       <?php   }
+                      }
+
+                        }else{
+                      echo "0 results";
+                      }
+                    ?>
