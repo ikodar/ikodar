@@ -50,12 +50,6 @@
           </li>
 
           <li class="nav-item active">
-            <a class="nav-link" href="./projects.php">              
-              <p>Messages</p>
-            </a>
-          </li>
-
-          <li class="nav-item active">
             <a class="nav-link" href="./payments.php">
               <p>Payments</p>
             </a>

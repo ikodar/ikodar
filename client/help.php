@@ -1,7 +1,7 @@
 <?php 
 
   include_once 'connection.php';
-  include('process.php');
+  include('process2.php');
   if (!isLoggedIn()) {
     $_SESSION['msg'] = "You must log in first";
     header('location: ../login.php');
@@ -51,12 +51,6 @@
      </li>
 
      <li class="nav-item active">
-            <a class="nav-link" href="./projects.php">              
-              <p>Messages</p>
-            </a>
-          </li>
-
-     <li class="nav-item active">
        <a class="nav-link" href="./payments.php">
          <p>Payments</p>
        </a>
@@ -99,21 +93,48 @@
     </div>
   </nav>
  <!-- End Navbar -->
-      <div class="content">
+ <div class="content">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-10">
               <div class="card">
-                <div class="card-header card-header-primary">                  
-                  <center><h2>How may we help you?</h2></center>                  
-                    <textarea rows="3" cols="120" name="description" value="description">I have a question about...</textarea>
-                    <button type="submit" background-color: rgb(11, 22, 88) class="btn btn-primary pull-right" value="submit" name="submit">Get Help</button>             
-                </div>                
-              <div class="card-body">     
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Help</h4>
+                </div>
+                <div class="card-body">
+                </div>
+              </div>
+
+             <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">How may we help you?</h4>
+                </div>
+                 <div class="card-body">
+                  <form action="" method="post" class="was-validated">
+                  <input type="hidden" name="email" value="<?=$email;?>">                                
+                    <div class="row">
+                      <div class="col-md-5">                      
+                      </div>                        
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-10">
+                        <div class="form-group">
+                          
+                            <div class="form-group" >
+                              <textarea name="task" class="form-control" rows="5" style="border: 1px solid #bdbdbd;"  placeholder="I have a question about..."></textarea>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <button type="submit"  class="btn btn-primary pull-right" name="help">GET HELP</button>
+                    <div class="clearfix"></div>
+                  </form>
+                </div>
+              </div>
             </div>
-          </div>
-        </div> 
-      </div>
+
 
       
 
