@@ -157,11 +157,7 @@ span.price {
             </a>
           </li>
 
-          <li class="nav-item active">
-            <a class="nav-link" href="./projects.php">
-              <p>Messages</p>
-            </a>
-          </li>
+        
 
           <li class="nav-item active">
             <a class="nav-link" href="./payments.php">
@@ -178,41 +174,19 @@ span.price {
        <!-- payment -->
       <h2>PAY</h2>
 <p>   </p>
-
-<div class="content">
-<div class="container-fluid">
 <div class="row">
-<div class="col-md-8">
-<div class="card">
-<div class="card-header card-header-primary">
-<h4 class="card-title">Add New Project</h4>
   <div class="col-75">
     <div class="container">
       <form action="/action_page.php">
-      
         <div class="row">
-          <div class="col-50">
-            <h3>Billing Addressjj</h3>
+          
+            
             <label for="fname"><i class="fa fa-user"></i> Full Name</label>
             <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
             <label for="email"><i class="fa fa-envelope"></i> Email</label>
             <input type="text" id="email" name="email" placeholder="john@example.com">
-            <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-            <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
-            <label for="city"><i class="fa fa-institution"></i> City</label>
-            <input type="text" id="city" name="city" placeholder="New York">
-
-            <div class="row">
-              <div class="col-50">
-                <label for="state">State</label>
-                <input type="text" id="state" name="state" placeholder="NY">
-              </div>
-              <div class="col-50">
-                <label for="zip">Zip</label>
-                <input type="text" id="zip" name="zip" placeholder="10001">
-              </div>
-            </div>
-          </div>
+            
+          
 
           <div class="col-50">
             <h3>Payment</h3>
@@ -242,24 +216,80 @@ span.price {
           </div>
           
         </div>
-        <label>
-          <input type="checkbox" checked="checked" name="sameadr"> Address same as in profile
-        </label>
+        
         <input type="submit" value="Continue to checkout" class="btn">
       </form>
     </div>
   </div>
-  </div>
-  </div>
+
+  <!--cart-->
   <div class="col-25">
     <div class="container">
-      <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
-      <p><a href="#">Product 1</a> <span class="price">$15</span></p>
-      <p><a href="#">Product 2</a> <span class="price">$5</span></p>
-      <p><a href="#">Product 3</a> <span class="price">$8</span></p>
-      <p><a href="#">Product 4</a> <span class="price">$2</span></p>
+    <div class="card-body">
+      <!--head line cart-->
+      <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>
+      <?php 
+      $query = "SELECT COUNT(status) FROM projects WHERE status='completed'";
+      $result = $conn->query($query);
+      $count = $result->fetch_assoc()['COUNT(status)'];
+
+      echo $count;
+      ?>
+      
+      
+      
+      </b></span></h4>
+      <!--products cart-->
+      <?php 
+                  //retrieve data from project table
+        $query = "SELECT * FROM projects";
+        $results = $conn->query($query);
+        if ($results->num_rows > 0) {
+        //output data of each row
+        while ($row = $results->fetch_assoc()) { 
+          $date=date("Y-m-d");	
+          if ($date<$row['biddate']){ ?>			
+                  
+                  <?php $name= $row['name']; ?>
+                  <?php $amount= $row['amount']; ?>
+
+                  
+                  <?php echo '
+                    <form action="existing.php" method="post">
+                    <input type="hidden" name="name" value="'.$name.'">
+                    <input type="hidden" amount="amount" value="'.$amount.'">
+                        <tr>
+                        <a href="#"><td>'.$name.'</td></a>
+                        <span class="price"><td>'.$amount.'</td></span>
+                        </tr>
+                    </form>
+                    ';?>
+                  
+          <?php   }
+                      }
+
+                        }else{
+                      echo "0 results";
+                      }
+                    ?>
+          
+      
+      
       <hr>
-      <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
+      <p>Total <span class="price" style="color:black"><b>
+      <?php
+      $email=$_SESSION['email'];
+      $query = "SELECT SUM(amount) FROM projects WHERE status='completed' AND client='$email";
+      $result = $conn->query($query);
+      $count2 = $result->fetch_assoc()['SUM(amount)'];
+
+      echo $count2;
+      ?>
+      
+      
+      
+      </b></span></p>
+    </div>
     </div>
   </div>
 </div>

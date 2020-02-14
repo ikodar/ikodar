@@ -57,11 +57,6 @@
               <p>Messages</p>
             </a>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="income.php">
-              <p>Income</p>
-            </a>
-          </li>
         </ul>
       </div>
     </div>
