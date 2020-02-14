@@ -35,9 +35,10 @@
          Tip 2: you can also add an image using data-image tag
      -->
        <div class="logo">
-         <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-           ikodar
-         </a>
+        <a class="simple-text logo-normal">
+        i-කෝඩර්
+        </a>
+        <a class="simple-text logo-normal"><?php echo $_SESSION['email'];?></a>
        </div>
        <div class="sidebar-wrapper">
          <ul class="nav">
@@ -76,7 +77,9 @@
        <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
          <div class="container-fluid">
            <div class="navbar-wrapper">
-             <a class="navbar-brand" href="#pablo">Completed Projects</a>
+             <a class="navbar-brand" href="#pablo">
+             <strong><?php echo "Hello "; echo$_SESSION['email']; ?></strong>
+             </a>
            </div>
            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
              <span class="sr-only">Toggle navigation</span>

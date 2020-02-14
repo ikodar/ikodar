@@ -7,13 +7,8 @@
 
   $pid =  $name = $description = $biddate = $deadline = $type = $amount ="";
 
-  if(isset($_SESSION["pid"])){
-    $pid=$_SESSION["pid"];
-  }
-  else{
-    $pid="";
-  }
   
+  $pid=$_SESSION['pid'];
    $query = "SELECT * FROM projects where pid='$pid'";
    $results = $conn->query($query);
    if ($results->num_rows > 0) {
@@ -60,6 +55,7 @@
         <a class="simple-text logo-normal">
         i-කෝඩර්
         </a>
+        <a class="simple-text logo-normal"><?php echo $_SESSION['email'];?></a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">

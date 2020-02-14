@@ -23,7 +23,7 @@ if (isset($_GET['logout'])) {
 
 
 // variable declaration
-$task = $email=$pid ="";
+$task = $hour = $email=$pid ="";
 $errors = array(); 
 
 // call the register() function if add_btn is clicked
@@ -36,13 +36,13 @@ if (isset($_POST['add'])) {
 // POST PROJECTS
 function addtask(){
 	// call these variables with the global keyword to make them available in function
-	global $conn, $errors, $task,$email,$pid;
+	global $conn, $errors, $task,$hour,$email,$pid;
 
 	// receive all input values from the form.
     // defined below to escape form values
 	
 	$task =  $_POST['task'];
-	
+	$hour = $_POST['hour'];
 	$email = $_SESSION['email'];
 	$pid =  $_POST['pid'];
 	
@@ -50,18 +50,19 @@ function addtask(){
 	// form validation: ensure that the form is correctly filled
 
 	if (empty($task)) { 
-		array_push($errors, "Bid amount is required."); 
+		array_push($errors, "task is required."); 
 	}
 
-	
+	if (empty($hour)) { 
+		array_push($errors, "No of hours are required."); 
+	}
 
-	
 
 	// register user if there are no errors in the form
 	if (count($errors) == 0) {
 		
-		$query = "INSERT INTO tasks (task,pid,email) 
-				  VALUES('$task',$pid','$email')";
+		$query = "INSERT INTO tasks (task,hour,pid,email) 
+				  VALUES('$task','$hour','$pid','$email')";
 		if ($conn->query($query) === TRUE) {
 		    echo "New record created successfully";
 		} else {
@@ -70,8 +71,6 @@ function addtask(){
 	}
 	$conn->close();
 }
-
-
 
 
 
