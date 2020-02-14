@@ -78,7 +78,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <p class="navbar-brand">Users</p> <!--CHECK THE HREF HERE-->
+            <p class="navbar-brand">Messages (Registered Users)</p> <!--CHECK THE HREF HERE-->
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -116,7 +116,7 @@
               <thead class="thead-dark text-primary">
                 <tr>
                   <th width="18%">ID</th>
-                  <th width="18%">Name</th>
+                  
                   <th width="18%">Email</th>
                   <th width="18%">Message</th>
                   <th width="18%">Action</th>
@@ -125,23 +125,27 @@
               <tbody>
                 <?php 
                   //retrieve data from project table
-                  $query = "SELECT * FROM messages";
+                  $query = "SELECT * FROM helps";
                   $results = $conn->query($query);
                   if ($results->num_rows > 0){
                     //output data of each row
-                    while ($row = $results->fetch_assoc()) {  ?>			
+                    while ($row = $results->fetch_assoc()) {  ?>
+                          <form action="reply.php"	method="post">
+                            <?php $email=$row['email'];
+                              $message=$row['message'];?>			
                           <tr>
-                              <td><?php echo $row['id']; ?></td>
-                              <td><?php echo $row['name']; ?></td>
+                              <td><?php echo $row['mid']; ?></td>
                               <td><?php echo $row['email']; ?></td>
                               <td><?php echo $row['message']; ?></td>
                               <td>
                                 <div class="input-group">
-                                  <a class="btn btn-primary" href="reply.php" role="button" name="view_btn">Reply</a>
-                                  <a class="btn btn-primary" href="" role="button" name="view_btn">Delete</a>
+                                  <input type="hidden" name="email" value="<?php echo $email; ?>">
+                                  <input type="hidden" name="message" value="<?php echo $message; ?>">
+                                  <a class="btn btn-link" href="reply.php" role="button" name="view_btn">Reply</a>
                                 </div>
                               </td>
                           </tr>
+                          </form>
                     <?php }
 
                   }else{
