@@ -155,8 +155,24 @@
                             <div class="card-header card-header-primary">
                                <h4 class="card-title">
                                 <?php  
-                                    $email=$_POST['IT'];
-                                    echo $email;
+                                  
+                                    
+                                            $query = "SELECT * FROM bid where pid='$pid'";
+                                            $results = $conn->query($query);
+                                            if ($results->num_rows > 0) {
+                                            //output data of each row
+                                              while ($row = $results->fetch_assoc()) { 
+                                              { ?>			
+                                                <tr>
+                                                  <td><?php echo $row['email']; ?></a></td>    
+                                                </tr>
+                                                <?php   }
+                                                  }
+
+                                                  }else{
+                                                    echo "0 results";
+                                                  }
+                                                           
                                 ?>
                                </h4>                   
                             </div>
