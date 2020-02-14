@@ -138,7 +138,7 @@
                               <td>
                                 <div class="input-group">
                                   <input type="hidden" name="email" value="<?php echo $email; ?>">
-                                  <input type="submit" name="viewprofile_btn" class="btn btn-primary" value="View">
+                                  <input type="submit" name="viewprofile_btn" class="btn btn-link" value="View">
                                 </div>
                               </td>
                             </form>  
