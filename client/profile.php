@@ -80,12 +80,6 @@
              </a>
            </li>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="./projects.php">
-              
-              <p>Messages</p>
-            </a>
-          </li>
            <li class="nav-item active">
              <a class="nav-link" href="./payments.php">
                <!--<i class="material-icons">location_ons</i>-->

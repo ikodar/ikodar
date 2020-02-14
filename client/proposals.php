@@ -64,12 +64,6 @@
      </li>
 
      <li class="nav-item active">
-            <a class="nav-link" href="./projects.php">              
-              <p>Messages</p>
-            </a>
-          </li>
-
-     <li class="nav-item active">
        <a class="nav-link" href="./payments.php">
          <p>Payments</p>
        </a>
@@ -183,7 +177,7 @@
                     if ($results->num_rows > 0){
                     //output data of each row
                      while ($row = $results->fetch_assoc()) { ?>	
-                          <form action =""	method="post" class="was-validated">
+                          <form action ="proposals.php"	method="post" class="was-validated">
                           <?php $email=$row['email'];?>
                           <tr>
                               <td><?php echo $row['email']; ?></td>
