@@ -242,8 +242,7 @@ span.price {
       <!--products cart-->
       <?php 
                   //retrieve data from project table
-        $emailn=$_SESSION['email'];
-        $query = "SELECT * FROM projects WHERE status='completed' AND client='$emailn'";
+        $query = "SELECT * FROM projects";
         $results = $conn->query($query);
         if ($results->num_rows > 0) {
         //output data of each row
@@ -280,7 +279,7 @@ span.price {
       <p>Total <span class="price" style="color:black"><b>
       <?php
       $email=$_SESSION['email'];
-      $query = "SELECT SUM(amount) FROM projects WHERE status='completed' AND client='$email'";
+      $query = "SELECT SUM(amount) FROM projects WHERE status='completed' AND client='$email";
       $result = $conn->query($query);
       $count2 = $result->fetch_assoc()['SUM(amount)'];
 
