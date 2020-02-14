@@ -25,7 +25,7 @@ if (isset($_GET['logout'])) {
 
 
 // variable declaration
-$IT ="";
+$IT = $status ="";
 $errors = array(); 
 
 // call the register() function if add_btn is clicked
@@ -38,7 +38,7 @@ if (isset($_POST['accept_btn'])) {
 // POST PROJECTS
 function accept(){
 	// call these variables with the global keyword to make them available in function
-	global $conn, $IT;
+	global $conn, $IT, $status;
 
 	// receive all input values from the form.
     // defined below to escape form values
@@ -56,7 +56,7 @@ function accept(){
 
 	// register user if there are no errors in the form
 	$query = "UPDATE projects 
-              SET IT = '$IT' WHERE pid = '$pid'";
+              SET IT = '$IT', status = 'open' WHERE pid = '$pid'";
 
               
 	if ($conn->query($query) === TRUE) {

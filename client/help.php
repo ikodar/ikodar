@@ -110,7 +110,7 @@
                   <h4 class="card-title">How may we help you?</h4>
                 </div>
                  <div class="card-body">
-                  <form action="" method="post" class="was-validated">
+                  <form action="help.php" method="post" class="was-validated">
                   <input type="hidden" name="email" value="<?=$email;?>">                                
                     <div class="row">
                       <div class="col-md-5">                      
@@ -122,7 +122,7 @@
                         <div class="form-group">
                           
                             <div class="form-group" >
-                              <textarea name="task" class="form-control" rows="5" style="border: 1px solid #bdbdbd;"  placeholder="I have a question about..."></textarea>
+                              <textarea name="message" class="form-control" rows="5" style="border: 1px solid #bdbdbd;"  placeholder="I have a question about..."></textarea>
                             </div>
                         </div>
                       </div>
