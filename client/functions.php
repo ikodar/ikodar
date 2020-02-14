@@ -23,7 +23,7 @@ if (isset($_GET['logout'])) {
 
 
 // variable declaration
-$task =$email=$pid ="";
+$task = $email=$pid ="";
 $errors = array(); 
 
 // call the register() function if add_btn is clicked
@@ -42,6 +42,7 @@ function addtask(){
     // defined below to escape form values
 	
 	$task =  $_POST['task'];
+	
 	$email = $_SESSION['email'];
 	$pid =  $_POST['pid'];
 	
@@ -54,11 +55,13 @@ function addtask(){
 
 	
 
+	
+
 	// register user if there are no errors in the form
 	if (count($errors) == 0) {
 		
 		$query = "INSERT INTO tasks (task,pid,email) 
-				  VALUES('$task','$pid','$email')";
+				  VALUES('$task',$pid','$email')";
 		if ($conn->query($query) === TRUE) {
 		    echo "New record created successfully";
 		} else {
