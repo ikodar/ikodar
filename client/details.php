@@ -357,11 +357,16 @@
                               <div class="col-md-6">  
                               <?php $sql="SELECT project_link FROM projects WHERE pid='$pid'";
                                     $results=$conn->query($sql);
-                                    $project=$reults->fetch_assoc()['project_link'];
+                                    $project=$results->fetch_assoc()['project_link'];
                               ?>
-                                  <form action="tasks.php" method="post">
-                                  <input name="" type="text" class="form-control" value="<?php echo $project?>"> 
-                                  </form>        
+                                <table>
+                                  <tr>
+                                    <form action="tasks.php" method="post">
+                                      <td><input name="" type="text" class="form-control" value="<?php echo $project?>"></td>
+                                      <td><button type="submit"  class="btn btn-primary pull-right"  name="accept_btn">Accept</button></td> 
+                                    </form>  
+                                  </tr>
+                                </table>        
                               </div>                     
                             </div>
                           </div>
