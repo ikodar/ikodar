@@ -13,6 +13,7 @@
     //header("location: index.php");
   } 
 
+
    $query = "SELECT * FROM projects where pid='$pid'";
    $results = $conn->query($query);
    if ($results->num_rows > 0) {

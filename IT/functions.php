@@ -77,7 +77,56 @@ function placebid(){
 }
 
 
+$link ="";
+$errors = array(); 
 
+// call the register() function if add_btn is clicked
+if (isset($_POST['complete'])) {
+	Complete();
+	("Location:tasks.php");
+}
+
+
+// POST PROJECTS
+function Complete(){
+	// call these variables with the global keyword to make them available in function
+	global $conn, $link;
+
+	// receive all input values from the form.
+    // defined below to escape form values
+	
+	$link =  $_POST['link'];
+	$pid=  $_SESSION['pid'];
+	
+
+    
+	// form validation: ensure that the form is correctly filled
+
+	
+
+	
+
+	// register user if there are no errors in the form
+	$query = "UPDATE tasks 
+              SET link = '$link' WHERE pid = '$pid'";
+
+              
+	if ($conn->query($query) === TRUE) {
+	    echo "New record created successfully";
+	} else {
+	   echo "Error: " . $query . "<br>" . $conn->error;
+	}
+	
+	$conn->close();
+}
+
+
+
+
+
+
+
+?>
 
 
 ?>
