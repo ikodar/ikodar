@@ -125,43 +125,58 @@
                     <div class="row">
                       <div class="col-md-12">
                          <div class="card">
-                            <div class="card-header card-header-primary">
-                               <h4 class="card-title">Name of the project should appear</h4>                   
+                            <div class="card-header card-header-primary" style="font-size:20px">
+                               
+                            <?php
+                  $query = "SELECT * FROM projects where pid='$pid'";
+              $results = $conn->query($query);
+              if ($results->num_rows > 0) {
+              //output data of each row
+              while ($row = $results->fetch_assoc()) { 
+               { ?>			
+                    <tr>
+                        <td><?php echo $row['name']; ?></a></td>
+                    </tr>
+                <?php   }
+                  }
+                    }else{
+                  echo "0 results";
+                  }
+                ?>
+
                             </div>
                              <div class="card-body">
                               <form>
                      
                               <table class="table">
-                        <thead class="thead-dark text-primary">
-                          <tr>
-                            <th width="18%">TASK ID</th>
-                            <th width="18%">TASK NAME</th>
-                            <th width="16%"></th>
+                        <thead class="thead-dark text-primary" >
+                          <tr >
+                            <th width="18%" style="font-size:15px">TASK ID</th>
+                            <th width="18%"style="font-size:15px">TASK NAME</th>
+                            <th width="16%"style="font-size:15px">HOUR</th>
                           </tr>
                         </thead>
                         <tbody>
                         <?php 
-                            //retrieve data from project table
-                            $query = "SELECT * FROM projects";
-                            $results = $conn->query($query);
-                            if ($results->num_rows > 0) {
-                            //output data of each row
-                            while ($row = $results->fetch_assoc()) { 
-                              $date=date("Y-m-d");	
-                              if ($date<$row['biddate']){ ?>			
-                                  <tr>
-                                      <td><?php echo $row['pid']; ?></td>
-                                      <td><?php echo $row['name']; ?></td>
-                                      <td><a class="btn btn-primary" href="details.php" role="button" name="view_btn">View</a>
-                                  </tr>
-                              <?php 
-                                }
-                                }
+                  $query = "SELECT * FROM tasks where pid='$pid'";
+              $results = $conn->query($query);
+              if ($results->num_rows > 0) {
+              //output data of each row
+              while ($row = $results->fetch_assoc()) { 
+               { ?>			
+                    <tr>
+                        <td><?php echo $row['taskid']; ?></a></td>
+                        <td><?php echo $row['task']; ?></a></td>
+                        <td><?php echo $row['hour']; ?></a></td>
+                        <td><a class="btn btn-primary" href="details.php" role="button" name="view_btn">View</a>
+                    </tr>
+                <?php   }
+                  }
+                    }else{
+                  echo "0 results";
+                  }
+                ?>
 
-                                  }else{
-                                echo "0 results";
-                                }
-                              ?>
                         </tbody>
                       </table>
                      
