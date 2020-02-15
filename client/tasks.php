@@ -227,10 +227,11 @@
                     //output data of each row
                      while ($row = $results->fetch_assoc()) { ?>	
                           <form action ="tasks.php"	method="post" class="was-validated">
-                          <?php $email=$row['email'];?>
+                          
                           <tr>
                               <td><?php echo $row['tid']; ?></td>
                               <td><?php echo $row['task']; ?></td>
+                          
                               
                               <td>
                                 <div class="input-group">
