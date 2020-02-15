@@ -55,6 +55,7 @@
         i-කෝඩර්
         </a>
         <a class="simple-text logo-normal"><?php echo $_SESSION['email'];?></a>
+        <a class="simple-text logo-normal">(Admin)</a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">

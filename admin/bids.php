@@ -55,6 +55,7 @@
         i-කෝඩර්
         </a>
         <a class="simple-text logo-normal"><?php echo $_SESSION['email'];?></a>
+        <a class="simple-text logo-normal">(Admin)</a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
@@ -175,7 +176,7 @@
                                           <td><?php echo $row['Proposal']; ?></td>
                                           <td>
                                             <div class="input-group">
-                                              <a class="btn btn-link" href="view.php" role="button" name="view_btn">View</a>
+                                              <a class="btn btn-link" href="userprofile.php" role="button" name="view_btn">View</a>
                                             </div>
                                           </td>
                                       </tr>

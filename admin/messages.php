@@ -35,6 +35,7 @@
         i-කෝඩර්
         </a>
         <a class="simple-text logo-normal"><?php echo $_SESSION['email'];?></a>
+        <a class="simple-text logo-normal">(Admin)</a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
@@ -137,7 +138,7 @@
                                         <div class="input-group">
                                           <input type="hidden" name="email" value="<?php echo $email; ?>">
                                           <input type="hidden" name="message" value="<?php echo $message; ?>">
-                                          <input type="submit" name="viewmessage_btn" class="btn btn-link" value="View">
+                                          <input type="submit" class="btn btn-link" value="View">
                                         </div>
                                       </td>
                                   </tr>

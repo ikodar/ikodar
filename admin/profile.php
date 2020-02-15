@@ -48,6 +48,7 @@
         i-කෝඩර්
         </a>
         <a class="simple-text logo-normal"><?php echo $_SESSION['email'];?></a>
+        <a class="simple-text logo-normal">(Admin)</a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
@@ -116,7 +117,7 @@
                        <div class="col-md-4">
                          <div class="form-group">
                            <label class="bmd-label-floating" >Email address</label>
-                           <input name="email" type="email" class="form-control" style="width:500px" value="<?php echo $_SESSION['email'];?>">
+                           <?php echo $_SESSION['email'];?>
                          </div>
                        </div>
                      </div>

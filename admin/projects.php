@@ -42,6 +42,7 @@
         <a class="simple-text logo-normal">
         i-කෝඩර්
         <a class="simple-text logo-normal"><?php echo $_SESSION['email'];?></a>
+        <a class="simple-text logo-normal">(Admin)</a>
         </a>
       </div>
       <div class="sidebar-wrapper">
@@ -91,7 +92,7 @@
           <div class="collapse navbar-collapse justify-content-end">
             <ul class="navbar-nav">
               <li class="nav-item"> 
-                <a class="nav-link" href="functions?logout='1'">Logout</a><!--HREF HERE CHECK-->
+                <a class="nav-link" href="functions.php?logout='1'">Logout</a><!--HREF HERE CHECK-->
               </li>
             </ul>
           </div>
