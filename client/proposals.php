@@ -190,7 +190,7 @@
                                   <input type="hidden" name="IT" value="<?php echo $email?>">
 
                                   <a class="btn btn-primary" href="view.php" role="button" name="view_btn">View</a> 
-                                  <button type="submit"  class="btn btn-link pull-right" value="submit" name="accept_btn">Accept</button>
+                                  <button type="submit"  class="btn btn-link" value="submit" name="accept_btn">Accept</button>
                                   
                                 </div>
                               </td>
