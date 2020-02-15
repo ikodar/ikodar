@@ -189,7 +189,6 @@
                                 <div class="input-group">
                                   <input type="hidden" name="IT" value="<?php echo $email?>">
 
-                                   
                                   <button type="submit"  class="btn btn-primary pull-right"  name="view_btn">View</button>
                                   <button type="submit"  class="btn btn-primary pull-right"  name="accept_btn">Accept</button>
                                   
