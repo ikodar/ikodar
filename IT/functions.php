@@ -62,7 +62,7 @@ function placebid(){
 		array_push($errors, "proposal is required."); 
 	}
 
-	// register user if there are no errors in the form
+	// register bid if there are no errors in the form
 	if (count($errors) == 0) {
 		
 		$query = "INSERT INTO bid (Bid, Days, Proposal,pid,email) 
@@ -85,7 +85,7 @@ function project(){
 	global $conn;
 	$pid=$_SESSION["pid"];
 	$link=$_POST['link'];
-	$sql="UPDATE projects SET link='$link' WHERE pid='$pid'";
+	$sql="UPDATE projects SET link='$link', accept='submitted' WHERE pid='$pid'";
 	if ($conn->query($sql) === TRUE) {
         echo "Link submitted successfully.";
     } else{

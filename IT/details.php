@@ -26,6 +26,7 @@
         $amount = $row['amount'];
         $client = $row['client'];
         $link = $row['link'];
+        $accept = $row['accept'];
       }
 
    }else{
@@ -245,7 +246,8 @@
                                   <tr>
                                     <form action="details.php" method="post">
                                       <td><input name="link" type="text" class="form-control" value="<?php echo $link?>"></td>
-                                      <td><button type="submit"  class="btn btn-primary pull-right"  name="submitproject_btn">Submit</button></td> 
+                                      <td><button type="submit"  class="btn btn-primary pull-right"  name="submitproject_btn">Submit</button></td>
+                                      <td><?php echo $accept?></td> 
                                     </form>  
                                   </tr>
                                 </table>        

@@ -35,7 +35,8 @@ if (isset($_POST['submit'])) {
   $deadline = $row['deadline'];
   $description = $row['description'];
   $schedule = $row['schedule'];
-  $project_link = $row['project_link'];
+  $link = $row['link'];
+  $accept = $row['accept'];
 
   if(isset($_POST['acceptproject_btn'])){
 
@@ -268,7 +269,8 @@ if (isset($_POST['submit'])) {
                                   <tr>
                                     <form action="payments.php" method="post">
                                       <td><input name="" type="text" class="form-control" value="<?php echo $project?>"></td>
-                                      <td><button type="submit"  class="btn btn-primary pull-right"  name="acceptproject_btn">Accept</button></td> 
+                                      <td><button type="submit"  class="btn btn-primary pull-right"  name="acceptproject_btn">Accept</button></td>
+                                      <td><?php echo $accept?></td> 
                                     </form>  
                                   </tr>
                                 </table>        
