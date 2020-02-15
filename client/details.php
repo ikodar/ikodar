@@ -345,6 +345,30 @@
                             </div>
                           </div>
                         </div>
+
+                    <div class="row">
+                      <div class="col-md-8">
+                        <div class="card">
+                          <div class="card-header card-header-primary">
+                            <h4 class="card-title">Final Project Handover</h4>
+                          </div>
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-md-6">  
+                              <?php $sql="SELECT project_link FROM projects WHERE pid='$pid'";
+                                    $results=$conn->query($sql);
+                                    $project=$reults->fetch_assoc()['project_link'];
+                              ?>
+                                  <form action="tasks.php" method="post">
+                                  <input name="" type="text" class="form-control" value="<?php echo $project?>"> 
+                                  </form>        
+                              </div>                     
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                   </div>
+
                       </div>
                     </div>
  
