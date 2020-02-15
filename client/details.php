@@ -42,7 +42,6 @@ if (isset($_POST['submit'])) {
     //update the status and acception of the project and redirect to payment page
     $sql="UPDATE projects SET accept='accepted',status='completed' WHERE pid='$pid'";
     $results=$conn->query($sql);
-
     header('location: payments.php');
 
   }
@@ -255,7 +254,7 @@ if (isset($_POST['submit'])) {
                           <div class="card-body">
                             <div class="row">
                               <div class="col-md-6">  
-                              <?php $sql="SELECT project_link FROM projects WHERE pid='$pid'";
+                              <?php $sql="SELECT link FROM projects WHERE pid='$pid'";
                                     $results=$conn->query($sql);
                                     $project=$results->fetch_assoc()['project_link'];
                               ?>
