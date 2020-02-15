@@ -116,7 +116,7 @@
                               <td><?php echo $row['description']; ?></td>
                               <td>
                                 <div class="input-group">
-                                  <a class="btn btn-primary" href="view.php" role="button" name="view_btn">View</a>
+                                  <a class="btn btn-link" href="view.php" role="button" name="view_btn">View</a>
                                 </div>
                               </td>
                           </tr>
