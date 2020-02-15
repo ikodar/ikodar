@@ -139,7 +139,7 @@
                                 <label>Payment: </label><br>
                                 <select name="payment" onChange="combo(this, 'theinput')">
                                 <option value="Hourly basis">Hourly basis</option>
-                                <option value="Fully Payment">Fully payment</optio n>
+                                <option value="Full Payment">Full payment</optio n>
                                 </select></br></br>
 
                                 <label style="margin-top:8px;">Bid Amount:</label>
