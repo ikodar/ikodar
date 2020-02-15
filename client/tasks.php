@@ -230,12 +230,13 @@
                           <form action ="tasks.php"	method="post" class="was-validated">
                           
                           <tr>
-                              
+                              <input type="hidden" name="tid" value="<?php echo $tid?>"> 
                               <td><?php echo $row['task']; ?></td>
  
                               <td width="50">
                                 <div class="input-group">
                                   <input name="link" type="text" size="50" class="input" id=link >
+                                  <?php echo $row['link'];?>
                               </td>
 
                                  <td> <button type="submit"  class="btn btn-primary pull-right" value="submit" name="satisfy">Accept</button></td>

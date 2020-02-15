@@ -129,7 +129,7 @@
                 <div class="thumbnail">
                   <ul class="nav nav-tabs col-md-8" style="background-color:#113849; padding:20px; margin-left:20%">
                     <li class="nav-item active  px-4">
-                      <a class="nav-link" href="completed.php">Completed Projects</a>
+                      <a class="nav-link" href="completed.php">Past Projects</a>
                     </li>
                   </ul>
                 <h2></h2>  
