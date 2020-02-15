@@ -232,12 +232,10 @@
                           <tr>
                               
                               <td><?php echo $row['task']; ?></td>
-                              <td><textarea name="link" class="form-control" rows="5" colls="5" style="border: 1px solid #bdbdbd;"  placeholder="Task link"></textarea></td>
-                          
-                              
+ 
                               <td>
                                 <div class="input-group">
-                                  
+                                  <input name="link" type="text" class="input" id=link >
                                   <button type="submit"  class="btn btn-primary pull-right" value="submit" name="satisfy">Accept</button>
                                   
                                 </div>
