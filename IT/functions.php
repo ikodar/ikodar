@@ -33,7 +33,7 @@ if (isset($_POST['submit'])) {
 }
 
 
-// POST PROJECTS
+// POST BID
 function placebid(){
 	// call these variables with the global keyword to make them available in function
 	global $conn, $errors, $bid, $days, $proposal,$email,$pid;
@@ -62,7 +62,7 @@ function placebid(){
 		array_push($errors, "proposal is required."); 
 	}
 
-	// register user if there are no errors in the form
+	// register bid if there are no errors in the form
 	if (count($errors) == 0) {
 		
 		$query = "INSERT INTO bid (Bid, Days, Proposal,pid,email) 
@@ -76,7 +76,12 @@ function placebid(){
 	$conn->close();
 }
 
+//POST FINAL PROJECT LINK
+if(isset($_POST['submitproject_btn'])){
+	project();
+}
 
+<<<<<<< HEAD
 $link ="";
 $errors = array(); 
 
@@ -127,6 +132,20 @@ function Complete(){
 
 
 ?>
+=======
+function project(){
+	global $conn;
+	$pid=$_SESSION["pid"];
+	$link=$_POST['link'];
+	$sql="UPDATE projects SET link='$link', accept='submitted' WHERE pid='$pid'";
+	if ($conn->query($sql) === TRUE) {
+        echo "Link submitted successfully.";
+    } else{
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+    $conn->close();
+}
+>>>>>>> 3a48f473f7f6b409fb1bb06df06e1ad9c528ea5b
 
 
 ?>

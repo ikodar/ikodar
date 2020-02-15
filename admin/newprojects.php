@@ -119,7 +119,7 @@
                          <form action="view.php" method="post">
                             <td><?php echo $row['pid']; ?></td>
                             <td><?php echo $row['name']; ?></td>
-                            <td><?php echo $row['description']; ?></td>
+                            <td><?php echo substr($row['description'],0,50)."..."; ?></td>
                             <td>
                               <div class="input-group">
                                   <input type="hidden" name="pid" value="<?php echo $pid; ?>">

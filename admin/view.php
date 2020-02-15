@@ -23,6 +23,7 @@
       while ($row = $results->fetch_assoc()) { 
         $name = $row ['name'];
         $type = $row['type'];
+        $IT = $row['IT'];
         $description = $row['description'];
         $biddate = $row['biddate'];
         $deadline = $row['deadline'];
@@ -177,7 +178,10 @@
                                     <div class="row">
                                       <div class="col-md-6">
                                         <div class="form-group">
-                                          <label class="bmd-label-floating">IT Individual:</label>                           
+                                          <label class="bmd-label-floating">IT Individual:</label>
+                                          <tr>
+                                                <td><?php echo $IT; ?></a></td>    
+                                          </tr>                            
                                         </div>
                                       </div>                                            
                                     </div>

@@ -132,7 +132,7 @@
                           <tr>
                               <td><?php echo $row['mid']; ?></td>
                               <td><?php echo $row['email']; ?></td>
-                              <td><?php echo $row['message']; ?></td>
+                              <td><?php echo substr($row['message'],0,60)."..."; ?></td>
                               <td>
                                 <div class="input-group">
                                   <input type="hidden" name="email" value="<?php echo $email; ?>">
