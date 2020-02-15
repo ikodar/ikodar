@@ -33,7 +33,7 @@ if (isset($_POST['submit'])) {
 }
 
 
-// POST PROJECTS
+// POST BID
 function placebid(){
 	// call these variables with the global keyword to make them available in function
 	global $conn, $errors, $bid, $days, $proposal,$email,$pid;
@@ -76,8 +76,23 @@ function placebid(){
 	$conn->close();
 }
 
+//POST FINAL PROJECT LINK
+if(isset($_POST['submitproject_btn'])){
+	project();
+}
 
-
+function project(){
+	global $conn;
+	$pid=$_SESSION["pid"];
+	$link=$_POST['link'];
+	$sql="UPDATE projects SET link='$link' WHERE pid='$pid'";
+	if ($conn->query($sql) === TRUE) {
+        echo "Link submitted successfully.";
+    } else{
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+    $conn->close();
+}
 
 
 ?>

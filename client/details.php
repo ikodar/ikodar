@@ -41,8 +41,13 @@ if (isset($_POST['submit'])) {
 
     //update the status and acception of the project and redirect to payment page
     $sql="UPDATE projects SET accept='accepted',status='completed' WHERE pid='$pid'";
-    $results=$conn->query($sql);
-    header('location: payments.php');
+    if ($conn->query($sql) === TRUE) {
+      echo "Link submitted successfully.";
+      header('location: payments.php');
+  } else{
+      echo "Error: " . $sql . "<br>" . $conn->error;
+  }
+    
 
   }
 

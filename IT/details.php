@@ -25,6 +25,7 @@
         $deadline = $row['deadline'];
         $amount = $row['amount'];
         $client = $row['client'];
+        $link = $row['link'];
       }
 
    }else{
@@ -231,6 +232,30 @@
                             </div>
                           </div>
                         </div>
+                        <div class="row">
+                      <div class="col-md-8">
+                        <div class="card">
+                          <div class="card-header card-header-primary">
+                            <h4 class="card-title">Final Project Handover</h4>
+                          </div>
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-md-6">  
+                                <table>
+                                  <tr>
+                                    <form action="details.php" method="post">
+                                      <td><input name="link" type="text" class="form-control" value="<?php echo $link?>"></td>
+                                      <td><button type="submit"  class="btn btn-primary pull-right"  name="submitproject_btn">Submit</button></td> 
+                                    </form>  
+                                  </tr>
+                                </table>        
+                              </div>                     
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                   </div>
+
                       </div>
       <!--End of data section-->
 
