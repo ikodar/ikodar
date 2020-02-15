@@ -236,7 +236,7 @@
                                   
 
                                 
-                                  <button type="submit"  class="btn btn-primary pull-right" value="submit" name="satisfy">Satisfy</button>
+                                  <button type="submit"  class="btn btn-primary pull-right" value="submit" name="satisfy">Accept</button>
                                   
                                 </div>
                               </td>
