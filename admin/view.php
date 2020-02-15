@@ -5,9 +5,16 @@
     header('location: ../login.php');
   }
 
-  $pid =  $name = $description = $biddate = $deadline = $type = $amount ="";
-
+  $name = $description = $biddate = $deadline = $type = $amount ="";
   
+  if(isset($_POST['viewproject_btn'])){
+    $_SESSION['pid']=$_POST['pid'];
+    $pid=$_SESSION['pid'];
+  }
+  else{
+    $pid="";
+  }
+
   $pid=$_SESSION['pid'];
    $query = "SELECT * FROM projects where pid='$pid'";
    $results = $conn->query($query);

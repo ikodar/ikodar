@@ -49,7 +49,7 @@
              </a>
  
              <li class="nav-item active  ">
-               <a class="nav-link" href="./myprojects.php">
+               <a class="nav-link" href="./active.php">
                  <!--<i class="material-icons">dashboard</i>-->
                  <p>My Projects</p>
                </a>
@@ -63,15 +63,9 @@
            </li>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="./addprojects.php">
-              
-              <p>Messages</p>
-            </a>
-          </li>
-           <li class="nav-item active">
-             <a class="nav-link" href="./payments.php">
+             <a class="nav-link" href="./income.php">
                <!--<i class="material-icons">location_ons</i>-->
-               <p>Payments</p>
+               <p>Income</p>
              </a>
            </li>
          </ul>

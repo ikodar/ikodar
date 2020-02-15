@@ -12,6 +12,7 @@
   $row = $results->fetch_assoc();
 
   $firstname  =  $row['firstname'];
+  $lastname  =  $row['lastname'];
   
   //piechart
   $qry = "SELECT type, count(*) as number FROM projects GROUP BY type ";
@@ -155,7 +156,9 @@ img {vertical-align: middle;}
         <a class="simple-text logo-normal">
         i-කෝඩර්
         </a>
-        <a class="simple-text logo-normal"><?php echo $_SESSION['email'];?></a>
+        
+        <a class="simple-text logo-normal">Hi</a>
+        <a class="simple-text logo-normal"><?php echo $firstname,$lastname?></a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
@@ -191,11 +194,7 @@ img {vertical-align: middle;}
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
-          <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Hi</a>
-            
-            <input name="email" type="email" class="form-control" style="width:100px" value="<?php echo $firstname?>">
-          </div>
+          
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
             <span class="navbar-toggler-icon icon-bar"></span>

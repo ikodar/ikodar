@@ -5,17 +5,7 @@
 	header('location: ../login.php');
   }
 
-  $pid="";
-  
-  if(isset($_POST['viewproject_btn'])){
-    $_SESSION['pid']=$_POST['pid'];
-    $pid=$_SESSION['pid'];
-  }
-  else{
-    $pid="";
-  }
- 
-?>
+ ?>
 
 <!DOCTYPE html>
 <html lang="en">
