@@ -1,10 +1,12 @@
 <?php 
+
   include('functions.php');
   if (!isLoggedIn()) {
     $_SESSION['msg'] = "You must log in first";
     header('location: ../login.php');
   }
 
+  
   if(isset($_SESSION["pid"])){
     $pid=$_SESSION["pid"];
   }
@@ -12,6 +14,7 @@
     $pid="";
     //header("location: index.php");
   }
+  
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +29,9 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 <!-- CSS Files -->
 <link href="css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
-<link href="css/custom.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="css/custom.css" rel="stylesheet" />
 </head>
 <body class="">
 <div class="wrapper ">
@@ -125,15 +130,15 @@
           <div class="card-body">
             <form>
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                   <div class="form-group">
-                    <h4><strong><a class="nav-link" href="details.php">Details</a></strong></h4>                          
+                    <h4><a class="nav-link" href="details.php">Details</a></h4>                          
                   </div>
                 </div>
-                
-                <div class="col-md-6">
+
+                <div class="col-md-4">
                   <div class="form-group">
-                    <h4><strong><a class="nav-link" href="tasks.php">Tasks</a></h4></strong>                          
+                    <h4><a class="nav-link" href="tasks.php">Tasks</a></h4>                         
                   </div>
                 </div>
               </form>
@@ -145,38 +150,7 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-10">
-              <div class="card">
-                <div class="card-header card-header-primary">
-                  <h4 class="card-title">Tasks</h4>
-                </div>
-                <div class="card-body">
-                </div>
-              </div>
-
-                  <div class="row">
-                    <div class="col-md-5">
-                        <label style="margin-top:8px;">Task will be completed(in hours):</label>
-                        <div class="input-group mb-3">
-                          <input name="hour" type="int" class="form-control" style="border: 1px solid #bdbdbd;"  placeholder="Enter number of hours" required>
-                          <div class="input-group-append">
-                            <span class="input-group-text" style="background-color:#d3d3d3; border: 1px solid #bdbdbd; padding:3px">Hours</span>
-                          </div>
-                          <div class="invalid-feedback">Please enter number of hours.</div>
-                        </div>
-                      </div>
-                        </div>
-
-                    <button type="submit"  class="btn btn-primary pull-right" name="add">ADD</button>
-                    <div class="clearfix"></div>
-                  </form>
-                </div>
-              </div>
-            </div>
-
-            <div class="card-body">
-              </div>
-            </div>
-
+            
             <div class="card">
               <div class="card-header card-header-primary">
                 <h4 class="card-title">All Tasks</h4>
@@ -185,10 +159,18 @@
 
                                
                 <div class="row">
-                  <div class="col-md-5">  
-                  <div class="table-responsive">
+                  <div class="col-md-12">  
+                  <div class="table-responsive px-5 py-3">
                     <table class="table">
                       <tbody>
+                      <thead class="thead text-primary">
+                              <tr>
+                              <th scope="col">TASKS</th>
+                                <th scope="col">HOURS</th>
+                                <th scope="col"></th>
+                                <th scope="col">STATUS</th>
+                              </tr>
+                            </thead>
 
                       <?php 
                   //retrieve data from project table
@@ -197,21 +179,26 @@
                     if ($results->num_rows > 0){
                     //output data of each row
                      while ($row = $results->fetch_assoc()) { ?>	
-                          <form action ="tasks.php"	method="post" class="was-validated">
-                          <?php $email=$row['email'];?>
+                          <form action =""	method="post" class="was-validated">
+                          
                           <tr>
-                              <td><?php echo $row['tid']; ?></td>
+                              <input type="hidden" name="tid" value="<?php echo $tid?>"> 
                               <td><?php echo $row['task']; ?></td>
+                              <td><?php echo $row['hour']; ?></td>
                               
-                              <td>
-                                <div class="input-group">
-                                  
-
-                                
-                                  <button type="submit"  class="btn btn-primary pull-right" value="submit" name="satisfy">Accept</button>
-                                  
+ 
+                              <td style="width:350px;"> 
+                                <div class="input-group" >
+                                <input name="link" type="text" class="form-control" value="">
                                 </div>
-                              </td>
+                                </td>
+
+                                <td>
+                                <div class="input-group" >
+                                  <button type="submit"  class="btn btn-primary pull-right" value="submit" name="complete">Complete</button>
+                                </div>
+                                </td>
+                             
                           </tr>
                           </form>
                   <?php   
@@ -230,6 +217,9 @@
             </div>
           </div>
         </div>
+
+                 
+
       </div>
  
 
