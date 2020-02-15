@@ -229,81 +229,14 @@ span.price {
           
         </div>
         
-        <input type="submit" value="Continue to checkout" class="btn">
+        
+        <a class="btn" href="payments.php" role="button" name="view_btn">Continue to checkout</a>
+        <a class="btn" href="payments.php" role="button" name="view_btn">BACK</a>
       </form>
     </div>
   </div>
 
-  <!--cart-->
-  <div class="col-25">
-    <div class="container">
-    <div class="card-body">
-      <!--head line cart-->
-      <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>
-      <?php 
-      $query = "SELECT COUNT(status) FROM projects WHERE status='completed'";
-      $result = $conn->query($query);
-      $count = $result->fetch_assoc()['COUNT(status)'];
-
-      echo $count;
-      ?>
-      
-      
-      
-      </b></span></h4>
-      <!--products cart-->
-      <?php 
-                  //retrieve data from project table
-        $query = "SELECT * FROM projects";
-        $results = $conn->query($query);
-        if ($results->num_rows > 0) {
-        //output data of each row
-        while ($row = $results->fetch_assoc()) { 
-          $date=date("Y-m-d");	
-          if ($date<$row['biddate']){ ?>			
-                  
-                  <?php $name= $row['name']; ?>
-                  <?php $amount= $row['amount']; ?>
-
-                  
-                  <?php echo '
-                    <form action="existing.php" method="post">
-                    <input type="hidden" name="name" value="'.$name.'">
-                    <input type="hidden" amount="amount" value="'.$amount.'">
-                        <tr>
-                        <a href="#"><td>'.$name.'</td></a>
-                        <span class="price"><td>'.$amount.'</td></span>
-                        </tr>
-                    </form>
-                    ';?>
-                  
-          <?php   }
-                      }
-
-                        }else{
-                      echo "0 results";
-                      }
-                    ?>
-          
-      
-      
-      <hr>
-      <p>Total <span class="price" style="color:black"><b>
-      <?php
-      $email=$_SESSION['email'];
-      $query = "SELECT SUM(amount) FROM projects WHERE status='completed' AND client='$email";
-      $result = $conn->query($query);
-      $count2 = $result->fetch_assoc()['SUM(amount)'];
-
-      echo $count2;
-      ?>
-      
-      
-      
-      </b></span></p>
-    </div>
-    </div>
-  </div>
+ 
 </div>
 <!--payment end-->
 

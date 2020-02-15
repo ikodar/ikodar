@@ -1,10 +1,11 @@
 <?php 
 
-include('functions.php');
-	if (!isLoggedIn()) {
-	$_SESSION['msg'] = "You must log in first";
-	header('location: ../login.php');
-  }
+include_once 'connection.php';
+include('process.php');
+if (!isLoggedIn()) {
+  $_SESSION['msg'] = "You must log in first";
+  header('location: ../login.php');
+}
 
 if(isset($_POST["pid"])){
   $_SESSION["pid"]=$_POST["pid"];
@@ -119,15 +120,17 @@ ikodar
  </nav>
  <!-- End Navbar -->
  <div class="content">
+
+ <!--  our   -->
     <div class="container-fluid">
       <div class="card">
         <div class="card-header card-header-primary">
         <!--head line cart-->
-          <h4 class="card-title">Projects Cart 
+          <h4 class="card-title">Hourly basis Projects Cart 
       <i class="fa fa-shopping-cart"></i> -<b>
       <?php 
       $eml=$_SESSION['email'];
-      $query = "SELECT COUNT(status) FROM projects WHERE status='completed' AND client='$eml'";
+      $query = "SELECT COUNT(status) FROM projects WHERE status='completed' AND client='$eml' AND payment='hourly'";
       $result = $conn->query($query);
       $count = $result->fetch_assoc()['COUNT(status)'];
 
@@ -141,12 +144,20 @@ ikodar
             <div class="row">    
                 <div class="table-responsive">
                     <table class="table">
+                    <thead class="thead-dark text-primary" >
+                          <tr>
+                            <th width="10px" style="font-size:15px align:left">PROJECT ID</th>
+                            <th width="30px"style="font-size:15px align:left">PROJECT NAME</th>
+                            <th width="20px" style="font-size:15px align:left">HOURLY RATE</th>
+                            
+                          </tr>
+                        </thead>
                       <tbody>
           
                       <?php 
                   //retrieve data from project table
         
-      $query = "SELECT * FROM projects WHERE status='completed' AND client='$eml'";
+      $query = "SELECT * FROM projects WHERE status='completed' AND client='$eml' AND payment='hourly'";
         $results = $conn->query($query);
         if ($results->num_rows > 0) {
         //output data of each row
@@ -154,19 +165,19 @@ ikodar
            ?>			
             
           
-        </span>
-                  <td><?php $pid= $row['pid']; ?></td>
-                  <td><?php $name=$row['name']; ?></td>
-                  <span class="price" style="color:black"><td><?php $amount=$row['amount']; ?></td></span>
+        
+                  <td width="10px" style="align:left"><?php $pid= $row['pid']; ?></td>
+                  <td width="30px"  style="align:left"><?php $name=$row['name']; ?></td>
+                  <td width="20px"  style="align:left"><?php $amount=$row['amount']; ?></td>
               
                   <?php echo '
-                    <form action="incomeInfo.php" method="post">
+                    <form action="paymentHInfo.php" method="post">
                     <input type="hidden" name="pid" value="'.$pid.'">
                 
                         <tr>
                         <td>'.$pid.'</td>
                         <td><input type="submit" class="btn btn-link btn-lg" value="'.$name.'"></td>
-                        <span class="price"><td>'.$amount.'</td></span>
+                        <td>'.$amount.'</td>
                         </tr>
                     </form>
                     ';?>
@@ -182,32 +193,18 @@ ikodar
                      
                       
                     </table>
-                    <hr style="border-width: 3px; border-color: black;">
-
-                    <table class="table" >
-                    <tbody>
-                    <td></td>
-                  <td>Total</td>
-                  <td>
-                  <?php 
-                    $eml=$_SESSION['email'];
-                    $query = "SELECT SUM(amount) FROM projects WHERE status='completed' AND client='$eml'";
-                    $result = $conn->query($query);
-                    $sum = $result->fetch_assoc()['SUM(amount)'];
-
-      echo $sum;
                   
-      ?>
-                  </td>
-                  
-                  
-                      </tbody>
-                    </table>
 
             </div>
         </div>
       </div> 
+
     </div>
+ </div>
+ <!--   nd of our   -->
+ 
+
+
  </div>
 
 <!--   Core JS Files   -->
