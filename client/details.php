@@ -361,9 +361,9 @@
                               ?>
                                 <table>
                                   <tr>
-                                    <form action="tasks.php" method="post">
+                                    <form action="completed.php" method="post">
                                       <td><input name="" type="text" class="form-control" value="<?php echo $project?>"></td>
-                                      <td><button type="submit"  class="btn btn-primary pull-right"  name="accept_btn">Accept</button></td> 
+                                      <td><button type="submit"  class="btn btn-primary pull-right"  name="acceptproject_btn">Accept</button></td> 
                                     </form>  
                                   </tr>
                                 </table>        
