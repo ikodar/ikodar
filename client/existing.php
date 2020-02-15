@@ -115,15 +115,14 @@ ikodar
 
                       <?php 
                   //retrieve data from project table
-        $query = "SELECT * FROM projects";
-        $results = $conn->query($query);
-        if ($results->num_rows > 0) {
-        //output data of each row
-        while ($row = $results->fetch_assoc()) { 
-          $date=date("Y-m-d");	
-          if ($date<$row['biddate']){ ?>	
-          		
-            
+                  $client=$_SESSION['email'];
+                $query = "SELECT * FROM projects WHERE client='$client'";
+                $results = $conn->query($query);
+                if ($results->num_rows > 0) {
+                //output data of each row
+                while ($row = $results->fetch_assoc()) { 
+                  $date=date("Y-m-d");	
+                  if ($date<$row['biddate']){ ?>	
                   <td><?php $pid= $row['pid']; ?></td>
                   <td><?php $name=$row['name']; ?></td>
                   <td><?php $description=$row['description']; ?></td>
