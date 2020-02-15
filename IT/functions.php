@@ -29,7 +29,7 @@ $errors = array();
 // call the register() function if add_btn is clicked
 if (isset($_POST['submit'])) {
 	placebid();
-	header("Location:bid.php");
+	header("Location:active.php");
 }
 
 

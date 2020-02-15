@@ -147,12 +147,11 @@
 					    //retrieve data from project table
               $query = "SELECT * FROM projects";
               $results = $conn->query($query);
-              if ($results->num_rows > 0) {
-              //output data of each row
-              while ($row = $results->fetch_assoc()) { 
-                $date=date("Y-m-d");	
-                if ($date<$row['biddate']){ ?>			
-                  
+              if ($results->num_rows > 0){
+                //output data of each row
+                while ($row = $results->fetch_assoc()) { 
+                    if ($row['status']=="new"){ ?>	
+                     <tr>
                         <td><?php $pid= $row['pid']; ?></td>
                         <td><?php $name=$row['name']; ?></td>
                         <td><?php $description=$row['description']; ?></td>
@@ -218,7 +217,7 @@
                 
 			<ul class="list-group">
 			  <li class="list-group-item">Balance: $0.0</li>
-			  <li class="list-group-item">Hourly Rate: $3.0</li>
+			  <li class="list-group-item">Hourly Rate: $0.0</li>
 			  <li class="list-group-item">Payment Method: </li>
 			</ul>
     </div>

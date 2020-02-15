@@ -160,18 +160,29 @@
                             <tbody>
           <?php 
 					    //retrieve data from project table
-              $query = "SELECT * FROM projects";
+              $query = "SELECT * FROM projects INNER JOIN bid ON projects.pid= bid.pid";
               $results = $conn->query($query);
               if ($results->num_rows > 0) {
               //output data of each row
               while ($row = $results->fetch_assoc()) { 
-                $date=date("Y-m-d");	
-                if ($date<$row['biddate']){ ?>			
+                if ($row['email']==$_SESSION['email'] AND $row['status']=="new"){ ?>			
                     <tr>
-                        <td><?php echo $row['pid']; ?></td>
-                        <td><?php echo $row['name']; ?></td>
-                        <td><?php echo $row['biddate']; ?></td>
+                    <td><?php $pid= $row['pid']; ?></td>
+                        <td><?php $name=$row['name']; ?></td>
+                        <td><?php $biddate=$row['biddate']; ?></td>
+                        <td><?php $bid= $row['Bid']; ?></td>
+
+                </tr>
+               <?php echo '
+            
+                    <tr>
+                    <td>'.$pid.'</td>
+                    <td>'.$name.'</td>
+                    <td>'.$bid.'</td>
+                    <td>'.$biddate.'</td>
+                   
                     </tr>
+                ';?>
                 <?php   }
                   }
 

@@ -170,7 +170,7 @@ else{
                      <div class="row">
                        <div class="col-md-4">
                          <div class="form-group">
-                           <label class="bmd-label-floating">Amount :</label>
+                           <label class="bmd-label-floating">Estimated Amount :</label>
                            <?php
                   $query = "SELECT * FROM projects where pid='$pid'";
               $results = $conn->query($query);
