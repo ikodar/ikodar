@@ -37,6 +37,16 @@ if (isset($_POST['submit'])) {
   $schedule = $row['schedule'];
   $project_link = $row['project_link'];
 
+  if(isset($_POST['acceptproject_btn'])){
+
+    //update the status and acception of the project and redirect to payment page
+    $sql="UPDATE projects SET accept='accepted',status='completed' WHERE pid='$pid'";
+    $results=$conn->query($sql);
+
+    header('location: payments.php');
+
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -270,7 +280,7 @@ if (isset($_POST['submit'])) {
                               ?>
                                 <table>
                                   <tr>
-                                    <form action="completed.php" method="post">
+                                    <form action="payments.php" method="post">
                                       <td><input name="" type="text" class="form-control" value="<?php echo $project?>"></td>
                                       <td><button type="submit"  class="btn btn-primary pull-right"  name="acceptproject_btn">Accept</button></td> 
                                     </form>  
