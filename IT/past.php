@@ -163,7 +163,7 @@
               if ($results->num_rows > 0) {
               //output data of each row
               while ($row = $results->fetch_assoc()) { 
-                if ($row['IT']==$_SESSION['email'] AND $row['status']=="past"){ ?>			
+                if ($row['email']==$_SESSION['email'] AND $row['status']=="past"){ ?>			
                     <tr>
                     <td><?php $client= $row['client']; ?></td>
                         <td><?php $name=$row['name']; ?></td>
