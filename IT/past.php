@@ -162,6 +162,39 @@
                               </tr>
                             </thead>
                             <tbody>
+                               <?php 
+					    //retrieve data from project table
+              $query = "SELECT * FROM projects LEFT JOIN bid ON projects.pid = bid.pid";
+              $results = $conn->query($query);
+              if ($results->num_rows > 0) {
+              //output data of each row
+              while ($row = $results->fetch_assoc()) { 
+                if ($row['IT']==$_SESSION['email'] AND $row['status']=="past"){ ?>			
+                    <tr>
+                    <td><?php $client= $row['client']; ?></td>
+                        <td><?php $name=$row['name']; ?></td>
+                        
+                        <td><?php $bid= $row['Bid'];  ?></td>
+
+                </tr>
+               <?php echo '
+            
+                    <tr>
+                    
+                    <td>'.$name.'</td> 
+                    <td>'.$client.'</td>
+                    <td>'.$bid.'</td>
+                    
+                   
+                    </tr>
+                ';?>
+                <?php   }
+                  }
+
+                    }else{
+                  echo "0 results";
+                  }
+                ?>
                             </tbody>
                           </table>
                         </div>
