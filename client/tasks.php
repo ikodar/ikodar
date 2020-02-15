@@ -7,6 +7,7 @@
     header('location: ../login.php');
   }
 
+  
   if(isset($_SESSION["pid"])){
     $pid=$_SESSION["pid"];
   }
@@ -29,7 +30,9 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 <!-- CSS Files -->
 <link href="css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
-<link href="css/custom.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="css/custom.css" rel="stylesheet" />
 </head>
 <body class="">
 <div class="wrapper ">
@@ -235,7 +238,7 @@
  
                               <td width="50">
                                 <div class="input-group">
-                                  <input name="link" type="text" size="50" class="input" id=link >
+                                <td><input name="link" type="text" class="form-control" value=""></td>
                                   <?php echo $row['link'];?>
                               </td>
 
