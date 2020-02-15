@@ -78,7 +78,8 @@ function postproject(){
 		$query = "INSERT INTO projects (type, name, description,  biddate, schedule, deadline, payment, amount, status,client) 
 				  VALUES('$type','$name', '$description', '$biddate','$schedule','$deadline','$payment','$amount','new','$client')";
 		if ($conn->query($query) === TRUE) {
-		    echo "New record created successfully";
+			echo "New record created successfully";
+			header('location: existing.php');
 		} else {
 		    echo "Error: " . $query . "<br>" . $conn->error;
 		}

@@ -34,9 +34,10 @@
 <div class="wrapper ">
 <div class="sidebar" data-color="azure" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
  <div class="logo">
-   <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-     ikodar
-   </a>
+ <a class="simple-text logo-normal">
+        i-කෝඩර්
+        </a>
+        <a class="simple-text logo-normal"><?php echo $_SESSION['email'];?></a>
  </div>
  <div class="sidebar-wrapper">
    <ul class="nav">
@@ -236,7 +237,7 @@
                                   
 
                                 
-                                  <button type="submit"  class="btn btn-primary pull-right" value="submit" name="satisfy">Satisfy</button>
+                                  <button type="submit"  class="btn btn-primary pull-right" value="submit" name="satisfy">Accept</button>
                                   
                                 </div>
                               </td>

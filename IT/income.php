@@ -1,5 +1,6 @@
 <?php 
-	include('functions.php');
+  
+  include('functions.php');
 	if (!isLoggedIn()) {
 	$_SESSION['msg'] = "You must log in first";
 	header('location: ../login.php');
@@ -15,7 +16,7 @@
    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
    <title>
-     past work
+     Income
    </title>
    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
    <!--     Fonts and icons     -->
@@ -47,7 +48,7 @@
                <!--<i class="material-icons">dashboard</i>-->
                <p>Dashboard</p>
              </a>
- 
+             </li>
              <li class="nav-item active  ">
                <a class="nav-link" href="./active.php">
                  <!--<i class="material-icons">dashboard</i>-->
@@ -76,7 +77,7 @@
        <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
          <div class="container-fluid">
            <div class="navbar-wrapper">
-             <a class="navbar-brand" href="#pablo">My Projects</a>
+             <a class="navbar-brand" href="#pablo">Payments</a>
            </div>
            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
              <span class="sr-only">Toggle navigation</span>
@@ -114,89 +115,101 @@
                  <a class="nav-link" href="help.php">Help</a>
                </li>
                <li class="nav-item"> 
-                 <a class="nav-link" href="functions.php?logout='1'">Logout</a>
+                 <a class="nav-link" href="processMyprfl.php?logout='1'">Logout</a>
                </li>
              </ul>
            </div>
          </div>
        </nav>
  
+       <!-- End Navbar -->
        <div class="content">
-                    <div class="container-fluid">
-                      <div class="row">
-                        <div class="col-md-12">
-                          
+         <div class="container-fluid">
+           <div class="row">
+             <div class="col-md-8">
+               <div class="card">
+                 <div class="card-header card-header-primary">
+                   <h4 class="card-title">Edit Profile</h4>
+                   <p class="card-category">Complete your profile</p>
+                 </div>
+                 <div class="card-body">
+                   <form method="post" action="myprofile.php"  >
+                     <div class="row">
+                       <div class="col-md-4">
+                         <div class="form-group">
+                           <label class="bmd-label-floating" >Email address</label>
+                           <input name="email" type="email" class="form-control" style="width:500px" value="<?php echo $_SESSION['email'];?>">
+                         </div>
+                       </div>
+                     </div>
+                     <div class="row">
+                       <div class="col-md-6">
+                         <div class="form-group">
+                           <label class="bmd-label-floating">First Name</label>
+                           <input name="firstname" type="text" class="form-control">
+                         </div>
+                       </div>
+                       <div class="col-md-6">
+                         <div class="form-group">
+                           <label class="bmd-label-floating">Last Name</label>
+                           <input name="lastname" type="text" class="form-control">
+                         </div>
+                       </div>
+                     </div>
+                     <div class="row">
+                       <div class="col-md-12">
+                         <div class="form-group">
+                           <label class="bmd-label-floating">Adress</label>
+                           <input name="address" type="text" class="form-control">
+                         </div>
+                       </div>
+                     </div>
+                     <div class="row">
+                       <div class="col-md-4">
+                         <div class="form-group">
+                           <label class="bmd-label-floating">City</label>
+                           <input name="city" type="text" class="form-control">
+                         </div>
+                       </div>
+                       <div class="col-md-4">
+                         <div class="form-group">
+                           <label class="bmd-label-floating">Country</label>
+                           <input name="country" type="text" class="form-control">
+                         </div>
+                       </div>
+                       <div class="col-md-4">
+                         <div class="form-group">
+                           <label class="bmd-label-floating">Postal Code</label>
+                           <input name="postalcode" type="text" class="form-control">
+                         </div>
+                       </div>
+                     </div>
+                     <div class="row">
+                       <div class="col-md-8">
+                         <div class="form-group">
+                           <label>About Me</label>
+                           <div class="form-group">
+                             
+                             <textarea name="about" style="width:560px" class="input" rows="5"></textarea>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                     
+                     <input class="btn btn-primary pull-right" type="submit" name="submit_btn" value="Update Profile">
+                     <div class="clearfix"></div>
+                   </form>
+                 </div>
+               </div>
+             </div>
+ 
+             
+<!--   Core JS Files   -->
+<script src="assets/js/core/jquery.min.js"></script>
+<script src="assets/js/core/popper.min.js"></script>
+<script src="assets/js/core/bootstrap-material-design.min.js"></script>
+<script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
 
-      
-                            <ul class="nav nav-tabs col-md-6" style="background-color:#113849; padding:20px; margin-left:15%">
-                                  </li>
-                                    <li class="nav-item px-4">
-                                      <a class="nav-link" href="active.php">Active Bids</a>
-                                    </li>
-                                    <li class="nav-item  px-4">
-                                      <a class="nav-link" href="current.php">Current Work</a>
-                                    </li>
-                                    <li class="nav-item  px-4">
-                                      <a class="nav-link active" href="past.php">Past Work</a>
-                                  </li>
-                              </ul>
-                      
-                    <div class="card">
-                      <div class="card-body mt-3">
-                        <div class="table-responsive">
-                          <table class="table">
-                            <thead class="thead-dark text-primary">
-                              <tr>
-                              <th scope="col">PROJECT NAME</th>
-                                    <th scope="col">BIDS</th>
-                                    <th scope="col">EMPLOYER</th>
-                                    <th scope="col">AWARDED BID</th>
-                                    <th scope="col">TIME</th>
-                                    <th scope="col">OUTCOME</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                               <?php 
-					    //retrieve data from project table
-              $query = "SELECT * FROM projects LEFT JOIN bid ON projects.pid = bid.pid";
-              $results = $conn->query($query);
-              if ($results->num_rows > 0) {
-              //output data of each row
-              while ($row = $results->fetch_assoc()) { 
-                if ($row['IT']==$_SESSION['email'] AND $row['status']=="past"){ ?>			
-                    <tr>
-                    <td><?php $client= $row['client']; ?></td>
-                        <td><?php $name=$row['name']; ?></td>
-                        
-                        <td><?php $bid= $row['Bid'];  ?></td>
+</body>
 
-                </tr>
-               <?php echo '
-            
-                    <tr>
-                    
-                    <td>'.$name.'</td> 
-                    <td>'.$client.'</td>
-                    <td>'.$bid.'</td>
-                    
-                   
-                    </tr>
-                ';?>
-                <?php   }
-                  }
-
-                    }else{
-                  echo "0 results";
-                  }
-                ?>
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-                        
+</html>

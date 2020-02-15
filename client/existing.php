@@ -73,7 +73,7 @@ ikodar
    <div class="container-fluid">
      <div class="navbar-wrapper">
        <a class="navbar-brand" href="#pablo">
-       <strong><?php echo "Hello "; echo$_SESSION['email']; ?></strong>
+       <strong></strong>
        </a>
      </div>
      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -115,15 +115,14 @@ ikodar
 
                       <?php 
                   //retrieve data from project table
-        $query = "SELECT * FROM projects";
-        $results = $conn->query($query);
-        if ($results->num_rows > 0) {
-        //output data of each row
-        while ($row = $results->fetch_assoc()) { 
-          $date=date("Y-m-d");	
-          if ($date<$row['biddate']){ ?>	
-          		
-            
+                  $client=$_SESSION['email'];
+                $query = "SELECT * FROM projects WHERE client='$client'";
+                $results = $conn->query($query);
+                if ($results->num_rows > 0) {
+                //output data of each row
+                while ($row = $results->fetch_assoc()) { 
+                  $date=date("Y-m-d");	
+                  if ($date<$row['biddate']){ ?>	
                   <td><?php $pid= $row['pid']; ?></td>
                   <td><?php $name=$row['name']; ?></td>
                   <td><?php $description=$row['description']; ?></td>
