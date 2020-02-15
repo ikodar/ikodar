@@ -9,7 +9,7 @@ if (!isLoggedIn()) {
 
 if(isset($_POST["pid"])){
   $_SESSION["pid"]=$_POST["pid"];
-  header("location: details.php");
+  header("location: home.php");
 
 
 }

@@ -8,10 +8,10 @@
   }
 
   if(isset($_SESSION["pid"])){
-    $pidf=$_SESSION["pid"];
+    $pid=$_SESSION["pid"];
   }
   else{
-    $pidf="";
+    $pid="";
     //header("location: index.php");
   }
 
@@ -129,7 +129,7 @@
                                <!--name-->
                                <p>Project Name : 
                             <?php
-                  $query = "SELECT * FROM projects where pid='$pidf'";
+                  $query = "SELECT * FROM projects where pid='$pid'";
               $results = $conn->query($query);
               if ($results->num_rows > 0) {
               //output data of each row
@@ -161,7 +161,7 @@
                         </thead>
                         <tbody>
                         <?php 
-                  $query = "SELECT * FROM tasks where pid='$pidf'";
+                  $query = "SELECT * FROM tasks where pid='$pid'";
               $results = $conn->query($query);
               if ($results->num_rows > 0) {
               //output data of each row
@@ -194,7 +194,7 @@
                   <td width="20px" >
                   <?php 
                     
-                    $query = "SELECT SUM(amount) FROM projects where pid='$pidf'";
+                    $query = "SELECT SUM(amount) FROM projects where pid='$pid'";
                     $result = $conn->query($query);
                     $sum = $result->fetch_assoc()['SUM(amount)'];
 

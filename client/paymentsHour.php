@@ -7,9 +7,10 @@ if (!isLoggedIn()) {
   header('location: ../login.php');
 }
 
-if(isset($_POST["pid"])){
+if(isset($_POST['btnp'])){
   $_SESSION["pid"]=$_POST["pid"];
   header("location: details.php");
+  
 
 
 }
@@ -176,7 +177,7 @@ ikodar
                 
                         <tr>
                         <td>'.$pid.'</td>
-                        <td><input type="submit" class="btn btn-link btn-lg" value="'.$name.'"></td>
+                        <td><input type="submit" class="btn btn-link btn-lg" value="'.$name.'"name="btnp"></td>
                         <td>'.$amount.'</td>
                         </tr>
                     </form>
