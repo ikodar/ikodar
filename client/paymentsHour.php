@@ -7,9 +7,9 @@ if (!isLoggedIn()) {
   header('location: ../login.php');
 }
 
-if(isset($_POST['btnp'])){
+if(isset($_POST["pid"])){
   $_SESSION["pid"]=$_POST["pid"];
-  header("location: details.php");
+  header("location: paymentHInfo.php");
   
 
 
@@ -172,7 +172,7 @@ ikodar
                   <td width="20px"  style="align:left"><?php $amount=$row['amount']; ?></td>
               
                   <?php echo '
-                    <form action="paymentHInfo.php" method="post">
+                    <form action="paymentHour.php" method="post">
                     <input type="hidden" name="pid" value="'.$pid.'">
                 
                         <tr>

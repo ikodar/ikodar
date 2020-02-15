@@ -8,10 +8,10 @@
   }
 
   if(isset($_SESSION["pid"])){
-    $pid=$_SESSION["pid"];
+    $prid=$_SESSION["pid"];
   }
   else{
-    $pid="";
+    $prid="";
     //header("location: index.php");
   }
 
@@ -129,9 +129,9 @@
                                <!--name-->
                                <p>Project Name : 
                             <?php
-                  $query = "SELECT * FROM projects where pid='$pid'";
-              $results = $conn->query($query);
-              if ($results->num_rows > 0) {
+                  $query = "SELECT * FROM projects where pid='$prid'";
+              $reslts = $conn->query($query);
+              if ($reslts->num_rows > 0) {
               //output data of each row
               while ($row = $results->fetch_assoc()) { 
                { ?>			
