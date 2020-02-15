@@ -215,7 +215,7 @@
 
                                
                 <div class="row">
-                  <div class="col-md-5">  
+                  <div class="col-md-10">  
                   <div class="table-responsive">
                     <table class="table">
                       <tbody>
@@ -233,10 +233,12 @@
                               
                               <td><?php echo $row['task']; ?></td>
  
-                              <td>
+                              <td width="50">
                                 <div class="input-group">
-                                  <input name="link" type="text" class="input" id=link >
-                                  <button type="submit"  class="btn btn-primary pull-right" value="submit" name="satisfy">Accept</button>
+                                  <input name="link" type="text" size="50" class="input" id=link >
+                              </td>
+
+                                 <td> <button type="submit"  class="btn btn-primary pull-right" value="submit" name="satisfy">Accept</button></td>
                                   
                                 </div>
                               </td>
