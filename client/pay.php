@@ -5,6 +5,16 @@
      header('location: ../login.php');
      }
 
+     //view name on top
+  $email=$_SESSION['email'];
+  $sql = "SELECT * FROM users WHERE email='$email'";
+	$results=$conn->query($sql);
+  $row = $results->fetch_assoc();
+
+  $firstname  =  $row['firstname'];
+  $lastname  =  $row['lastname'];
+  
+
 ?>
 
 
@@ -136,6 +146,8 @@ span.price {
         <a href="http://www.creative-tim.com" class="simple-text logo-normal">
           ikodar
         </a>
+        <a class="simple-text logo-normal">Hi</a>
+        <a class="simple-text logo-normal"><?php echo $firstname,$lastname?></a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
