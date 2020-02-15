@@ -75,8 +75,8 @@
      <div class="navbar-wrapper">
        <a class="navbar-brand" href="#pablo">
        <?php 
-                  
-                   $query = "SELECT * FROM projects where pid='$pid'";
+                   $IT=$_SESSION['email'];
+                   $query = "SELECT * FROM projects WHERE pid='$pid' AND IT='$IT'";
                    $results = $conn->query($query);
                    if ($results->num_rows > 0) {
                    //output data of each row
