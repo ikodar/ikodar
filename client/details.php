@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
   $deadline = $row['deadline'];
   $description = $row['description'];
   $schedule = $row['schedule'];
-  $project_link = $row['link'];
+  $project_link = $row['project_link'];
 
   if(isset($_POST['acceptproject_btn'])){
 
@@ -255,10 +255,14 @@ if (isset($_POST['submit'])) {
                           <div class="card-body">
                             <div class="row">
                               <div class="col-md-6">  
+                              <?php $sql="SELECT link FROM projects WHERE pid='$pid'";
+                                    $results=$conn->query($sql);
+                                    $project=$results->fetch_assoc()['project_link'];
+                              ?>
                                 <table>
                                   <tr>
                                     <form action="payments.php" method="post">
-                                      <td><input name="project_link" type="text" class="form-control" value="<?php echo $project_link?>" size="60"></td>
+                                      <td><input name="" type="text" class="form-control" value="<?php echo $project?>"></td>
                                       <td><button type="submit"  class="btn btn-primary pull-right"  name="acceptproject_btn">Accept</button></td> 
                                     </form>  
                                   </tr>

@@ -178,7 +178,7 @@
                                         </div>
                                       </div>                                            
                                     </div>
-                     
+
                                     <div class="row">
                                       <div class="col-md-4">
                                         <div class="form-group">
@@ -215,14 +215,14 @@
                                             </tr>                        
                                         </div>
                                       </div>
-                                  
+
                                     </div>
 
                                 <div class="row">
                                   <div class="col-md-6">
                                     <div class="form-group">
                                       <label class="bmd-label-floating">Shedule:</label>  
-                                         
+
                                     </div>
                                   </div>                                             
                                   </div>
@@ -238,4 +238,4 @@
     <!-- End of Content -->
   </div>
 </body>
-</html>
+</html> 
