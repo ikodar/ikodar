@@ -229,8 +229,9 @@
                           <form action ="tasks.php"	method="post" class="was-validated">
                           
                           <tr>
-                              <td><?php echo $row['tid']; ?></td>
+                              
                               <td><?php echo $row['task']; ?></td>
+                              <td><textarea name="link" class="form-control" rows="5" style="border: 1px solid #bdbdbd;"  placeholder="Task link"></textarea></td>
                           
                               
                               <td>
