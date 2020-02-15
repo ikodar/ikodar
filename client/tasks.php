@@ -236,8 +236,6 @@
                               <td>
                                 <div class="input-group">
                                   
-
-                                
                                   <button type="submit"  class="btn btn-primary pull-right" value="submit" name="satisfy">Accept</button>
                                   
                                 </div>
@@ -260,6 +258,9 @@
             </div>
           </div>
         </div>
+
+                 
+
       </div>
  
 
