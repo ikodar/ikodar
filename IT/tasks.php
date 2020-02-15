@@ -1,6 +1,4 @@
 <?php 
-
-  include_once 'connection.php';
   include('functions.php');
   if (!isLoggedIn()) {
     $_SESSION['msg'] = "You must log in first";
@@ -14,7 +12,6 @@
     $pid="";
     //header("location: index.php");
   }
-  
 ?>
 
 <!DOCTYPE html>
@@ -128,17 +125,13 @@
           <div class="card-body">
             <form>
               <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                   <div class="form-group">
                     <h4><strong><a class="nav-link" href="details.php">Details</a></strong></h4>                          
                   </div>
                 </div>
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <h4><strong><a class="nav-link" href="proposals.php">Proposals</a></h4></strong>                          
-                  </div>
-                </div>
-                <div class="col-md-4">
+                
+                <div class="col-md-6">
                   <div class="form-group">
                     <h4><strong><a class="nav-link" href="tasks.php">Tasks</a></h4></strong>                          
                   </div>
@@ -159,29 +152,6 @@
                 <div class="card-body">
                 </div>
               </div>
-
-             <div class="card">
-                <div class="card-header card-header-primary">
-                  <h4 class="card-title">Create a New Task</h4>
-                </div>
-                 <div class="card-body">
-                  <form action="tasks.php" method="post" class="was-validated">
-                  <input type="hidden" name="pid" value="<?=$pid;?>">                                      
-                    <div class="row">
-                      <div class="col-md-5">                      
-                      </div>                        
-                    </div>
-
-                    <div class="row">
-                      <div class="col-md-10">
-                        <div class="form-group">
-                          <label>Decribe your task:</label>
-                            <div class="form-group" >
-                              <textarea name="task" class="form-control" rows="5" style="border: 1px solid #bdbdbd;"  placeholder="add your task here"></textarea>
-                            </div>
-                        </div>
-                      </div>
-                    </div>
 
                   <div class="row">
                     <div class="col-md-5">
@@ -228,14 +198,16 @@
                     //output data of each row
                      while ($row = $results->fetch_assoc()) { ?>	
                           <form action ="tasks.php"	method="post" class="was-validated">
-                          
+                          <?php $email=$row['email'];?>
                           <tr>
-                              
+                              <td><?php echo $row['tid']; ?></td>
                               <td><?php echo $row['task']; ?></td>
- 
+                              
                               <td>
                                 <div class="input-group">
-                                  <input name="link" type="text" class="input" id=link >
+                                  
+
+                                
                                   <button type="submit"  class="btn btn-primary pull-right" value="submit" name="satisfy">Accept</button>
                                   
                                 </div>
@@ -258,9 +230,6 @@
             </div>
           </div>
         </div>
-
-                 
-
       </div>
  
 

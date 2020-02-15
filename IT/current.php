@@ -172,14 +172,16 @@
 
                 </tr>
                <?php echo '
-            
+             <form action="details.php" method="post">
+             <input type="hidden" name="pid" value="'.$pid.'">
                     <tr>
                     <td>'.$pid.'</td>
-                    <td>'.$name.'</td>
+                    <td><input type="submit" class="btn btn-link btn-lg" value="'.$name.'"></td>
                     <td>'.$bid.'</td>
                     <td>'.$deadline.'</td>
                    
                     </tr>
+                    </form>
                 ';?>
                 <?php   }
                   }

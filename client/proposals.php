@@ -7,15 +7,12 @@
     header('location: ../login.php');
   }
 
-  $pid;
-
   if(isset($_SESSION["pid"])){
-    global $pid;
-    $pid=$_SESSION["pid"];
-  }
-  else{
-    $pid="";
-    //header("location: index.php");
+  $pid=$_SESSION["pid"];
+}
+else{
+  $pid="";
+  //header("location: index.php");
   }
 
   
