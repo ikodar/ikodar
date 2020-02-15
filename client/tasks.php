@@ -14,6 +14,7 @@
     $pid="";
     //header("location: index.php");
   }
+  
 ?>
 
 <!DOCTYPE html>
@@ -231,7 +232,7 @@
                           <tr>
                               
                               <td><?php echo $row['task']; ?></td>
-                              <td><textarea name="link" class="form-control" rows="5" style="border: 1px solid #bdbdbd;"  placeholder="Task link"></textarea></td>
+                              <td><textarea name="link" class="form-control" rows="5" colls="5" style="border: 1px solid #bdbdbd;"  placeholder="Task link"></textarea></td>
                           
                               
                               <td>
