@@ -39,9 +39,10 @@
 <div class="wrapper ">
 <div class="sidebar" data-color="azure" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
  <div class="logo">
-   <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-     ikodar
-   </a>
+ <a class="simple-text logo-normal">
+        i-කෝඩර්
+        </a>
+        <a class="simple-text logo-normal"><?php echo $_SESSION['email'];?></a>
  </div>
  <div class="sidebar-wrapper">
    <ul class="nav">
@@ -189,7 +190,7 @@
                                   <input type="hidden" name="IT" value="<?php echo $email?>">
 
                                   <a class="btn btn-primary" href="view.php" role="button" name="view_btn">View</a> 
-                                  <button type="submit"  class="btn btn-primary pull-right" value="submit" name="accept_btn">Accept</button>
+                                  <button type="submit"  class="btn btn-link pull-right" value="submit" name="accept_btn">Accept</button>
                                   
                                 </div>
                               </td>

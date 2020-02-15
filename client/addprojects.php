@@ -68,7 +68,7 @@
         <div class="container-fluid">
           <div class="navbar-wrapper">
             <a class="navbar-brand" href="#pablo">
-            <strong><?php echo "Hello "; echo$_SESSION['email']; ?></strong>
+            <strong></strong>
             </a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -129,7 +129,7 @@
 
                                 <label>Tentative shedule: </label><br>
 							                	<label for="fileupload">Select a file to upload</label>
-                                <input name="shedule" type="file" value="fileupload" class="input"required/></br></br>
+                                <input name="shedule" type="file" value="fileupload" class="input"></br></br>
                                 
 
                                 <label>Tentative deadline: </label><br>
