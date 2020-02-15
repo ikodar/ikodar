@@ -36,9 +36,10 @@
         Tip 2: you can also add an image using data-image tag
     -->
     <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          ikodar
+        <a class="simple-text logo-normal">
+        i-කෝඩර්
         </a>
+        <a class="simple-text logo-normal"><?php echo $_SESSION['email'];?></a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">

@@ -5,9 +5,14 @@
 	header('location: ../login.php');
   }
 
-  if(isset($_POST["pid"])){
-    $_SESSION["pid"]=$_POST["pid"];
-    header('location: view.php');
+  $pid="";
+  
+  if(isset($_POST['viewproject_btn'])){
+    $_SESSION['pid']=$_POST['pid'];
+    $pid=$_SESSION['pid'];
+  }
+  else{
+    $pid="";
   }
  
 ?>
@@ -128,7 +133,7 @@
                             <td>
                               <div class="input-group">
                                   <input type="hidden" name="pid" value="<?php echo $pid; ?>">
-                                  <input type="submit" name="viewprofileject_btn" class="btn btn-link" value="View">
+                                  <input type="submit" name="viewproject_btn" class="btn btn-link" value="View">
                               </div>
                             </td>
                           </form>
