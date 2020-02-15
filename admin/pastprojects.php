@@ -118,7 +118,7 @@
                           <tr>
                               <td><?php echo $row['pid']; ?></td>
                               <td><?php echo $row['name']; ?></td>
-                              <td><?php echo $row['description']; ?></td>
+                              <td><?php echo substr($row['description'],0,60)."..."; ?></td>
                               <td>
                                 <div class="input-group">
                                   <a class="btn btn-link" href="view.php" role="button" name="view_btn">View</a>

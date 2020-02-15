@@ -3,11 +3,11 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
 	<title>Home</title>
 
-	  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/bootsrap-grid.css">
     <link rel="stylesheet" type="text/css" href="css/bootsrap-grid.min.css">
@@ -181,7 +181,7 @@
               </div>
               <div class="row">
                 <div class="col-md-4 ml-auto mr-auto text-center">
-                  <input type="submit" class="btn btn-primary btn-raised" name="message_btn" value="Send Message">
+                  <input type="submit" class="btn btn-primary btn-raised" name="message_btn" value="Send Message" >
                 </div>
               </div>
             </form>
@@ -194,6 +194,5 @@
 
   <footer class="container-fluid bg-4 text-center">
   </footer>
-
 </body>
 </html>
