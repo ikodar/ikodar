@@ -134,9 +134,9 @@
                               <table class="table">
                         <thead class="thead-dark text-primary">
                           <tr>
-                            <th width="18%">PROJECT ID</th>
-                            <th width="18%">PROJECT NAME</th>
-                            <th width="16%">MORE</th>
+                            <th width="18%">TASK ID</th>
+                            <th width="18%">TASK NAME</th>
+                            <th width="16%"></th>
                           </tr>
                         </thead>
                         <tbody>
