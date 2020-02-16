@@ -18,7 +18,7 @@
 	$country = $row['country'];
 	$postalcode = $row['postalcode'];
 	$about = $row['about'];
-  
+
 ?>
  <!DOCTYPE html>
  <html lang="en">
@@ -226,8 +226,9 @@
                         ?>
                      <div class="col-md-12">
                      <input class="btn btn-primary pull-right" type="submit" name="submit_btn" value="SAVE">
+                     <button type="submit" background-color: rgb(11, 22, 88) class="btn btn-primary pull-right" value="submit" name="submit">Post</button>
 
-                     <input class="btn btn-primary pull-right" type="submit" name="delete_btn" value="DELETE" formaction="profile.php">
+                     <input class="btn btn-primary pull-right" type="submit" name="delete_btn" value="DELETE">
                      
                      
                      </div>

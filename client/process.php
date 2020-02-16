@@ -12,6 +12,8 @@ function isLoggedIn()
 	}
 }
 
+
+
 // log user out if LOGOUT BUTTON clicked
 if (isset($_GET['logout'])) {
     // remove all session variables
