@@ -233,9 +233,9 @@ else{
                     $result11 = $conn->query($query11);
                     $sum1 = $result11->fetch_assoc()['SUM(hour)'];
 
-                    $query22 = "SELECT amount FROM projects where pid='$prid'";
+                    $query22 = "SELECT SUM(amount) FROM projects where pid='$prid'";
                     $result22 = $conn->query($query22);
-                    $sum2 = $result22->fetch_assoc();
+                    $sum2 = $result22->fetch_assoc()['SUM(amount)'];
 
                     $sum = $sum1 * $sum2;
                     echo $sum;
