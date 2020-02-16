@@ -263,12 +263,12 @@ if (isset($_POST['submit'])) {
                               <div class="col-md-6">  
                               <?php $sql="SELECT link FROM projects WHERE pid='$pid'";
                                     $results=$conn->query($sql);
-                                    $project=$results->fetch_assoc()['project_link'];
+                                    $project=$results->fetch_assoc()['link'];
                               ?>
                                 <table>
                                   <tr>
                                     <form action="payments.php" method="post">
-                                      <td><input name="" type="text" class="form-control" value="<?php echo $project?>"></td>
+                                      <td><input name="link" type="text" class="form-control" value="<?php echo $link?>"></td>
                                       <td><button type="submit"  class="btn btn-primary pull-right"  name="acceptproject_btn">Accept</button></td>
                                       <td><?php echo $accept?></td> 
                                     </form>  
