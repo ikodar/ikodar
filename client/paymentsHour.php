@@ -1,19 +1,20 @@
 <?php 
 
-include_once 'connection.php';
+
 include('process.php');
 if (!isLoggedIn()) {
   $_SESSION['msg'] = "You must log in first";
   header('location: ../login.php');
 }
 
-if(isset($_POST["pid"])){
-  $_SESSION["pid"]=$_POST["pid"];
-  header("location: paymentHInfo.php");
+
   
+  if(isset($_POST['pid'])){
+    $_SESSION['pid']=$_POST['pid'];
+    header('location: paymentHInfo.php');
+  }
 
 
-}
 
 //view name on top
 $email=$_SESSION['email'];
@@ -122,7 +123,7 @@ ikodar
  <!-- End Navbar -->
  <div class="content">
 
- <!--  our   -->
+ <!--  hour   -->
     <div class="container-fluid">
       <div class="card">
         <div class="card-header card-header-primary">
@@ -145,50 +146,37 @@ ikodar
             <div class="row">    
                 <div class="table-responsive">
                     <table class="table">
-                    <thead class="thead-dark text-primary" >
-                          <tr>
-                            <th width="10px" style="font-size:15px align:left">PROJECT ID</th>
-                            <th width="30px"style="font-size:15px align:left">PROJECT NAME</th>
-                            <th width="20px" style="font-size:15px align:left">HOURLY RATE</th>
-                            
-                          </tr>
-                        </thead>
-                      <tbody>
-          
-                      <?php 
-                  //retrieve data from project table
-        
-      $query = "SELECT * FROM projects WHERE status='completed' AND client='$eml' AND payment='hourly'";
-        $results = $conn->query($query);
-        if ($results->num_rows > 0) {
-        //output data of each row
-        while ($row = $results->fetch_assoc()) { 
-           ?>			
+                    <?php 
+					    //retrieve data from project table
+              $query = "SELECT * FROM projects WHERE client='$eml' AND payment='hourly'";
+              $results = $conn->query($query);
+              if ($results->num_rows > 0){
+                //output data of each row
+                while ($row = $results->fetch_assoc()) { 
+                    if ($row['status']=="completed"){ ?>	
+                     <tr>
+                        <td><?php $prid= $row['pid']; ?></td>
+                        <td><?php $name=$row['name']; ?></td>
+                        <td><?php $amount=$row['amount']; ?></td>
+                    
+               <?php echo '
+                <form action="paymentHInfo.php" method="post">
+                <input type="hidden" name="prid" value="'.$prid.'">
             
-          
-        
-                  <td width="10px" style="align:left"><?php $pid= $row['pid']; ?></td>
-                  <td width="30px"  style="align:left"><?php $name=$row['name']; ?></td>
-                  <td width="20px"  style="align:left"><?php $amount=$row['amount']; ?></td>
-              
-                  <?php echo '
-                    <form action="paymentHour.php" method="post">
-                    <input type="hidden" name="pid" value="'.$pid.'">
-                
-                        <tr>
-                        <td>'.$pid.'</td>
-                        <td><input type="submit" class="btn btn-link btn-lg" value="'.$name.'"name="btnp"></td>
-                        <td>'.$amount.'</td>
-                        </tr>
-                    </form>
-                    ';?>
-          <?php   
-                      }
+                    <tr>
+                    <td>'.$prid.'</td>
+                    <td><input type="submit" class="btn btn-link btn-lg" value="'.$name.'"></td>
+                    <td>'.$amount.'</td>
+                    </tr>
+                </form>
+                ';?>
+                <?php   }
+                  }
 
-                        }else{
-                      echo "0 results";
-                      }
-                    ?>
+                    }else{
+                  echo "0 results";
+                  }
+                ?>
                         
                       </tbody>
                      
