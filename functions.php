@@ -25,7 +25,7 @@ if (isset($_POST['message_btn'])) {
 // REGISTER USER
 function register(){
 	// call these variables with the global keyword to make them available in function
-	global $conn, $errors, $email, $user_type, $password_1, $password_2, $emailErr, $passwordErr;
+	global $conn, $errors, $email, $user_type, $password_1, $password_2;
 
 	// receive all input values from the form.
     $user_type   =  $_POST['user_type'];
@@ -33,19 +33,20 @@ function register(){
 	$password_1  =  $_POST['password_1'];
 	$password_2  =  $_POST['password_2'];
 
-	// form validation: ensure that the form is correctly filled
-    if ($password_1 != $password_2) {
-        $passwordErr = "The two passwords do not match.";
-        $errors=$errors+1;
-    }
+    // form validation: ensure that the form is correctly filled
     if($email != "") {
         $sql = "SELECT * FROM users WHERE email='$email'LIMIT 1";
         $results=$conn->query($sql);
         if($results->num_rows == 1){
-            $emailErr="email already exist";
+            echo  "<script> alert('Email already exist.');</script>";
             $errors=$errors+1;
         }
     }
+    if ($password_1 != $password_2) {
+        echo  "<script> alert('The two passwords do not match.');</script>";
+        $errors=$errors+1;
+    }
+    
     
     // register user if there are no errors in the form
 	if ($errors == 0) {
@@ -73,7 +74,7 @@ function register(){
                 $_SESSION['success']  = "You are now logged in.";
                 header('location: IT/home.php');
             }
-            echo "New account created successfully";
+            echo  "<script> alert('New account created successfully.');</script>";
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
@@ -85,7 +86,7 @@ function register(){
 //LOGIN USER
 function login(){
 	// call these variables with the global keyword to make them available in function
-	global $conn, $passwordErr, $email, $password_1;
+	global $conn, $email, $password_1;
 
 	// receive all input values from the form.
 	$email    =  $_POST['email'];
@@ -100,7 +101,7 @@ function login(){
         if($row['user_type']=="admin"){
             $_SESSION['email'] = $email; // put logged in user in session
 			$_SESSION['user_type'] = "admin";
-			$_SESSION['success']  = "You are now logged in.";
+            $_SESSION['success']  = "You are now logged in.";
             header('location: admin/home.php');
             
         }else if($row['user_type']=="client"){
@@ -112,11 +113,12 @@ function login(){
         }else{
             $_SESSION['email'] = $email; // put logged in user in session
 			$_SESSION['user_type'] = "IT";
-			$_SESSION['success']  = "You are now logged in.";
+            $_SESSION['success']  = "You are now logged in.";
 			header('location: IT/home.php');
         }
+        echo  "<script> alert('You are now logged in.');</script>";
     }else { //user not found
-        $passwordErr= "Wrong username/password combination.";
+        echo  "<script> alert('Wrong username/password combination.');</script>";
     }
     $conn->close();
 }
@@ -135,11 +137,10 @@ function message(){
     $sql = "INSERT INTO messages (name, email, message, date)
             VALUES ('$name','$email','$message','$date')";
     if ($conn->query($sql) === TRUE) {
-        echo "Message recorded successfully";
+        echo "<script> alert('Message recorded successfully.');</script>";
     } else{
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
-    $conn->close();
 }
 
 

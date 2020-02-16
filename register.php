@@ -36,15 +36,13 @@
     </div>
     <div class="textbox">
       <input type="email" placeholder="email" name="email" value="" required>
-      <span class="error"><?php echo $emailErr;?></span>
     </div>
     <div class="textbox">
       <input type="password" placeholder="password" name="password_1" value="" id="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
       title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters."required>
     </div>
     <div class="textbox">
-      <input type="password" placeholder="confirm password" name="password_2" value="" required>
-      <span class="error"><?php echo $passwordErr;?></span>
+      <input type="password" placeholder="confirm password" name="password_2" value="" required>s
     </div>
     <input class="btn" type="submit" name="register_btn" value="Create Account">
     Already have an account? <a href="login.php">Sign In</a>

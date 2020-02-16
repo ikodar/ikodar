@@ -33,12 +33,10 @@
     <div class="textbox">
       <i class="fa fa-lock" aria-hidden="true"></i>
       <input type="password" placeholder="password" name="password_1" value="" required>
-      <span class="error"><?php echo $passwordErr;?></span>
     </div>
     <input class="btn" type="submit" name="login_btn" value="Sign in">
     Don't have an account? <a href="register.php">Sign Up</a>
     </form>
   </div>
-
 </body>
 </html>

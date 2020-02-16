@@ -106,7 +106,7 @@
 <div class="row header">
 
 		<div class=" card" style="padding:40px 80px 40px 80px;margin-top:15px;box-shadow: 4px 4px 2px 5px rgba(0, 0, 0, 0.2), 0 6px 0px 0 rgba(0, 0, 0, 0.19);background:#fff">
-			<h1>Need works done?</h1>
+			<h1>Needs work done?</h1>
 			<p>It's easy. Simply post a job you need completed and receive competitive bids from freelancers within minutes. Whatever your needs, there will be a freelancer to get it done: from web design, mobile app development, virtual assistants, product manufacturing, and graphic design (and a whole lot more). It is the simplest and safest way to get work done online.</p>
 			
 			<a href="login.php" class="btn btn-primary btn-lg" style="background-color:#0d3f6e">Get Started</a>
