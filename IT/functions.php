@@ -68,7 +68,7 @@ function placebid(){
 		$query = "INSERT INTO bid (Bid, Days, Proposal,pid,email) 
 				  VALUES('$bid', '$days', '$proposal', '$pid','$email')";
 		if ($conn->query($query) === TRUE) {
-		    echo "New record created successfully";
+		    echo "Submitted the bid successfully";
 		} else {
 		    echo "Error: " . $query . "<br>" . $conn->error;
 		}
@@ -81,18 +81,16 @@ if(isset($_POST['submitproject_btn'])){
 	project();
 }
 
-<<<<<<< HEAD
 $link ="";
 $errors = array(); 
 
-// call the register() function if add_btn is clicked
+// call the Complete() function if complete button is clicked
 if (isset($_POST['complete'])) {
 	Complete();
-	("Location:tasks.php");
+	header("Location:tasks.php");
 }
 
 
-// POST PROJECTS
 function Complete(){
 	// call these variables with the global keyword to make them available in function
 	global $conn, $link;
@@ -102,22 +100,15 @@ function Complete(){
 	
 	$link =  $_POST['link'];
 	$pid=  $_SESSION['pid'];
-	
-
-    
-	// form validation: ensure that the form is correctly filled
+	$tid =  $_POST['tid'];
 
 	
-
-	
-
-	// register user if there are no errors in the form
 	$query = "UPDATE tasks 
-              SET link = '$link' WHERE pid = '$pid'";
+              SET link = '$link' WHERE tid = '$tid'";
 
               
 	if ($conn->query($query) === TRUE) {
-	    echo "New record created successfully";
+	    echo "Completed";
 	} else {
 	   echo "Error: " . $query . "<br>" . $conn->error;
 	}
@@ -125,14 +116,6 @@ function Complete(){
 	$conn->close();
 }
 
-
-
-
-
-
-
-?>
-=======
 function project(){
 	global $conn;
 	$pid=$_SESSION["pid"];
@@ -145,7 +128,6 @@ function project(){
     }
     $conn->close();
 }
->>>>>>> 3a48f473f7f6b409fb1bb06df06e1ad9c528ea5b
 
 
 ?>

@@ -66,59 +66,81 @@
         <a class="simple-text logo-normal"><?php echo $_SESSION['email'];?></a>
       </div>
       <div class="sidebar-wrapper">
-        <ul class="nav">
-          <li class="nav-item active  ">
-            <a class="nav-link" href="home.php">
-              <p>Dashboard</p>
-            </a>
+         <ul class="nav">
+           <li class="nav-item active  ">
+             <a class="nav-link" href="./home.php">
+               <!--<i class="material-icons">dashboard</i>-->
+               <p>Dashboard</p>
+             </a>
+ 
+             <li class="nav-item active  ">
+               <a class="nav-link" href="./active.php">
+                 <!--<i class="material-icons">dashboard</i>-->
+                 <p>My Projects</p>
+               </a>
+ 
+           </li>
+           <li class="nav-item active">
+             <a class="nav-link" href="./myprofile.php">
+               <!--<i class="material-icons">bubble_chart</i>-->
+               <p>My Profile</p>
+             </a>
+           </li>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="projects.php">
-              <p>Projects</p>
-            </a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="users2.php">
-              <p>Users</p>
-            </a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="profile.php">
-              <p>My Profile</p>
-            </a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="messages.php">
-              <p>Messages</p>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <!-- End of dashboard panel-->
+           <li class="nav-item active">
+             <a class="nav-link" href="./income.php">
+               <!--<i class="material-icons">location_ons</i>-->
+               <p>Income</p>
+             </a>
+           </li>
+         </ul>
+       </div>
+     </div>
 
-    <!--Content-->
-    <div class="main-panel">
-      <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
-        <div class="container-fluid">
-          <div class="navbar-wrapper">
-            <p class="navbar-brand"><?php echo $name; ?></p> <!--CHECK THE HREF HERE-->
-          </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="navbar-toggler-icon icon-bar"></span>
-          </button>
-          <div class="collapse navbar-collapse justify-content-end">
-            <ul class="navbar-nav">
-              <li class="nav-item"> 
-                <a class="nav-link" href="functions.php?logout='1'">Logout</a><!--HREF HERE CHECK-->
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+     <div class="main-panel">
+       <!-- Navbar -->
+       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+         <div class="container-fluid">
+           <div class="navbar-wrapper">
+             <a class="navbar-brand" href="#pablo">My Projects</a>
+           </div>
+           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+             <span class="sr-only">Toggle navigation</span>
+             <span class="navbar-toggler-icon icon-bar"></span>
+             <span class="navbar-toggler-icon icon-bar"></span>
+             <span class="navbar-toggler-icon icon-bar"></span>
+           </button>
+           <div class="collapse navbar-collapse justify-content-end">
+             
+             <ul class="navbar-nav">
+               <li class="nav-item">
+                 <a class="nav-link" href="#pablo">
+                   <!--<i class="material-icons">Dashboard</i>-->
+                   <p class="d-lg-none d-md-block">
+                     Dashboard
+                   </p>
+                 </a>
+               </li>
+
+               <li class="nav-item">
+                 <a class="nav-link" href="contactus.php">Contact Us</a>
+               </li>
+               <li class="nav-item">
+                 <a class="nav-link" href="aboutus.php">About Us</a>
+               </li>
+               <li class="nav-item">
+                 <a class="nav-link" href="help.php">Help</a>
+               </li>
+               <li class="nav-item"> 
+                 <a class="nav-link" href="functions.php?logout='1'">Logout</a>
+               </li>
+             </ul>
+           </div>
+         </div>
+       </nav>
+ 
       <!-- End Navbar -->
+
 
       <!--Data section-->
       <div class="content">
@@ -143,7 +165,7 @@
             <div class="content">
                   <div class="container-fluid">
                     <div class="row">
-                      <div class="col-md-8">
+                      <div class="col-md-10">
                          <div class="card">
                             <div class="card-header card-header-primary">
                                <h4 class="card-title">Project Details</h4>                   
@@ -235,19 +257,19 @@
                           </div>
                         </div>
                         <div class="row">
-                      <div class="col-md-8">
+                      <div class="col-md-10">
                         <div class="card">
                           <div class="card-header card-header-primary">
                             <h4 class="card-title">Final Project Handover</h4>
                           </div>
-                          <div class="card-body">
+                          <div class="card-body px-5 py-3">
                             <div class="row">
-                              <div class="col-md-6">  
+                              <div class="col-md-12 px-5 py-3">  
                                 <table>
                                   <tr>
                                     <form action="details.php" method="post">
-                                      <td><input name="link" type="text" class="form-control" value="<?php echo $link?>"></td>
-                                      <td><button type="submit"  class="btn btn-primary pull-right"  name="submitproject_btn">Submit</button></td>
+                                      <td style="width:400px;"><input name="link" type="text" class="form-control" value="<?php echo $link?>"></td>
+                                      <td class="px-3"><button type="submit"  class="btn btn-primary pull-right px-4"  name="submitproject_btn">Submit</button></td>
                                       <td><?php echo $accept?></td> 
                                     </form>  
                                   </tr>
