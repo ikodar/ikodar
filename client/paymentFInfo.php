@@ -1,7 +1,7 @@
 <?php 
 
   
-  include('functions.php');
+  include('process.php');
   if (!isLoggedIn()) {
     $_SESSION['msg'] = "You must log in first";
     header('location: ../login.php');
@@ -61,34 +61,31 @@ else{
         <a class="simple-text logo-normal"><?php echo $firstname,$lastname?></a>
  </div>
  <div class="sidebar-wrapper">
- <ul class="nav">
-           <li class="nav-item active  ">
-             <a class="nav-link" href="./home.php">
-               <!--<i class="material-icons">dashboard</i>-->
-               <p>Dashboard</p>
-             </a>
-             </li>
-             <li class="nav-item active  ">
-               <a class="nav-link" href="./active.php">
-                 <!--<i class="material-icons">dashboard</i>-->
-                 <p>My Projects</p>
-               </a>
- 
-           </li>
-           <li class="nav-item active">
-             <a class="nav-link" href="./myprofile.php">
-               <!--<i class="material-icons">bubble_chart</i>-->
-               <p>My Profile</p>
-             </a>
-           </li>
-          </li>
-           <li class="nav-item active">
-             <a class="nav-link" href="./income.php">
-               <!--<i class="material-icons">location_ons</i>-->
-               <p>Income</p>
-             </a>
-           </li>
-         </ul>
+   <ul class="nav">
+     <li class="nav-item active  ">
+       <a class="nav-link" href="./home.php">
+         <p>Home</p>
+       </a>
+     </li>
+
+     <li class="nav-item active">
+       <a class="nav-link" href="./projects.php">         
+         <p>My Projects</p>
+       </a>
+     </li>
+     
+     <li class="nav-item active">
+       <a class="nav-link" href="./profile.php">
+         <p>My Profile</p>
+       </a>
+     </li>
+
+     <li class="nav-item active">
+       <a class="nav-link" href="./payments.php">
+         <p>Payments</p>
+       </a>
+     </li>    
+   </ul>
  </div>
 </div>
 <div class="main-panel">
@@ -104,29 +101,21 @@ else{
      </button>
      <div class="collapse navbar-collapse justify-content-end">
        
-     <ul class="navbar-nav">
-               <li class="nav-item">
-                 <a class="nav-link" href="#pablo">
-                   <!--<i class="material-icons">Dashboard</i>-->
-                   <p class="d-lg-none d-md-block">
-                     Dashboard
-                   </p>
-                 </a>
-               </li>
+       <ul class="navbar-nav">         
+         <li class="nav-item dropdown">        
+            <li class="nav-item">
+              <a class="nav-link" href="aboutus.php">About Us</a>
+            </li>
 
-               <li class="nav-item">
-                 <a class="nav-link" href="contactus.php">Contact Us</a>
-               </li>
-               <li class="nav-item">
-                 <a class="nav-link" href="aboutus.php">About Us</a>
-               </li>
-               <li class="nav-item">
-                 <a class="nav-link" href="help.php">Help</a>
-               </li>
-               <li class="nav-item"> 
-                 <a class="nav-link" href="processMyprfl.php?logout='1'">Logout</a>
-               </li>
-             </ul>
+            <li class="nav-item">
+              <a class="nav-link" href="help.php">Help</a>
+            </li>
+         
+            <li class="nav-item"> 
+              <a class="nav-link" href="process.php?logout='1'">Logout</a>
+            </li>
+          </li>
+        </ul>
       </div>
     </div>
   </nav>
@@ -167,22 +156,14 @@ else{
                     ?>
                 </p>
             <!-- hourly rate-->
-            <p>Hourly Rate : 
+            <p>Full amount : 
                 <?php
-                  $query = "SELECT * FROM projects WHERE pid='$pid'";
-              $resul = $conn->query($query);
-              if ($resul->num_rows > 0) {
-              //output data of each row
-              while ($row = $resul->fetch_assoc()) { 
-               { ?>			
-                    <tr>
-                        <td><?php echo $row['amount']; ?></a></td>
-                    </tr>
-                <?php   }
-                  }
-                    }else{
-                  echo "0 results";
-                  }
+                  //view amount to calculate total 
+                  $sql2 = "SELECT amount FROM projects where pid='$pid'";
+                  $results2=$conn->query($sql2);
+                  $row2 = $results2->fetch_assoc();
+                  $am  =  $row2['amount'];
+                  echo $am;
                 ?>
                 </p>
                             </div>
@@ -195,7 +176,7 @@ else{
                           <tr >
                             <th width="10px" style="font-size:15px">TASK ID</th>
                             <th width="30px"style="font-size:15px">TASK NAME</th>
-                            <th width="20px"style="font-size:15px">HOUR</th>
+                           
                           </tr>
                         </thead>
                         <tbody>
@@ -209,7 +190,6 @@ else{
                     <tr>
                         <td width="10px" ><?php echo $row['tid']; ?></a></td>
                         <td width="30px" ><?php echo $row['task']; ?></a></td>
-                        <td width="20px" ><?php echo $row['hour']; ?></a></td>
                         
                     </tr>
                 <?php   }
@@ -222,53 +202,8 @@ else{
 
                         </tbody>
                       </table>
-                      <hr style="border-width: 3px; border-color: black;">
-
-                      <table class="table" >
-                    <tbody>
-                    <td width="10px"  ></td>
-                  <td width="30px" >Total Hours</td>
-                  <td width="20px" >
-                  <?php 
-                    //$eml=$_SESSION['email'];
-                    $query = "SELECT SUM(hour) FROM tasks where pid='$pid'";
-                    $result = $conn->query($query);
-                    $sum = $result->fetch_assoc()['SUM(hour)'];
-
-                    echo $sum;
-                  
-                  ?>
-                  </td>
-                  <tr>
-                  <td width="10px" ></td>
-                  <td width="30px" >Total Amount</td>
-                  <td width="20px" >
-                  
-                  <?php 
-                    
-                    $query1 = "SELECT SUM(hour) FROM tasks where pid='$pid'";
-                    $result1 = $conn->query($query1);
-                    $sum1 = $result1->fetch_assoc()['SUM(hour)'];
-
-                    
-                    //view amount to calculate total 
-                    $sql2 = "SELECT amount FROM projects where pid='$pid'";
-	                  $results2=$conn->query($sql2);
-                    $row2 = $results2->fetch_assoc();
-                    $sum2  =  $row2['amount'];
-
-                    
-                    echo  $sum1*$sum2;
-                  
-                  ?>
-                  
-                  </td>
-                  </tr>
-                  
-                      </tbody>
                       
-                    </table>
-                    <a class="btn btn-primary" href="paymentsHour.php" role="button" name="view_btn">ACCEPT</a>
+                    <a class="btn btn-primary" href="pay.php" role="button" name="view_btn">PAY</a>
                     <a class="btn btn-primary" href="paymentsHour.php" role="button" name="view_btn">BACK</a>
                                 </form>
                               </div>

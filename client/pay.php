@@ -15,6 +15,19 @@
   $lastname  =  $row['lastname'];
   
 
+  if(isset($_POST['pid'])){
+    $_SESSION['pid']=$_POST['pid'];
+    //header('location: paymentHInfo.php');
+  }
+  if(isset($_SESSION["pid"])){
+  $pid=$_SESSION["pid"];
+}
+else{
+  $pid="";
+  //header("location: index.php");
+}
+
+
 ?>
 
 
@@ -60,14 +73,14 @@ body {
   flex: 50%;
 }
 
-.col-75 {
+.col-60 {
   -ms-flex: 75%; /* IE10 */
   flex: 75%;
 }
 
 .col-25,
 .col-50,
-.col-75 {
+.col-60 {
   padding: 0 16px;
 }
 
@@ -110,7 +123,7 @@ label {
 }
 
 .btn:hover {
-  background-color: #45a049;
+  background-color: #AB2333;
 }
 
 a {
@@ -148,6 +161,7 @@ span.price {
         </a>
         <a class="simple-text logo-normal">Hi</a>
         <a class="simple-text logo-normal"><?php echo $firstname,$lastname?></a>
+        
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
@@ -187,19 +201,39 @@ span.price {
       <h2>PAY</h2>
 <p>   </p>
 <div class="row">
-  <div class="col-75">
+  <div class="col-60">
     <div class="container">
       <form action="/action_page.php">
         <div class="row">
           
             
             <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-            <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
+            <input type="text" id="fname" name="firstname" value="<?php echo $firstname,$lastname?>">
             <label for="email"><i class="fa fa-envelope"></i> Email</label>
-            <input type="text" id="email" name="email" placeholder="john@example.com">
+            <input type="text" id="email" name="email"  value=" <?php echo $_SESSION['email'];?>">
+            <label for="Project amount"><i class="fa fa-envelope"></i> Project amount
             
-          
+            <?php 
+                    
+                    $query1 = "SELECT SUM(hour) FROM tasks where pid='$pid'";
+                    $result1 = $conn->query($query1);
+                    $sum1 = $result1->fetch_assoc()['SUM(hour)'];
 
+                    
+                    //view amount to calculate total 
+                    $sql2 = "SELECT amount FROM projects where pid='$pid'";
+	                  $results2=$conn->query($sql2);
+                    $row2 = $results2->fetch_assoc();
+                    $sum2  =  $row2['amount'];
+
+                    
+                    echo  $sum1*$sum2;
+                  
+                  ?>
+                
+            <input type="text" id="pamount" name="amount"  value=" <?php echo $_SESSION['email'];?>">
+          
+           
           <div class="col-50">
             <h3>Payment</h3>
             <label for="fname">Accepted Cards</label>
@@ -230,8 +264,8 @@ span.price {
         </div>
         
         
-        <a class="btn" href="payments.php" role="button" name="view_btn">Continue to checkout</a>
-        <a class="btn" href="payments.php" role="button" name="view_btn">BACK</a>
+        <a class="btn" href="payments.php" role="button" name="pay_btn">Continue to checkout</a>
+        <a class="btn" href="payments.php" role="button" name="back_btn">Back to payments</a>
       </form>
     </div>
   </div>
