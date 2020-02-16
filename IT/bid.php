@@ -308,7 +308,7 @@ else{
                         <div class="col-md-5">
                         <label style="margin-top:8px;">This project will be delivered in:</label>
                         <div class="input-group mb-3">
-                          <input name="days" type="number" min="1" class="form-control" style="border: 1px solid #bdbdbd;"  placeholder="Enter number of days" required>
+                          <input name="days" type="number" min="1" class="form-control" style="border: 1px solid #bdbdbd;"  placeholder="Enter number of days" Fnequired>
                           <div class="input-group-append">
                             <span class="input-group-text" style="background-color:#d3d3d3; border: 1px solid #bdbdbd; padding:3px">Days</span>
                           </div>
