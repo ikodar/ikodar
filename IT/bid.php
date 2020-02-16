@@ -285,7 +285,7 @@ else{
                  </div>
                  <div class="card-body">
 
-                   <form action="" method="post" class="was-validated">
+                   <form action="active.php" method="post" class="was-validated">
                    <input type="hidden" name="pid" value="<?=$pid;?>">
                    
                    <h1 style="font-size:17px;"><b>Bid Details</b></h>
@@ -296,7 +296,7 @@ else{
                           <div class="input-group-prepend">
                             <span class="input-group-text" style="background-color:#d3d3d3; border: 1px solid #bdbdbd; padding:5px;">$</span>
                           </div>
-                          <input name="bid"type="number" class="form-control" aria-label="Amount (to the nearest dollar)" style="border: 1px solid #bdbdbd;"  placeholder="Enter bid amount" required>
+                          <input name="bid" input type="number" min="1" step="any"  class="form-control" aria-label="Amount (to the nearest dollar)" style="border: 1px solid #bdbdbd;"  placeholder="Enter bid amount" required>
                           <div class="input-group-append"> 
                           <span class="input-group-text" style="background-color:#d3d3d3; border: 1px solid #bdbdbd; padding:3px;">USD</span>
                             
@@ -308,7 +308,7 @@ else{
                         <div class="col-md-5">
                         <label style="margin-top:8px;">This project will be delivered in:</label>
                         <div class="input-group mb-3">
-                          <input name="days" type="number" class="form-control" style="border: 1px solid #bdbdbd;"  placeholder="Enter number of days" required>
+                          <input name="days" type="number" min="1" class="form-control" style="border: 1px solid #bdbdbd;"  placeholder="Enter number of days" required>
                           <div class="input-group-append">
                             <span class="input-group-text" style="background-color:#d3d3d3; border: 1px solid #bdbdbd; padding:3px">Days</span>
                           </div>
