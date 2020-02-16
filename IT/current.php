@@ -4,6 +4,11 @@
 	$_SESSION['msg'] = "You must log in first";
 	header('location: ../login.php');
   }
+
+  if(isset($_POST["pid"])){
+    $_SESSION["pid"]=$_POST["pid"];
+    header("location: details.php");
+  }
  
 ?>
  <!DOCTYPE html>
@@ -15,13 +20,14 @@
    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
    <title>
-     Current work
+     Dashboard
    </title>
    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
    <!--     Fonts and icons     -->
    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
    <!-- CSS Files -->
+
    <link href="css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
    <link href="css/custom.css" rel="stylesheet" />
  </head>
@@ -121,7 +127,9 @@
          </div>
        </nav>
  
-             <div class="content">
+      <!-- End Navbar -->
+
+      <div class="content">
                     <div class="container-fluid">
                       <div class="row">
                         <div class="col-md-12">
@@ -163,7 +171,7 @@
               if ($results->num_rows > 0) {
               //output data of each row
               while ($row = $results->fetch_assoc()) { 
-                if ($row['IT']==$_SESSION['email'] AND $row['status']=="open"){ ?>			
+                if ($row['email']==$_SESSION['email'] AND $row['status']=="open"){ ?>			
                     <tr>
                     <td><?php $pid= $row['pid']; ?></td>
                         <td><?php $name=$row['name']; ?></td>
@@ -172,7 +180,7 @@
 
                 </tr>
                <?php echo '
-             <form action="details.php" method="post">
+             <form action="current.php" method="post">
              <input type="hidden" name="pid" value="'.$pid.'">
                     <tr>
                     <td>'.$pid.'</td>

@@ -146,6 +146,7 @@
 
                             </div>
                              <div class="card-body">
+                             
                               <form>
                      
                               <table class="table">
@@ -165,21 +166,42 @@
               while ($row = $results->fetch_assoc()) { 
                { ?>			
                     <tr>
-                        <td><?php echo $row['taskid']; ?></a></td>
+                        <td><?php echo $row['tid']; ?></a></td>
                         <td><?php echo $row['task']; ?></a></td>
                         <td><?php echo $row['hour']; ?></a></td>
-                        <td><a class="btn btn-primary" href="details.php" role="button" name="view_btn">View</a>
+                        
                     </tr>
                 <?php   }
                   }
                     }else{
                   echo "0 results";
                   }
+                  //<td><a class="btn btn-primary" href="details.php" role="button" name="view_btn">View</a>
                 ?>
 
                         </tbody>
                       </table>
-                     
+                      <hr style="border-width: 3px; border-color: black;">
+
+                      <table class="table" >
+                    <tbody>
+                    <td></td>
+                  <td>Total</td>
+                  <td>
+                  <?php 
+                    $eml=$_SESSION['email'];
+                    $query = "SELECT SUM(hour) FROM tasks where pid='$pid'";
+                    $result = $conn->query($query);
+                    $sum = $result->fetch_assoc()['SUM(hour)'];
+
+      echo $sum;
+                  
+      ?>
+                  </td>
+                  
+                  
+                      </tbody>
+                    </table>
                                 </form>
                               </div>
                             </div>

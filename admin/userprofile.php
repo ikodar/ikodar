@@ -53,6 +53,7 @@
         i-කෝඩර්
         </a>
         <a class="simple-text logo-normal"><?php echo $_SESSION['email'];?></a>
+        <a class="simple-text logo-normal">(Admin)</a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
@@ -121,7 +122,7 @@
                        <div class="col-md-4">
                          <div class="form-group">
                            <label class="bmd-label-floating" >Email address</label>
-                           <input name="email" type="email" class="form-control" style="width:500px" value="<?php echo $email;?>">
+                           <?php echo $email;?>
                          </div>
                        </div>
                      </div>
@@ -173,12 +174,13 @@
                            <label>About Me</label>
                            <div class="form-group">
                              <textarea name="about" style="width:520px" class="input" rows="5"><?php echo $about?></textarea>
-                             <span class="error"><?php echo $deleteErr;?></span>
                            </div>
                          </div>
                        </div>
                      </div>
                      <div class="col-md-12">
+                        <input name="email" type="hidden" value="<?php echo $email?>">
+                        <input class="btn btn-primary pull-right" type="submit" name="updateuser_btn" value="Update">
                         <input class="btn btn-primary pull-right" type="submit" name="delete_btn" value="Delete"> 
                      </div>
                   </form>

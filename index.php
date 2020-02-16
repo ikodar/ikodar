@@ -3,11 +3,11 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
 	<title>Home</title>
 
-	  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/bootsrap-grid.css">
     <link rel="stylesheet" type="text/css" href="css/bootsrap-grid.min.css">
@@ -106,7 +106,7 @@
 <div class="row header">
 
 		<div class=" card" style="padding:40px 80px 40px 80px;margin-top:15px;box-shadow: 4px 4px 2px 5px rgba(0, 0, 0, 0.2), 0 6px 0px 0 rgba(0, 0, 0, 0.19);background:#fff">
-			<h1>Need works done?</h1>
+			<h1>Needs work done?</h1>
 			<p>It's easy. Simply post a job you need completed and receive competitive bids from freelancers within minutes. Whatever your needs, there will be a freelancer to get it done: from web design, mobile app development, virtual assistants, product manufacturing, and graphic design (and a whole lot more). It is the simplest and safest way to get work done online.</p>
 			
 			<a href="login.php" class="btn btn-primary btn-lg" style="background-color:#0d3f6e">Get Started</a>
@@ -181,7 +181,7 @@
               </div>
               <div class="row">
                 <div class="col-md-4 ml-auto mr-auto text-center">
-                  <input type="submit" class="btn btn-primary btn-raised" name="message_btn" value="Send Message">
+                  <input type="submit" class="btn btn-primary btn-raised" name="message_btn" value="Send Message" >
                 </div>
               </div>
             </form>
@@ -194,6 +194,5 @@
 
   <footer class="container-fluid bg-4 text-center">
   </footer>
-
 </body>
 </html>

@@ -28,7 +28,7 @@ if (isset($_GET['logout'])) {
 $IT = $status ="";
 $errors = array(); 
 
-// call the register() function if add_btn is clicked
+// call the accept() function if accept_btn is clicked
 if (isset($_POST['accept_btn'])) {
 	accept();
 	//header("Location:proposals.php");
@@ -49,10 +49,6 @@ function accept(){
 
     
 	// form validation: ensure that the form is correctly filled
-
-	
-
-	
 
 	// register user if there are no errors in the form
 	$query = "UPDATE projects 

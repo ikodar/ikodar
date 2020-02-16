@@ -33,7 +33,7 @@ if (isset($_POST['submit'])) {
 }
 
 
-// POST PROJECTS
+// POST BID
 function placebid(){
 	// call these variables with the global keyword to make them available in function
 	global $conn, $errors, $bid, $days, $proposal,$email,$pid;
@@ -62,13 +62,13 @@ function placebid(){
 		array_push($errors, "proposal is required."); 
 	}
 
-	// register user if there are no errors in the form
+	// register bid if there are no errors in the form
 	if (count($errors) == 0) {
 		
 		$query = "INSERT INTO bid (Bid, Days, Proposal,pid,email) 
 				  VALUES('$bid', '$days', '$proposal', '$pid','$email')";
 		if ($conn->query($query) === TRUE) {
-		    echo "New record created successfully";
+		    echo "Submitted the bid successfully";
 		} else {
 		    echo "Error: " . $query . "<br>" . $conn->error;
 		}
@@ -76,8 +76,58 @@ function placebid(){
 	$conn->close();
 }
 
+//POST FINAL PROJECT LINK
+if(isset($_POST['submitproject_btn'])){
+	project();
+}
+
+$link ="";
+$errors = array(); 
+
+// call the Complete() function if complete button is clicked
+if (isset($_POST['complete'])) {
+	Complete();
+	header("Location:tasks.php");
+}
 
 
+function Complete(){
+	// call these variables with the global keyword to make them available in function
+	global $conn, $link;
+
+	// receive all input values from the form.
+    // defined below to escape form values
+	
+	$link =  $_POST['link'];
+	$pid=  $_SESSION['pid'];
+	$tid =  $_POST['tid'];
+
+	
+	$query = "UPDATE tasks 
+              SET link = '$link' WHERE tid = '$tid'";
+
+              
+	if ($conn->query($query) === TRUE) {
+	    echo "Completed";
+	} else {
+	   echo "Error: " . $query . "<br>" . $conn->error;
+	}
+	
+	$conn->close();
+}
+
+function project(){
+	global $conn;
+	$pid=$_SESSION["pid"];
+	$link=$_POST['link'];
+	$sql="UPDATE projects SET link='$link', accept='submitted' WHERE pid='$pid'";
+	if ($conn->query($sql) === TRUE) {
+        echo "Link submitted successfully.";
+    } else{
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+    $conn->close();
+}
 
 
 ?>

@@ -116,7 +116,7 @@ ikodar
                       <?php 
                   //retrieve data from project table
                   $client=$_SESSION['email'];
-                $query = "SELECT * FROM projects WHERE client='$client'";
+                $query = "SELECT * FROM projects WHERE client='$client' AND status='new' ||status='open'";
                 $results = $conn->query($query);
                 if ($results->num_rows > 0) {
                 //output data of each row

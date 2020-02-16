@@ -4,6 +4,11 @@
 	$_SESSION['msg'] = "You must log in first";
 	header('location: ../login.php');
   }
+
+  if(isset($_POST["pid"])){
+    $_SESSION["pid"]=$_POST["pid"];
+    header("location: bid.php");
+  }
  
 ?>
  <!DOCTYPE html>
@@ -15,13 +20,14 @@
    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
    <title>
-     past work
+     Dashboard
    </title>
    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
    <!--     Fonts and icons     -->
    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
    <!-- CSS Files -->
+
    <link href="css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
    <link href="css/custom.css" rel="stylesheet" />
  </head>
@@ -62,7 +68,7 @@
              </a>
            </li>
           </li>
-           <li class="nav-item active">
+          <li class="nav-item active">
              <a class="nav-link" href="./income.php">
                <!--<i class="material-icons">location_ons</i>-->
                <p>Income</p>
@@ -121,66 +127,45 @@
          </div>
        </nav>
  
-       <div class="content">
-                    <div class="container-fluid">
-                      <div class="row">
-                        <div class="col-md-12">
-                          
+      <!-- End Navbar -->
 
-      
-                            <ul class="nav nav-tabs col-md-6" style="background-color:#113849; padding:20px; margin-left:15%">
-                                  </li>
-                                    <li class="nav-item px-4">
-                                      <a class="nav-link" href="active.php">Active Bids</a>
-                                    </li>
-                                    <li class="nav-item  px-4">
-                                      <a class="nav-link" href="current.php">Current Work</a>
-                                    </li>
-                                    <li class="nav-item  px-4">
-                                      <a class="nav-link active" href="past.php">Past Work</a>
-                                  </li>
-                              </ul>
-                      
-                    <div class="card">
-                      <div class="card-body mt-3">
-                        <div class="table-responsive">
+      <div class="content">
+          <div class="container-fluid">
+          <div class="row">
+             <div class="col-md-9">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title">Recent Projects</h4>
+              </div>
+                <div class="card-body">
+                  <div class="row">    
+                      <div class="table-responsive">
                           <table class="table">
-                            <thead class="thead-dark text-primary">
-                              <tr>
-                              <th scope="col">PROJECT NAME</th>
-                                    <th scope="col">BIDS</th>
-                                    <th scope="col">EMPLOYER</th>
-                                    <th scope="col">AWARDED BID</th>
-                                    <th scope="col">TIME</th>
-                                    <th scope="col">OUTCOME</th>
-                              </tr>
-                            </thead>
                             <tbody>
-                               <?php 
-					    //retrieve data from project table
-              $query = "SELECT * FROM projects LEFT JOIN bid ON projects.pid = bid.pid";
-              $results = $conn->query($query);
-              if ($results->num_rows > 0) {
-              //output data of each row
-              while ($row = $results->fetch_assoc()) { 
-                if ($row['email']==$_SESSION['email'] AND $row['status']=="past"){ ?>			
-                    <tr>
-                    <td><?php $client= $row['client']; ?></td>
-                        <td><?php $name=$row['name']; ?></td>
-                        
-                        <td><?php $bid= $row['Bid'];  ?></td>
 
-                </tr>
+                            <?php 
+					    //retrieve data from project table
+              $query = "SELECT * FROM projects";
+              $results = $conn->query($query);
+              if ($results->num_rows > 0){
+                //output data of each row
+                while ($row = $results->fetch_assoc()) { 
+                    if ($row['status']=="new"){ ?>	
+                     <tr>
+                        <td><?php $pid= $row['pid']; ?></td>
+                        <td><?php $name=$row['name']; ?></td>
+                        <td><?php $description=$row['description']; ?></td>
+                    
                <?php echo '
+                <form action="home.php" method="post">
+                <input type="hidden" name="pid" value="'.$pid.'">
             
                     <tr>
-                    
-                    <td>'.$name.'</td> 
-                    <td>'.$client.'</td>
-                    <td>'.$bid.'</td>
-                    
-                   
+                    <td>'.$pid.'</td>
+                    <td><input type="submit" class="btn btn-link btn-lg" value="'.$name.'"></td>
+                    <td>'.$description.'</td>
                     </tr>
+                </form>
                 ';?>
                 <?php   }
                   }
@@ -189,14 +174,65 @@
                   echo "0 results";
                   }
                 ?>
+                
                             </tbody>
                           </table>
-                        </div>
-                      </div>
-                    </div>
                   </div>
+              </div>
+            </div> 
+          </div>
+       </div>
+       <div class="col-md-3">
+              <div class="card card-profile">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title">Welcome back, <?php echo $_SESSION['email'];?></h4>
+              </div>
+                <div class="card-body">
+                
+                <div class="card" >
+			<div class="panel panel-success">
+        <div class="panel-heading "style="background-color:#89b9ce;">Ratings</div>
+        <div class="panel-body"></div>
+      </div>
+      </div>
+      
+      <div class="card" >
+			<div class="panel panel-success">
+			  <div class="panel-heading" style="background-color:#89b9ce;">Reviews</div>
+			  <div class="panel-body"></div>
+      </div>
+      </div>
+      
+    </div>
+    
+    
                 </div>
+                <!--My Wallet-->
+		<div class="card">
+    <div class="card-header card-header-primary">
+                <h4 class="card-title"><h4>My Wallet</h4>  
+              
+      </div>
+      <div class="card-body">
+                
+			<ul class="list-group">
+			  <li class="list-group-item">Balance: $0.0</li>
+			  <li class="list-group-item">Hourly Rate: $0.0</li>
+			  <li class="list-group-item">Payment Method: </li>
+			</ul>
+    </div>
+    </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+<!--   Core JS Files   -->
+<script src="assets/js/core/jquery.min.js"></script>
+<script src="assets/js/core/popper.min.js"></script>
+<script src="assets/js/core/bootstrap-material-design.min.js"></script>
+<script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
 
-                        
+</body>
+
+</html>

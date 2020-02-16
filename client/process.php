@@ -83,4 +83,25 @@ echo '</script>';
 	}
 	$conn->close();
 }
+
+//accept project link
+if(isset($_POST['acceptproject_btn'])){
+	acceptproject();
+}
+
+function acceptproject(){
+	global $conn;
+	$link = $_POST['link'];
+	$pid = $_SESSION['pid'];
+
+	$sql="UPDATE projects SET status='completed', accept='accepted' WHERE pid='$pid'";
+
+	if($conn->query($sql)==TRUE){
+		echo  "<script> alert('Project updated.');</script>";
+		header('location: payments.php');
+	}else{
+		echo "Error: " . $sql . "<br>" . $conn->error;
+	}
+}
+
 ?>

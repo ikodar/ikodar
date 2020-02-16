@@ -23,6 +23,8 @@
       while ($row = $results->fetch_assoc()) { 
         $name = $row ['name'];
         $type = $row['type'];
+        $IT = $row['IT'];
+        $client = $row['client'];
         $description = $row['description'];
         $biddate = $row['biddate'];
         $deadline = $row['deadline'];
@@ -63,6 +65,7 @@
         i-කෝඩර්
         </a>
         <a class="simple-text logo-normal"><?php echo $_SESSION['email'];?></a>
+        <a class="simple-text logo-normal">(Admin)</a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
@@ -174,10 +177,24 @@
                                         </div>                      
                                       </div>
 
+                                      <div class="row">
+                                      <div class="col-md-6">
+                                        <div class="form-group">
+                                          <label class="bmd-label-floating">Client:</label>
+                                          <tr>
+                                                <td><?php echo $client; ?></a></td>    
+                                          </tr>                            
+                                        </div>
+                                      </div>                                            
+                                      </div>
+
                                     <div class="row">
                                       <div class="col-md-6">
                                         <div class="form-group">
-                                          <label class="bmd-label-floating">IT Individual:</label>                           
+                                          <label class="bmd-label-floating">IT Individual:</label>
+                                          <tr>
+                                                <td><?php echo $IT; ?></a></td>    
+                                          </tr>                            
                                         </div>
                                       </div>                                            
                                     </div>

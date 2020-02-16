@@ -34,6 +34,8 @@
         <a class="simple-text logo-normal">
         i-කෝඩර්
         </a>
+        <a class="simple-text logo-normal"><?php echo $_SESSION['email'];?></a>
+        <a class="simple-text logo-normal">(Admin)</a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
@@ -119,7 +121,7 @@
                          <form action="view.php" method="post">
                             <td><?php echo $row['pid']; ?></td>
                             <td><?php echo $row['name']; ?></td>
-                            <td><?php echo $row['description']; ?></td>
+                            <td><?php echo substr($row['description'],0,50)."..."; ?></td>
                             <td>
                               <div class="input-group">
                                   <input type="hidden" name="pid" value="<?php echo $pid; ?>">

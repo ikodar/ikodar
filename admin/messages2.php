@@ -35,6 +35,7 @@
         i-කෝඩර්
         </a>
         <a class="simple-text logo-normal"><?php echo $_SESSION['email'];?></a>
+        <a class="simple-text logo-normal">(Admin)</a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
@@ -132,12 +133,12 @@
                           <tr>
                               <td><?php echo $row['mid']; ?></td>
                               <td><?php echo $row['email']; ?></td>
-                              <td><?php echo $row['message']; ?></td>
+                              <td><?php echo substr($row['message'],0,60)."..."; ?></td>
                               <td>
                                 <div class="input-group">
                                   <input type="hidden" name="email" value="<?php echo $email; ?>">
                                   <input type="hidden" name="message" value="<?php echo $message; ?>">
-                                  <a class="btn btn-link" href="reply.php" role="button" name="view_btn">Reply</a>
+                                  <input type="submit"  class="btn btn-link" value="Reply">
                                 </div>
                               </td>
                           </tr>

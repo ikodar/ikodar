@@ -35,6 +35,7 @@
         i-කෝඩර්
         </a>
         <a class="simple-text logo-normal"><?php echo $_SESSION['email'];?></a>
+        <a class="simple-text logo-normal">(Admin)</a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
@@ -114,6 +115,7 @@
                           <th width="18%">Name</th>
                           <th width="18%">Email</th>
                           <th width="18%">Message</th>
+                          <th width="18%">Status</th>
                           <th width="18%">Action</th>
                         </tr>
                       </thead>
@@ -124,26 +126,50 @@
                           $results = $conn->query($query);
                           if ($results->num_rows > 0){
                             //output data of each row
-                            while ($row = $results->fetch_assoc()) {  	?>	
-                                  <form action="reply.php"	method="post">
-                                <?php $email=$row['email'];
-                                      $message=$row['message'];?>
+                            while ($row = $results->fetch_assoc()) { 
+                              if ($row['status']=="new"){  	
+                                   $email=$row['email'];
+                                   $message=$row['message'];?>
                                   <tr>
+                                  <form action="reply.php"	method="post">
                                       <td><?php echo $row['id']; ?></td>
                                       <td><?php echo $row['name']; ?></td>
                                       <td><?php echo $row['email']; ?></td>
-                                      <td><?php echo $row['message']; ?></td>
+                                      <td><?php echo substr($row['message'],0,50)."..."; ?></td>
+                                      <td><?php echo $row['status']; ?></td>
                                       <td>
                                         <div class="input-group">
                                           <input type="hidden" name="email" value="<?php echo $email; ?>">
                                           <input type="hidden" name="message" value="<?php echo $message; ?>">
-                                          <input type="submit" name="viewmessage_btn" class="btn btn-link" value="View">
+                                          <input type="submit" class="btn btn-link" value="View">
                                         </div>
                                       </td>
-                                  </tr>
                                   </form>
+                                  </tr>
                             <?php }
-
+                            }
+                            while ($row = $results->fetch_assoc()) { 
+                              if ($row['status']=="replied"){  	
+                                $email=$row['email'];
+                                $message=$row['message'];?>
+                               <tr>
+                               <form action="reply.php"	method="post">
+                                   <td><?php echo $row['id']; ?></td>
+                                   <td><?php echo $row['name']; ?></td>
+                                   <td><?php echo $row['email']; ?></td>
+                                   <td><?php echo substr($row['message'],0,50)."..."; ?></td>
+                                   <td><?php echo $row['status']; ?></td>
+                                   <td>
+                                     <div class="input-group">
+                                       <input type="hidden" name="email" value="<?php echo $email; ?>">
+                                       <input type="hidden" name="message" value="<?php echo $message; ?>">
+                                       <input type="submit" class="btn btn-link" value="View">
+                                     </div>
+                                   </td>
+                               </form>
+                               </tr>
+                         <?php }
+                            }
                           }else{
                             echo "0 results";
                           }

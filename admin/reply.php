@@ -37,6 +37,7 @@
         i-කෝඩර්
         </a>
         <a class="simple-text logo-normal"><?php echo $_SESSION['email'];?></a>
+        <a class="simple-text logo-normal">(Admin)</a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
@@ -132,7 +133,6 @@
                          <div class="form-group">
                            <label class="bmd-label-floating">To:</label>
                            <input name="receiver" type="text" class="form-control" value="<?php echo $email;?>">
-                           <span class="error"><?php echo $passwordErr1;?></span>
                          </div>
                        </div>
                      </div>

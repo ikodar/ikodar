@@ -36,7 +36,6 @@
     </div>
     <div class="textbox">
       <input type="email" placeholder="email" name="email" value="" required>
-      <span class="error"><?php echo $emailErr;?></span>
     </div>
     <div class="textbox">
       <input type="password" placeholder="password" name="password_1" value="" id="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
@@ -44,7 +43,6 @@
     </div>
     <div class="textbox">
       <input type="password" placeholder="confirm password" name="password_2" value="" required>
-      <span class="error"><?php echo $passwordErr;?></span>
     </div>
     <input class="btn" type="submit" name="register_btn" value="Create Account">
     Already have an account? <a href="login.php">Sign In</a>

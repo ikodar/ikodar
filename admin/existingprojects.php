@@ -4,6 +4,7 @@
 	$_SESSION['msg'] = "You must log in first";
 	header('location: ../login.php');
   }
+
  
 ?>
 
@@ -35,6 +36,7 @@
         i-කෝඩර්
         </a>
         <a class="simple-text logo-normal"><?php echo $_SESSION['email'];?></a>
+        <a class="simple-text logo-normal">(Admin)</a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
@@ -109,16 +111,20 @@
                   if ($results->num_rows > 0){
                     //output data of each row
                     while ($row = $results->fetch_assoc()) { 
-                        if ($row['status']=="open"){ ?>			
+                        if ($row['status']=="open"){ 
+                          $pid= $row['pid'];?>			
                           <tr>
+                          <form action="view.php" method="post">
                               <td><?php echo $row['pid']; ?></td>
                               <td><?php echo $row['name']; ?></td>
-                              <td><?php echo $row['description']; ?></td>
+                              <td><?php echo substr($row['description'],0,60)."..."; ?></td>
                               <td>
                                 <div class="input-group">
-                                  <a class="btn btn-primary" href="view.php" role="button" name="view_btn">View</a>
+                                  <input type="hidden" name="pid" value="<?php echo $pid; ?>">
+                                  <input type="submit" name="viewproject_btn" class="btn btn-link" value="View">
                                 </div>
                               </td>
+                          </form>    
                           </tr>
                   <?php   }
                     }
