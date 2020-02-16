@@ -8,14 +8,6 @@ if (!isLoggedIn()) {
 }
 
 
-  
-  if(isset($_POST['pid'])){
-    $_SESSION['pid']=$_POST['pid'];
-    header('location: paymentHInfo.php');
-  }
-
-
-
 //view name on top
 $email=$_SESSION['email'];
 $sql = "SELECT * FROM users WHERE email='$email'";
@@ -132,7 +124,7 @@ ikodar
       <i class="fa fa-shopping-cart"></i> -<b>
       <?php 
       $eml=$_SESSION['email'];
-      $query = "SELECT COUNT(status) FROM projects WHERE status='completed' AND client='$eml' AND payment='hourly'";
+      $query = "SELECT COUNT(status) FROM projects WHERE status='completed' AND client='$eml' AND payment='Hourly basis'";
       $result = $conn->query($query);
       $count = $result->fetch_assoc()['COUNT(status)'];
 
@@ -148,23 +140,23 @@ ikodar
                     <table class="table">
                     <?php 
 					    //retrieve data from project table
-              $query = "SELECT * FROM projects WHERE client='$eml' AND payment='hourly'";
+              $query = "SELECT * FROM projects WHERE client='$eml' AND payment='Hourly basis'";
               $results = $conn->query($query);
               if ($results->num_rows > 0){
                 //output data of each row
                 while ($row = $results->fetch_assoc()) { 
                     if ($row['status']=="completed"){ ?>	
                      <tr>
-                        <td><?php $prid= $row['pid']; ?></td>
+                        <td><?php $pid= $row['pid']; ?></td>
                         <td><?php $name=$row['name']; ?></td>
                         <td><?php $amount=$row['amount']; ?></td>
                     
                <?php echo '
                 <form action="paymentHInfo.php" method="post">
-                <input type="hidden" name="prid" value="'.$prid.'">
+                <input type="hidden" name="pid" value="'.$pid.'">
             
                     <tr>
-                    <td>'.$prid.'</td>
+                    <td>'.$pid.'</td>
                     <td><input type="submit" class="btn btn-link btn-lg" value="'.$name.'"></td>
                     <td>'.$amount.'</td>
                     </tr>
