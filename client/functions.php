@@ -23,7 +23,7 @@ if (isset($_GET['logout'])) {
 
 
 // variable declaration
-$task = $hour = $pid = $accepted ="";
+$task = $hour = $pid = $accept ="";
 $errors = array(); 
 
 // call the register() function if add_btn is clicked
@@ -80,7 +80,7 @@ if (isset($_POST['satisfy'])) {
 // POST PROJECTS
 function satisfytask(){
 	// call these variables with the global keyword to make them available in function
-	global $conn, $errors, $accepted,$pid;
+	global $conn, $errors, $accept,$pid;
 
 	// receive all input values from the form.
     // defined below to escape form values
@@ -92,7 +92,7 @@ function satisfytask(){
 	// register user if there are no errors in the form
 	if (count($errors) == 0) {
 		
-		$query = "INSERT INTO tasks (accepted,pid) 
+		$query = "INSERT INTO tasks (accept,pid) 
 				  VALUES('accepted','$pid')";
 		if ($conn->query($query) === TRUE) {
 		    echo "New record created successfully";
