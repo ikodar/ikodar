@@ -177,7 +177,7 @@ else{
                     if ($results->num_rows > 0){
                     //output data of each row
                      while ($row = $results->fetch_assoc()) { ?>	
-                          <form action ="details.php"	method="post" class="was-validated">
+                          <form action ="view.php"	method="post" class="was-validated">
                           <?php $email=$row['email'];?>
                           <tr>
                               <td><?php echo $row['email']; ?></td>
