@@ -60,21 +60,24 @@ function register(){
                 $_SESSION['email'] = $email; // put logged in user in session
                 $_SESSION['user_type'] = "admin";
                 $_SESSION['success']  = "You are now logged in.";
+                echo  "<script> alert('New account created successfully.');</script>";
                 header('location: admin/home.php');
                 
             }else if($user_type=="client"){
                 $_SESSION['email'] = $email; // put logged in user in session
                 $_SESSION['user_type'] = "client";
                 $_SESSION['success']  = "You are now logged in.";
+                echo  "<script> alert('New account created successfully.');</script>";
                 header('location: client/home.php');
                 
             }else{
                 $_SESSION['email'] = $email; // put logged in user in session
                 $_SESSION['user_type'] = "IT";
                 $_SESSION['success']  = "You are now logged in.";
+                echo  "<script> alert('New account created successfully.');</script>";
                 header('location: IT/home.php');
             }
-            echo  "<script> alert('New account created successfully.');</script>";
+            
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
@@ -102,21 +105,24 @@ function login(){
             $_SESSION['email'] = $email; // put logged in user in session
 			$_SESSION['user_type'] = "admin";
             $_SESSION['success']  = "You are now logged in.";
+            echo  "<script> alert('You are now logged in.');</script>";
             header('location: admin/home.php');
             
         }else if($row['user_type']=="client"){
             $_SESSION['email'] = $email; // put logged in user in session
 			$_SESSION['user_type'] = "client";
-			$_SESSION['success']  = "You are now logged in.";
+            $_SESSION['success']  = "You are now logged in.";
+            echo  "<script> alert('You are now logged in.');</script>";
             header('location: client/home.php');
             
         }else{
             $_SESSION['email'] = $email; // put logged in user in session
 			$_SESSION['user_type'] = "IT";
             $_SESSION['success']  = "You are now logged in.";
+            echo  "<script> alert('You are now logged in.');</script>";
 			header('location: IT/home.php');
         }
-        echo  "<script> alert('You are now logged in.');</script>";
+        
     }else { //user not found
         echo  "<script> alert('Wrong username/password combination.');</script>";
     }
@@ -134,8 +140,8 @@ function message(){
     $message  =  $_POST['message'];
     $date     =  date("Y-m-d-H-i");
     
-    $sql = "INSERT INTO messages (name, email, message, date)
-            VALUES ('$name','$email','$message','$date')";
+    $sql = "INSERT INTO messages (name, email, message, date,status)
+            VALUES ('$name','$email','$message','$date','new')";
     if ($conn->query($sql) === TRUE) {
         echo "<script> alert('Message recorded successfully.');</script>";
     } else{

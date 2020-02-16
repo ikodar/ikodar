@@ -42,7 +42,7 @@
       title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters."required>
     </div>
     <div class="textbox">
-      <input type="password" placeholder="confirm password" name="password_2" value="" required>s
+      <input type="password" placeholder="confirm password" name="password_2" value="" required>
     </div>
     <input class="btn" type="submit" name="register_btn" value="Create Account">
     Already have an account? <a href="login.php">Sign In</a>

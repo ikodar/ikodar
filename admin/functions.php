@@ -22,10 +22,6 @@ if (isset($_GET['logout'])) {
 	header("location: ../index.php");
 }
 
-//call view function when view button is clicked, for viewing projects.
-if(isset($_POST['view_btn'])){
-	view();
-}
 
 // call the updatepassword() function if update_btn is clicked
 if (isset($_POST['update_btn'])) {
@@ -47,9 +43,9 @@ if(isset($_POST['send_btn'])){
 	send();
 }
 
-//VIEW PROJECT in detail.
-function view(){
-	header('location: view.php');
+// call the updateuser() function if updateuser_btn is clicked
+if (isset($_POST['updateuser_btn'])) {
+	updateuser();
 }
 
 //UPDATE the profile details, for the admin only.
@@ -64,23 +60,21 @@ function saveprofile(){
 	 $address   = $_POST['address'];
 
 	 $sql = "UPDATE users 
-	 		 SET  firstname='$firstname', lastname='$lastname', 
-			  address='$address' 
+	 		 SET  firstname='$firstname', lastname='$lastname', address='$address' 
 			  WHERE email='$email'";
+	echo  "<script> confirm('Are you sure you want to change?');</script>";
     if($conn->query($sql) == TRUE){
-		echo "Record updated successfully";
+		echo  "<script> alert('Record updated successfully.');</script>";
 	}else{
 		echo "Error: " . $sql . "<br>" . $conn->error;
 	}
 }
 
-//varaibale declaration
- $passwordErr = $passwordErr1 ="";
 
 //UPDATE the password
 function updatepassword(){
 	//variable declaration
-	global $conn, $passwordErr, $passwordErr1;
+	global $conn;
 
 	$oldpass = $password1 =$password2= $email ="";
 	$errors = 0;
@@ -99,14 +93,14 @@ function updatepassword(){
 		$res = $results->fetch_assoc()['password'];
 		// echo "<script> console.log('$res') </script>";
         if($res != $password){
-            $passwordErr1="Old password incorrect.";
+			echo  "<script> alert('Old password incorrect.');</script>";
             $errors=$errors+1;
         }
     }
 
 	//checking if the new password and confirm password match
 	if ($password1 != $password2) {
-        $passwordErr = "The two passwords do not match.";
+		echo  "<script> alert('The two passwords do not match.');</script>";
         $errors=$errors+1;
     }
 
@@ -114,37 +108,61 @@ function updatepassword(){
 	if ($errors == 0) {
 		$password = md5($password1);
 		$sql = "UPDATE users SET password ='$password' WHERE email='$email'";
+		echo  "<script> confirm('Are you sure you want to change?');</script>";
 		if($conn->query($sql) == TRUE){
-			echo "Record updated successfully";
+			echo  "<script> alert('Password updated successfully.');</script>";
 		}else{
 			echo "Error: " . $sql . "<br>" . $conn->error;
 		}
 	}
 
 }
-//variable declaration
-$deleteErr="";
 
 //DELETE users 
 function delete(){
-	global $conn, $deleteErr;
+	global $conn;
 
 	$user=$_POST['email'];
 
 	//check if the person has any on going projects
-	$sql = "SELECT * FROM projects WHERE client ='$user' || IT='$user' && status='open'";
+	$sql = "SELECT * FROM projects WHERE (client ='$user' || IT='$user') && status='open'";
 	$results = $conn->query($sql);
 	if($results->num_rows == 0){
 		$sql = "DELETE FROM users WHERE email ='$user'";
 		if($conn->query($sql) == TRUE){
-			echo "User deleted.";
+			echo  "<script> alert('User deleted successfully.');</script>";
 			header('location: users2.php');
 		}else{
 			echo "Error: " . $sql . "<br>" . $conn->error;
 		}
 	}else{
-		$deleteErr ="Cannot delete user due open projects.";
+		echo  "<script> alert('Cannot delete user due open projects.');</script>";
 	}
+}
+
+//UPDATE USER function
+function updateuser(){
+	global $conn;
+
+	$email = $_POST['email'];
+	$firstname = $_POST['firstname'];
+	$lastname = $_POST['lastname'];
+	$address = $_POST['address'];
+	$city = $_POST['city'];
+	$country = $_POST['country'];
+	$postalcode = $_POST['postalcode'];
+	$about = $_POST['about'];
+
+
+	$sql = "UPDATE users SET firstname='$firstname', lastname='$lastname', address='$address', city='$city', 
+			country='$country', postalcode='$postalcode', about='$about' 
+			WHERE email='$email'";
+	if($conn->query($sql) == TRUE){
+			echo  "<script> alert('User updated successfully.');</script>";
+	}else{
+			echo "Error: " . $sql . "<br>" . $conn->error;
+	}
+	
 }
 
 //SEND email function
@@ -159,16 +177,21 @@ function send(){
 
 	$subject = "php mail test";
 	$message = "php test message";
-	$headers = 'From:' . $sender;
+	//$headers = 'From:' . $sender;
+	
+
+	$headers = "MIME-Version: 1.0" . "\r\n";
+	$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+	$headers .= 'From:'.$sender. "\r\n";
 
 	if (mail($recipient, $subject, $message, $headers))
 	{
-		echo "Message accepted";
+		echo  "<script> alert('Message sent successfully.');</script>";
 		header('location: messages.php');
 	}
 	else
 	{
-		echo "Error: Message not accepted";
+		echo  "<script> alert('Message not sent.');</script>";
 	}
 
 }

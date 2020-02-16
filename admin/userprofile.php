@@ -174,13 +174,13 @@
                            <label>About Me</label>
                            <div class="form-group">
                              <textarea name="about" style="width:520px" class="input" rows="5"><?php echo $about?></textarea>
-                             <span class="error"><?php echo $deleteErr;?></span>
                            </div>
                          </div>
                        </div>
                      </div>
                      <div class="col-md-12">
-                        <input class="btn btn-primary pull-right" type="submit" name="update_btn" value="Update">
+                        <input name="email" type="hidden" value="<?php echo $email?>">
+                        <input class="btn btn-primary pull-right" type="submit" name="updateuser_btn" value="Update">
                         <input class="btn btn-primary pull-right" type="submit" name="delete_btn" value="Delete"> 
                      </div>
                   </form>

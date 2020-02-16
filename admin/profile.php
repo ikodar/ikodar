@@ -144,6 +144,7 @@
                        </div>
                      </div> 
                      <div class="col-md-12">
+                        <input name="email" type="hidden" value="<?php echo $email?>">
                         <input class="btn btn-primary pull-right" type="submit" name="save_btn" value="SAVE"> 
                      </div>
                   </form>
@@ -160,7 +161,6 @@
                          <div class="form-group">
                            <label class="bmd-label-floating">Current Password</label>
                            <input name="oldpass" type="password" class="form-control" required>
-                           <span class="error"><?php echo $passwordErr1;?></span>
                          </div>
                        </div>
                      </div>
@@ -178,7 +178,6 @@
                          <div class="form-group">
                            <label class="bmd-label-floating">Confirm Password</label>
                            <input name="password2" type="password" class="form-control" required>
-                           <span class="error"><?php echo $passwordErr;?></span>
                          </div>
                        </div>
                      </div>
