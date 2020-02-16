@@ -158,15 +158,13 @@ ikodar
                       <?php 
                   //retrieve data from project table
         
-      $query = "SELECT * FROM projects WHERE status='completed' AND client='$eml' AND payment='hourly'";
+      $query = "SELECT * FROM projects WHERE status='completed' AND client='$eml' AND payment='Hourly basis'";
         $results = $conn->query($query);
         if ($results->num_rows > 0) {
         //output data of each row
         while ($row = $results->fetch_assoc()) { 
            ?>			
             
-          
-        
                   <td width="10px" style="align:left"><?php $pid= $row['pid']; ?></td>
                   <td width="30px"  style="align:left"><?php $name=$row['name']; ?></td>
                   <td width="20px"  style="align:left"><?php $amount=$row['amount']; ?></td>

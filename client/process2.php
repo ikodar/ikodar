@@ -26,14 +26,14 @@ if (isset($_GET['logout'])) {
 $email = $date =$message ="";
 $errors = array(); 
 
-// call the register() function if add_btn is clicked
+// call the gethelp() function if help is clicked
 if (isset($_POST['help'])) {
 	gethelp();
 	header("Location:help.php");
 }
 
 
-// POST PROJECTS
+//SEND messages of the registered users
 function gethelp(){
 	// call these variables with the global keyword to make them available in function
 	global $conn, $errors,$email,$message;
