@@ -148,7 +148,7 @@ ikodar
                     <table class="table">
                     <?php 
 					    //retrieve data from project table
-              $query = "SELECT * FROM projects WHERE client='$eml' AND payment='hourly'";
+              $query = "SELECT * FROM projects WHERE client='$eml' AND payment='Hourly basis'";
               $results = $conn->query($query);
               if ($results->num_rows > 0){
                 //output data of each row
