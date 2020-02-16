@@ -211,8 +211,8 @@ span.price {
             <input type="text" id="fname" name="firstname" value="<?php echo $firstname,$lastname?>">
             <label for="email"><i class="fa fa-envelope"></i> Email</label>
             <input type="text" id="email" name="email"  value=" <?php echo $_SESSION['email'];?>">
-            <label for="Project amount"><i class="fa fa-envelope"></i> Project amount
-            
+            <label for="Project amount"><i class="fa fa-envelope"></i> Project amount + Tax
+            <input type="text" id="pamount" name="amount"  value="
             <?php 
                     
                     $query1 = "SELECT SUM(hour) FROM tasks where pid='$pid'";
@@ -227,11 +227,16 @@ span.price {
                     $sum2  =  $row2['amount'];
 
                     
-                    echo  $sum1*$sum2;
+                    $sum = $sum1*$sum2;
+
+                    $tot= $sum + ($sum/100)*10;
+
+                    echo $sum1;
+
                   
                   ?>
                 
-            <input type="text" id="pamount" name="amount"  value=" <?php echo $_SESSION['email'];?>">
+             ">
           
            
           <div class="col-50">
