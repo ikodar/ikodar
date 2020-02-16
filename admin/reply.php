@@ -133,7 +133,6 @@
                          <div class="form-group">
                            <label class="bmd-label-floating">To:</label>
                            <input name="receiver" type="text" class="form-control" value="<?php echo $email;?>">
-                           <span class="error"><?php echo $passwordErr1;?></span>
                          </div>
                        </div>
                      </div>

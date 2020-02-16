@@ -62,19 +62,12 @@ function saveprofile(){
 	 $sql = "UPDATE users 
 	 		 SET  firstname='$firstname', lastname='$lastname', address='$address' 
 			  WHERE email='$email'";
-	echo  "<script> if (confirm('Are you sure you want to change?')){ </script>";
-						if($conn->query($sql) == TRUE){
-							echo  "<script> alert('Record updated successfully.');</script>";
-						}else{
-							echo "Error: " . $sql . "<br>" . $conn->error;
-						}"<script>
-					};					
-			</script>";
-    //if($conn->query($sql) == TRUE){
-	//	echo  "<script> alert('Record updated successfully.');</script>";
-	//}else{
-	//	echo "Error: " . $sql . "<br>" . $conn->error;
-	//}
+	echo  "<script> confirm('Are you sure you want to change?');</script>";
+    if($conn->query($sql) == TRUE){
+		echo  "<script> alert('Record updated successfully.');</script>";
+	}else{
+		echo "Error: " . $sql . "<br>" . $conn->error;
+	}
 }
 
 
@@ -115,6 +108,7 @@ function updatepassword(){
 	if ($errors == 0) {
 		$password = md5($password1);
 		$sql = "UPDATE users SET password ='$password' WHERE email='$email'";
+		echo  "<script> confirm('Are you sure you want to change?');</script>";
 		if($conn->query($sql) == TRUE){
 			echo  "<script> alert('Password updated successfully.');</script>";
 		}else{
@@ -183,16 +177,21 @@ function send(){
 
 	$subject = "php mail test";
 	$message = "php test message";
-	$headers = 'From:' . $sender;
+	//$headers = 'From:' . $sender;
+	
+
+	$headers = "MIME-Version: 1.0" . "\r\n";
+	$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+	$headers .= 'From:'.$sender. "\r\n";
 
 	if (mail($recipient, $subject, $message, $headers))
 	{
-		echo "Message accepted";
+		echo  "<script> alert('Message sent successfully.');</script>";
 		header('location: messages.php');
 	}
 	else
 	{
-		echo "Error: Message not accepted";
+		echo  "<script> alert('Message not sent.');</script>";
 	}
 
 }

@@ -140,8 +140,8 @@ function message(){
     $message  =  $_POST['message'];
     $date     =  date("Y-m-d-H-i");
     
-    $sql = "INSERT INTO messages (name, email, message, date)
-            VALUES ('$name','$email','$message','$date')";
+    $sql = "INSERT INTO messages (name, email, message, date,status)
+            VALUES ('$name','$email','$message','$date','new')";
     if ($conn->query($sql) === TRUE) {
         echo "<script> alert('Message recorded successfully.');</script>";
     } else{
