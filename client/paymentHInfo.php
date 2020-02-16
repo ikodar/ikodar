@@ -7,11 +7,16 @@
     header('location: ../login.php');
   }
 
+
+  if(isset($_POST['pid'])){
+    $_SESSION['pid']=$_POST['pid'];
+    //header('location: paymentHInfo.php');
+  }
   if(isset($_SESSION["pid"])){
-  $prid=$_SESSION["pid"];
+  $pid=$_SESSION["pid"];
 }
 else{
-  $prid="";
+  $pid="";
   //header("location: index.php");
 }
   
@@ -116,11 +121,7 @@ else{
         <div class="content">
          <div class="container-fluid">
           <div class="card-body">
-          
-            
-              
-                
-                  
+                          
                 <div class="content">
                   <div class="container-fluid">
                     <div class="row">
@@ -131,7 +132,7 @@ else{
                                <p>Project Name : 
                                <?php 
                   
-                  $query = "SELECT * FROM projects where pid='$prid'";
+                  $query = "SELECT * FROM projects where pid='$pid'";
                   $result = $conn->query($query);
                   if ($result->num_rows > 0) {
                   //output data of each row
@@ -153,7 +154,7 @@ else{
             <!-- hourly rate-->
             <p>Hourly Rate : 
                 <?php
-                  $query = "SELECT * FROM projects WHERE pid='$prid'";
+                  $query = "SELECT * FROM projects WHERE pid='$pid'";
               $resul = $conn->query($query);
               if ($resul->num_rows > 0) {
               //output data of each row
@@ -184,7 +185,7 @@ else{
                         </thead>
                         <tbody>
                         <?php 
-                  $query = "SELECT * FROM tasks where pid='$prid'";
+                  $query = "SELECT * FROM tasks where pid='$pid'";
               $results2 = $conn->query($query);
               if ($results2->num_rows > 0) {
               //output data of each row
@@ -215,7 +216,7 @@ else{
                   <td width="20px" >
                   <?php 
                     //$eml=$_SESSION['email'];
-                    $query = "SELECT SUM(hour) FROM tasks where pid='$prid'";
+                    $query = "SELECT SUM(hour) FROM tasks where pid='$pid'";
                     $result = $conn->query($query);
                     $sum = $result->fetch_assoc()['SUM(hour)'];
 
@@ -229,11 +230,11 @@ else{
                   <td width="20px" >
                   <?php 
                     
-                    $query11 = "SELECT SUM(hour) FROM tasks where pid='$prid'";
+                    $query11 = "SELECT SUM(hour) FROM tasks where pid='$pid'";
                     $result11 = $conn->query($query11);
                     $sum1 = $result11->fetch_assoc()['SUM(hour)'];
 
-                    $query22 = "SELECT amount FROM projects where pid='$prid'";
+                    $query22 = "SELECT amount FROM projects where pid='$pid'";
                     $result22 = $conn->query($query22);
                     $sum2 = $result22->fetch_assoc();
 
