@@ -1,6 +1,6 @@
 <?php 
 
-  include_once 'connection.php';
+  
   include('process.php');
   if (!isLoggedIn()) {
     $_SESSION['msg'] = "You must log in first";
@@ -8,12 +8,13 @@
   }
 
   if(isset($_SESSION["pid"])){
-    $prid=$_SESSION["pid"];
-  }
-  else{
-    $prid="";
-    //header("location: index.php");
-  }
+  $prid=$_SESSION["pid"];
+}
+else{
+  $prid="";
+  //header("location: index.php");
+}
+  
 
   //view name on top
   $email=$_SESSION['email'];
@@ -128,31 +129,35 @@
                             <div class="card-header card-header-primary" style="font-size:20px">
                                <!--name-->
                                <p>Project Name : 
-                            <?php
+                               <?php 
+                  
                   $query = "SELECT * FROM projects where pid='$prid'";
-              $reslts = $conn->query($query);
-              if ($reslts->num_rows > 0) {
-              //output data of each row
-              while ($row = $results->fetch_assoc()) { 
-               { ?>			
-                    <tr>
-                        <td><?php echo $row['name']; ?></a></td>
-                    </tr>
-                <?php   }
-                  }
-                    }else{
-                  echo "0 results";
-                  }
-                ?>
+                  $result = $conn->query($query);
+                  if ($result->num_rows > 0) {
+                  //output data of each row
+                  while ($row = $result->fetch_assoc()) { 
+                   { ?>			
+                        <tr>
+                            <td><?php echo $row['name']; ?></a></td>
+                            
+                            
+                        </tr>
+                    <?php   }
+                      }
+    
+                        }else{
+                      echo "0 results";
+                      }
+                    ?>
                 </p>
             <!-- hourly rate-->
             <p>Hourly Rate : 
                 <?php
-                  $query = "SELECT * FROM projects WHERE pid='$pid'";
-              $results = $conn->query($query);
-              if ($results->num_rows > 0) {
+                  $query = "SELECT * FROM projects WHERE pid='$prid'";
+              $resul = $conn->query($query);
+              if ($resul->num_rows > 0) {
               //output data of each row
-              while ($row = $results->fetch_assoc()) { 
+              while ($row = $resul->fetch_assoc()) { 
                { ?>			
                     <tr>
                         <td><?php echo $row['amount']; ?></a></td>
@@ -179,11 +184,11 @@
                         </thead>
                         <tbody>
                         <?php 
-                  $query = "SELECT * FROM tasks where pid='$pid'";
-              $results = $conn->query($query);
-              if ($results->num_rows > 0) {
+                  $query = "SELECT * FROM tasks where pid='$prid'";
+              $results2 = $conn->query($query);
+              if ($results2->num_rows > 0) {
               //output data of each row
-              while ($row = $results->fetch_assoc()) { 
+              while ($row = $results2->fetch_assoc()) { 
                { ?>			
                     <tr>
                         <td width="10px" ><?php echo $row['tid']; ?></a></td>
@@ -210,7 +215,7 @@
                   <td width="20px" >
                   <?php 
                     //$eml=$_SESSION['email'];
-                    $query = "SELECT SUM(hour) FROM tasks where pid='$pid'";
+                    $query = "SELECT SUM(hour) FROM tasks where pid='$prid'";
                     $result = $conn->query($query);
                     $sum = $result->fetch_assoc()['SUM(hour)'];
 
@@ -224,13 +229,13 @@
                   <td width="20px" >
                   <?php 
                     
-                    $query1 = "SELECT SUM(hour) FROM tasks where pid='$pid'";
-                    $result1 = $conn->query($query1);
-                    $sum1 = $result1->fetch_assoc()['SUM(hour)'];
+                    $query11 = "SELECT SUM(hour) FROM tasks where pid='$prid'";
+                    $result11 = $conn->query($query11);
+                    $sum1 = $result11->fetch_assoc()['SUM(hour)'];
 
-                    $query2 = "SELECT SUM(amount) FROM projects where pid='$pid'";
-                    $result2 = $conn->query($query2);
-                    $sum2 = $result2->fetch_assoc()['SUM(amount)'];
+                    $query22 = "SELECT amount FROM projects where pid='$prid'";
+                    $result22 = $conn->query($query22);
+                    $sum2 = $result22->fetch_assoc();
 
                     $sum = $sum1 * $sum2;
                     echo $sum;
@@ -243,7 +248,7 @@
                       
                     </table>
                     <a class="btn btn-primary" href="pay.php" role="button" name="view_btn">PAY</a>
-                    <a class="btn btn-primary" href="payments.php" role="button" name="view_btn">BACK</a>
+                    <a class="btn btn-primary" href="paymentsHour.php" role="button" name="view_btn">BACK</a>
                                 </form>
                               </div>
                             </div>
