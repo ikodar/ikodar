@@ -1,25 +1,27 @@
 <?php 
      include ('process.php'); 
-     include ('Payaction.php');
+     include ('Payaction.php'); 
      if (!isLoggedIn()) {
      $_SESSION['msg'] = "You must log in first";
      header('location: ../login.php');
      }
 
      //view name on top
-  $email=$_SESSION['email'];
-  $sql = "SELECT * FROM users WHERE email='$email'";
-	$results=$conn->query($sql);
-  $row = $results->fetch_assoc();
+$email=$_SESSION['email'];
+$sql = "SELECT * FROM users WHERE email='$email'";
+$results=$conn->query($sql);
+$row = $results->fetch_assoc();
 
-  $firstname  =  $row['firstname'];
-  $lastname  =  $row['lastname'];
+$firstname  =  $row['firstname'];
+$lastname  =  $row['lastname'];
+$user_type  =  $row['user_type'];
+
+
   
-
   if(isset($_POST['pid'])){
-    $_SESSION['pid']=$_POST['pid'];
-    //header('location: paymentHInfo.php');
-  }
+    $_SESSION['pid']=$_POST['pid'];}
+   // header("location: payaction.php");
+  
   if(isset($_SESSION["pid"])){
   $pid=$_SESSION["pid"];
 }
@@ -158,10 +160,11 @@ span.price {
       
       <div class="logo">
         <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          ikodar
+        i-කෝඩර්
         </a>
         <a class="simple-text logo-normal">Hi</a>
-        <a class="simple-text logo-normal"><?php echo $firstname,$lastname?></a>
+        <a class="simple-text logo-normal"><?php echo $firstname?></a>
+        <a class="simple-text logo-normal">(<?php echo $user_type?>)</a>
         
       </div>
       <div class="sidebar-wrapper">
@@ -204,7 +207,8 @@ span.price {
 <div class="row">
   <div class="col-60">
     <div class="container">
-      <form method="post" action="payments.php">
+      <form method="post" action="">
+      <input type="hidden" name="pid" value="<?=$pid;?>">
         <div class="row">
           
             
@@ -272,7 +276,7 @@ span.price {
         
         
         <!--<a class="btn" href="payments.php" role="button" name="pay_btn">Continue to checkout</a>-->
-        <input class="btn" type="submit" name="pay_btn" value="PAY">
+        <input class="btn" type="submit" name="payh_btn" value="PAY">
         <a class="btn" href="payments.php" role="button" name="back_btn">Back to payments</a>
       </form>
     </div>

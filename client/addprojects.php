@@ -5,6 +5,18 @@
      header('location: ../login.php');
      }
 
+     //view name on top
+$email=$_SESSION['email'];
+$sql = "SELECT * FROM users WHERE email='$email'";
+$results=$conn->query($sql);
+$row = $results->fetch_assoc();
+
+$firstname  =  $row['firstname'];
+$lastname  =  $row['lastname'];
+$user_type  =  $row['user_type'];
+
+
+
 ?>
 
 
@@ -31,7 +43,9 @@
         <a class="simple-text logo-normal">
         i-කෝඩර්
         </a>
-        <a class="simple-text logo-normal"><?php echo $_SESSION['email'];?></a>
+        <a class="simple-text logo-normal">Hi</a>
+        <a class="simple-text logo-normal"><?php echo $firstname?></a>
+        <a class="simple-text logo-normal">(<?php echo $user_type?>)</a>
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
@@ -121,7 +135,7 @@
                                 <input name="name" type="text" class="input" id=name required/><br><br>
                                 
                                 <label>Description: </label><br>
-                                <textarea rows="5" cols="60" name="description" value="description">Enter description hereee...</textarea></br></br>
+                                <textarea rows="5" cols="60" name="description" value="description" placeholder="add your project description here"></textarea></br></br>
                                 
                                 <label>Bid end date: </label><br>
                                 <input name="biddate" type="date" class="input" id="biddate" required/>

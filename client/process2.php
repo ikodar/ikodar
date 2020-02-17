@@ -31,8 +31,6 @@ if (isset($_POST['help'])) {
 	gethelp();
 	header("Location:help.php");
 }
-
-
 //SEND messages of the registered users
 function gethelp(){
 	// call these variables with the global keyword to make them available in function
@@ -42,15 +40,11 @@ function gethelp(){
     // defined below to escape form values
 	$email = $_SESSION['email'];
 	$message =  $_POST['message'];
-	
-
 	// form validation: ensure that the form is correctly filled
 
 	if (empty($message)) { 
 		array_push($errors, "message is required."); 
 	}
-
-	
 
 	// register user if there are no errors in the form
 	if (count($errors) == 0) {

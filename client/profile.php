@@ -6,10 +6,16 @@
 	header('location: ../login.php');
   }
  //view 
-  $email=$_SESSION['email'];
-  $sql = "SELECT * FROM users WHERE email='$email'";
-	$results=$conn->query($sql);
-  $row = $results->fetch_assoc();
+  //view name on top
+$email=$_SESSION['email'];
+$sql = "SELECT * FROM users WHERE email='$email'";
+$results=$conn->query($sql);
+$row = $results->fetch_assoc();
+
+
+$user_type  =  $row['user_type'];
+
+
 
   $firstname  =  $row['firstname'];
   $lastname = $row['lastname'];
@@ -54,10 +60,11 @@
      -->
      <div class="logo">
          <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-           ikodar
+         i-කෝඩර්
          </a>
          <a class="simple-text logo-normal">Hi</a>
-        <a class="simple-text logo-normal"><?php echo $firstname,$lastname?></a>
+        <a class="simple-text logo-normal"><?php echo $firstname?></a>
+        <a class="simple-text logo-normal">(<?php echo $user_type?>)</a>
        </div>
        
        <div class="sidebar-wrapper">

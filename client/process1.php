@@ -35,7 +35,7 @@ if (isset($_POST['accept_btn'])) {
 }
 
 
-// POST PROJECTS
+// AWARD PROJECTS
 function accept(){
 	// call these variables with the global keyword to make them available in function
 	global $conn, $IT, $status;
@@ -56,12 +56,12 @@ function accept(){
 
               
 	if ($conn->query($query) === TRUE) {
-	    echo "New record created successfully";
+		echo "New record created successfully";
+		header('location:details.php');
 	} else {
 	   echo "Error: " . $query . "<br>" . $conn->error;
 	}
-	
-	$conn->close();
+
 }
 
 

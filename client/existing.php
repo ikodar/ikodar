@@ -11,6 +11,18 @@ if(isset($_POST["pid"])){
   $_SESSION["pid"]=$_POST["pid"];
   header("location: details.php");
 }
+
+//view name on top
+$email=$_SESSION['email'];
+$sql = "SELECT * FROM users WHERE email='$email'";
+$results=$conn->query($sql);
+$row = $results->fetch_assoc();
+
+$firstname  =  $row['firstname'];
+$lastname  =  $row['lastname'];
+$user_type  =  $row['user_type'];
+
+
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +48,9 @@ ikodar
       <a class="simple-text logo-normal">
         i-කෝඩර්
         </a>
-        <a class="simple-text logo-normal"><?php echo $_SESSION['email'];?></a>
+        <a class="simple-text logo-normal">Hi</a>
+        <a class="simple-text logo-normal"><?php echo $firstname?></a>
+        <a class="simple-text logo-normal">(<?php echo $user_type?>)</a>
  </div>
  <div class="sidebar-wrapper">
    <ul class="nav">
