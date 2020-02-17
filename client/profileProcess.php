@@ -12,17 +12,7 @@ function isLoggedIn()
 	}
 }
 
-//delete
-if (isset($_POST['delete_btn'])) {
-	delete();
-}
 
-
-$sql = "select email from users";
-$rs = mysqli_query($conn, $sql);
-//get row
-$fetchRow = mysqli_fetch_assoc($rs);
-	
 
 // log user out if LOGOUT BUTTON clicked
 if (isset($_GET['logout'])) {
@@ -34,17 +24,23 @@ if (isset($_GET['logout'])) {
 }
 
 
+
 // variable declaration
-$company =  $firstname = $lastname = $address = $city = $country = $postalcode = $about = $email ="";
+
+$firstname = $lastname = $address = $city = $country = $postalcode = $about = $email ="";
 $errors   = 0; 
 
+// call the postproject() function if submit is clicked
+if (isset($_POST['submit'])) {
+	postproject();
+}
 
-// updating profile
-function update(){
+// POST PROJECTS
+function postproject(){
 	// call these variables with the global keyword to make them available in function
 	global $conn, $errors, $firstname, $lastname, $address, $city, $country, $postalcode, $about;
 
-	
+	// receive all input values from the form.
 	$firstname  =  $_POST['firstname'];
     $lastname = $_POST['lastname'];
     $address  =  $_POST['address'];
@@ -55,25 +51,26 @@ function update(){
 	$email = $_POST['email'];
 
 	
+    
+	
+
+	
+	
 	if ($errors== 0) {
 		
-		$query = "UPDATE users  
-				  SET firstname='$firstname',lastname='$lastname',
-				      address='$address',city = '$city',country = '$country',
-					  postalcode = '$postalcode',about = '$about'
-				  WHERE email='$email'";
-
+		$query = "INSERT INTO users (firstname, lastname, address,  city, country, postalcode, about) 
+				  VALUES('$firstname','$lastname', '$address', '$city','$country','$postalcode','$about')";
 		if ($conn->query($query) == TRUE) {
-
-		    echo "Record updated successfully";
+			echo "Profile completed successfully";
+			header('location: profile.php');
 		} else {
 		    echo "Error: " . $query . "<br>" . $conn->error;
 		}
 	}else{
 		echo '<script language="javascript">';
-
-		// echo "window.location.reload();";
-		echo '</script>';
+echo 'alert("Incorrect date selected");';
+// echo "window.location.reload();";
+echo '</script>';
  
 	}
 	$conn->close();
@@ -81,19 +78,6 @@ function update(){
 
 
 
-
-
-//deleting profile
-function delete(){
-	$query = "DELETE FROM users WHERE email='$email'"; 
-if($conn->query($query) == TRUE){ 
-    echo "Record was deleted successfully."; 
-} else{ 
-    echo "ERROR: Could not able to execute $sql. "  
-                                         . $conn->error; 
-} 
-	
-}
 
 
 ?>

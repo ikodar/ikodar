@@ -155,12 +155,11 @@
                           <table class="table">
                             <thead class="thead-dark text-primary">
                               <tr>
+                              <th scope="col">PROJECT ID</th>
                               <th scope="col">PROJECT NAME</th>
                                   <th scope="col">EMPLOYER</th>
                                   <th scope="col">AWARDED BID</th>
                                   <th scope="col">DEADLINE</th>
-                                  <th scope="col">MILESTONES</th>
-                                  <th scope="col">ACTION</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -175,6 +174,7 @@
                     <tr>
                     <td><?php $pid= $row['pid']; ?></td>
                         <td><?php $name=$row['name']; ?></td>
+                        <td><?php $client=$row['client']; ?></td>
                         <td><?php $deadline=$row['deadline']; ?></td>
                         <td><?php $bid= $row['Bid'];  ?></td>
 
@@ -185,7 +185,8 @@
                     <tr>
                     <td>'.$pid.'</td>
                     <td><input type="submit" class="btn btn-link btn-lg" value="'.$name.'"></td>
-                    <td>'.$bid.'</td>
+                    <td>'.$client.'</td>
+                    <td>$'.$bid.' USD</td>
                     <td>'.$deadline.'</td>
                    
                     </tr>
