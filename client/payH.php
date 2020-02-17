@@ -1,6 +1,5 @@
 <?php 
      include ('process.php'); 
-     include ('Payaction.php');
      if (!isLoggedIn()) {
      $_SESSION['msg'] = "You must log in first";
      header('location: ../login.php');
@@ -204,7 +203,7 @@ span.price {
 <div class="row">
   <div class="col-60">
     <div class="container">
-      <form method="post" action="payments.php">
+      <form method="post" action="paymentshour.php">
         <div class="row">
           
             
@@ -272,7 +271,7 @@ span.price {
         
         
         <!--<a class="btn" href="payments.php" role="button" name="pay_btn">Continue to checkout</a>-->
-        <input class="btn" type="submit" name="pay_btn" value="PAY">
+        <input class="btn" type="submit" name="payh_btn" value="PAY">
         <a class="btn" href="payments.php" role="button" name="back_btn">Back to payments</a>
       </form>
     </div>

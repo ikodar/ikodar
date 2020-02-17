@@ -169,7 +169,7 @@ else{
                             </div>
                              <div class="card-body">
                              
-                              <form>
+                              <form action="pay.php" method="post">
                      
                               <table class="table">
                         <thead class="thead-dark text-primary" >
@@ -202,9 +202,30 @@ else{
 
                         </tbody>
                       </table>
+                      <hr style="border-width: 3px; border-color: black;">
+
+                      <table class="table" >
+                    <tbody>
+                    <td width="10px"  ></td>
+                  <td width="30px" >Total Amount</td>
+                  <td width="20px" >
+                  <?php 
+                    //view amount to calculate total 
+                  $sql2 = "SELECT amount FROM projects where pid='$pid'";
+                  $results2=$conn->query($sql2);
+                  $row2 = $results2->fetch_assoc();
+                  $am  =  $row2['amount'];
+                  echo $am;
+                  
+                  ?>
+                  </td>
+                  
+                  
+                      </tbody>
                       
-                    <a class="btn btn-primary" href="pay.php" role="button" name="view_btn">PAY</a>
-                    <a class="btn btn-primary" href="paymentsHour.php" role="button" name="view_btn">BACK</a>
+                    </table>
+                      <a class="btn btn-primary" href="payf.php" role="button" name="view_btn">Continue to checkout</a>
+                    <a class="btn btn-primary" href="paymentsFull.php" role="button" name="back_btn">BACK</a>
                                 </form>
                               </div>
                             </div>
