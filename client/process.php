@@ -104,4 +104,35 @@ function acceptproject(){
 	}
 }
 
+if(isset($_POST['delete_btn'])){
+	global $conn;
+
+	$pid = $_SESSION['pid'];
+
+	$sql="SELECT status from projects WHERE pid='$pid'";
+	$results = $conn->query($sql);
+	$row = $results->fetch_assoc();
+
+	if($row['status']== "new"){
+		$sql="DELETE FROM projects WHERE pid='$pid'";
+		if($conn->query($sql)==TRUE){
+			$sql="DELETE FROM bid WHERE pid='$pid'";
+			if($conn->query($sql)==TRUE){
+				echo "<script> alert('Project deleted successfully.');</script>";
+				header ('location: existing.php');
+			}else{
+				echo "Error: " . $sql . "<br>" . $conn->error;
+			}
+
+		}else{
+			echo "Error: " . $sql . "<br>" . $conn->error;
+		}
+	}else{
+		echo "<script> alert('Project cannot be deleted.');</script>";
+	}
+
+	
+
+}
+
 ?>
