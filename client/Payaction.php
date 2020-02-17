@@ -1,36 +1,10 @@
 <?php 
-session_start();
+
 
 include ('connection.php');
 
-function isLoggedIn()
-{
-	if (isset($_SESSION['email']) && $_SESSION['user_type'] == "IT") {
-		return true;
-	}else{
-		return false;
-	}
-}
-
-	$sql = "select email from users";
-	$rs = mysqli_query($conn, $sql);
-	//get row
-	$fetchRow = mysqli_fetch_assoc($rs);
 
 
-// log user out if LOGOUT BUTTON clicked
-if (isset($_GET['logout'])) {
-    // remove all session variables
-	session_unset();
-    // destroy the session
-	session_destroy();
-	header("location: ../index.php");
-}
-
-if(isset($_POST['pid'])){
-    $_SESSION['pid']=$_POST['pid'];
-    //header('location: paymentHInfo.php');
-  }
   if(isset($_SESSION["pid"])){
   $pid=$_SESSION["pid"];
 }
@@ -40,7 +14,7 @@ else{
 }
 
 // variable declaration
-$clientPaid = $ITincome = $pid= "";
+$clientPaid = $ITincome = $AdminIncome = $pid= "";
 $errors   = 0; 
 
 
@@ -50,21 +24,45 @@ if (isset($_POST['pay_btn'])) {
 }
 
 
+                    
+                    
+
+                  
+                  
 //UPDATE USER function
 function update(){
-	global $conn,$clientPaid,$ITincome, $pid;
+	global $conn,$clientPaid,$ITincome, $AdminIncome, $pid;
 
-	$clientPaid = $_POST['clientPaid'];
-	$pid = $_POST['pid'];
+	//990
+	$sum = $_POST['amount'];
+
+	//90
+	$tax = $sum/11;
+
+	//900
+	$tot = $sum-$tax;
 
 
+	//client paid amount
+	$clientPaid= $sum;
 
-	$sql = "UPDATE projects SET clientPaid='$clientPaid' WHERE pid='$pid'";
+	//IT income 
+	$totIT= $tot - $tax;
+	$ITincome= $totIT;
+
+	//Admin income 
+	$AdminIncome= $tax*2;
+
+
+	
+
+	$sql = "UPDATE projects SET clientPaid='$clientPaid', ITincome='$ITincome',AdminIncome='$AdminIncome' WHERE pid='$pid'";
 	if($conn->query($sql) == TRUE){
 			echo  "<script> alert('Paid updated successfully.');</script>";
 	}else{
 			echo "Error: " . $sql . "<br>" . $conn->error;
 	}
+	header('location: paymentsHour.php');
 	
 }
 
