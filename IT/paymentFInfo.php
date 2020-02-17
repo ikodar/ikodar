@@ -16,13 +16,14 @@
   }
 
   //view name on top
-  $email=$_SESSION['email'];
-  $sql = "SELECT * FROM users WHERE email='$email'";
-	$results=$conn->query($sql);
-  $row = $results->fetch_assoc();
+$email=$_SESSION['email'];
+$sql = "SELECT * FROM users WHERE email='$email'";
+$results=$conn->query($sql);
+$row = $results->fetch_assoc();
 
-  $firstname  =  $row['firstname'];
-  $lastname  =  $row['lastname'];
+$firstname  =  $row['firstname'];
+$lastname  =  $row['lastname'];
+$user_type  =  $row['user_type'];
   
 ?>
 

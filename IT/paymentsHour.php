@@ -16,6 +16,7 @@ $row = $results->fetch_assoc();
 
 $firstname  =  $row['firstname'];
 $lastname  =  $row['lastname'];
+$user_type  =  $row['user_type'];
 
 ?>
 

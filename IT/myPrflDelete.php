@@ -147,11 +147,11 @@
              <div class="col-md-8">
                <div class="card">
                  <div class="card-header card-header-primary">
-                   <h4 class="card-title">Edit Profile</h4>
-                   <p class="card-category">Complete your profile</p>
+                   <h4 class="card-title">Complete Your Profile</h4>
+                   
                  </div>
                  <div class="card-body">
-                   <form method="post" action="myprofile.php"  >
+                   <form method="post" action="../index.php"  >
                      <div class="row">
                        <div class="col-md-4">
                          <div class="form-group">
@@ -161,70 +161,31 @@
                        </div>
                      </div>
                      <div class="row">
-                       <div class="col-md-6">
-                         <div class="form-group">
-                           <label class="bmd-label-floating">First Name</label>
-                           <input name="firstname" type="text" class="form-control" value="<?php echo $firstname?>">
-                         </div>
-                       </div>
-                       <div class="col-md-6">
-                         <div class="form-group">
-                           <label class="bmd-label-floating">Last Name</label>
-                           <input name="lastname" type="text" class="form-control" value="<?php echo $lastname?>">
-                         </div>
-                       </div>
+
+    
                      </div>
                      <div class="row">
                        <div class="col-md-12">
                          <div class="form-group">
-                           <label class="bmd-label-floating">Adress</label>
-                           <input name="address" type="text" class="form-control" value="<?php echo $address?>">
+                           <label class="bmd-label-floating">User Type</label>
+                           <input name="address" type="text" class="form-control" value="<?php echo $user_type?>">
                          </div>
                        </div>
                      </div>
-                     <div class="row">
-                       <div class="col-md-4">
-                         <div class="form-group">
-                           <label class="bmd-label-floating">City</label>
-                           <input name="city" type="text" class="form-control" value="<?php echo $city?>">
-                         </div>
-                       </div>
-                       <div class="col-md-4">
-                         <div class="form-group">
-                           <label class="bmd-label-floating">Country</label>
-                           <input name="country" type="text" class="form-control" value="<?php echo $country?>">
-                         </div>
-                       </div>
-                       <div class="col-md-4">
-                         <div class="form-group">
-                           <label class="bmd-label-floating">Postal Code</label>
-                           <input name="postalcode" type="text" class="form-control" value="<?php echo $postalcode?>">
-                         </div>
-                       </div>
-                     </div>
+                     
                      <div class="row">
                        <div class="col-md-8">
                          <div class="form-group">
-                           <label>About Me</label>
-                           <div class="form-group">
-                             
-                             <textarea name="about" style="width:560px" class="input" rows="5" ><?php echo $about?></textarea>
-                           </div>
-                         </div>
-                       </div>
-                     </div>
-                     <div class="row">
-                       <div class="col-md-8">
-                         <div class="form-group">
-                         <p>If you want to delete your account <a href="myPrflDelete.php">Click here </a></p>
+                         <h3 style="color:red;">Warning!</h3>
+                         <p>If you want to delete your account </p>
                          
                          </div>
                        </div>
                      </div>
                      
                      
-                     <input class="btn btn-primary pull-right" type="submit" name="delete_btn" value="DELETE"> 
-                     <input class="btn btn-primary pull-right" type="submit" name="update_btn" value="UPDATE">
+                     <input class="btn btn-primary pull-right" type="submit" name="accdelete_btn" value="DELETE"> 
+                     
                      <div class="clearfix"></div>
                    </form>
                  </div>

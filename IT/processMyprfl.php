@@ -31,15 +31,15 @@ if (isset($_GET['logout'])) {
 $firstname = $lastname = $address = $city = $country = $postalcode = $about = $email ="";
 $errors   = 0; 
 
-// call the save() function if submit is clicked
-if (isset($_POST['save_btn'])) {
-	save();
-}
-
 
 //call the delete function if delete_btn is clicked (for users)
 if(isset($_POST['delete_btn'])){
 	delete();
+}
+
+//call the delete function if delete_btn is clicked (for users)
+if(isset($_POST['accdelete_btn'])){
+	accdelete();
 }
 
 // call the updateuser() function if updateuser_btn is clicked
@@ -47,62 +47,51 @@ if (isset($_POST['update_btn'])) {
 	update();
 }
 
-// updating profile
-function save(){
-	// call these variables with the global keyword to make them available in function
-	global $conn, $errors,$firstname, $lastname, $address, $city, $country, $postalcode, $about;
 
-	// receive all input values from the form.
-    // defined below to escape form values
-	//$username     =  $_POST['username'];
-	//$company     =  $_POST['company'];
-    //$email = $_POST['email'];
-	$firstname  =  $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $address  =  $_POST['address'];
+//DELETE USER INFO
+function delete(){
+	global $conn;
+
+	$email = $_POST['email'];
+	$firstname = $_POST['firstname'];
+	$lastname = $_POST['lastname'];
+	$address = $_POST['address'];
 	$city = $_POST['city'];
 	$country = $_POST['country'];
 	$postalcode = $_POST['postalcode'];
 	$about = $_POST['about'];
-	$email = $_POST['email'];
 
-	if ($errors== 0) {
-		
-		$query = "UPDATE users  
-				  SET firstname='$firstname',lastname='$lastname',
-				      address='$address',city = '$city',country = '$country',
-					  postalcode = '$postalcode',about = '$about'
-				  WHERE email='$email'";
-		if ($conn->query($query) == TRUE) {
-		    echo "New record created successfully";
-		} else {
-		    echo "Error: " . $query . "<br>" . $conn->error;
-		}
+
+	$sql = "UPDATE users SET firstname='', lastname='', address='', city='', 
+			country='', postalcode='', about='' 
+			WHERE email='$email'";
+	if($conn->query($sql) == TRUE){
+			echo  "<script> alert('Deleted successfully.');</script>";
 	}else{
-		echo '<script language="javascript">';
-
-// echo "window.location.reload();";
-echo '</script>';
- 
+			echo "Error: " . $sql . "<br>" . $conn->error;
 	}
-
-	$conn->close();
+	
 }
-
-//DELETE users 
-function delete(){
+//ACCOUNT DELETE users 
+function accdelete(){
 	global $conn;
 
-	$user=$_POST['email'];
+	$email=$_SESSION['email'];
 
 	//check if the person has any on going projects
-	$sql = "SELECT firstname,lastname,address,city,country,postalcode,about FROM user WHERE (client ='$user' || IT='$user')";
+	$sql="SELECT *
+  FROM users INNER JOIN projects 
+    ON users.email = projects.IT
+ WHERE condition email ='$email' AND (status='completed' |status='past')";
+
+
+	//$sql = "SELECT * FROM user WHERE email ='$email'";
 	$results = $conn->query($sql);
 	if($results->num_rows == 0){
-		$sql = "DELETE FROM users WHERE email ='$user'";
+		$sql = "DELETE FROM users WHERE email ='$email' AND (status='completed' |status='past')";
 		if($conn->query($sql) == TRUE){
 			echo  "<script> alert('User deleted successfully.');</script>";
-			header('location: myprofile.php');
+			
 		}else{
 			echo "Error: " . $sql . "<br>" . $conn->error;
 		}
