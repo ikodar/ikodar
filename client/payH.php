@@ -1,5 +1,6 @@
 <?php 
      include ('process.php'); 
+     include ('Payaction.php'); 
      if (!isLoggedIn()) {
      $_SESSION['msg'] = "You must log in first";
      header('location: ../login.php');
@@ -14,11 +15,10 @@
   $firstname  =  $row['firstname'];
   $lastname  =  $row['lastname'];
   
-
   if(isset($_POST['pid'])){
-    $_SESSION['pid']=$_POST['pid'];
-    //header('location: paymentHInfo.php');
-  }
+    $_SESSION['pid']=$_POST['pid'];}
+   // header("location: payaction.php");
+  
   if(isset($_SESSION["pid"])){
   $pid=$_SESSION["pid"];
 }
@@ -203,7 +203,8 @@ span.price {
 <div class="row">
   <div class="col-60">
     <div class="container">
-      <form method="post" action="paymentshour.php">
+      <form method="post" action="">
+      <input type="hidden" name="pid" value="<?=$pid;?>">
         <div class="row">
           
             

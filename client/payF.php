@@ -1,5 +1,6 @@
 <?php 
      include ('process.php'); 
+     include ('Payaction.php'); 
      if (!isLoggedIn()) {
      $_SESSION['msg'] = "You must log in first";
      header('location: ../login.php');
@@ -14,11 +15,10 @@
   $firstname  =  $row['firstname'];
   $lastname  =  $row['lastname'];
   
-
   if(isset($_POST['pid'])){
-    $_SESSION['pid']=$_POST['pid'];
-    //header('location: paymentHInfo.php');
-  }
+    $_SESSION['pid']=$_POST['pid'];}
+   // header("location: payaction.php");
+  
   if(isset($_SESSION["pid"])){
   $pid=$_SESSION["pid"];
 }
@@ -160,7 +160,7 @@ span.price {
           ikodar
         </a>
         <a class="simple-text logo-normal">Hi</a>
-        <a class="simple-text logo-normal"><?php echo $firstname,$lastname?></a>
+        <a class="simple-text logo-normal"><?php echo $firstname,"  ",$lastname?></a>
         
       </div>
       <div class="sidebar-wrapper">
@@ -203,22 +203,19 @@ span.price {
 <div class="row">
   <div class="col-60">
     <div class="container">
-      <form method="post" action="paymentsFull.php">
+      <form method="post" action="">
+      <input type="hidden" name="pid" value="<?=$pid;?>">
         <div class="row">
           
             
             <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-            <input type="text" id="fname" name="firstname" value="<?php echo $firstname,$lastname?>">
+            <input type="text" id="fname" name="firstname" value="<?php echo $firstname,"  ",$lastname?>">
             <label for="email"><i class="fa fa-envelope"></i> Email</label>
             <input type="text" id="email" name="email"  value=" <?php echo $_SESSION['email'];?>">
             <label for="Project amount"><i class="fa fa-envelope"></i> Project amount + Tax
             <input type="text" id="pamount" name="amount"  value="
             <?php 
                     
-                    $query1 = "SELECT SUM(hour) FROM tasks where pid='$pid'";
-                    $result1 = $conn->query($query1);
-                    $sum1 = $result1->fetch_assoc()['SUM(hour)'];
-
                     
                     //view amount to calculate total 
                     $sql2 = "SELECT amount FROM projects where pid='$pid'";
@@ -227,10 +224,10 @@ span.price {
                     $sum2  =  $row2['amount'];
 
                     
-                    
-                    $tax = ($sum2/100)*10;
+                    $sum = $sum2;
+                    $tax = ($sum/100)*10;
 
-                    $tot= $sum2 + $tax;
+                    $tot= $sum + $tax;
 
                     echo $tot;
 
@@ -271,7 +268,7 @@ span.price {
         
         
         <!--<a class="btn" href="payments.php" role="button" name="pay_btn">Continue to checkout</a>-->
-        <input class="btn" type="submit" name="pay_btn" value="PAY">
+        <input class="btn" type="submit" name="payf_btn" value="PAY">
         <a class="btn" href="payments.php" role="button" name="back_btn">Back to payments</a>
       </form>
     </div>
