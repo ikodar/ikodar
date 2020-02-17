@@ -117,13 +117,14 @@ if ($conn->query($query) === TRUE) {
 
 }
 
+//FINAL POROJECT LINK submission
 function project(){
 	global $conn;
 	$pid=$_SESSION["pid"];
 	$link=$_POST['link'];
 	$sql="UPDATE projects SET link='$link', accept='submitted' WHERE pid='$pid'";
 	if ($conn->query($sql) === TRUE) {
-        echo "Link submitted successfully.";
+        echo "<script> alert('Link submitted successfully.');</script>";
     } else{
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
