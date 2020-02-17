@@ -131,7 +131,7 @@ else{
  <div class="content">
          <div class="container-fluid">
  <div class="card-body">
-                   <form>
+                   
                    <div class="row">
                        <div class="col-md-4">
                          <div class="form-group">
@@ -176,8 +176,8 @@ else{
                   $results = $conn->query($query);
                     if ($results->num_rows > 0){
                     //output data of each row
-                     while ($row = $results->fetch_assoc()) { ?>	
-                          <form action ="view.php"	method="post" class="was-validated">
+                     while ($row = $results->fetch_assoc()) { echo "AAA"; ?>	
+                          
                           <?php $email=$row['email'];?>
                           <tr>
                               <td><?php echo $row['email']; ?></td>
@@ -186,15 +186,16 @@ else{
                               <td><?php echo $row['Proposal']; ?></td>
                               <td>
                                 <div class="input-group">
+                                <form action ="view.php"	method="post" class="was-validated">
                                   <input type="hidden" name="IT" value="<?php echo $email?>">
 
                                   <button type="submit"  class="btn btn-primary pull-right"  name="view_btn">View</button>
                                   <button type="submit"  class="btn btn-primary pull-right"  name="accept_btn">Accept</button>
-                                  
+                                  </form>
                                 </div>
                               </td>
                           </tr>
-                          </form>
+                          
                   <?php   
                     }
 

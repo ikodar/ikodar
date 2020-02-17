@@ -126,7 +126,7 @@ ikodar
                   <td><?php $pid= $row['pid']; ?></td>
                   <td><?php $name=$row['name']; ?></td>
                   <td><?php $description=$row['description']; ?></td>
-              
+                 
                   <?php echo '
                     <form action="existing.php" method="post">
                     <input type="hidden" name="pid" value="'.$pid.'">
@@ -135,9 +135,11 @@ ikodar
                         <td>'.$pid.'</td>
                         <td><input type="submit" class="btn btn-link btn-lg" value="'.$name.'"></td>
                         <td>'.$description.'</td>
-                        </tr>
+                        
                     </form>
                     ';?>
+                    
+                        
           <?php   }
                       }
 
