@@ -21,6 +21,7 @@ $errors   = 0;
 // call the updateuser() function if updateuser_btn is clicked
 if (isset($_POST['payh_btn'])) {
 	updateh();
+	header("Location:paymentsHour.php");
 }
 
 // call the updateuser() function if updateuser_btn is clicked
@@ -35,6 +36,7 @@ if (isset($_POST['payf_btn'])) {
 //UPDATE hourly
 function updateh(){
 	global $conn,$clientPaid,$ITincome, $AdminIncome, $pid;
+
 
 	//calculation hourly total
 	$query1 = "SELECT SUM(hour) FROM tasks where pid='$pid'";
@@ -75,7 +77,7 @@ function updateh(){
 	}
 
 	//status change to past
-	$sql = "UPDATE projects SET status='completed' WHERE pid='$pid'";
+	$sql = "UPDATE projects SET status='past' WHERE pid='$pid'";
 	if($conn->query($sql) == TRUE){
 			echo  "<script> alert('Paid updated successfully.');</script>";
 	}else{
