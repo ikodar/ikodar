@@ -21,12 +21,13 @@ $errors   = 0;
 // call the updateuser() function if updateuser_btn is clicked
 if (isset($_POST['payh_btn'])) {
 	updateh();
-	header("Location:paymentsHour.php");
+	header("Location:payments.php");
 }
 
 // call the updateuser() function if updateuser_btn is clicked
 if (isset($_POST['payf_btn'])) {
 	updatef();
+	header("Location:payments.php");
 }
                     
                     
@@ -87,36 +88,46 @@ function updateh(){
 	
 }
 
+
 //UPDATE full
 function updatef(){
 	global $conn,$clientPaid,$ITincome, $AdminIncome, $pid;
-	
+
 	//view amount to calculate total 
-	$sql2 = "SELECT amount FROM projects where pid='$pid'";
-	  $results2=$conn->query($sql2);
-	$row2 = $results2->fetch_assoc();
-	$sum2  =  $row2['amount'];
-
-	
-	$tot= $sum2;
-	$tax=($tot/100)*10;
-  
+$sql2 = "SELECT amount FROM projects where pid='$pid'";
+$results2=$conn->query($sql2);
+$row2 = $results2->fetch_assoc();
+$sum2  =  $row2['amount'];
 
 
-	//client paid amount
-	$clientPaid= $tot+$tax;
-
-	//IT income 
-	$ITincome= $tot - $tax;
-	
-
-	//Admin income 
-	$AdminIncome= $tax*2;
+$tot= $sum2;
+$tax=($tot/100)*10;
 
 
+
+//client paid amount
+$clientPaid= $tot+$tax;
+
+//IT income 
+$ITincome= $tot - $tax;
+
+
+//Admin income 
+$AdminIncome= $tax*2;
 	
 
+
+	
+	//filling incomes
 	$sql = "UPDATE projects SET clientPaid='$clientPaid', ITincome='$ITincome',AdminIncome='$AdminIncome' WHERE pid='$pid'";
+	if($conn->query($sql) == TRUE){
+			echo  "<script> alert('Paid updated successfully.');</script>";
+	}else{
+			echo "Error: " . $sql . "<br>" . $conn->error;
+	}
+
+	//status change to past
+	$sql = "UPDATE projects SET status='past' WHERE pid='$pid'";
 	if($conn->query($sql) == TRUE){
 			echo  "<script> alert('Paid updated successfully.');</script>";
 	}else{
