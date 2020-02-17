@@ -33,7 +33,7 @@ if (isset($_POST['add'])) {
 }
 
 
-// POST PROJECTS
+// ADD TASK
 function addtask(){
 	// call these variables with the global keyword to make them available in function
 	global $conn, $errors, $task,$hour,$pid;
@@ -57,7 +57,7 @@ function addtask(){
 	}
 
 
-	// register user if there are no errors in the form
+	// add tasks if there are no errors in the form
 	if (count($errors) == 0) {
 		
 		$query = "INSERT INTO tasks (task,hour,pid) 
@@ -70,40 +70,6 @@ function addtask(){
 	}
 	$conn->close();
 }
-
-// call the satisfy() function if accepted is clicked
-if (isset($_POST['satisfy'])) {
-	satisfytask();
-	header("Location:tasks.php");
-}
-
-// POST PROJECTS
-function satisfytask(){
-	// call these variables with the global keyword to make them available in function
-	global $conn, $errors, $accept,$pid;
-
-	// receive all input values from the form.
-    // defined below to escape form values
-
-	$pid =  $_POST['pid'];
-	
-
-
-	// register user if there are no errors in the form
-	if (count($errors) == 0) {
-		
-		$query = "INSERT INTO tasks (accept,pid) 
-				  VALUES('accepted','$pid')";
-		if ($conn->query($query) === TRUE) {
-		    echo "New record created successfully";
-		} else {
-		    echo "Error: " . $query . "<br>" . $conn->error;
-		}
-	}
-	$conn->close();
-}
-
-
 
 //accept task link
 if(isset($_POST['task_btn'])){

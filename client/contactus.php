@@ -111,38 +111,23 @@
           </div>
         </div>
       </nav>
-
-
       <div class="content">
-
- 
-
          <div class="container-fluid">
            <div class="row">
              <div class="col-md-12">
                <div class="card">
-                 <div class="card-header card-header-primary">
-                   
+                 <div class="card-header card-header-primary">    
                  <center><button type="submit" background-color: rgb(11, 22, 88) class="btn btn-primary pull-right" value="submit" name="submit"
                  ><h1>Contact Us</h1>
                  <h4>Still have questions? Our awesome Customer Support Team is ready to assit you.</h4>
                  </button></center>             
-               
-
                  </div>
-
-                 
                  <div class="card-body">
-
                  <section id="about">
     <div class="container-fluid bg-2 text-center">
         <h2></h2>
         <h3></h3>
         <div class="row text-center">
-            
-
-             
-        
             <div class="col-sm-4">
               <div class="thumbnail">
                 <center><img src="img/graphic.jpg" alt="Image"></center>
@@ -151,13 +136,7 @@
             </div>
         </div>
     </div>
-    </section>    
-                  
-      
-
-     
-
-            
+    </section>           
   <!--   Core JS Files   -->
   <script src="assets/js/core/jquery.min.js"></script>
   <script src="assets/js/core/popper.min.js"></script>

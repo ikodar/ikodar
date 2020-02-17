@@ -14,16 +14,12 @@
     $pid="";
     //header("location: index.php");
   }
-
-
   $IT="";
   //for view the IT individual's each bids
 if (isset($_POST['view_btn'])) {
 	$IT = $_POST['IT'];
 }
 
-	
-	
 	$sql = "SELECT * FROM bid WHERE pid = '$pid' AND email = '$IT'";
 	$results = $conn->query($sql);
 	$row = $results->fetch_assoc();
@@ -31,7 +27,6 @@ if (isset($_POST['view_btn'])) {
 	$days = $row['Days'];
 	$proposal = $row['Proposal'];
 
-  
 ?>
 
 <!DOCTYPE html>
@@ -99,9 +94,7 @@ if (isset($_POST['view_btn'])) {
                    while ($row = $results->fetch_assoc()) { 
                     { ?>			
                          <tr>
-                             <td><?php echo $row['name']; ?></a></td>
-                             
-                             
+                            <td><?php echo $row['name']; ?></a></td>   
                          </tr>
                      <?php   }
                        }
@@ -139,8 +132,6 @@ if (isset($_POST['view_btn'])) {
     </div>
   </nav>
  <!-- End Navbar -->
-
-
         <div class="content">
          <div class="container-fluid">
           <div class="card-body">
@@ -208,10 +199,8 @@ if (isset($_POST['view_btn'])) {
                                         <label class="bmd-label-floating">No of Days:</label>  
                                         <?php  echo $days; ?>                        
                                         </div>
-                                      </div>
-                                    
+                                      </div>                                    
                                     </div>
-
                                     <div class="row">
                                       <div class="col-md-12">
                                         <div class="form-group">
@@ -219,11 +208,7 @@ if (isset($_POST['view_btn'])) {
                                           <?php  echo $proposal; ?>                          
                                         </div>
                                       </div>
-                                  
                                     </div>
-
-                                
-                     
                                 </form>
                               </div>
                             </div>
@@ -231,9 +216,6 @@ if (isset($_POST['view_btn'])) {
                         </div>
                       </div>
                     </div>
- 
-
-
 <!--   Core JS Files   -->
 <script src="assets/js/core/jquery.min.js"></script>
 <script src="assets/js/core/popper.min.js"></script>

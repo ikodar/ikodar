@@ -56,12 +56,12 @@ function accept(){
 
               
 	if ($conn->query($query) === TRUE) {
-	    echo "New record created successfully";
+		echo "New record created successfully";
+		header('location:details.php');
 	} else {
 	   echo "Error: " . $query . "<br>" . $conn->error;
 	}
-	
-	$conn->close();
+
 }
 
 
