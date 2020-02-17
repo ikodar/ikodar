@@ -41,9 +41,12 @@
          Tip 2: you can also add an image using data-image tag
      -->
      <div class="logo">
-         <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-           ikodar
-         </a>
+     <a class="simple-text logo-normal">
+        i-කෝඩර්
+        </a>
+        <a class="simple-text logo-normal">Hi</a>
+        <a class="simple-text logo-normal"><?php echo $firstname?></a>
+        <a class="simple-text logo-normal">(<?php echo $user_type?>)</a>
        </div>
        
        <div class="sidebar-wrapper">

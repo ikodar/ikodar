@@ -60,9 +60,12 @@
       <!--Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
         Tip 2: you can also add an image using data-image tag-->
       <div class="logo">
-        <a class="simple-text logo-normal">
+      <a class="simple-text logo-normal">
         i-කෝඩර්
         </a>
+        <a class="simple-text logo-normal">Hi</a>
+        <a class="simple-text logo-normal"><?php echo $firstname?></a>
+        <a class="simple-text logo-normal">(<?php echo $user_type?>)</a>
         <a class="simple-text logo-normal"><?php echo $_SESSION['email'];?></a>
       </div>
       <div class="sidebar-wrapper">
