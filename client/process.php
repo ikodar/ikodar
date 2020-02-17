@@ -52,6 +52,7 @@ function postproject(){
 	$payment = $_POST['payment'];
 	$amount = $_POST['amount'];
 	$client   =  $_SESSION['email'];
+	
 
 	// form validation: ensure that dates are correctly filled
 	$currentdate=date("Y-m-d");
@@ -106,6 +107,8 @@ function acceptproject(){
 	}
 }
 
+
+//DELETE PROJECT
 if(isset($_POST['delete_btn'])){
 	global $conn;
 

@@ -103,4 +103,25 @@ function satisfytask(){
 	$conn->close();
 }
 
+
+
+//accept task link
+if(isset($_POST['task_btn'])){
+	accepttask();
+}
+
+function accepttask(){
+	global $conn;
+	$tid = $_POST['tid'];
+
+	$sql="UPDATE tasks SET accept='accepted' WHERE tid = '$tid'";
+
+	if($conn->query($sql)==TRUE){
+		echo  "<script> alert('Task accepted.');</script>";
+	}else{
+		echo "Error: " . $sql . "<br>" . $conn->error;
+	}
+}
+
+
 ?>

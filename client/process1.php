@@ -35,7 +35,7 @@ if (isset($_POST['accept_btn'])) {
 }
 
 
-// POST PROJECTS
+// AWARD PROJECTS
 function accept(){
 	// call these variables with the global keyword to make them available in function
 	global $conn, $IT, $status;

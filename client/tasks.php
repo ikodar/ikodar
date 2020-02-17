@@ -15,6 +15,25 @@
     $pid="";
     //header("location: index.php");
   }
+
+  if(isset($_POST['task_btn'])){
+
+    //update the status and acception of the project and redirect to payment page
+    if($row['tid']== "$tid"){
+    $sql="INSERT INTO tasks(accept) VALUES('accepted')";
+    if ($conn->query($sql) === TRUE) {
+      echo "Link submitted successfully.";
+      header('location: tasks.php');
+  } else{
+      echo "Error: " . $sql . "<br>" . $conn->error;
+  }
+    
+
+  }else{
+    echo "Error: " . $sql . "<br>" . $conn->error;
+  }
+}
+
   
 ?>
 
@@ -225,7 +244,7 @@
 
                       <?php 
                   //retrieve data from project table
-                  $query = "SELECT * FROM tasks WHERE pid='$pid'";
+                  $query = "SELECT * FROM tasks WHERE pid='$pid'"; 
                   $results = $conn->query($query);
                     if ($results->num_rows > 0){
                     //output data of each row
@@ -233,20 +252,11 @@
                           <form action ="tasks.php"	method="post" class="was-validated">
                           
                           <tr>
-                              <input type="hidden" name="tid" value="<?php echo $tid?>"> 
+                              <input type="hidden" name="tid" value="<?php echo $row['tid']?>"> 
                               <td><?php echo $row['task']; ?></td>
- 
-                              <td width="50">
-                                <div class="input-group">
-                                <td><input name="link" type="text" class="form-control" value=""></td>
-                                  <?php echo $row['link'];?>
-                              </td>
-
-                                 <td> <button type="submit"  class="btn btn-primary pull-right" value="submit" name="satisfy">Accept</button></td>
-                                  
-                                </div>
-                              </td>
-                          </tr>
+                              <td><input name="link" type="text" class="form-control" value="<?php echo $row['link'];?>"></td>
+                              <td> <button type="submit"  class="btn btn-primary pull-right" name="task_btn">Accept</button></td>
+                         </tr>
                           </form>
                   <?php   
                     }
