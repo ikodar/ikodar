@@ -2,20 +2,17 @@
 
 include ('connection.php');
 
-// log user out if LOGOUT BUTTON clicked
-if (isset($_GET['logout'])) {
-    // remove all session variables
-	session_unset();
-    // destroy the session
-	session_destroy();
-	header("location: ../index.php");
-}
-
  
 
 // call the register() function if add_btn is clicked
-if (isset($_POST['retract'])) {
-	retract();
+if (isset($_POST['select_btn'])) {
+	$value= $_POST['select_btn'];
+	if ($value == "retract"){
+		retract();
+	}else{
+	     header("Location:bid2.php");	
+	}
+	
 	//header("Location:active.php");
 }
 
