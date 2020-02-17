@@ -14,16 +14,12 @@
     $pid="";
     //header("location: index.php");
   }
-
-
   $IT="";
   //for view the IT individual's each bids
 if (isset($_POST['view_btn'])) {
 	$IT = $_POST['IT'];
 }
 
-	
-	
 	$sql = "SELECT * FROM bid WHERE pid = '$pid' AND email = '$IT'";
 	$results = $conn->query($sql);
 	$row = $results->fetch_assoc();
@@ -31,6 +27,7 @@ if (isset($_POST['view_btn'])) {
 	$days = $row['Days'];
 	$proposal = $row['Proposal'];
 
+<<<<<<< HEAD
   //view name on top
 $email=$_SESSION['email'];
 $sql = "SELECT * FROM users WHERE email='$email'";
@@ -42,6 +39,8 @@ $lastname  =  $row['lastname'];
 $user_type  =  $row['user_type'];
 
 
+=======
+>>>>>>> c36871ed96197ad7c185309f5e6d5d9c9d0099f1
 ?>
 
 <!DOCTYPE html>
@@ -111,9 +110,7 @@ $user_type  =  $row['user_type'];
                    while ($row = $results->fetch_assoc()) { 
                     { ?>			
                          <tr>
-                             <td><?php echo $row['name']; ?></a></td>
-                             
-                             
+                            <td><?php echo $row['name']; ?></a></td>   
                          </tr>
                      <?php   }
                        }
@@ -151,8 +148,6 @@ $user_type  =  $row['user_type'];
     </div>
   </nav>
  <!-- End Navbar -->
-
-
         <div class="content">
          <div class="container-fluid">
           <div class="card-body">
@@ -220,10 +215,8 @@ $user_type  =  $row['user_type'];
                                         <label class="bmd-label-floating">No of Days:</label>  
                                         <?php  echo $days; ?>                        
                                         </div>
-                                      </div>
-                                    
+                                      </div>                                    
                                     </div>
-
                                     <div class="row">
                                       <div class="col-md-12">
                                         <div class="form-group">
@@ -231,11 +224,7 @@ $user_type  =  $row['user_type'];
                                           <?php  echo $proposal; ?>                          
                                         </div>
                                       </div>
-                                  
                                     </div>
-
-                                
-                     
                                 </form>
                               </div>
                             </div>
@@ -243,9 +232,6 @@ $user_type  =  $row['user_type'];
                         </div>
                       </div>
                     </div>
- 
-
-
 <!--   Core JS Files   -->
 <script src="assets/js/core/jquery.min.js"></script>
 <script src="assets/js/core/popper.min.js"></script>

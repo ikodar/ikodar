@@ -187,7 +187,7 @@
  
                               <td style="width:350px;"> 
                                 <div class="input-group" >
-                                <input name="link" type="text" class="form-control" value="" required>
+                                <input name="link" type="text" class="form-control" value="<?php echo $row['link']; ?>" required>
                                 </div>
                                 </td>
 

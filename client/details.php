@@ -12,17 +12,11 @@
   }
   else{
     $pid="";
-    //header("location: index.php");
   }
-
-  //$IT="";
   //for view the IT individual's each bids
 if (isset($_POST['submit'])) {
 	$pid = $_POST['pid'];
 }
-
-	
-	
 	$sql = "SELECT * FROM projects WHERE pid = '$pid'";
 	$results = $conn->query($sql);
 	$row = $results->fetch_assoc();
@@ -303,9 +297,6 @@ $user_type  =  $row['user_type'];
 
                       </div>
                     </div>
- 
-
-
 <!--   Core JS Files   -->
 <script src="assets/js/core/jquery.min.js"></script>
 <script src="assets/js/core/popper.min.js"></script>

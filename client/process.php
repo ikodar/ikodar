@@ -11,9 +11,6 @@ function isLoggedIn()
 		return false;
 	}
 }
-
-
-
 // log user out if LOGOUT BUTTON clicked
 if (isset($_GET['logout'])) {
     // remove all session variables
@@ -43,16 +40,12 @@ function postproject(){
 	$type = $_POST['type'];
 	$name     =  $_POST['name'];
 	$description     =  $_POST['description'];
-	//$description     =  "test"
-    
-	// $biddate  =  $_POST['biddate'];
 	$biddate  =  $_POST['biddate'];
     $schedule = $_POST['shedule'];
     $deadline  =  $_POST['deadline'];
 	$payment = $_POST['payment'];
 	$amount = $_POST['amount'];
 	$client   =  $_SESSION['email'];
-
 	// form validation: ensure that dates are correctly filled
 	$currentdate=date("Y-m-d");
 	if($currentdate>$biddate){
@@ -78,8 +71,8 @@ function postproject(){
 		}
 	}else{
 		echo '<script language="javascript">';
-echo 'alert("Incorrect date selected");';
-// echo "window.location.reload();";
+        echo 'alert("Incorrect date selected");';
+
 echo '</script>';
  
 	}
@@ -106,6 +99,8 @@ function acceptproject(){
 	}
 }
 
+
+//DELETE PROJECT
 if(isset($_POST['delete_btn'])){
 	global $conn;
 

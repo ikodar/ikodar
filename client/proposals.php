@@ -189,7 +189,7 @@ $user_type  =  $row['user_type'];
                   $results = $conn->query($query);
                     if ($results->num_rows > 0){
                     //output data of each row
-                     while ($row = $results->fetch_assoc()) { echo "AAA"; ?>	
+                     while ($row = $results->fetch_assoc()) { ?>	
                           
                           <?php $email=$row['email'];?>
                           <tr>
