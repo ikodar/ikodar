@@ -175,15 +175,15 @@
                         <td><?php $name=$row['name']; ?></td>
                         <td> <?php
                            $query = "SELECT COUNT(Bid) FROM bid WHERE pid=$pid";
-                            $results = $conn->query($query);
-                            $bidcount= $results->fetch_assoc()['COUNT(Bid)'];?></td>
+                            $results1 = $conn->query($query);
+                            $bidcount= $results1->fetch_assoc()['COUNT(Bid)'];?></td>
 
                         <td><?php $biddate=$row['biddate']; ?></td>
                         <td><?php $bid= $row['Bid']; ?></td>
 
                         <td><?php $query = "SELECT ROUND( AVG(Bid),2 ) AS Average FROM bid WHERE pid=$pid";
-                            $results = $conn->query($query);
-                            $bidavg= $results->fetch_assoc()['Average'];?></td>
+                            $results1 = $conn->query($query);
+                            $bidavg= $results1->fetch_assoc()['Average'];?></td>
                 </tr>
                <?php echo '
             
@@ -199,12 +199,12 @@
 
                    
                             <td> <div class="dropdown">
-                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button class="btn btn-primary dropdown-toggle" name="select_btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Select
                               </button>
                               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" name="retract" type="submit" class="btn btn-primary pull-right">Retract Bid</a>
-                                <a class="dropdown-item" href="#">Edit Bid</a>
+                                <a class="dropdown-item" value="retract" type="submit" class="btn btn-primary pull-right">Retract Bid</a>
+                                <a class="dropdown-item" value="view" type="submit" class="btn btn-primary pull-right">Edit Bid</a>
                               </div>
                             </div><td/>
                             </form>

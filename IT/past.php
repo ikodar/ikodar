@@ -169,8 +169,8 @@
                         <td><?php $name=$row['name']; ?></td>
                         <td> <?php
                            $query = "SELECT COUNT(Bid) FROM bid WHERE pid=$pid";
-                            $results = $conn->query($query);
-                            $bidcount= $results->fetch_assoc()['COUNT(Bid)'];?></td>
+                            $results1 = $conn->query($query);
+                            $bidcount= $results1->fetch_assoc()['COUNT(Bid)'];?></td>
 
                         <td><?php $biddate=$row['biddate']; ?></td>
                         <td><?php $bid= $row['Bid']; ?></td>
