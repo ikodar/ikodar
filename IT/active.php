@@ -210,15 +210,11 @@ $user_type  =  $row['user_type'];
                     <td>'.$biddate.'</td>
 
                    
-                            <td> <div class="dropdown">
-                            <button class="btn btn-primary dropdown-toggle" name="select_btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Select
-                              </button>
-                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" value="retract" type="submit" class="btn btn-primary pull-right">Retract Bid</a>
-                                <a class="dropdown-item" value="view" type="submit" class="btn btn-primary pull-right">Edit Bid</a>
-                              </div>
-                            </div><td/>
+                            <td><div class="input-group">
+                            <button type="submit"  class="btn btn-primary pull-right px-3"  name="delete_btn">Delete Bid</button>
+                            <button type="submit"  class="btn btn-primary pull-right px-4"  name="edit_btn">Edit Bid</button>
+                            </div></td>
+                            
                             </form>
                    
                     </tr>

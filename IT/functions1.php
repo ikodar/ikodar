@@ -5,14 +5,13 @@ include ('connection.php');
  
 
 // call the register() function if add_btn is clicked
-if (isset($_POST['select_btn'])) {
-	$value= $_POST['select_btn'];
-	if ($value == "retract"){
-		retract();
-	}else{
-	     header("Location:bid2.php");	
-	}
-	
+if (isset($_POST['delete_btn'])) {
+	retract();
+	//header("Location:active.php");
+}
+
+if (isset($_POST['edit_btn'])) {
+	retract();
 	//header("Location:active.php");
 }
 
@@ -27,7 +26,6 @@ function retract(){
 
     $sql = "SELECT * FROM bid WHERE WHERE pid=$pid";
 	$results = $conn->query($sql);
-	if($results->num_rows == 0){
 	
 	$sql = "DELETE FROM bid WHERE pid=$pid";
 
@@ -37,7 +35,7 @@ function retract(){
 echo "<script type= 'text/javascript'>alert('Error');</script>";
 }
 }
-}
+
 ?>
 
 	
