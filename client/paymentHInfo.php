@@ -29,6 +29,10 @@ else{
 
   $firstname  =  $row['firstname'];
   $lastname  =  $row['lastname'];
+
+  
+  
+
   
 ?>
 
@@ -228,27 +232,32 @@ else{
                   <td width="10px" ></td>
                   <td width="30px" >Total Amount</td>
                   <td width="20px" >
+                  
                   <?php 
                     
-                    $query11 = "SELECT SUM(hour) FROM tasks where pid='$pid'";
-                    $result11 = $conn->query($query11);
-                    $sum1 = $result11->fetch_assoc()['SUM(hour)'];
+                    $query1 = "SELECT SUM(hour) FROM tasks where pid='$pid'";
+                    $result1 = $conn->query($query1);
+                    $sum1 = $result1->fetch_assoc()['SUM(hour)'];
 
-                    $query22 = "SELECT amount FROM projects where pid='$pid'";
-                    $result22 = $conn->query($query22);
-                    $sum2 = $result22->fetch_assoc();
+                    
+                    //view amount to calculate total 
+                    $sql2 = "SELECT amount FROM projects where pid='$pid'";
+	                  $results2=$conn->query($sql2);
+                    $row2 = $results2->fetch_assoc();
+                    $sum2  =  $row2['amount'];
 
-                    $sum = $sum1 * $sum2;
-                    echo $sum;
+                    
+                    echo  $sum1*$sum2;
                   
                   ?>
+                  
                   </td>
                   </tr>
                   
                       </tbody>
                       
                     </table>
-                    <a class="btn btn-primary" href="pay.php" role="button" name="view_btn">PAY</a>
+                    <a class="btn btn-primary" href="pay.php" role="button" name="view_btn">Continue to checkout</a>
                     <a class="btn btn-primary" href="paymentsHour.php" role="button" name="view_btn">BACK</a>
                                 </form>
                               </div>

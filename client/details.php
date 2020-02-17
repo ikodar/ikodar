@@ -176,7 +176,7 @@ if (isset($_POST['submit'])) {
                                <h4 class="card-title">Project Details</h4>                   
                             </div>
                              <div class="card-body">
-                              <form>
+                              <form action="existing.php" method="post">
                      
                                   <div class="row">
                                    <div class="col-md-6">
@@ -243,7 +243,13 @@ if (isset($_POST['submit'])) {
                                       <label class="bmd-label-floating">Shedule:</label>  
                                       <?php  echo $schedule; ?>                       
                                     </div>
-                                  </div>                                             
+                                  </div>  
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                      <input type="submit" name="delete_btn" class="btn btn-primary" value="Delete">                    
+                                    </div>
+                                  </div>
+
                                   </div>
                      
                                 </form>

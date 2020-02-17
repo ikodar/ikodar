@@ -138,10 +138,19 @@ ikodar
             <div class="row">    
                 <div class="table-responsive">
                     <table class="table">
+                    <thead class="thead-dark text-primary" >
+                          <tr >
+                            <th width="10px" style="font-size:15px">PROJECT ID</th>
+                            <th width="30px"style="font-size:15px">NAME</th>
+                            <th width="20px"style="font-size:15px">AMOUNT PER HOUR</th>
+                            
+                          </tr>
+                        </thead>
                     <?php 
 					    //retrieve data from project table
               $query = "SELECT * FROM projects WHERE client='$eml' AND payment='Hourly basis'";
               $results = $conn->query($query);
+              
               if ($results->num_rows > 0){
                 //output data of each row
                 while ($row = $results->fetch_assoc()) { 

@@ -1,7 +1,7 @@
 <?php 
 
 
-include('process.php');
+include('functions.php');
 if (!isLoggedIn()) {
   $_SESSION['msg'] = "You must log in first";
   header('location: ../login.php');
@@ -53,32 +53,34 @@ ikodar
         <a class="simple-text logo-normal"><?php echo $firstname,$lastname?></a>
  </div>
  <div class="sidebar-wrapper">
-   <ul class="nav">
-     <li class="nav-item active  ">
-       <a class="nav-link" href="./home.php">
-         <p>Home</p>
-       </a>
-     </li>
-
-     <li class="nav-item active">
-       <a class="nav-link" href="./projects.php">
-         <p>My Projects</p>
-       </a>
-     </li>
-     
-     <li class="nav-item active">
-       <a class="nav-link" href="./profile.php">
-         <p>My Profile</p>
-       </a>
-     </li>
-
-     <li class="nav-item active">
-       <a class="nav-link" href="./payments.php">
-         <p>Payments</p>
-       </a>
-     </li>
-     
-   </ul>
+ <ul class="nav">
+           <li class="nav-item active  ">
+             <a class="nav-link" href="./home.php">
+               <!--<i class="material-icons">dashboard</i>-->
+               <p>Dashboard</p>
+             </a>
+             </li>
+             <li class="nav-item active  ">
+               <a class="nav-link" href="./active.php">
+                 <!--<i class="material-icons">dashboard</i>-->
+                 <p>My Projects</p>
+               </a>
+ 
+           </li>
+           <li class="nav-item active">
+             <a class="nav-link" href="./myprofile.php">
+               <!--<i class="material-icons">bubble_chart</i>-->
+               <p>My Profile</p>
+             </a>
+           </li>
+          </li>
+           <li class="nav-item active">
+             <a class="nav-link" href="./income.php">
+               <!--<i class="material-icons">location_ons</i>-->
+               <p>Income</p>
+             </a>
+           </li>
+         </ul>
  </div>
 </div>
 <div class="main-panel">
@@ -98,17 +100,28 @@ ikodar
        <form class="navbar-form"> 
        </form>
        <ul class="navbar-nav">
-         <li class="nav-item dropdown">             
-         <li class="nav-item">
-           <a class="nav-link" href="aboutus.php">About Us</a>
-         </li>
-         <li class="nav-item">
-           <a class="nav-link" href="help.php">Help</a>
-         </li>
-         <li class="nav-item"> 
-           <a class="nav-link" href="process.php?logout='1'">Logout</a>
-         </li>
-       </ul>
+               <li class="nav-item">
+                 <a class="nav-link" href="#pablo">
+                   <!--<i class="material-icons">Dashboard</i>-->
+                   <p class="d-lg-none d-md-block">
+                     Dashboard
+                   </p>
+                 </a>
+               </li>
+
+               <li class="nav-item">
+                 <a class="nav-link" href="contactus.php">Contact Us</a>
+               </li>
+               <li class="nav-item">
+                 <a class="nav-link" href="aboutus.php">About Us</a>
+               </li>
+               <li class="nav-item">
+                 <a class="nav-link" href="help.php">Help</a>
+               </li>
+               <li class="nav-item"> 
+                 <a class="nav-link" href="processMyprfl.php?logout='1'">Logout</a>
+               </li>
+             </ul>
      </div>
    </div>
  </nav>
@@ -120,11 +133,11 @@ ikodar
       <div class="card">
         <div class="card-header card-header-primary">
         <!--head line cart-->
-          <h4 class="card-title">Full basis Projects Cart 
+          <h4 class="card-title">Hourly basis Projects Cart 
       <i class="fa fa-shopping-cart"></i> -<b>
       <?php 
       $eml=$_SESSION['email'];
-      $query = "SELECT COUNT(status) FROM projects WHERE status='completed' AND client='$eml' AND payment='Full payment'";
+      $query = "SELECT COUNT(status) FROM projects WHERE status='completed' AND IT='$eml' AND payment='Hourly basis'";
       $result = $conn->query($query);
       $count = $result->fetch_assoc()['COUNT(status)'];
 
@@ -140,7 +153,7 @@ ikodar
                     <table class="table">
                     <?php 
 					    //retrieve data from project table
-              $query = "SELECT * FROM projects WHERE client='$eml' AND payment='Full payment'";
+              $query = "SELECT * FROM projects WHERE IT='$eml' AND payment='Hourly basis'";
               $results = $conn->query($query);
               
               if ($results->num_rows > 0){
@@ -153,7 +166,7 @@ ikodar
                         <td><?php $amount=$row['amount']; ?></td>
                     
                <?php echo '
-                <form action="paymentFInfo.php" method="post">
+                <form action="paymentHInfo.php" method="post">
                 <input type="hidden" name="pid" value="'.$pid.'">
             
                     <tr>
@@ -175,33 +188,7 @@ ikodar
                      
                       
                     </table>
-                    <hr style="border-width: 3px; border-color: black;">
-
-<table class="table" >
-<tbody>
-
-<tr>
-<td width="10px" ></td>
-<td width="30px" >Total Amount</td>
-<td width="20px" >
-
-<?php 
-
-$query1 = "SELECT SUM(amount) FROM projects WHERE client='$eml' AND payment='Full payment' AND status='completed'";
-$result1 = $conn->query($query1);
-$sum1 = $result1->fetch_assoc()['SUM(amount)'];
-
-
-echo  $sum1;
-
-?>
-
-</td>
-</tr>
-
-</tbody>
-
-</table>
+                  
 
             </div>
         </div>
