@@ -121,7 +121,7 @@
                                 <input name="name" type="text" class="input" id=name required/><br><br>
                                 
                                 <label>Description: </label><br>
-                                <textarea rows="5" cols="60" name="description" value="description">Enter description hereee...</textarea></br></br>
+                                <textarea rows="5" cols="60" name="description" value="description" placeholder="add your project description here"></textarea></br></br>
                                 
                                 <label>Bid end date: </label><br>
                                 <input name="biddate" type="date" class="input" id="biddate" required/>
