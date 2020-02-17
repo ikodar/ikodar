@@ -160,7 +160,7 @@ span.price {
       
       <div class="logo">
         <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          ikodar
+        i-කෝඩර්
         </a>
         <a class="simple-text logo-normal">Hi</a>
         <a class="simple-text logo-normal"><?php echo $firstname?></a>

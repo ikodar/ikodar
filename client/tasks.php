@@ -16,18 +16,6 @@
     //header("location: index.php");
   }
 
-<<<<<<< HEAD
-  //view name on top
-$email=$_SESSION['email'];
-$sql = "SELECT * FROM users WHERE email='$email'";
-$results=$conn->query($sql);
-$row = $results->fetch_assoc();
-
-$firstname  =  $row['firstname'];
-$lastname  =  $row['lastname'];
-$user_type  =  $row['user_type'];
-
-=======
   if(isset($_POST['task_btn'])){
 
     //update the status and acception of the project and redirect to payment page
@@ -45,7 +33,16 @@ $user_type  =  $row['user_type'];
     echo "Error: " . $sql . "<br>" . $conn->error;
   }
 }
->>>>>>> c36871ed96197ad7c185309f5e6d5d9c9d0099f1
+
+//view name on top
+$email=$_SESSION['email'];
+$sql = "SELECT * FROM users WHERE email='$email'";
+$results=$conn->query($sql);
+$row = $results->fetch_assoc();
+
+$firstname  =  $row['firstname'];
+$lastname  =  $row['lastname'];
+$user_type  =  $row['user_type'];
 
   
 ?>

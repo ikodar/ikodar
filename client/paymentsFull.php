@@ -49,7 +49,7 @@ ikodar
 <div class="sidebar" data-color="azure" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
  <div class="logo">
    <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-     ikodar
+   i-කෝඩර්
    </a>
    <a class="simple-text logo-normal">Hi</a>
         <a class="simple-text logo-normal"><?php echo $firstname,$lastname?></a>

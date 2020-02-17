@@ -27,7 +27,6 @@ if (isset($_POST['view_btn'])) {
 	$days = $row['Days'];
 	$proposal = $row['Proposal'];
 
-<<<<<<< HEAD
   //view name on top
 $email=$_SESSION['email'];
 $sql = "SELECT * FROM users WHERE email='$email'";
@@ -39,8 +38,6 @@ $lastname  =  $row['lastname'];
 $user_type  =  $row['user_type'];
 
 
-=======
->>>>>>> c36871ed96197ad7c185309f5e6d5d9c9d0099f1
 ?>
 
 <!DOCTYPE html>
