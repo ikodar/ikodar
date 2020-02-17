@@ -1,34 +1,12 @@
 <?php 
-	include('functions.php');
+    include('functions.php');
+    include('fbkaction.php');
 	if (!isLoggedIn()) {
 	$_SESSION['msg'] = "You must log in first";
 	header('location: ../login.php');
   }
  
-  if(isset($_SESSION["pid"])){
-    $pid=$_SESSION["pid"];
-  }
-  else{
-    $pid="";
-    //header("location: index.php");
-  } 
-
-
-   $query = "SELECT * FROM projects INNER JOIN feedback ON projects.pid= feedback.pid";
-   $results = $conn->query($query);
-   if ($results->num_rows > 0) {
-      //output data of each row
-      while ($row = $results->fetch_assoc()) { 
-        $pid = $row ['pid'];
-        $name = $row ['name'];
-        $rate = $row['rate'];
-        $review= $row['review'];
-        $client = $row['client'];
-      }
-
-   }else{
-       echo "0 results";
-   }
+  
 ?>
  <!DOCTYPE html>
  <html lang="en">
@@ -48,8 +26,91 @@
    <!-- CSS Files -->
    <link href="css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
    <link href="css/custom.css" rel="stylesheet" />
- </head>
+
+
+ <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!-- Font Awesome Icon Library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<style>
+@import url(https://fonts.googleapis.com/css?family=Roboto:500,100,300,700,400);
+div.stars{
+  width: 270px;
+  display: inline-block;
+}
  
+input.star{
+  display: none;
+}
+ 
+label.star {
+  float: right;
+  padding: 10px;
+  font-size: 36px;
+  color: #444;
+  transition: all .2s;
+}
+ 
+input.star:checked ~ label.star:before {
+  content:'\f005';
+  color: #FD4;
+  transition: all .25s;
+}
+ 
+ 
+input.star-5:checked ~ label.star:before {
+  color:#FE7;
+  text-shadow: 0 0 20px #952;
+}
+ 
+input.star-1:checked ~ label.star:before {
+  color: #F62;
+}
+ 
+label.star:hover{
+  transform: rotate(-15deg) scale(1.3);
+}
+ 
+label.star:before{
+  content:'\f006';
+  font-family: FontAwesome;
+}
+ 
+.rev-box{
+  overflow: hidden;
+  height: 0;
+  width: 100%;
+  transition: all .25s;
+}
+ 
+textarea.review{
+  background: #222;
+  border: none;
+  width: 100%;
+  max-width: 100%;
+  height: 100px;
+  padding: 10px;
+  box-sizing: border-box;
+  color: #EEE;
+}
+ 
+label.review{
+  display: block;
+  transition:opacity .25s;
+}
+ 
+input.star:checked ~ .rev-box{
+  height: 125px;
+  overflow: visible;
+}
+</style>
+</head>
+
  <body class="">
    <div class="wrapper ">
      <div class="sidebar" data-color="azure" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
@@ -153,96 +214,55 @@
 
              <div class="card">
                  <div class="card-header card-header-primary">
-                   <h4 class="card-title">Projects Awaiting Feedback</h4>
-                 
-                   </form>
+                   <h4 class="card-title">Feedback</h4>
                    
-              
-                   </div>
-                   </div>
-
-                   <div class="card">
-                 <div class="card-header card-header-primary">
-                   <h4 class="card-title">Feedbacks</h4>
                  </div>
+
                  <div class="card-body">
+          
+                 <form action="" method="post" class="was-validated">
+                   <input type="hidden" name="pid" value="<?=$pid;?>"> 
+                     <div class="row">
+                       <div class="col-md-10">
+                         <div class="form-group">
 
 
-                 <div class="row">
-                                   <div class="col-md-6">
-                                     <div class="form-group">
-                                        <label class="bmd-label-floating">Project ID : </label> 
-                                          <tr>
-                                            <td><?php echo $pid; ?></a></td>    
-                                          </tr>               
-                                        </div>
-                                      </div>                                             
-                                    </div>
+<h5>RATE</h5>
+<div class="stars">
 
-                 
-                                 <div class="row">
-                                   <div class="col-md-6">
-                                     <div class="form-group">
-                                        <label class="bmd-label-floating">Project Name: </label> 
-                                          <tr>
-                                            <td><?php echo $name; ?></a></td>    
-                                          </tr>               
-                                        </div>
-                                      </div>                                             
-                                    </div>
+  <input class="star star-5" id="star-5" type="radio" name="star" value="5"/>
+  <label class="star star-5" for="star-5"></label>
+  <input class="star star-4" id="star-4" type="radio" name="star" value="4"/>
+  <label class="star star-4" for="star-4"></label>
+  <input class="star star-3" id="star-3" type="radio" name="star" value="3"/>
+  <label class="star star-3" for="star-3"></label>
+  <input class="star star-2" id="star-2" type="radio" name="star" value="2"/>
+  <label class="star star-2" for="star-2"></label>
+  <input class="star star-1" id="star-1" type="radio" name="star" value="1"/>
+  <label class="star star-1" for="star-1"></label>
 
-                                   
-                                    <div class="row">
-                                      <div class="col-md-6">
-                                        <div class="form-group">
-                                          <label class="bmd-label-floating">Client:</label>
-                                          <tr>
-                                              <td><?php echo $client ?></a></td>    
-                                            </tr>                           
-                                        </div>
-                                      </div>                                            
-                                    </div>
+</div>
 
-                                    <div class="row">
-                                      <div class="col-md-4">
-                                        <div class="form-group">
-                                          <label class="bmd-label-floating">Rating:</label>  
-                                            <tr>
-                                              <td><?php echo $rate ?>/5</a></td>    
-                                            </tr>
-                                        </div>
-                                      </div>
-                                    <div class="col-md-4">
-                                      <div class="form-group">
-                                        <label class="bmd-label-floating">Review:</label>  
-                                          <tr>
-                                            <td><?php echo $review ?></a></td>     
-                                          </tr>                      
-                                        </div>
-                                      </div>
-                                    <div class="col-md-4">
-                                   
-
-                                    </div>
-                                  </div>                                             
-                                  </div>
-                               </form>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
+<br/><br/>
+<div class="row">
+                       <div class="col-md-10">
+                         <div class="form-group">
+                          
+                            <h6>REVIEW</h6>
+                           <div class="form-group" >
+                             <textarea name="review" class="form-control" rows="5" style="border: 1px solid #bdbdbd;"  placeholder="Add a review about the project"></textarea>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                     <button name="submit" type="submit" class="btn btn-primary pull-right">Send Feedback</button>
+                     <div class="clearfix"></div>
+                   </form>
                  </div>
                </div>
              </div>
+
+</div>
+               </div>
+             </div>
              
- 
-<!--   Core JS Files   -->
-<script src="assets/js/core/jquery.min.js"></script>
-<script src="assets/js/core/popper.min.js"></script>
-<script src="assets/js/core/bootstrap-material-design.min.js"></script>
-<script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-
-</body>
-
-</html>
