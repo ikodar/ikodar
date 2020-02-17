@@ -133,7 +133,7 @@ ikodar
       <div class="card">
         <div class="card-header card-header-primary">
         <!--head line cart-->
-          <h4 class="card-title">Hourly basis Projects Cart 
+          <h4 class="card-title">Pending Income From Hourly basis Projects 
       <i class="fa fa-shopping-cart"></i> -<b>
       <?php 
       $eml=$_SESSION['email'];
@@ -151,6 +151,14 @@ ikodar
             <div class="row">    
                 <div class="table-responsive">
                     <table class="table">
+                    <thead class="thead-dark text-primary" >
+                          <tr >
+                            <th width="10px" style="font-size:15px">PROJECT ID</th>
+                            <th width="30px"style="font-size:15px">NAME</th>
+                            <th width="20px"style="font-size:15px">AMOUNT PER HOUR</th>
+                            
+                          </tr>
+                        </thead>
                     <?php 
 					    //retrieve data from project table
               $query = "SELECT * FROM projects WHERE IT='$eml' AND payment='Hourly basis'";

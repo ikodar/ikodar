@@ -268,7 +268,7 @@ else{
                       </tbody>
                       
                     </table>
-                    <a class="btn btn-primary" href="paymentsHour.php" role="button" name="view_btn">ACCEPT</a>
+                    
                     <a class="btn btn-primary" href="paymentsHour.php" role="button" name="view_btn">BACK</a>
                                 </form>
                               </div>
