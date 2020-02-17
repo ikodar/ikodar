@@ -203,7 +203,7 @@ span.price {
 <div class="row">
   <div class="col-60">
     <div class="container">
-      <form action="/action_page.php">
+      <form method="post" action="Payaction.php">
         <div class="row">
           
             
@@ -228,10 +228,11 @@ span.price {
 
                     
                     $sum = $sum1*$sum2;
+                    $tax = ($sum/100)*10;
 
-                    $tot= $sum + ($sum/100)*10;
+                    $tot= $sum + $tax;
 
-                    echo $sum1;
+                    echo $tot;
 
                   
                   ?>
@@ -269,7 +270,8 @@ span.price {
         </div>
         
         
-        <a class="btn" href="payments.php" role="button" name="pay_btn">Continue to checkout</a>
+        <!--<a class="btn" href="payments.php" role="button" name="pay_btn">Continue to checkout</a>-->
+        <input class="btn" type="submit" name="pay_btn" value="PAY">
         <a class="btn" href="payments.php" role="button" name="back_btn">Back to payments</a>
       </form>
     </div>
