@@ -29,7 +29,7 @@ $errors = array();
 // call the register() function if add_btn is clicked
 if (isset($_POST['submit'])) {
 	placebid();
-	header("Location:active.php");
+	//header("Location:active.php");
 }
 
 
@@ -67,13 +67,14 @@ function placebid(){
 		
 		$query = "INSERT INTO bid (Bid, Days, Proposal,pid,email) 
 				  VALUES('$bid', '$days', '$proposal', '$pid','$email')";
+		
+
 		if ($conn->query($query) === TRUE) {
-		    echo "Submitted the bid successfully";
-		} else {
-		    echo "Error: " . $query . "<br>" . $conn->error;
-		}
+			echo "<script type= 'text/javascript'>alert('Bid submitted successfully');</script>";
+			} else {
+			echo "<script type= 'text/javascript'>alert('Bid alraedy exists');</script>";
+			}
 	}
-	$conn->close();
 }
 
 //POST FINAL PROJECT LINK
@@ -87,7 +88,7 @@ $errors = array();
 // call the Complete() function if complete button is clicked
 if (isset($_POST['complete'])) {
 	Complete();
-	header("Location:tasks.php");
+	//header("Location:tasks.php");
 }
 
 
@@ -107,13 +108,13 @@ function Complete(){
               SET link = '$link' WHERE tid = '$tid'";
 
               
-	if ($conn->query($query) === TRUE) {
-	    echo "Completed";
+if ($conn->query($query) === TRUE) {
+	echo "<script type= 'text/javascript'>alert('Completed');</script>";
 	} else {
-	   echo "Error: " . $query . "<br>" . $conn->error;
+	echo "<script type= 'text/javascript'>alert('Error');</script>";
 	}
 	
-	$conn->close();
+
 }
 
 function project(){

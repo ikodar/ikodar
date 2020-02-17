@@ -147,38 +147,44 @@
                           <table class="table">
                             <thead class="thead-dark text-primary">
                               <tr>
+                              <th scope="col">PROJECT ID</th>
                               <th scope="col">PROJECT NAME</th>
                                     <th scope="col">BIDS</th>
                                     <th scope="col">EMPLOYER</th>
                                     <th scope="col">AWARDED BID</th>
-                                    <th scope="col">TIME</th>
                                     <th scope="col">OUTCOME</th>
                               </tr>
                             </thead>
                             <tbody>
-                               <?php 
+                            <?php 
 					    //retrieve data from project table
-              $query = "SELECT * FROM projects LEFT JOIN bid ON projects.pid = bid.pid";
+              $query = "SELECT * FROM projects LEFT JOIN bid ON projects.pid= bid.pid";
               $results = $conn->query($query);
               if ($results->num_rows > 0) {
               //output data of each row
               while ($row = $results->fetch_assoc()) { 
                 if ($row['email']==$_SESSION['email'] AND $row['status']=="past"){ ?>			
                     <tr>
-                    <td><?php $client= $row['client']; ?></td>
+                    <td><?php $pid= $row['pid']; ?></td>
                         <td><?php $name=$row['name']; ?></td>
-                        
-                        <td><?php $bid= $row['Bid'];  ?></td>
+                        <td> <?php
+                           $query = "SELECT COUNT(Bid) FROM bid WHERE pid=$pid";
+                            $results = $conn->query($query);
+                            $bidcount= $results->fetch_assoc()['COUNT(Bid)'];?></td>
 
+                        <td><?php $biddate=$row['biddate']; ?></td>
+                        <td><?php $bid= $row['Bid']; ?></td>
+                        <td><?php $client=$row['client']; ?></td>
                 </tr>
                <?php echo '
             
                     <tr>
-                    
-                    <td>'.$name.'</td> 
-                    <td>'.$client.'</td>
-                    <td>'.$bid.'</td>
-                    
+                    <td>'.$pid.'</td>
+                    <td>'.$name.'</td>
+                    <td>'.$bidcount.'</td>
+                    <td>$'.$client.'USD</td>
+                    <td>$'.$bid.' USD</td>
+                    <td>'.$biddate.'</td>
                    
                     </tr>
                 ';?>
@@ -200,3 +206,13 @@
             </div>
 
                         
+          
+  <!--   Core JS Files   -->
+<script src="assets/js/core/jquery.min.js"></script>
+<script src="assets/js/core/popper.min.js"></script>
+<script src="assets/js/core/bootstrap-material-design.min.js"></script>
+<script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+
+</body>
+
+</html>

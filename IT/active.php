@@ -1,10 +1,12 @@
 <?php 
-	include('functions.php');
+  include('functions.php');
+  include('functions1.php');
 	if (!isLoggedIn()) {
 	$_SESSION['msg'] = "You must log in first";
 	header('location: ../login.php');
   }
  
+
 ?>
  <!DOCTYPE html>
  <html lang="en">
@@ -158,6 +160,8 @@
                               </tr>
                             </thead>
                             <tbody>
+                           
+
           <?php 
 					    //retrieve data from project table
               $query = "SELECT * FROM projects INNER JOIN bid ON projects.pid= bid.pid";
@@ -169,17 +173,41 @@
                     <tr>
                     <td><?php $pid= $row['pid']; ?></td>
                         <td><?php $name=$row['name']; ?></td>
+                        <td> <?php
+                           $query = "SELECT COUNT(Bid) FROM bid WHERE pid=$pid";
+                            $results = $conn->query($query);
+                            $bidcount= $results->fetch_assoc()['COUNT(Bid)'];?></td>
+
                         <td><?php $biddate=$row['biddate']; ?></td>
                         <td><?php $bid= $row['Bid']; ?></td>
 
+                        <td><?php $query = "SELECT ROUND( AVG(Bid),2 ) AS Average FROM bid WHERE pid=$pid";
+                            $results = $conn->query($query);
+                            $bidavg= $results->fetch_assoc()['Average'];?></td>
                 </tr>
                <?php echo '
             
+            <form action="" method="post">
+            <input type="hidden" name="pid" value="'.$pid.'">
                     <tr>
                     <td>'.$pid.'</td>
                     <td>'.$name.'</td>
-                    <td>'.$bid.'</td>
+                    <td>'.$bidcount.'</td>
+                    <td>$'.$bid.' USD</td>
+                    <td>$'.$bidavg.'USD</td>
                     <td>'.$biddate.'</td>
+
+                   
+                            <td> <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" name="retract" type="submit" class="btn btn-primary pull-right">Retract Bid</a>
+                                <a class="dropdown-item" href="#">Edit Bid</a>
+                              </div>
+                            </div><td/>
+                            </form>
                    
                     </tr>
                 ';?>
