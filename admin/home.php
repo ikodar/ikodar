@@ -217,6 +217,86 @@
           <!--End of line chart-->
           </div>
 
+
+          <div class="col-md-9">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title">Payment Details for Projects Types</h4>
+              </div>
+                <div class="card-body">
+                  <div class="row">    
+                      <div class="table-responsive">
+
+<?Php
+$query = "SELECT type,ITincome,clientPaid,AdminIncome FROM projects WHERE status='past'";
+$results = $conn->query($query);
+
+if ($results->num_rows > 0){
+
+  echo "No of records : ".$results->num_rows."<br>";
+$php_data_array = Array(); // create PHP array
+  echo "<table >
+<tr> <th>Project Type</th><th>ITindividual Income</th><th>client Income</th><th>Admin Income</th></tr>";
+while ($row = $results->fetch_row()) {
+   echo "<tr><td>$row[0]</td><td>$row[1]<td>$row[2]</td><td>$row[3]</td></tr>";
+   $php_data_array[] = $row; // Adding to array
+   }
+echo "</table>";
+}else{
+echo $connection->error;
+}
+//print_r( $php_data_array);
+// You can display the json_encode output here. 
+ json_encode($php_data_array); 
+
+// Transfor PHP array to JavaScript two dimensional array 
+echo "<script>
+        var my_2d = ".json_encode($php_data_array)."
+</script>";
+?>
+
+
+<div id="chart_div"></div>
+<br><br>
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {packages: ['corechart', 'bar']});
+      google.charts.setOnLoadCallback(drawChart);
+	  
+      function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Type');
+        data.addColumn('number', 'ITincome');
+        data.addColumn('number', 'clientPaid');
+        data.addColumn('number', 'adminIncome');
+        
+		
+        for(i = 0; i < my_2d.length; i++)
+        data.addRow([my_2d[i][0], parseInt(my_2d[i][1]),parseInt(my_2d[i][2]),parseInt(my_2d[i][3])]);
+       var options = {
+          title: 'Income ',
+          hAxis: {title: 'type',  titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 0}
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('chart_div'));
+        chart.draw(data, options);
+       }
+		
+</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
       </div>
       </div>
 

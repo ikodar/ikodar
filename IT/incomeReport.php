@@ -18,7 +18,7 @@ $user_type  =  $row['user_type'];
 
   
   //piechart
-  $qry = "SELECT status, count(*) as number FROM projects WHERE status IN (completed AS pending ,past ) GROUP BY status ";
+  $qry = "SELECT status, count(status='completed',status='past') as number FROM projects";
   $result = $conn->query($qry);
 
   
@@ -278,7 +278,7 @@ echo "<script>
           <div class="col-md-9">
             <div class="card">
               <div class="card-header card-header-primary">
-                <h4 class="card-title">Recent IT Individuals</h4>
+                <h4 class="card-title">Income</h4>
               </div>
                 <div class="card-body">
                   <div class="row">    
@@ -288,19 +288,17 @@ echo "<script>
                <thead class="thead-dark text-primary" >
                  <tr >
                    
-                   <th width="20px" style="font-size:15px">project Type</th>
-                   <th width="20px" style="font-size:15px">IT Individual</th>
-                   <th width="20px"style="font-size:15px">Ratings</th>
-                   <th width="20px"style="font-size:15px">Reviews</th>
+                   <th width="20px" style="font-size:15px">project Name</th>
+                   <th width="20px" style="font-size:15px">client</th>
+                   <th width="20px"style="font-size:15px">Payment Type</th>
+                   <th width="20px"style="font-size:15px">Income</th>
 
                    
                  </tr>
                </thead>
                <tbody>
                <?php 
-         $query = "SELECT projects.*,feedback.*
-                  FROM projects 
-                  INNER JOIN feedback ON feedback.pid = projects.pid ";
+         $query = "SELECT * FROM projects WHERE status='past'" ;
 
      $results2 = $conn->query($query);
      if ($results2->num_rows > 0) {
@@ -308,10 +306,10 @@ echo "<script>
      while ($row = $results2->fetch_assoc()) { 
       { ?>			
            <tr>
-              <td><?php echo $row['type'];?></td>
-              <td><?php echo $row['email'];?></td>
-              <td><?php echo $row['rate'];?></td>
-              <td><?php echo $row['review'];?></td>
+              <td><?php echo $row['name'];?></td>
+              <td><?php echo $row['client'];?></td>
+              <td><?php echo $row['payment'];?></td>
+              <td><?php echo $row['ITincome'];?></td>
 
        <?php   }
          }
