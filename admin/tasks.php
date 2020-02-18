@@ -14,6 +14,7 @@
     $pid="";
   }
 
+  //retreiving project name
   $query = "SELECT * FROM projects where pid='$pid'";
   $results = $conn->query($query);
   if ($results->num_rows > 0) {
@@ -145,14 +146,48 @@
                                <h4 class="card-title">Project Tasks</h4>                   
                             </div>
                              <div class="card-body">
-                                 <div class="row">
-                                   <div class="col-md-6">
-                               
+                                <div class="table-responsive">
+                                  <table class="table">
+                                    <thead class="thead-dark text-primary">
+                                      <tr>
+                                        <th width="18%">Task</th>
+                                        <th width="18%">Link</th>
+                                        <th width="18%">Status</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    <?php 
+                                //retrieve data from project table
+                                $query = "SELECT * FROM tasks WHERE pid='$pid'"; 
+                                $results = $conn->query($query);
+                                  if ($results->num_rows > 0){
+                                  //output data of each row
+                                  while ($row = $results->fetch_assoc()) { ?>	
+                                        <tr>
+                                            <td><?php echo $row['task']; ?></td>
+                                            <td><?php echo $row['link'];?></td>
+                                            <td><?php echo $row['accept']; ?></td>
+                                        </tr>
+                                  <?php   
+                                  }
+
+                                }else{
+                                  echo "0 results";
+                                }
+                                  ?>
+                    
+          
+                                          </tbody>
+                                        </table>                                   
+                                      </div>                       
+                                    </div>                     
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </div>
+                        
       <!--End of data section-->
 
     </div>

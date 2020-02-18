@@ -45,14 +45,13 @@ ikodar
 <body class="">
 <div class="wrapper ">
 <div class="sidebar" data-color="azure" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
- <div class="logo">
- <a class="simple-text logo-normal">
+<div class="logo">
+     <a class="simple-text logo-normal">
         i-කෝඩර්
         </a>
-        <a class="simple-text logo-normal">Hi</a>
-        <a class="simple-text logo-normal"><?php echo $firstname?></a>
-        <a class="simple-text logo-normal">(<?php echo $user_type?>)</a>
- </div>
+        <a class="simple-text logo-normal">Hi <?php echo $firstname?> (<?php echo $user_type?>)</a>
+       </div>
+       
  <div class="sidebar-wrapper">
  <ul class="nav">
            <li class="nav-item active  ">
@@ -79,6 +78,12 @@ ikodar
              <a class="nav-link" href="./income.php">
                <!--<i class="material-icons">location_ons</i>-->
                <p>Income</p>
+             </a>
+           </li>
+           <li class="nav-item active">
+             <a class="nav-link" href="./feedback.php">
+               <!--<i class="material-icons">bubble_chart</i>-->
+               <p>Feedback</p>
              </a>
            </li>
          </ul>

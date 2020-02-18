@@ -31,7 +31,6 @@
         </div>
           <ul class="nav navbar-nav navbar-right" >
             <li style="padding-left:20px;"><a href="#page-top">Home</a></li>
-            <li style="padding-left:20px;"><a href="#about">About Us</a></li>
             <li style="padding-left:20px;"><a href="#contact">Contact us</a></li>
             <li style="padding-left:20px;"><a href="login.php">Sign in</a></li>
             <li style="padding-left:20px;"><a href="register.php">Sign up</a></li>
@@ -44,8 +43,9 @@
     <div class="row header">
 	<div class="col-lg-4">
 			<div class="container text-center" style = "padding-top: 70px;">
-        <h3>i-කෝඩර් We Connect You All</h3>
-        <h4>Welcome To Freelancing and Crowdsourcing !</h4><br/>
+        <h2>i-කෝඩර්</h2> 
+        <h3>We Connect You All</h3>
+        <h4> (Freelancing)</h4><br/>
 				<p>Remember, time is money. Use it properly. Do not waste your time thinking when others are getting things done here.</p>
 				<a href="Register.php" class="btn btn-warning btn-lg">It's Free!! Join Now!!!</a>
 				<p></p>
@@ -129,22 +129,19 @@
 		<div class="col-lg-4">
 			<div class="card" style="padding:20px 40px 20px 40px;margin:20px;">
 				<a href="login.php"><i class="fa fa-credit-card"></i>
-				<h3>Web Developer</h3>
-				<p>Please login and browse our web developers</p></a>
+				<h3>Web Developer</h3></a>
 			</div>
 		</div>
 		<div class="col-lg-4">
 			<div class="card" style="padding:20px 40px 20px 40px;margin:20px;">
 				<a href="login.php"><i class="fa fa-android"></i>
-				<h3>Mobile Developer</h3>
-				<p>Please login and Browse our Mobile Developer</p></a>
+				<h3>Mobile Developer</h3></a>
 			</div>
 		</div>
 		<div class="col-lg-4">
 			<div class="card" style="padding:20px 40px 20px 40px;margin:20px;">
 				<a href="login.php"><span class="fa fa-image"></span>
-				<h3>Graphics Designer</h3>
-				<p>Please login and browse our Graphics Designer</p></a>
+				<h3>Graphics Designer</h3></a>
 			</div>
 		</div>
 	</div>
@@ -152,15 +149,13 @@
 		<div class="col-lg-4">
 			<div class="card" style="padding:20px 40px 20px 40px;margin:20px;">
 				<a href="login.php"><span class="fa fa-pencil"></span>
-				<h3>Creative writer</h3>
-				<p>Please login and browse our Creative writer</p></a>
+				<h3>Creative writer</h3></a>
 			</div>
 		</div>
 		<div class="col-lg-4">
 			<div class="card" style="padding:20px 40px 20px 40px;margin:20px;">
 				<a href="login.php"><span class="fa fa-signal"></span>
-				<h3>Marketing Expert</h3>
-				<p>Please login and browse our Marketing Expert</p></a>
+				<h3>Marketing Expert</h3></a>
 			</div>
 		</div>
 		

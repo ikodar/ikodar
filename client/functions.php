@@ -36,7 +36,7 @@ if (isset($_POST['add'])) {
 // POST PROJECTS
 function addtask(){
 	// call these variables with the global keyword to make them available in function
-	global $conn, $errors, $task,$hour,$pid;
+	global $conn, $errors, $task,$hour,$pid ; 
 
 	// receive all input values from the form.
     // defined below to escape form values
@@ -58,7 +58,7 @@ function addtask(){
 	}
 
 
-	// register user if there are no errors in the form
+	// register user if there are no errors in the form...
 	if (count($errors) == 0) {
 		
 		$query = "INSERT INTO tasks (task,hour,pid) 

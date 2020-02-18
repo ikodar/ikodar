@@ -28,17 +28,7 @@
    <link href="css/custom.css" rel="stylesheet" />
 
 
- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-<!-- Font Awesome Icon Library -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
 <style>
-@import url(https://fonts.googleapis.com/css?family=Roboto:500,100,300,700,400);
 div.stars{
   width: 270px;
   display: inline-block;
@@ -172,7 +162,6 @@ input.star:checked ~ .rev-box{
            <div class="collapse navbar-collapse justify-content-end">
              <form class="navbar-form">
                <div class="input-group no-border">
-                 <input type="text" value="" class="form-control" placeholder="Search...">
                  <!--<button type="submit" class="btn btn-white btn-round btn-just-icon">
                    <i class="material-icons">search</i>-->
                    <div class="ripple-container"></div>
@@ -189,9 +178,6 @@ input.star:checked ~ .rev-box{
                  </a>
                </li>
 
-               <li class="nav-item">
-                 <a class="nav-link" href="contactus.php">Contact Us</a>
-               </li>
                <li class="nav-item">
                  <a class="nav-link" href="aboutus.php">About Us</a>
                </li>
