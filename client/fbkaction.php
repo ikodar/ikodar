@@ -19,7 +19,7 @@ function feedback(){
 
 $rate= $_POST['star'];
 	$review =  $_POST['review'];
-	$email = $_SESSION['email'];
+	$email = $_POST['IT'];
 	$pid =  $_POST['pid'];
 	
 

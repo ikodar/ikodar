@@ -325,17 +325,20 @@ function showSlides() {
 					     <table class="table">
                <thead class="thead-dark text-primary" >
                  <tr >
-                   <th width="30px" style="font-size:15px">IT Individual</th>
-                   <th width="20px" style="font-size:15px">No of Completed Projects</th>
-                   <th width="30px"style="font-size:15px">Ratings</th>
+                   
+                   <th width="20px" style="font-size:15px">project Type</th>
+                   <th width="20px" style="font-size:15px">IT Individual</th>
+                   <th width="20px"style="font-size:15px">Ratings</th>
+                   <th width="20px"style="font-size:15px">Reviews</th>
+
                    
                  </tr>
                </thead>
                <tbody>
                <?php 
-         $query = "SELECT feedback.*, projects.*
-                  FROM projects
-                  INNER JOIN feedback ON projects.IT = feedback.email;";
+         $query = "SELECT projects.*,feedback.*
+                  FROM projects 
+                  INNER JOIN feedback ON feedback.pid = projects.pid ";
 
      $results2 = $conn->query($query);
      if ($results2->num_rows > 0) {
@@ -343,17 +346,11 @@ function showSlides() {
      while ($row = $results2->fetch_assoc()) { 
       { ?>			
            <tr>
-               <td width="30px" ><?php echo $row['IT']; ?></a></td>
-               <td width="20px" ><?php 
-      $eml=['email'];
-      $query = "SELECT COUNT(status) FROM projects WHERE status='completed' AND IT='$eml'";
-      $result = $conn->query($query);
-      $count = $result->fetch_assoc()['COUNT(status)'];
+              <td><?php echo $row['type'];?></td>
+              <td><?php echo $row['email'];?></td>
+              <td><?php echo $row['rate'];?></td>
+              <td><?php echo $row['review'];?></td>
 
-      echo $count;
-      ?></a></td>
-               
-           </tr>
        <?php   }
          }
            }else{
