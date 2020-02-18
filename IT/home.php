@@ -49,6 +49,7 @@ $user_type  =  $row['user_type'];
      <a class="simple-text logo-normal">
         i-කෝඩර්
         </a>
+        <a class="simple-text logo-normal">Hi <?php echo $firstname?> (<?php echo $user_type?>)</a>
        </div>
        
        <div class="sidebar-wrapper">
@@ -73,7 +74,7 @@ $user_type  =  $row['user_type'];
              </a>
            </li>
           </li>
-          <li class="nav-item active">
+           <li class="nav-item active">
              <a class="nav-link" href="./income.php">
                <!--<i class="material-icons">location_ons</i>-->
                <p>Income</p>
@@ -94,7 +95,7 @@ $user_type  =  $row['user_type'];
        <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
          <div class="container-fluid">
            <div class="navbar-wrapper">
-             <a class="navbar-brand" href="#pablo"></a>
+             <a class="navbar-brand" href="#pablo">Dashboard</a>
            </div>
            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
              <span class="sr-only">Toggle navigation</span>
@@ -105,7 +106,9 @@ $user_type  =  $row['user_type'];
            <div class="collapse navbar-collapse justify-content-end">
              <form class="navbar-form">
                <div class="input-group no-border">
-                
+              
+                 <!--<button type="submit" class="btn btn-white btn-round btn-just-icon">
+                   <i class="material-icons">search</i>-->
                    <div class="ripple-container"></div>
                  </button>
                </div>
@@ -118,6 +121,10 @@ $user_type  =  $row['user_type'];
                      Dashboard
                    </p>
                  </a>
+               </li>
+
+               <li class="nav-item">
+                 <a class="nav-link" href="contactus.php">Contact Us</a>
                </li>
                <li class="nav-item">
                  <a class="nav-link" href="aboutus.php">About Us</a>
@@ -195,34 +202,23 @@ $user_type  =  $row['user_type'];
                 <h4 class="card-title">Reputation</h4>
               </div>
                 <div class="card-body">
+
+                <span class="fa fa-star checked" style="color: orange;"></span>
                 
         <?php
         $email=$_SESSION['email'];
 
-        $query = "SELECT * FROM feedback";
-        $results = $conn->query($query);
-        if ($results->num_rows > 0){
-          //output data of each row
-          while ($row = $results->fetch_assoc()) { 
-              if ($row['email']==$_SESSION['email']){ ?>	
-                  <?php 
+
                   
-        $query = "SELECT ROUND( AVG(rate),2 ) AS Average FROM feedback";
+        $query = "SELECT ROUND( AVG(rate) ) AS Average FROM feedback where email='$email'";
                             $results1 = $conn->query($query);
                            echo $rtavg= $results1->fetch_assoc()['Average'];?>/5 <br/>
+                           </td>
 
-      ( <?php $query = "SELECT COUNT(review) FROM feedback WHERE pid=$pid";
+      ( <?php $query = "SELECT COUNT(review) FROM feedback where email='$email'";
                             $results1 = $conn->query($query);
                           echo $rewcount= $results1->fetch_assoc()['COUNT(review)'];?> Reviews)
-                        
-                <?php   }
-                  }
-
-                    }else{
-                  echo "0 results";
-                  }
-                ?>
-                        
+    
                         
       
       </div>
@@ -239,9 +235,24 @@ $user_type  =  $row['user_type'];
       <div class="card-body">
                 
 			<ul class="list-group">
-			  <li class="list-group-item">Total Income: $</li>
-        <li class="list-group-item">Average Income:$ </li>
-			  <li class="list-group-item">Hourly Rate: $</li>
+			  <li class="list-group-item">Total Income:$
+          <?php
+        $query = "SELECT SUM(ITincome) FROM projects where IT='$email'";
+        $results1 = $conn->query($query);
+      echo $incount= $results1->fetch_assoc()['SUM(ITincome)'];?>.00 </li>
+        <li class="list-group-item">Average Income:$
+          <?php
+        $email=$_SESSION['email'];
+        $query = "SELECT ROUND( AVG(ITincome)) AS Average FROM projects where IT='$email'";
+                            $results1 = $conn->query($query);
+                           echo $inavg= $results1->fetch_assoc()['Average'];?>.00 <br/> </li>
+			  <li class="list-group-item">Hourly Rate: $
+        <?php
+        $email=$_SESSION['email'];
+        $query = "SELECT ROUND( AVG(ITincome)) AS Average FROM projects where IT='$email' AND payment='Hourly basis'";
+                            $results1 = $conn->query($query);
+                           echo $inavg= $results1->fetch_assoc()['Average'];?>.00 <br/> </li>
+        </li>
 		
 			</ul>
     </div>

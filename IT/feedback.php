@@ -49,13 +49,14 @@ $user_type  =  $row['user_type'];
    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
    <title>
-     Bid
+     feedback
    </title>
    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
    <!--     Fonts and icons     -->
    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
    <!-- CSS Files -->
+
    <link href="css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
    <link href="css/custom.css" rel="stylesheet" />
  </head>
@@ -63,15 +64,11 @@ $user_type  =  $row['user_type'];
  <body class="">
    <div class="wrapper ">
      <div class="sidebar" data-color="azure" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
-       <!--
-         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
- 
-         Tip 2: you can also add an image using data-image tag
-     -->
      <div class="logo">
-         <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-           ikodar
-         </a>
+     <a class="simple-text logo-normal">
+        i-කෝඩර්
+        </a>
+        <a class="simple-text logo-normal">Hi <?php echo $firstname?> (<?php echo $user_type?>)</a>
        </div>
        
        <div class="sidebar-wrapper">
@@ -102,6 +99,13 @@ $user_type  =  $row['user_type'];
                <p>Income</p>
              </a>
            </li>
+           <li class="nav-item active">
+             <a class="nav-link" href="./feedback.php">
+               <!--<i class="material-icons">bubble_chart</i>-->
+               <p>Feedback</p>
+             </a>
+           </li>
+          </li>
          </ul>
        </div>
      </div>
@@ -110,7 +114,7 @@ $user_type  =  $row['user_type'];
        <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
          <div class="container-fluid">
            <div class="navbar-wrapper">
-             <a class="navbar-brand" href="#pablo">My Projects</a>
+             <a class="navbar-brand" href="#pablo">Feedbacks</a>
            </div>
            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
              <span class="sr-only">Toggle navigation</span>
@@ -121,7 +125,6 @@ $user_type  =  $row['user_type'];
            <div class="collapse navbar-collapse justify-content-end">
              <form class="navbar-form">
                <div class="input-group no-border">
-                 <input type="text" value="" class="form-control" placeholder="Search...">
                  <!--<button type="submit" class="btn btn-white btn-round btn-just-icon">
                    <i class="material-icons">search</i>-->
                    <div class="ripple-container"></div>
@@ -133,14 +136,11 @@ $user_type  =  $row['user_type'];
                  <a class="nav-link" href="#pablo">
                    <!--<i class="material-icons">Dashboard</i>-->
                    <p class="d-lg-none d-md-block">
-                     Dashboard
+                  Feedback
                    </p>
                  </a>
                </li>
 
-               <li class="nav-item">
-                 <a class="nav-link" href="contactus.php">Contact Us</a>
-               </li>
                <li class="nav-item">
                  <a class="nav-link" href="aboutus.php">About Us</a>
                </li>
@@ -155,6 +155,7 @@ $user_type  =  $row['user_type'];
          </div>
        </nav>
  
+ 
        <!-- End Navbar -->
        <div class="content">
          <div class="container-fluid">
@@ -166,71 +167,36 @@ $user_type  =  $row['user_type'];
                  <div class="card-header card-header-primary">
                    <h4 class="card-title">Feedbacks</h4>
                  </div>
-                 <div class="card-body">
+                 <div class="card-body px-5 py-4">
+              <div class="row">    
+                      <div class="table-responsive">
+                          
+					     <table class="table">
+               <thead class="thead-dark text-primary" >
+                 <tr >
+                   
+                   <th width="20px" style="font-size:15px">Project ID</th>
+                   <th width="20px" style="font-size:15px">Project Name</th>
+                   <th width="20px" style="font-size:15px">Client</th>
+                   <th width="20px"style="font-size:15px">Ratings</th>
+                   <th width="20px"style="font-size:15px">Reviews</th>
 
+                 </tr>
+               </thead>
+               <tbody> 
 
-                 <div class="row">
-                                   <div class="col-md-6">
-                                     <div class="form-group">
-                                        <label class="bmd-label-floating">Project ID : </label> 
-                                          <tr>
-                                            <td><?php echo $pid; ?></a></td>    
-                                          </tr>               
-                                        </div>
-                                      </div>                                             
-                                    </div>
-
-                 
-                                 <div class="row">
-                                   <div class="col-md-6">
-                                     <div class="form-group">
-                                        <label class="bmd-label-floating">Project Name: </label> 
-                                          <tr>
-                                            <td><?php echo $name; ?></a></td>    
-                                          </tr>               
-                                        </div>
-                                      </div>                                             
-                                    </div>
-
-                                   
-                                    <div class="row">
-                                      <div class="col-md-6">
-                                        <div class="form-group">
-                                          <label class="bmd-label-floating">Client:</label>
-                                          <tr>
-                                              <td><?php echo $client ?></a></td>    
-                                            </tr>                           
-                                        </div>
-                                      </div>                                            
-                                    </div>
-
-                                    <div class="row">
-                                      <div class="col-md-4">
-                                        <div class="form-group">
-                                          <label class="bmd-label-floating">Rating:</label>  
-                                            <tr>
-                                              <td><?php echo $rate ?>/5</a></td>    
-                                            </tr>
-                                        </div>
-                                      </div>
-                                    <div class="col-md-4">
-                                      <div class="form-group">
-                                        <label class="bmd-label-floating">Review:</label>  
-                                          <tr>
-                                            <td><?php echo $review ?></a></td>     
-                                          </tr>                      
-                                        </div>
-                                      </div>
-                                    <div class="col-md-4">
-                                   
-
+                      <td><?php echo $pid; ?></a></td>    
+                      <td><?php echo $name; ?></a></td>    
+                      <td><?php echo $client ?></a></td>    
+                      <td> <span class="fa fa-star checked" style="color: orange;"></span>
+                      <?php echo $rate ?>/5</a></td>    
+                      <td><?php echo $review ?></a></td>     
+              </tbody>
+  </table>
                                     </div>
                                   </div>                                             
                                   </div>
-                               </form>
-                              </div>
-                            </div>
-                          </div>
+                               
                         </div>
 
                  </div>
