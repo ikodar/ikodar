@@ -15,7 +15,6 @@ else{
 }
 
  //view name on top
-<<<<<<< HEAD
  $email=$_SESSION['email'];
  $sql = "SELECT * FROM users WHERE email='$email'";
  $results=$conn->query($sql);
@@ -46,16 +45,6 @@ else{
  }
 
 
-=======
-$email=$_SESSION['email'];
-$sql = "SELECT * FROM users WHERE email='$email'";
-$results=$conn->query($sql);
-$row = $results->fetch_assoc();
-
-$firstname  =  $row['firstname'];
-$lastname  =  $row['lastname'];
-$user_type  =  $row['user_type'];
->>>>>>> 5108c8d146a0b9586a400499d6b6692ef039bd7f
 ?>
  <!DOCTYPE html>
  <html lang="en">
@@ -141,6 +130,9 @@ $user_type  =  $row['user_type'];
            <div class="collapse navbar-collapse justify-content-end">
              <form class="navbar-form">
                <div class="input-group no-border">
+                 <input type="text" value="" class="form-control" placeholder="Search...">
+                 <!--<button type="submit" class="btn btn-white btn-round btn-just-icon">
+                   <i class="material-icons">search</i>-->
                    <div class="ripple-container"></div>
                  </button>
                </div>
@@ -150,9 +142,13 @@ $user_type  =  $row['user_type'];
                  <a class="nav-link" href="#pablo">
                    <!--<i class="material-icons">Dashboard</i>-->
                    <p class="d-lg-none d-md-block">
-                  
+                     Dashboard
                    </p>
                  </a>
+               </li>
+
+               <li class="nav-item">
+                 <a class="nav-link" href="contactus.php">Contact Us</a>
                </li>
                <li class="nav-item">
                  <a class="nav-link" href="aboutus.php">About Us</a>
