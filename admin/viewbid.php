@@ -5,7 +5,11 @@
     header('location: ../login.php');
   }
 
-  $pid =  $name ="";
+  $IT = $pid = $bid = $days = $proposal = $name ="";
+  
+  if(isset($_POST['viewbid_btn'])){
+    $IT=$_POST['IT'];
+  }
 
   if(isset($_SESSION["pid"])){
     $pid=$_SESSION["pid"];
@@ -14,6 +18,8 @@
     $pid="";
   }
 
+
+  //retreive project name
   $query = "SELECT * FROM projects where pid='$pid'";
   $results = $conn->query($query);
   if ($results->num_rows > 0) {
@@ -25,6 +31,20 @@
      echo "0 results";
  }
 
+
+   //retrieve bid details
+   $sql = "SELECT * FROM bid WHERE pid = '$pid' AND email = '$IT'";
+   $results = $conn->query($sql);
+   $row = $results->fetch_assoc();
+   $bid = $row['Bid'];
+   $days = $row['Days'];
+   $proposal = $row['Proposal'];
+
+   //average rating of the individual
+   $query = "SELECT ROUND( AVG(rate),2 ) AS Average FROM feedback WHERE email='$IT'";
+   $results1 = $conn->query($query);
+   $rate= $results1->fetch_assoc()['Average'];
+
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +52,7 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>Project Bids</title>
+  <title>Project Details</title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!-- Fonts and icons -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
@@ -82,11 +102,6 @@
           <li class="nav-item active">
             <a class="nav-link" href="messages.php">
               <p>Messages</p>
-            </a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="income.php">
-              <p>Income</p>
             </a>
           </li>
         </ul>
@@ -142,65 +157,67 @@
             <!--end of links to the other project details-->
             <!--project details-->
             <div class="content">
-              <div class="container-fluid">
-                <div class="row">
-                 <div class="col-md-8">
-                   <div class="card">
-                    <div class="card-header card-header-primary">
-                      <h4 class="card-title">Project Bids</h4>                   
-                    </div>
-                    <div class="card-body">
-                      <div class="table-responsive">
-                        <table class="table">
-                          <thead class="thead-dark text-primary">
-                            <tr>
-                              <th width="18%">Email</th>
-                              <th width="18%">Bid</th>
-                              <th width="18%">Days</th>
-                              <th width="18%">Description</th>
-                              <th width="18%">Action</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <?php 
-                              //retrieve data from project table
-                              $query = "SELECT * FROM bid WHERE pid='$pid'";
-                              $results = $conn->query($query);
-                                if ($results->num_rows > 0){
-                                //output data of each row
-                                while ($row = $results->fetch_assoc()) { 
-                                  $IT =$row['email'];?>		
-                                      <tr>
-                                      <form action = "viewbid.php" method="post">
-                                          <td><?php echo $row['email']; ?></td>
-                                          <td><?php echo $row['Bid']; ?></td>
-                                          <td><?php echo $row['Days']; ?></td>
-                                          <td><?php echo substr($row['Proposal'],0,60)."..."; ?></td>
-                                          <td>
-                                            <div class="input-group">
-                                              <input type="hidden" name="IT" value="<?php echo $IT;?>">
-                                              <a class="btn btn-link" href="viewbid.php" role="button" name="viewbid_btn">View</a>
-                                            </div>
-                                          </td>
-                                          </form>
-                                      </tr>
-                            <?php   
-                                }
-                                }else{
-                                  echo "No bids currently";
-                                }?>
-                          </tbody>
-                        </table>
-                  <!--end retrieve data-->
-                      </div>          
-                    </div>
-                  </div>
-                </div>
-               </div>
-              </div>
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-md-8">
+                         <div class="card">
+                            <div class="card-header card-header-primary">
+                               <h4 class="card-title"><?php  echo $IT; ?></h4>                   
+                            </div>
+                             <div class="card-body">
+                                 <div class="row">
+                                   <div class="col-md-6">
+                                     <div class="form-group">
+                                        <label class="bmd-label-floating">Ratings: </label> 
+                                          <tr>
+                                            <td><?php echo $rate; ?></a></td>    
+                                          </tr>               
+                                        </div>
+                                      </div>                                             
+                                    </div>
+
+                                   <div class="row">
+                                     <div class="col-md-6">
+                                       <div class="form-group">
+                                          <label class="bmd-label-floating">Bid amount:</label>   
+                                         		<tr>
+                                                <td><?php echo $bid; ?></a></td>    
+                                              </tr>                     
+                                          </div>
+                                        </div>                      
+                                      </div>
+
+                                      <div class="row">
+                                      <div class="col-md-6">
+                                        <div class="form-group">
+                                          <label class="bmd-label-floating">No. of Days:</label>
+                                          <tr>
+                                                <td><?php echo $days; ?></a></td>    
+                                          </tr>                            
+                                        </div>
+                                      </div>                                            
+                                      </div>
+
+                                    <div class="row">
+                                      <div class="col-md-6">
+                                        <div class="form-group">
+                                          <label class="bmd-label-floating">Proposal:</label>
+                                          <tr>
+                                                <td><?php echo $proposal; ?></a></td>    
+                                          </tr>                            
+                                        </div>
+                                      </div>                                            
+                                    </div>
+                     
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
       <!--End of data section-->
-            </div>
+
+    </div>
     <!-- End of Content -->
-         </div>
+  </div>
 </body>
 </html>

@@ -111,7 +111,7 @@
                   if ($results->num_rows > 0){
                     //output data of each row
                     while ($row = $results->fetch_assoc()) { 
-                        if ($row['status']=="open" || $row['status']=="copleted"){ 
+                        if ($row['status']=="open" || $row['status']=="completed"){ 
                           $pid= $row['pid'];?>			
                           <tr>
                           <form action="view.php" method="post">
