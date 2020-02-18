@@ -168,7 +168,7 @@ $user_type  =  $row['user_type'];
                                     <th scope="col">BIDS</th>
                                     <th scope="col">EMPLOYER</th>
                                     <th scope="col">AWARDED BID</th>
-                                    <th scope="col">OUTCOME</th>
+                                  
                               </tr>
                             </thead>
                             <tbody>
@@ -188,7 +188,6 @@ $user_type  =  $row['user_type'];
                             $results1 = $conn->query($query);
                             $bidcount= $results1->fetch_assoc()['COUNT(Bid)'];?></td>
 
-                        <td><?php $biddate=$row['biddate']; ?></td>
                         <td><?php $bid= $row['Bid']; ?></td>
                         <td><?php $client=$row['client']; ?></td>
                 </tr>
@@ -198,9 +197,9 @@ $user_type  =  $row['user_type'];
                     <td>'.$pid.'</td>
                     <td><input type="submit" class="btn btn-link btn-lg" value="'.$name.'"></td>
                     <td>'.$bidcount.'</td>
-                    <td>$'.$client.'USD</td>
+                    <td>'.$client.'</td>
                     <td>$'.$bid.' USD</td>
-                    <td>'.$biddate.'</td>
+                    
                    
                     </tr>
                 ';?>

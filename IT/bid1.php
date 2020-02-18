@@ -45,6 +45,19 @@ $user_type  =  $row['user_type'];
      echo "0 results";
  }
 
+ $query = "SELECT * FROM bid where pid='$pid'";
+ $results = $conn->query($query);
+ if ($results->num_rows > 0) {
+    //output data of each row
+    while ($row = $results->fetch_assoc()) { 
+      $bid = $row ['Bid'];
+      $days = $row['Days'];
+      $proposal = $row['Proposal'];;
+    }
+
+ }else{
+     echo "0 results";
+ }
 
 ?>
 
@@ -285,7 +298,7 @@ $user_type  =  $row['user_type'];
                           <div class="input-group-prepend">
                             <span class="input-group-text" style="background-color:#d3d3d3; border: 1px solid #bdbdbd; padding:5px;">$</span>
                           </div>
-                          <input name="bid" input type="number" min="1" step="any"  class="form-control" aria-label="Amount (to the nearest dollar)" style="border: 1px solid #bdbdbd;"  placeholder="Enter bid amount" required>
+                          <input name="bid" input type="number" min="1" step="any"  class="form-control" value="<?php echo $bid;?>" aria-label="Amount (to the nearest dollar)" style="border: 1px solid #bdbdbd;"  placeholder="Enter bid amount" required>
                           <div class="input-group-append"> 
                           <span class="input-group-text" style="background-color:#d3d3d3; border: 1px solid #bdbdbd; padding:3px;">USD</span>
                             
@@ -297,7 +310,7 @@ $user_type  =  $row['user_type'];
                         <div class="col-md-5">
                         <label style="margin-top:8px;">This project will be delivered in:</label>
                         <div class="input-group mb-3">
-                          <input name="days" type="number" min="1" class="form-control" style="border: 1px solid #bdbdbd;"  placeholder="Enter number of days" Fnequired>
+                          <input name="days" type="number" min="1" class="form-control" value="<?php echo $days;?>" style="border: 1px solid #bdbdbd;"  placeholder="Enter number of days" required>
                           <div class="input-group-append">
                             <span class="input-group-text" style="background-color:#d3d3d3; border: 1px solid #bdbdbd; padding:3px">Days</span>
                           </div>
@@ -312,7 +325,7 @@ $user_type  =  $row['user_type'];
                          <div class="form-group">
                            <label>Describe Your Proposal:</label>
                            <div class="form-group" >
-                             <textarea name="proposal" class="form-control" rows="5" style="border: 1px solid #bdbdbd;"  placeholder="what makes you best candidate for this project?" required></textarea>
+                             <textarea name="proposal" class="form-control" rows="5" style="border: 1px solid #bdbdbd;"  placeholder="what makes you best candidate for this project?" required> <?php echo $proposal;?> </textarea>
                            </div>
                          </div>
                        </div>
