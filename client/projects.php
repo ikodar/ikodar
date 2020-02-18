@@ -47,7 +47,7 @@ $user_type  =  $row['user_type'];
         <ul class="nav">
           <li class="nav-item active  ">
             <a class="nav-link" href="home.php">
-              <p>Dashboard</p>
+              <p>Home</p>
             </a>
           </li>
           
