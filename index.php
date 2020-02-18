@@ -8,6 +8,7 @@
 	<title>Home</title>
 
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/bootsrap-grid.css">
     <link rel="stylesheet" type="text/css" href="css/bootsrap-grid.min.css">
@@ -31,7 +32,6 @@
           <ul class="nav navbar-nav navbar-right" >
             <li style="padding-left:20px;"><a href="#page-top">Home</a></li>
             <li style="padding-left:20px;"><a href="#about">About Us</a></li>
-            <li style="padding-left:20px;"><a href="#projects">Projects</a></li>
             <li style="padding-left:20px;"><a href="#contact">Contact us</a></li>
             <li style="padding-left:20px;"><a href="login.php">Sign in</a></li>
             <li style="padding-left:20px;"><a href="register.php">Sign up</a></li>
@@ -51,8 +51,8 @@
 				<p></p>
 				<div class="btn-group">
 					<a href="#how" type="button" class="btn btn-info">How it works</a>
-					<a href="#faq" type="button" class="btn btn-light">FAQ</a>
-					<a href="#category" type="button" class="btn btn-info">Catagories</a>
+	
+					<a href="#category" type="button" class="btn btn-light">Catagories</a>
 				</div>
 			</div>
 		</div>	
@@ -101,7 +101,7 @@
     
     
 
-  <div style="background:#cce5ff">
+  <div style="background:#cce5ff" id="how">
 <div class="container fluid text-center" style="padding:5%;">
 <div class="row header">
 
@@ -122,10 +122,56 @@
 </div>
 </div>
 
+<!--Popular Categories-->
+<div class="container-fluid bg-4 text-center" style="padding:4%;" id="category">
+	<h1 class="card header2" style="background:#2183aa">Popular Categories</h1>
+	<div class="row">
+		<div class="col-lg-4">
+			<div class="card" style="padding:20px 40px 20px 40px;margin:20px;">
+				<a href="login.php"><i class="fa fa-credit-card"></i>
+				<h3>Web Developer</h3>
+				<p>Please login and browse our web developers</p></a>
+			</div>
+		</div>
+		<div class="col-lg-4">
+			<div class="card" style="padding:20px 40px 20px 40px;margin:20px;">
+				<a href="login.php"><i class="fa fa-android"></i>
+				<h3>Mobile Developer</h3>
+				<p>Please login and Browse our Mobile Developer</p></a>
+			</div>
+		</div>
+		<div class="col-lg-4">
+			<div class="card" style="padding:20px 40px 20px 40px;margin:20px;">
+				<a href="login.php"><span class="fa fa-image"></span>
+				<h3>Graphics Designer</h3>
+				<p>Please login and browse our Graphics Designer</p></a>
+			</div>
+		</div>
+	</div>
+		<div class="row">
+		<div class="col-lg-4">
+			<div class="card" style="padding:20px 40px 20px 40px;margin:20px;">
+				<a href="login.php"><span class="fa fa-pencil"></span>
+				<h3>Creative writer</h3>
+				<p>Please login and browse our Creative writer</p></a>
+			</div>
+		</div>
+		<div class="col-lg-4">
+			<div class="card" style="padding:20px 40px 20px 40px;margin:20px;">
+				<a href="login.php"><span class="fa fa-signal"></span>
+				<h3>Marketing Expert</h3>
+				<p>Please login and browse our Marketing Expert</p></a>
+			</div>
+		</div>
+		
+	</div>
+</div>
+<!--End Popular Categories-->
 
 
-    <section id="projects">
+
     <div class="container-fluid bg-5 text-center" style="color:black;">
+    <div class="col-md-12">
         <h2>Latest Projects</h2><br/><br/>
         <div class="row">
           
@@ -155,7 +201,9 @@
           </div>
         </div>
     </div>
-    </section> 
+    </div>
+    </div>
+  
 
     <section id="contact">
     <div class="container-fluid bg-3 text-center">

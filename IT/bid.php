@@ -15,14 +15,36 @@ else{
 }
 
  //view name on top
-$email=$_SESSION['email'];
-$sql = "SELECT * FROM users WHERE email='$email'";
-$results=$conn->query($sql);
-$row = $results->fetch_assoc();
+ $email=$_SESSION['email'];
+ $sql = "SELECT * FROM users WHERE email='$email'";
+ $results=$conn->query($sql);
+ $row = $results->fetch_assoc();
+ 
+ $firstname  =  $row['firstname'];
+ $lastname  =  $row['lastname'];
 
-$firstname  =  $row['firstname'];
-$lastname  =  $row['lastname'];
-$user_type  =  $row['user_type'];
+ 
+ $query = "SELECT * FROM projects where pid='$pid'";
+ $results = $conn->query($query);
+ if ($results->num_rows > 0) {
+    //output data of each row
+    while ($row = $results->fetch_assoc()) { 
+      $name = $row ['name'];
+      $type = $row['type'];
+      $description = $row['description'];
+      $biddate = $row['biddate'];
+      $deadline = $row['deadline'];
+      $amount = $row['amount'];
+      $client = $row['client'];
+      $link = $row['link'];
+      $accept = $row['accept'];
+    }
+
+ }else{
+     echo "0 results";
+ }
+
+
 ?>
  <!DOCTYPE html>
  <html lang="en">
@@ -108,6 +130,9 @@ $user_type  =  $row['user_type'];
            <div class="collapse navbar-collapse justify-content-end">
              <form class="navbar-form">
                <div class="input-group no-border">
+                 <input type="text" value="" class="form-control" placeholder="Search...">
+                 <!--<button type="submit" class="btn btn-white btn-round btn-just-icon">
+                   <i class="material-icons">search</i>-->
                    <div class="ripple-container"></div>
                  </button>
                </div>
@@ -117,9 +142,13 @@ $user_type  =  $row['user_type'];
                  <a class="nav-link" href="#pablo">
                    <!--<i class="material-icons">Dashboard</i>-->
                    <p class="d-lg-none d-md-block">
-                  
+                     Dashboard
                    </p>
                  </a>
+               </li>
+
+               <li class="nav-item">
+                 <a class="nav-link" href="contactus.php">Contact Us</a>
                </li>
                <li class="nav-item">
                  <a class="nav-link" href="aboutus.php">About Us</a>
@@ -144,146 +173,96 @@ $user_type  =  $row['user_type'];
              <div class="card">
                  <div class="card-header card-header-primary">
                    <h4 class="card-title">Project Details</h4>
-                   <?php 
-                  
-                   $query = "SELECT * FROM projects where pid='$pid'";
-                   $results = $conn->query($query);
-                   if ($results->num_rows > 0) {
-                   //output data of each row
-                   while ($row = $results->fetch_assoc()) { 
-                    { ?>			
-                         <tr>
-                             <td><?php echo $row['name']; ?></a></td>
-                             
-                             
-                         </tr>
-                     <?php   }
-                       }
-     
-                         }else{
-                       echo "0 results";
-                       }
-                     ?>
-                   
-                   
+                
                  </div>
 
                  <div class="card-body">
-                 <form>
+                                 <div class="row">
+                                   <div class="col-md-6">
+                                     <div class="form-group">
+                                        <label class="bmd-label-floating">Project Name: </label> 
+                                          <tr>
+                                            <td><?php echo $name; ?></a></td>    
+                                          </tr>               
+                                        </div>
+                                      </div>                                             
+                                    </div>
+
+                                   <div class="row">
+                                     <div class="col-md-6">
+                                       <div class="form-group">
+                                          <label class="bmd-label-floating">Project Type:</label>   
+                                         		<tr>
+                                                <td><?php echo $type; ?></a></td>    
+                                              </tr>                     
+                                          </div>
+                                        </div>                      
+                                      </div>
+
+                                    <div class="row">
+                                      <div class="col-md-6">
+                                        <div class="form-group">
+                                          <label class="bmd-label-floating">Client:</label>
+                                          <tr>
+                                              <td><?php echo $client ?></a></td>    
+                                            </tr>                           
+                                        </div>
+                                      </div>                                            
+                                    </div>
+
+                                    <div class="row">
+                                      <div class="col-md-4">
+                                        <div class="form-group">
+                                          <label class="bmd-label-floating">Amount:</label>  
+                                            <tr>
+                                              <td><?php echo $amount ?></a></td>    
+                                            </tr>
+                                        </div>
+                                      </div>
+                                    <div class="col-md-4">
+                                      <div class="form-group">
+                                        <label class="bmd-label-floating">Bid End Date:</label>  
+                                          <tr>
+                                            <td><?php echo $biddate ?></a></td>     
+                                          </tr>                      
+                                        </div>
+                                      </div>
+                                    <div class="col-md-4">
+                                      <div class="form-group">
+                                        <label class="bmd-label-floating">Deadline:</label>
+                                          <tr>
+                                            <td><?php echo $deadline; ?></a></td>    
+                                          </tr>                          
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="row">
+                                      <div class="col-md-12">
+                                        <div class="form-group">
+                                          <label>Description:</label>			
+                                            <tr>
+                                              <td><?php echo $description; ?></a></td>
+                                            </tr>                        
+                                        </div>
+                                      </div>
+
+                                    </div>
+
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                      <label class="bmd-label-floating">Shedule:</label>  
+
+                                    </div>
+                                  </div>                                             
+                                  </div>
+                               </form>
+                              </div>
+                            </div>
+                          </div>
                      
-                    
-                     
-                     <div class="row">
-                       <div class="col-md-4">
-                         <div class="form-group">
-                           <label class="bmd-label-floating">Estimated Amount :</label>
-                           <?php
-                  $query = "SELECT * FROM projects where pid='$pid'";
-              $results = $conn->query($query);
-              if ($results->num_rows > 0) {
-              //output data of each row
-              while ($row = $results->fetch_assoc()) { 
-               { ?>			
-                    <tr>
-                        <td><?php echo $row['amount']; ?></a></td>
-                        
-                        
-                    </tr>
-                <?php   }
-                  }
-
-                    }else{
-                  echo "0 results";
-                  }
-                ?>
-                           
-                         </div>
-                       </div>
-                       <div class="col-md-4">
-                         <div class="form-group">
-                           <label class="bmd-label-floating">Bid End Date :</label>
-
-                           <?php
-                  $query = "SELECT * FROM projects where pid='$pid'";
-              $results = $conn->query($query);
-              if ($results->num_rows > 0) {
-              //output data of each row
-              while ($row = $results->fetch_assoc()) { 
-               { ?>			
-                    <tr>
-                        <td><?php echo $row['biddate']; ?></a></td>
-                        
-                        
-                    </tr>
-                <?php   }
-                  }
-
-                    }else{
-                  echo "0 results";
-                  }
-                ?>
-                           
-                         </div>
-                       </div>
-                       <div class="col-md-4">
-                         <div class="form-group">
-                           <label class="bmd-label-floating">Deadline:</label>
-                           <?php
-                  $query = "SELECT * FROM projects where pid='$pid'";
-              $results = $conn->query($query);
-              if ($results->num_rows > 0) {
-              //output data of each row
-              while ($row = $results->fetch_assoc()) { 
-               { ?>			
-                    <tr>
-                        <td><?php echo $row['deadline']; ?></a></td>
-                        
-                        
-                    </tr>
-                <?php   }
-                  }
-
-                    }else{
-                  echo "0 results";
-                  }
-                ?>
-                           
-                         </div>
-                       </div>
-                     </div>
-                     <div class="row">
-                       <div class="col-md-12">
-                         <div class="form-group">
-                           <label>Description:</label>
-
-                           <?php
-                  $query = "SELECT * FROM projects where pid='$pid'";
-              $results = $conn->query($query);
-              if ($results->num_rows > 0) {
-              //output data of each row
-              while ($row = $results->fetch_assoc()) { 
-               { ?>			
-                    <tr>
-                        <td><?php echo $row['description']; ?></a></td>
-                        
-                   </tr>
-                <?php   }
-                  }
-
-                    }else{
-                  echo "0 results";
-                  }
-                ?>
-                           
-                         </div>
-                       </div>
-                     </div>
-                     
-                   </form>
-                   
-              
-                   </div>
-                   </div>
+             <div class="col-md-10">
 
                    <div class="card">
                  <div class="card-header card-header-primary">

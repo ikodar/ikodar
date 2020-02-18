@@ -5,6 +5,10 @@
 	$_SESSION['msg'] = "You must log in first";
 	header('location: ../login.php');
   }
+
+  if(isset($_POST["pid"])){
+    $_SESSION["pid"]=$_POST["pid"];
+  }
  
   //view name on top
 $email=$_SESSION['email'];
@@ -192,7 +196,7 @@ $user_type  =  $row['user_type'];
             <input type="hidden" name="pid" value="'.$pid.'">
                     <tr>
                     <td>'.$pid.'</td>
-                    <td>'.$name.'</td>
+                    <td><input  action="detail.php" type="submit" class="btn btn-link btn-lg" value="'.$name.'"></td>
                     <td>'.$bidcount.'</td>
                     <td>$'.$bid.' USD</td>
                     <td>$'.$bidavg.'USD</td>
