@@ -20,10 +20,16 @@
   $results6 = $conn->query($sql6);
   $total= $results6->fetch_assoc()['COUNT(pid)'];
 
-  //for the pie chart
+  /*for the pie chart
   $sql = "SELECT type, count(*) as number FROM projects GROUP BY type";
   $results = $conn->query($sql);
- 
+ */
+
+  //piechartusers
+  $qry = "SELECT user_type, count(*) as number FROM users GROUP BY user_type ";
+  $resultpp = $conn->query($qry);
+
+  
 ?>
 
 <!DOCTYPE html>
@@ -91,6 +97,33 @@
 
   <link href="css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
   <link href="css/custom.css" rel="stylesheet" />
+
+
+  <!--piechart library-->
+  <script type="text/javascript" src="http://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+  google.charts.load('current',{'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+  function drawChart()
+  {
+    var data = google.visualization.arrayToDataTable([
+        ['Type', 'Number'],
+        <?php
+        while($row = mysqli_fetch_array($resultpp))
+        {
+          echo "['".$row["user_type"]."',".$row["number"]."],";
+        }
+        ?>
+      ]);
+    var options = {
+      title: 'Percentage of types of users'
+      };
+    var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
+    chart.draw(data, options);
+
+  }
+  </script>
+<!--End of piechart library-->
 </head>
 <body class="">
   <div class="wrapper ">
@@ -188,7 +221,15 @@
             </div>
           </div>
 
+
+            <!--pie chart//-->
+              <div class="card-category">
+              <div id="piechart1" style="width:1000px; height:400px;"></div>
+              </div>
+
+              
           <div class="row"> 
+
           <!--Pie chart-->
             <div class="col-md-5">
               <div class="card ">
@@ -196,8 +237,9 @@
                   <h4 class="card-title">Project Statistics</h4>
                   <p class="card-category">Total No. of projects <?php echo $total;?></p>
                 </div>
-                <div class="card-body ">
-                  <div id="piechart" style="width:700px; height:300px;"></div>
+                
+                  
+                  </div>
                 </div>
               </div>
             </div>
@@ -208,12 +250,14 @@
                 <div class="card-header ">
                   <h4 class="card-title">User Statistics</h4>
                   <p class="card-category">Total No. of registered users <?php echo $clientcount + $ITcount;?></p>
+
                 </div>
                 <div class="card-body ">
-                <div id="curve_chart" style="width: 700px; height: 300px"></div>
+                
                 </div>
               </div>
             </div>
+            
           <!--End of line chart-->
           </div>
 
