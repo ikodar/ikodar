@@ -1,12 +1,11 @@
 <?php 
 
   include_once 'connection.php';
-  include('process.php');
+  include('functions.php');
   if (!isLoggedIn()) {
     $_SESSION['msg'] = "You must log in first";
     header('location: ../login.php');
   }
-
   //view name on top
 $email=$_SESSION['email'];
 $sql = "SELECT * FROM users WHERE email='$email'";
@@ -38,7 +37,7 @@ $user_type  =  $row['user_type'];
 <div class="wrapper ">
 <div class="sidebar" data-color="azure" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
  <div class="logo">
- <a class="simple-text logo-normal">
+        <a class="simple-text logo-normal">
         i-කෝඩර්
         </a>
         <a class="simple-text logo-normal">Hi</a>
@@ -110,41 +109,52 @@ $user_type  =  $row['user_type'];
     </div>
   </nav>
  <!-- End Navbar -->
-
  <div class="content">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="card">
-                  <div class="card-body mt-3">
-                    <div class="table-responsive">
-                      <table class="table">
-                        <thead class="thead-dark text-primary">
-                          <tr>
-                            <th width="18%">PROJECT ID</th>
-                            <th width="18%">PROJECT NAME</th>
-                            <th width="16%">MORE</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                        
-                        </tbody>
-                      </table>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-10">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">Help</h4>
+                </div>
+                <div class="card-body">
+                </div>
+              </div>
+
+             <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">How may we help you?</h4>
+                </div>
+                 <div class="card-body">
+                  <form action="help.php" method="post" class="was-validated">
+                  <input type="hidden" name="email" value="<?=$email;?>">                                
+                    <div class="row">
+                      <div class="col-md-5">                      
+                      </div>                        
                     </div>
-                  </div>
+
+                    <div class="row">
+                      <div class="col-md-10">
+                        <div class="form-group">
+                          
+                            <div class="form-group" >
+                              <textarea name="message" class="form-control" rows="5" style="border: 1px solid #bdbdbd;"  placeholder="I have a question about..."></textarea>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <button type="submit"  class="btn btn-primary pull-right" name="help">GET HELP</button>
+                    <div class="clearfix"></div>
+                  </form>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-     
-            
   <!--   Core JS Files   -->
   <script src="assets/js/core/jquery.min.js"></script>
   <script src="assets/js/core/popper.min.js"></script>
   <script src="assets/js/core/bootstrap-material-design.min.js"></script>
   <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-  
   
 </body>
 
