@@ -37,10 +37,6 @@ if(isset($_POST['delete_btn'])){
 	delete();
 }
 
-//call the delete function if delete_btn is clicked (for users)
-if(isset($_POST['accdelete_btn'])){
-	accdelete();
-}
 
 // call the updateuser() function if updateuser_btn is clicked
 if (isset($_POST['update_btn'])) {
@@ -78,14 +74,14 @@ function accdelete(){
 
 	$email=$_SESSION['email'];
 
-	//check if the person has any on going projects
+	/*check if the person has any on going projects
 	$sql="SELECT *
   FROM users INNER JOIN projects 
     ON users.email = projects.IT
  WHERE condition email ='$email' AND (status='completed' |status='past')";
+*/
 
-
-	//$sql = "SELECT * FROM user WHERE email ='$email'";
+	$sql = "SELECT * FROM user WHERE email ='$email'";
 	$results = $conn->query($sql);
 	if($results->num_rows == 0){
 		$sql = "DELETE FROM users WHERE email ='$email' AND (status='completed' |status='past')";

@@ -134,32 +134,14 @@ $user_type  =  $row['user_type'];
        </nav>
  
        <!-- End Navbar -->
-       <div class="content" style="width:1500px">
-         <div class="container-fluid" style="width:1500px">
-           
-           
+       <div class="content">
+         <div class="container-fluid">
            <div class="row">
-             <div class="col-lg-6 col-md-12">
+             <div class="col-md-8">
                <div class="card">
-                 <div class="card-header card-header-tabs card-header-primary">
-                   
-                 
-                
-                        
-                                <ul class="nav nav-tabs col-md-8" style="background-color:#113849; padding:20px; margin-left:15%">
-                                  
-                                   
-                                    
-                                      <a style="color:white; font-size:20px; text-align:center">My Profile</a>
-                                    
-                                    
-                                      
-                                  
-                              </ul>
-                  
-                     
-                      
-
+                 <div class="card-header card-header-primary">
+                   <h4 class="card-title">Edit Profile</h4>
+                   <p class="card-category">Complete your profile</p>
                  </div>
                  <div class="card-body">
                    <form method="post" action="profile.php"  >
@@ -214,36 +196,34 @@ $user_type  =  $row['user_type'];
                        </div>
                      </div>
                      <div class="row">
-                       <div class="col-md-12">
+                       <div class="col-md-8">
                          <div class="form-group">
                            <label>About Me</label>
                            <div class="form-group">
                              
-                             <textarea name="about" style="width:520px" class="input" rows="5"><?php echo $about?></textarea>
+                             <textarea name="about" style="width:560px" class="input" rows="5" ><?php echo $about?></textarea>
                            </div>
                          </div>
                        </div>
                      </div>
-
-                     <p style="color:red;">
-                        <?php
-                            if(isset($error)){
-                              echo $error;
-                            }
-                        ?>
-                     <div class="col-md-12">
-                     <input class="btn btn-primary pull-right" type="submit" name="submit_btn" value="SAVE">
-                     <button type="submit" background-color: rgb(11, 22, 88) class="btn btn-primary pull-right" value="submit" name="submit">Post</button>
-
-                     <input class="btn btn-primary pull-right" type="submit" name="delete_btn" value="DELETE">
-                     
-                     
+                     <div class="row">
+                       <div class="col-md-8">
+                         <div class="form-group">
+                         <p>If you want to delete your account <a href="profileDelete.php">Click here </a></p>
+                         
+                         </div>
+                       </div>
                      </div>
                      
+                     
+                     <input class="btn btn-primary pull-right" type="submit" name="delete_btn" value="DELETE"> 
+                     <input class="btn btn-primary pull-right" type="submit" name="update_btn" value="UPDATE">
+                     <div class="clearfix"></div>
                    </form>
                  </div>
                </div>
              </div>
+ 
  
              
                          
