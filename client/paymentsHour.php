@@ -60,7 +60,7 @@ ikodar
    <ul class="nav">
      <li class="nav-item active  ">
        <a class="nav-link" href="./home.php">
-         <p>Home</p>
+         <p>Dashboard</p>
        </a>
      </li>
 
@@ -124,8 +124,7 @@ ikodar
       <div class="card">
         <div class="card-header card-header-primary">
         <!--head line cart-->
-          <h4 class="card-title">Hourly basis Projects Cart 
-      <i class="fa fa-shopping-cart"></i> -<b>
+          <h4 class="card-title">Hourly basis Projects -<b>
       <?php 
       $eml=$_SESSION['email'];
       $query = "SELECT COUNT(status) FROM projects WHERE status='completed' AND client='$eml' AND payment='Hourly basis'";

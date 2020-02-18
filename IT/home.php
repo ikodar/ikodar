@@ -9,6 +9,16 @@
     $_SESSION["pid"]=$_POST["pid"];
     header("location: bid.php");
   }
+
+  //view name on top
+$email=$_SESSION['email'];
+$sql = "SELECT * FROM users WHERE email='$email'";
+$results=$conn->query($sql);
+$row = $results->fetch_assoc();
+
+$firstname  =  $row['firstname'];
+$lastname  =  $row['lastname'];
+$user_type  =  $row['user_type'];
  
 ?>
  <!DOCTYPE html>
@@ -35,11 +45,6 @@
  <body class="">
    <div class="wrapper ">
      <div class="sidebar" data-color="azure" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
-       <!--
-         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
- 
-         Tip 2: you can also add an image using data-image tag
-     -->
      <div class="logo">
      <a class="simple-text logo-normal">
         i-කෝඩර්
@@ -100,9 +105,7 @@
            <div class="collapse navbar-collapse justify-content-end">
              <form class="navbar-form">
                <div class="input-group no-border">
-                 <input type="text" value="" class="form-control" placeholder="Search...">
-                 <!--<button type="submit" class="btn btn-white btn-round btn-just-icon">
-                   <i class="material-icons">search</i>-->
+                
                    <div class="ripple-container"></div>
                  </button>
                </div>
@@ -115,10 +118,6 @@
                      Dashboard
                    </p>
                  </a>
-               </li>
-
-               <li class="nav-item">
-                 <a class="nav-link" href="contactus.php">Contact Us</a>
                </li>
                <li class="nav-item">
                  <a class="nav-link" href="aboutus.php">About Us</a>

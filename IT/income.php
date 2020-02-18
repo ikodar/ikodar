@@ -13,6 +13,7 @@ $row = $results->fetch_assoc();
 
 $firstname  =  $row['firstname'];
 $lastname  =  $row['lastname'];
+$user_type  =  $row['user_type'];
 
 
 
@@ -97,14 +98,11 @@ $lastname  =  $row['lastname'];
                  <a class="nav-link" href="#pablo">
                    <!--<i class="material-icons">Dashboard</i>-->
                    <p class="d-lg-none d-md-block">
-                     Dashboard
+                   
                    </p>
                  </a>
                </li>
 
-               <li class="nav-item">
-                 <a class="nav-link" href="contactus.php">Contact Us</a>
-               </li>
                <li class="nav-item">
                  <a class="nav-link" href="aboutus.php">About Us</a>
                </li>

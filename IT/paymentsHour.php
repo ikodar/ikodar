@@ -16,6 +16,7 @@ $row = $results->fetch_assoc();
 
 $firstname  =  $row['firstname'];
 $lastname  =  $row['lastname'];
+$user_type  =  $row['user_type'];
 
 ?>
 
@@ -107,13 +108,9 @@ ikodar
                  <a class="nav-link" href="#pablo">
                    <!--<i class="material-icons">Dashboard</i>-->
                    <p class="d-lg-none d-md-block">
-                     Dashboard
+                     
                    </p>
                  </a>
-               </li>
-
-               <li class="nav-item">
-                 <a class="nav-link" href="contactus.php">Contact Us</a>
                </li>
                <li class="nav-item">
                  <a class="nav-link" href="aboutus.php">About Us</a>
@@ -132,15 +129,14 @@ ikodar
  <div class="content">
 
  <!--  hour   -->
-    <div class="container-fluid">
+ <div class="container-fluid">
       <div class="card">
         <div class="card-header card-header-primary">
         <!--head line cart-->
-          <h4 class="card-title">Pending Income From Hourly basis Projects 
-      <i class="fa fa-shopping-cart"></i> -<b>
+          <h4 class="card-title">Hourly basis Projects  -<b>
       <?php 
-      $eml=$_SESSION['email'];
-      $query = "SELECT COUNT(status) FROM projects WHERE status='completed' AND IT='$eml' AND payment='Hourly basis'";
+      $email=$_SESSION['email'];
+      $query = "SELECT COUNT(status) FROM projects WHERE status='completed' AND IT='$email' AND payment='Hourly basis'";
       $result = $conn->query($query);
       $count = $result->fetch_assoc()['COUNT(status)'];
 
@@ -164,7 +160,7 @@ ikodar
                         </thead>
                     <?php 
 					    //retrieve data from project table
-              $query = "SELECT * FROM projects WHERE IT='$eml' AND payment='Hourly basis'";
+              $query = "SELECT * FROM projects WHERE IT='$email' AND payment='Hourly basis'";
               $results = $conn->query($query);
               
               if ($results->num_rows > 0){

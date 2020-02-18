@@ -105,13 +105,9 @@ ikodar
                  <a class="nav-link" href="#pablo">
                    <!--<i class="material-icons">Dashboard</i>-->
                    <p class="d-lg-none d-md-block">
-                     Dashboard
+                    
                    </p>
                  </a>
-               </li>
-
-               <li class="nav-item">
-                 <a class="nav-link" href="contactus.php">Contact Us</a>
                </li>
                <li class="nav-item">
                  <a class="nav-link" href="aboutus.php">About Us</a>
@@ -134,7 +130,7 @@ ikodar
       <div class="card">
         <div class="card-header card-header-primary">
         <!--head line cart-->
-          <h4 class="card-title">Pending Income From Fixed Basis Projects 
+          <h4 class="card-title">Pending Income - Fixed Basis Projects 
       <i class="fa fa-shopping-cart"></i> -<b>
       <?php 
       $eml=$_SESSION['email'];

@@ -243,21 +243,21 @@ img {vertical-align: middle;}
 <div class="mySlides fade">
   <div class="numbertext">    </div>
   <img src="./img/design.jpg" style="height:300px; width:100%">
-  <a href="homeR1Sdes.php">
+  
   <div class="text" >Software Design Projects</div></a>
 </div>
 
 <div class="mySlides fade">
   <div class="numbertext">    </div>
   <img src="./img/deve.jpg" style="height:300px; width:100%">
-  <a href="homeR1Sdev.php">
+  
   <div class="text">Software Development Projects</div></a>
 </div>
 
 <div class="mySlides fade">
   <div class="numbertext">    </div>
   <img src="./img/mng.jpg" style="height:300px; width:100%">
-  <a href="homeR1Gdes.php">
+  
   <div class="text">Graphic Design Projects</div></a>
 </div>
 
@@ -301,203 +301,82 @@ function showSlides() {
               <!--pie chart-->
               <div class="card-category">
               <div id="piechart1" style="width:700px; height:300px;"></div>
-              
               </div>
               
             </br>
-            
-            <!-- Row 33333333 -->
-            <div class="row">
-           <div class="col-lg-3 col-md-6 col-sm-6" >
-               <div class="card card-stats" >
-                   <!--<p class="card-category" style="font-weight:bold " >New projects</p>-->
-                   <button type="submit" background-color: rgb(11, 22, 88) class="btn btn-primary pull-right" value="submit" name="submit">Software Design</button>
-                   <img src="./img/design.jpg" style="width:202px; length:202px align:center">
-                </div>
-               </div>
 
-
-               <div class="col-lg-3 col-md-6 col-sm-6" >
-               <div class="card card-stats" >
-                   <!--<p class="card-category" style="font-weight:bold " >New projects</p>-->
-                   <button type="submit" background-color: rgb(11, 22, 88) class="btn btn-primary pull-right" value="submit" name="submit">Software Development</button>
-                   <img src="./img/deve.jpg" style="width:202px; length:202px align:center">
-                </div>
-               </div>
-
-               <div class="col-lg-3 col-md-6 col-sm-6" >
-               <div class="card card-stats" >
-                   <!--<p class="card-category" style="font-weight:bold " >New projects</p>-->
-                   <button type="submit" background-color: rgb(11, 22, 88) class="btn btn-primary pull-right" value="submit" name="submit">Graphic Design</button>
-                   <img src="./img/mng.jpg" style="width:202px; length:200px align:center">
-                </div>
-               </div>
-             
-             </div>
-              
             </br>
             
-             <p class="card-category" style="font-weight:bold " >Best software developers...</p>
+             
              
         <div class="content" >
         
           <div class="container-fluid">
           
-            <div class="row">
-            <div class="scroll" >
-              <div class="col-md-12">
-                
-                  
-                    <div class="table-responsive">
-                    
-                      <table class="table" style="background-color:#c3ccd3; color:#000000; ">
-                        <thead style="background-color:#3A3D9E; color:#ffffff">
-                          <tr>
-                            <th width="18%">PROJECT ID</th>
-                            <th width="18%">NAME</th>
-                            <th width="16%">MORE</th>
-                          </tr>
-                        </thead>
-
-                        
-                        <tbody>
-                        
-                        <?php 
-                            //retrieve data from project table
-                            $query = "SELECT * FROM projects WHERE type='Software'";
-                            $results = $conn->query($query);
-                            if ($results->num_rows > 0) {
-                            //output data of each row
-                            while ($row = $results->fetch_assoc()) { 
-                              $date=date("Y-m-d");	
-                              if ($date<$row['biddate']){ ?>			
-                                  <tr>
-                                      <td><?php echo $row['pid']; ?></td>
-                                      <td><?php echo $row['name']; ?></td>
-                                      <td><a class="btn btn-primary" href="details.php" role="button" name="view_btn">View</a>
-                                  </tr>
-                              <?php 
-                                }
-                                }
-
-                                  }else{
-                                echo "0 results";
-                                }
-                              ?>
-                              
-                        </tbody>
-                          
-                      </table>
-                      
-                    
-                  </div>
-                </div>
+          <div class="col-md-9">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title">Recent IT Individuals</h4>
               </div>
-            </div>
-            </div>
-            </div>
+                <div class="card-body">
+                  <div class="row">    
+                      <div class="table-responsive">
+                          
+					     <table class="table">
+               <thead class="thead-dark text-primary" >
+                 <tr >
+                   <th width="30px" style="font-size:15px">IT Individual</th>
+                   <th width="20px" style="font-size:15px">No of Completed Projects</th>
+                   <th width="30px"style="font-size:15px">Ratings</th>
+                   
+                 </tr>
+               </thead>
+               <tbody>
+               <?php 
+         $query = "SELECT feedback.*, projects.*
+                  FROM projects
+                  INNER JOIN feedback ON projects.IT = feedback.email;";
+
+     $results2 = $conn->query($query);
+     if ($results2->num_rows > 0) {
+     //output data of each row
+     while ($row = $results2->fetch_assoc()) { 
+      { ?>			
+           <tr>
+               <td width="30px" ><?php echo $row['IT']; ?></a></td>
+               <td width="20px" ><?php 
+      $eml=['email'];
+      $query = "SELECT COUNT(status) FROM projects WHERE status='completed' AND IT='$eml'";
+      $result = $conn->query($query);
+      $count = $result->fetch_assoc()['COUNT(status)'];
+
+      echo $count;
+      ?></a></td>
+               
+           </tr>
+       <?php   }
+         }
+           }else{
+         echo "0 results";
+         }
+         //<td><a class="btn btn-primary" href="details.php" role="button" name="view_btn">View</a>
+       ?>
+
+               </tbody>
+             </table>
+
+                  </div>
+              </div>
+            </div> 
+          </div>
+       </div>
           <!--Row 4444 end-->
                       
-             <div class="row">
-             <div class="col-md-4" >
-               <div class="card card-chart">
-                 
-                   <div class="ct-chart" id="dailySalesChart" style="background-color:#d8ecff">fgdf</div>
-                 
-                 <div class="card-body" >
-                   <h4 class="card-title">Daily Sales</h4>
-                   <p class="card-category">
-                     <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p>
-                 </div>
-                 <div class="card-footer">
-                   <div class="stats">
-                     <i class="material-icons">access_time</i> updated 4 minutes ago
-                   </div>
-                 </div>
-               </div>
-             </div>
-             <div class="col-md-4">
-               <div class="card card-chart">
-               <div class="ct-chart" id="dailySalesChart" style="background-color:#d8ecff">fgdf</div>
-                 <div class="card-body">
-                   <h4 class="card-title">Email Subscriptions</h4>
-                   <p class="card-category">Last Campaign Performance</p>
-                 </div>
-                 <div class="card-footer">
-                   <div class="stats">
-                     <i class="material-icons">access_time</i> campaign sent 2 days ago
-                   </div>
-                 </div>
-               </div>
-             </div>
-             <div class="col-md-4">
-               <div class="card card-chart">
-               <div class="ct-chart" id="dailySalesChart" style="background-color:#d8ecff">fgdf</div>
-                 <div class="card-body">
-                   <h4 class="card-title">Completed Tasks</h4>
-                   <p class="card-category">Last Campaign Performance</p>
-                 </div>
-                 <div class="card-footer">
-                   <div class="stats">
-                     <i class="material-icons">access_time</i> campaign sent 2 days ago
-                   </div>
-                 </div>
-               </div>
-             </div>
-           </div>
+            
 
 
-
-           <p class="card-category" style="font-weight:bold " >Best Software Designers...</p>
-             <div class="row">
-             <div class="col-md-4">
-               <div class="card card-chart">
-               <div class="ct-chart" id="dailySalesChart" style="background-color:#d8ecff">fgdf</div>
-                 <div class="card-body">
-                   <h4 class="card-title">Daily Sales</h4>
-                   <p class="card-category">
-                     <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p>
-                 </div>
-                 <div class="card-footer">
-                   <div class="stats">
-                     <i class="material-icons">access_time</i> updated 4 minutes ago
-                   </div>
-                 </div>
-               </div>
-             </div>
-             <div class="col-md-4">
-               <div class="card card-chart">
-                 <div class="card-header card-header-warning">
-                   <div class="ct-chart" id="websiteViewsChart"></div>
-                 </div>
-                 <div class="card-body">
-                   <h4 class="card-title">Email Subscriptions</h4>
-                   <p class="card-category">Last Campaign Performance</p>
-                 </div>
-                 <div class="card-footer">
-                   <div class="stats">
-                     <i class="material-icons">access_time</i> campaign sent 2 days ago
-                   </div>
-                 </div>
-               </div>
-             </div>
-             <div class="col-md-4">
-               <div class="card card-chart">
-                 <div class="card-header card-header-danger">
-                   <div class="ct-chart" id="completedTasksChart"></div>
-                 </div>
-                 <div class="card-body">
-                   <h4 class="card-title">Completed Tasks</h4>
-                   <p class="card-category">Last Campaign Performance</p>
-                 </div>
-                 <div class="card-footer">
-                   <div class="stats">
-                     <i class="material-icons">access_time</i> campaign sent 2 days ago
-                   </div>
-                 </div>
-               </div>
-             </div>
-           </div>
+           
+             
 </body>
 
 </html>
