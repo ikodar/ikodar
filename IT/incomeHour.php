@@ -17,6 +17,7 @@ $row = $results->fetch_assoc();
 $firstname  =  $row['firstname'];
 $lastname  =  $row['lastname'];
 $user_type  =  $row['user_type'];
+
 ?>
 
 <!DOCTYPE html>
@@ -52,6 +53,8 @@ ikodar
         <a class="simple-text logo-normal">Hi</a>
         <a class="simple-text logo-normal"><?php echo $firstname?></a>
         <a class="simple-text logo-normal">(<?php echo $user_type?>)</a>
+   <a class="simple-text logo-normal">Hi</a>
+        <a class="simple-text logo-normal"><?php echo $firstname,$lastname?></a>
  </div>
  <div class="sidebar-wrapper">
  <ul class="nav">
@@ -89,7 +92,7 @@ ikodar
  <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
    <div class="container-fluid">
      <div class="navbar-wrapper">
-       <a class="navbar-brand" href="#pablo">Completed Projects</a>
+       <a class="navbar-brand" href="#pablo">Past Projects</a>
      </div>
      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
        <span class="sr-only">Toggle navigation</span>
@@ -105,7 +108,7 @@ ikodar
                  <a class="nav-link" href="#pablo">
                    <!--<i class="material-icons">Dashboard</i>-->
                    <p class="d-lg-none d-md-block">
-                    
+                     
                    </p>
                  </a>
                </li>
@@ -126,14 +129,14 @@ ikodar
  <div class="content">
 
  <!--  hour   -->
-    <div class="container-fluid">
+ <div class="container-fluid">
       <div class="card">
         <div class="card-header card-header-primary">
         <!--head line cart-->
-          <h4 class="card-title">Full basis Projects - Pending Income=<b>
+          <h4 class="card-title">Hourly basis Projects  - Past Income = <b>
       <?php 
-      $eml=$_SESSION['email'];
-      $query = "SELECT COUNT(status) FROM projects WHERE status='completed' AND IT='$eml' AND payment='Full payment'";
+      $email=$_SESSION['email'];
+      $query = "SELECT COUNT(status) FROM projects WHERE status='past' AND IT='$email' AND payment='Hourly basis'";
       $result = $conn->query($query);
       $count = $result->fetch_assoc()['COUNT(status)'];
 
@@ -151,35 +154,32 @@ ikodar
                           <tr >
                             <th width="10px" style="font-size:15px">PROJECT ID</th>
                             <th width="30px"style="font-size:15px">NAME</th>
-                            <th width="20px"style="font-size:15px">FULL AMOUNT</th>
+                            <th width="20px"style="font-size:15px">AMOUNT PER HOUR</th>
                             
                           </tr>
                         </thead>
                     <?php 
 					    //retrieve data from project table
-              $query = "SELECT * FROM projects WHERE IT='$eml' AND payment='Full payment'";
+              $query = "SELECT * FROM projects WHERE IT='$email' AND payment='Hourly basis'";
               $results = $conn->query($query);
               
               if ($results->num_rows > 0){
                 //output data of each row
                 while ($row = $results->fetch_assoc()) { 
-                    if ($row['status']=="completed"){ ?>	
+                    if ($row['status']=="past"){ ?>	
                      <tr>
                         <td><?php $pid= $row['pid']; ?></td>
                         <td><?php $name=$row['name']; ?></td>
-                        <td><?php $amount=$row['amount']; 
-                        $a=$amount-(($amount/100)*10);
-                        
-                        ?></td>
+                        <td><?php $amount=$row['amount']; ?></td>
                     
                <?php echo '
-                <form action="paymentFInfo.php" method="post">
+                <form action="incomeHInfo.php" method="post">
                 <input type="hidden" name="pid" value="'.$pid.'">
             
                     <tr>
                     <td>'.$pid.'</td>
                     <td><input type="submit" class="btn btn-link btn-lg" value="'.$name.'"></td>
-                    <td>'.$a.'</td>
+                    <td>'.$amount.'</td>
                     </tr>
                 </form>
                 ';?>
@@ -195,33 +195,7 @@ ikodar
                      
                       
                     </table>
-                    <hr style="border-width: 3px; border-color: black;">
-
-<table class="table" >
-<tbody>
-
-<tr>
-<td width="10px" ></td>
-<td width="30px" >Total Amount</td>
-<td width="20px" >
-
-<?php 
-
-$query1 = "SELECT SUM(amount) FROM projects WHERE IT='$eml' AND payment='Full payment' AND status='completed'";
-$result1 = $conn->query($query1);
-$sum1 = $result1->fetch_assoc()['SUM(amount)'];
-$x=$sum1-(($sum1/100)*10);
-
-echo  $x;
-
-?>
-
-</td>
-</tr>
-
-</tbody>
-
-</table>
+                  
 
             </div>
         </div>

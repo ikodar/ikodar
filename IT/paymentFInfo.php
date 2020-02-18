@@ -1,7 +1,7 @@
 <?php 
 
   include_once 'connection.php';
-  include('process.php');
+  include('functions.php');
   if (!isLoggedIn()) {
     $_SESSION['msg'] = "You must log in first";
     header('location: ../login.php');
@@ -53,31 +53,34 @@ $user_type  =  $row['user_type'];
         <a class="simple-text logo-normal">(<?php echo $user_type?>)</a>
  </div>
  <div class="sidebar-wrapper">
-   <ul class="nav">
-     <li class="nav-item active  ">
-       <a class="nav-link" href="./home.php">
-         <p>Dasboard</p>
-       </a>
-     </li>
-
-     <li class="nav-item active">
-       <a class="nav-link" href="./projects.php">         
-         <p>My Projects</p>
-       </a>
-     </li>
-     
-     <li class="nav-item active">
-       <a class="nav-link" href="./profile.php">
-         <p>My Profile</p>
-       </a>
-     </li>
-
-     <li class="nav-item active">
-       <a class="nav-link" href="./payments.php">
-         <p>Payments</p>
-       </a>
-     </li>    
-   </ul>
+ <ul class="nav">
+           <li class="nav-item active  ">
+             <a class="nav-link" href="./home.php">
+               <!--<i class="material-icons">dashboard</i>-->
+               <p>Dashboard</p>
+             </a>
+             </li>
+             <li class="nav-item active  ">
+               <a class="nav-link" href="./active.php">
+                 <!--<i class="material-icons">dashboard</i>-->
+                 <p>My Projects</p>
+               </a>
+ 
+           </li>
+           <li class="nav-item active">
+             <a class="nav-link" href="./myprofile.php">
+               <!--<i class="material-icons">bubble_chart</i>-->
+               <p>My Profile</p>
+             </a>
+           </li>
+          </li>
+           <li class="nav-item active">
+             <a class="nav-link" href="./income.php">
+               <!--<i class="material-icons">location_ons</i>-->
+               <p>Income</p>
+             </a>
+           </li>
+         </ul>
  </div>
 </div>
 <div class="main-panel">
@@ -93,21 +96,26 @@ $user_type  =  $row['user_type'];
      </button>
      <div class="collapse navbar-collapse justify-content-end">
        
-       <ul class="navbar-nav">         
-         <li class="nav-item dropdown">        
-            <li class="nav-item">
-              <a class="nav-link" href="aboutus.php">About Us</a>
-            </li>
+     <ul class="navbar-nav">
+               <li class="nav-item">
+                 <a class="nav-link" href="#pablo">
+                   <!--<i class="material-icons">Dashboard</i>-->
+                   <p class="d-lg-none d-md-block">
+                    
+                   </p>
+                 </a>
+               </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="help.php">Help</a>
-            </li>
-         
-            <li class="nav-item"> 
-              <a class="nav-link" href="process.php?logout='1'">Logout</a>
-            </li>
-          </li>
-        </ul>
+               <li class="nav-item">
+                 <a class="nav-link" href="aboutus.php">About Us</a>
+               </li>
+               <li class="nav-item">
+                 <a class="nav-link" href="help.php">Help</a>
+               </li>
+               <li class="nav-item"> 
+                 <a class="nav-link" href="processMyprfl.php?logout='1'">Logout</a>
+               </li>
+             </ul>
       </div>
     </div>
   </nav>

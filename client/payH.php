@@ -213,7 +213,7 @@ span.price {
           
             
             <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-            <input type="text" id="fname" name="firstname" value="<?php echo $firstname,$lastname?>">
+            <input type="text" id="fname" name="firstname" value="<?php echo $firstname?>">
             <label for="email"><i class="fa fa-envelope"></i> Email</label>
             <input type="text" id="email" name="email"  value=" <?php echo $_SESSION['email'];?>">
             <label for="Project amount"><i class="fa fa-envelope"></i> Project amount + Tax

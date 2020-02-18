@@ -21,13 +21,13 @@ $errors   = 0;
 // call the updateuser() function if updateuser_btn is clicked
 if (isset($_POST['payh_btn'])) {
 	updateh();
-	header("Location:payments.php");
+	header("Location:feedback.php");
 }
 
 // call the updateuser() function if updateuser_btn is clicked
 if (isset($_POST['payf_btn'])) {
 	updatef();
-	header("Location:payments.php");
+	header("Location:feedback.php");
 }
                     
                     

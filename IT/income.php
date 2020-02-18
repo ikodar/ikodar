@@ -131,10 +131,13 @@ $user_type  =  $row['user_type'];
                <div class="thumbnail">
                 <ul class="nav nav-tabs col-md-8" style="background-color:#113849; padding:20px; margin-left:20%">                                 
                   <li class="nav-item active  px-4">
-                    <a class="nav-link" href="paymentsHour.php">Hourly Basis Projects</a>
+                    <h3 style="color:white;">Hourly Basis Projects</h3>
+                    
+                    <a class="btn btn-primary pull-right" href="incomeHour.php">Past</a>
+                    <a class="btn btn-primary pull-right" href="paymentsHour.php">Pending</a>
                   </li>
                 </ul>
-                <h2></h2>
+                
                 <br><br>
                </div>
              </div>
@@ -143,16 +146,27 @@ $user_type  =  $row['user_type'];
                 <div class="thumbnail">
                   <ul class="nav nav-tabs col-md-8" style="background-color:#113849; padding:20px; margin-left:20%">
                     <li class="nav-item active  px-4">
-                      <a class="nav-link" href="paymentsFull.php">Fixed Basis Projects</a>
+                    <h3 style="color:white;">Full Basis Projects</h3>
+                    
+                    <a class="btn btn-primary pull-right" href="incomeFull.php">Past</a>
+                    <a class="btn btn-primary pull-right" href="paymentsFull.php">Pending</a>
                     </li>
                   </ul>
-                <h2></h2>  
+                  
                 </div>
               </div>
+              
             </div>
+            
          </div>
-       </section>    
+                <div class="container-fluid bg-2 text-center">
+                <div class="col-sm-10">
+            <a class="btn btn-primary pull-right" href="incomeReport.php">Summary</a>
+            </div>
+            </div>
+       </section> 
 
+            
 
 
   
