@@ -257,7 +257,7 @@ $user_type  =  $row['user_type'];
                     $sum2  =  $row2['ITincome'];
 
                     
-                    echo  $sum1*$sum2;
+                    echo  $sum2;
                   
                   ?>
                   
