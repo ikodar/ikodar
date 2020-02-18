@@ -26,6 +26,7 @@ if (isset($_GET['logout'])) {
 //POST FINAL PROJECT LINK
 if(isset($_POST['submitproject_btn'])){
 	project();
+	header("Location:details.php");
 }
 
 $link ="";

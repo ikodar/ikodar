@@ -290,7 +290,7 @@ $user_type  =  $row['user_type'];
                               <div class="col-md-12 px-5 py-3">  
                                 <table>
                                   <tr>
-                                    <form action="details.php" method="post">
+                                    <form action="" method="post">
                                       <td style="width:400px;"><input name="link" type="text" class="form-control" value="<?php echo $link?>"></td>
                                       <td class="px-3"><button type="submit"  class="btn btn-primary pull-right px-4"  name="submitproject_btn">Submit</button></td>
                                       <td><?php echo $accept?></td> 

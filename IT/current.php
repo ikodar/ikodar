@@ -167,7 +167,7 @@ $user_type  =  $row['user_type'];
                             <thead class="thead-dark text-primary">
                               <tr>
                               <th scope="col">PROJECT ID</th>
-                              <th scope="col">PROJECT NAME</th>
+                              <th class="px-5" scope="col">PROJECT NAME</th>
                                   <th scope="col">EMPLOYER</th>
                                   <th scope="col">AWARDED BID</th>
                                   <th scope="col">DEADLINE</th>
