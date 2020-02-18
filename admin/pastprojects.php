@@ -115,16 +115,20 @@
                   if ($results->num_rows > 0){
                     //output data of each row
                     while ($row = $results->fetch_assoc()) { 
-                        if ($row['status']=="past"){ ?>			
+                        if ($row['status']=="past"){ 
+                          $pid= $row['pid'];?>			
                           <tr>
+                          <form action="view.php" method="post">
                               <td><?php echo $row['pid']; ?></td>
                               <td><?php echo $row['name']; ?></td>
                               <td><?php echo substr($row['description'],0,60)."..."; ?></td>
                               <td>
                                 <div class="input-group">
-                                  <a class="btn btn-link" href="view.php" role="button" name="view_btn">View</a>
+                                  <input type="hidden" name="pid" value="<?php echo $pid; ?>">
+                                  <input type="submit" name="viewproject_btn" class="btn btn-link" value="View">
                                 </div>
                               </td>
+                              </form>
                           </tr>
                   <?php   }
                     }

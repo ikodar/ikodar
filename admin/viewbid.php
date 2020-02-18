@@ -7,8 +7,11 @@
 
   $IT = $pid = $bid = $days = $proposal = $name ="";
   
-  if(isset($_POST['viewbid_btn'])){
-    $IT=$_POST['IT'];
+  if(isset($_SESSION["IT"])){
+    $IT=$_SESSION["IT"];
+  }
+  else{
+    $IT="";
   }
 
   if(isset($_SESSION["pid"])){
