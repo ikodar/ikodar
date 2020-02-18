@@ -1,11 +1,10 @@
 <?php 
-
-  include_once 'connection.php';
-  include('functions.php');
-  if (!isLoggedIn()) {
-    $_SESSION['msg'] = "You must log in first";
-    header('location: ../login.php');
+	include('functions.php');
+	if (!isLoggedIn()) {
+	$_SESSION['msg'] = "You must log in first";
+	header('location: ../login.php');
   }
+
   //view name on top
 $email=$_SESSION['email'];
 $sql = "SELECT * FROM users WHERE email='$email'";
@@ -48,7 +47,7 @@ $user_type  =  $row['user_type'];
    <ul class="nav">
      <li class="nav-item active  ">
        <a class="nav-link" href="./home.php">
-         <p>Home</p>
+         <p>Dashboard</p>
        </a>
      </li>
 
@@ -107,7 +106,7 @@ $user_type  =  $row['user_type'];
             </li>
          
             <li class="nav-item"> 
-              <a class="nav-link" href="process.php?logout='1'">Logout</a>
+              <a class="nav-link" href="functions.php?logout='1'">Logout</a>
             </li>
           </li>
         </ul>

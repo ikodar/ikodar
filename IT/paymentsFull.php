@@ -58,7 +58,7 @@ ikodar
            <li class="nav-item active  ">
              <a class="nav-link" href="./home.php">
                <!--<i class="material-icons">dashboard</i>-->
-               <p>Home</p>
+               <p>Dashboard</p>
              </a>
              </li>
              <li class="nav-item active  ">

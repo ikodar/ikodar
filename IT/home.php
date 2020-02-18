@@ -45,11 +45,6 @@ $user_type  =  $row['user_type'];
  <body class="">
    <div class="wrapper ">
      <div class="sidebar" data-color="azure" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
-       <!--
-         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
- 
-         Tip 2: you can also add an image using data-image tag
-     -->
      <div class="logo">
      <a class="simple-text logo-normal">
         i-කෝඩර්
@@ -64,7 +59,7 @@ $user_type  =  $row['user_type'];
            <li class="nav-item active  ">
              <a class="nav-link" href="./home.php">
                <!--<i class="material-icons">dashboard</i>-->
-               <p>Home</p>
+               <p>Dashboard</p>
              </a>
  
              <li class="nav-item active  ">
