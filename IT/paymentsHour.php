@@ -136,7 +136,7 @@ ikodar
       <div class="card">
         <div class="card-header card-header-primary">
         <!--head line cart-->
-          <h4 class="card-title">Hourly basis Projects  -<b>
+          <h4 class="card-title">Hourly basis Projects  - Pending Income = <b>
       <?php 
       $email=$_SESSION['email'];
       $query = "SELECT COUNT(status) FROM projects WHERE status='completed' AND IT='$email' AND payment='Hourly basis'";

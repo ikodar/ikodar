@@ -1,7 +1,7 @@
 <?php 
 
 
-include('process.php');
+include('functions.php');
 if (!isLoggedIn()) {
   $_SESSION['msg'] = "You must log in first";
   header('location: ../login.php');
@@ -17,9 +17,6 @@ $row = $results->fetch_assoc();
 $firstname  =  $row['firstname'];
 $lastname  =  $row['lastname'];
 $user_type  =  $row['user_type'];
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -49,40 +46,42 @@ ikodar
 <div class="wrapper ">
 <div class="sidebar" data-color="azure" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
  <div class="logo">
-   <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-   i-කෝඩර්
-   </a>
-   <a class="simple-text logo-normal">Hi</a>
+ <a class="simple-text logo-normal">
+        i-කෝඩර්
+        </a>
+        <a class="simple-text logo-normal">Hi</a>
         <a class="simple-text logo-normal"><?php echo $firstname?></a>
         <a class="simple-text logo-normal">(<?php echo $user_type?>)</a>
  </div>
  <div class="sidebar-wrapper">
-   <ul class="nav">
-     <li class="nav-item active  ">
-       <a class="nav-link" href="./home.php">
-         <p>Dashboard</p>
-       </a>
-     </li>
-
-     <li class="nav-item active">
-       <a class="nav-link" href="./projects.php">
-         <p>My Projects</p>
-       </a>
-     </li>
-     
-     <li class="nav-item active">
-       <a class="nav-link" href="./profile.php">
-         <p>My Profile</p>
-       </a>
-     </li>
-
-     <li class="nav-item active">
-       <a class="nav-link" href="./payments.php">
-         <p>Payments</p>
-       </a>
-     </li>
-     
-   </ul>
+ <ul class="nav">
+           <li class="nav-item active  ">
+             <a class="nav-link" href="./home.php">
+               <!--<i class="material-icons">dashboard</i>-->
+               <p>Dashboard</p>
+             </a>
+             </li>
+             <li class="nav-item active  ">
+               <a class="nav-link" href="./active.php">
+                 <!--<i class="material-icons">dashboard</i>-->
+                 <p>My Projects</p>
+               </a>
+ 
+           </li>
+           <li class="nav-item active">
+             <a class="nav-link" href="./myprofile.php">
+               <!--<i class="material-icons">bubble_chart</i>-->
+               <p>My Profile</p>
+             </a>
+           </li>
+          </li>
+           <li class="nav-item active">
+             <a class="nav-link" href="./income.php">
+               <!--<i class="material-icons">location_ons</i>-->
+               <p>Income</p>
+             </a>
+           </li>
+         </ul>
  </div>
 </div>
 <div class="main-panel">
@@ -90,7 +89,7 @@ ikodar
  <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
    <div class="container-fluid">
      <div class="navbar-wrapper">
-       <a class="navbar-brand" href="#pablo">Completed Projects</a>
+       <a class="navbar-brand" href="#pablo">Past Projects</a>
      </div>
      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
        <span class="sr-only">Toggle navigation</span>
@@ -102,17 +101,24 @@ ikodar
        <form class="navbar-form"> 
        </form>
        <ul class="navbar-nav">
-         <li class="nav-item dropdown">             
-         <li class="nav-item">
-           <a class="nav-link" href="aboutus.php">About Us</a>
-         </li>
-         <li class="nav-item">
-           <a class="nav-link" href="help.php">Help</a>
-         </li>
-         <li class="nav-item"> 
-           <a class="nav-link" href="process.php?logout='1'">Logout</a>
-         </li>
-       </ul>
+               <li class="nav-item">
+                 <a class="nav-link" href="#pablo">
+                   <!--<i class="material-icons">Dashboard</i>-->
+                   <p class="d-lg-none d-md-block">
+                    
+                   </p>
+                 </a>
+               </li>
+               <li class="nav-item">
+                 <a class="nav-link" href="aboutus.php">About Us</a>
+               </li>
+               <li class="nav-item">
+                 <a class="nav-link" href="help.php">Help</a>
+               </li>
+               <li class="nav-item"> 
+                 <a class="nav-link" href="processMyprfl.php?logout='1'">Logout</a>
+               </li>
+             </ul>
      </div>
    </div>
  </nav>
@@ -124,10 +130,10 @@ ikodar
       <div class="card">
         <div class="card-header card-header-primary">
         <!--head line cart-->
-          <h4 class="card-title">Hourly basis Projects <b>
+          <h4 class="card-title">Full basis Projects - Past Income=<b>
       <?php 
       $eml=$_SESSION['email'];
-      $query = "SELECT COUNT(status) FROM projects WHERE status='completed' AND client='$eml' AND payment='Hourly basis'";
+      $query = "SELECT COUNT(status) FROM projects WHERE status='past' AND IT='$eml' AND payment='Full payment'";
       $result = $conn->query($query);
       $count = $result->fetch_assoc()['COUNT(status)'];
 
@@ -145,32 +151,32 @@ ikodar
                           <tr >
                             <th width="10px" style="font-size:15px">PROJECT ID</th>
                             <th width="30px"style="font-size:15px">NAME</th>
-                            <th width="20px"style="font-size:15px">AMOUNT PER HOUR</th>
+                            <th width="20px"style="font-size:15px">FULL AMOUNT</th>
                             
                           </tr>
                         </thead>
                     <?php 
 					    //retrieve data from project table
-              $query = "SELECT * FROM projects WHERE client='$eml' AND payment='Hourly basis'";
+              $query = "SELECT * FROM projects WHERE IT='$eml' AND payment='Full payment'";
               $results = $conn->query($query);
               
               if ($results->num_rows > 0){
                 //output data of each row
                 while ($row = $results->fetch_assoc()) { 
-                    if ($row['status']=="completed"){ ?>	
+                    if ($row['status']=="past"){ ?>	
                      <tr>
                         <td><?php $pid= $row['pid']; ?></td>
                         <td><?php $name=$row['name']; ?></td>
-                        <td><?php $amount=$row['amount']; ?></td>
+                        <td><?php $ITincome=$row['ITincome']; ?></td>
                     
                <?php echo '
-                <form action="paymentHInfo.php" method="post">
+                <form action="incomeFInfo.php" method="post">
                 <input type="hidden" name="pid" value="'.$pid.'">
             
                     <tr>
                     <td>'.$pid.'</td>
                     <td><input type="submit" class="btn btn-link btn-lg" value="'.$name.'"></td>
-                    <td>'.$amount.'</td>
+                    <td>'.$ITincome.'</td>
                     </tr>
                 </form>
                 ';?>
@@ -186,7 +192,33 @@ ikodar
                      
                       
                     </table>
-                  
+                    <hr style="border-width: 3px; border-color: black;">
+
+<table class="table" >
+<tbody>
+
+<tr>
+<td width="10px" ></td>
+<td width="30px" >Total Amount</td>
+<td width="20px" >
+
+<?php 
+
+$query1 = "SELECT SUM(ITincome) FROM projects WHERE IT='$eml' AND payment='Full payment' AND status='past'";
+$result1 = $conn->query($query1);
+$sum1 = $result1->fetch_assoc()['SUM(ITincome)'];
+
+//$a = $sum1 - (($sum1/100)*10);
+echo  $sum1;
+
+?>
+
+</td>
+</tr>
+
+</tbody>
+
+</table>
 
             </div>
         </div>

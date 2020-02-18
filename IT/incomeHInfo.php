@@ -251,14 +251,13 @@ $user_type  =  $row['user_type'];
 
                     
                     //view amount to calculate total 
-                    $sql2 = "SELECT amount FROM projects where pid='$pid'";
+                    $sql2 = "SELECT ITincome FROM projects where pid='$pid'";
 	                  $results2=$conn->query($sql2);
                     $row2 = $results2->fetch_assoc();
-                    $sum2  =  $row2['amount'];
+                    $sum2  =  $row2['ITincome'];
 
-                    $a=$sum1*$sum2;
-                    $b=$a-(($a/100)*10);
-                    echo  $b;
+                    
+                    echo  $sum2;
                   
                   ?>
                   
@@ -269,7 +268,7 @@ $user_type  =  $row['user_type'];
                       
                     </table>
                     
-                    <a class="btn btn-primary" href="paymentsHour.php" role="button" name="view_btn">BACK</a>
+                    <a class="btn btn-primary" href="incomeHour.php" role="button" name="view_btn">BACK</a>
                                 </form>
                               </div>
                             </div>

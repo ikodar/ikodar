@@ -135,8 +135,7 @@ ikodar
       <div class="card">
         <div class="card-header card-header-primary">
         <!--head line cart-->
-          <h4 class="card-title">Pending Income - Fixed Basis Projects 
-      <i class="fa fa-shopping-cart"></i> -<b>
+          <h4 class="card-title">Full basis Projects - Pending Income=<b>
       <?php 
       $eml=$_SESSION['email'];
       $query = "SELECT COUNT(status) FROM projects WHERE status='completed' AND IT='$eml' AND payment='Full payment'";
@@ -157,7 +156,7 @@ ikodar
                           <tr >
                             <th width="10px" style="font-size:15px">PROJECT ID</th>
                             <th width="30px"style="font-size:15px">NAME</th>
-                            <th width="20px"style="font-size:15px">AMOUNT PER HOUR</th>
+                            <th width="20px"style="font-size:15px">FULL AMOUNT</th>
                             
                           </tr>
                         </thead>
@@ -173,7 +172,10 @@ ikodar
                      <tr>
                         <td><?php $pid= $row['pid']; ?></td>
                         <td><?php $name=$row['name']; ?></td>
-                        <td><?php $amount=$row['amount']; ?></td>
+                        <td><?php $amount=$row['amount']; 
+                        $a=$amount-(($amount/100)*10);
+                        
+                        ?></td>
                     
                <?php echo '
                 <form action="paymentFInfo.php" method="post">
@@ -182,7 +184,7 @@ ikodar
                     <tr>
                     <td>'.$pid.'</td>
                     <td><input type="submit" class="btn btn-link btn-lg" value="'.$name.'"></td>
-                    <td>'.$amount.'</td>
+                    <td>'.$a.'</td>
                     </tr>
                 </form>
                 ';?>
@@ -198,7 +200,33 @@ ikodar
                      
                       
                     </table>
-                  
+                    <hr style="border-width: 3px; border-color: black;">
+
+<table class="table" >
+<tbody>
+
+<tr>
+<td width="10px" ></td>
+<td width="30px" >Total Amount</td>
+<td width="20px" >
+
+<?php 
+
+$query1 = "SELECT SUM(amount) FROM projects WHERE IT='$eml' AND payment='Full payment' AND status='completed'";
+$result1 = $conn->query($query1);
+$sum1 = $result1->fetch_assoc()['SUM(amount)'];
+$x=$sum1-(($sum1/100)*10);
+
+echo  $x;
+
+?>
+
+</td>
+</tr>
+
+</tbody>
+
+</table>
 
             </div>
         </div>
