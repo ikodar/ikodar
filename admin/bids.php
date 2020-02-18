@@ -25,6 +25,10 @@
      echo "0 results";
  }
 
+ if(isset($_POST['viewbid_btn'])){
+  $_SESSION['IT']=$_POST['IT'];
+}
+
 ?>
 
 <!DOCTYPE html>
