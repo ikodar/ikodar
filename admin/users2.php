@@ -128,7 +128,7 @@
                     while ($row = $results->fetch_assoc()) { 	
                           $email=	$row['email'];	?>
                           <tr>                            
-                            <form action="userprofile.php" method="post">
+                            <form action="userprofile2.php" method="post">
                               <td><?php echo $row['email']; ?></td>
                               <td><?php echo $row['firstname']; ?></td>
                               <td><?php echo $row['lastname']; ?></td>
