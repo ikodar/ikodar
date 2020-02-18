@@ -125,17 +125,7 @@
                            <?php echo $email;?>
                          </div>
                        </div>
-                       <div class="col-md-6">
-                         <div class="form-group">
-                           <label class="bmd-label-floating" >Rating</label>
-                           <?php 
-                            $sql1= "SELECT AVG(rate) FROM feedback WHERE email='$email'";
-                            $results1=$conn->query($sql);
-                            $rate=$results1->fetch_assoc()['AVG(rate)'];
-                            echo $rate;?>
-                         </div>
-                       </div>
-                     </div>
+                      </div>
                      <div class="row">
                        <div class="col-md-6">
                          <div class="form-group">

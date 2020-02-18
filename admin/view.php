@@ -29,6 +29,7 @@
         $biddate = $row['biddate'];
         $deadline = $row['deadline'];
         $amount = $row['amount'];
+        $accept = $row['accept'];
       }
 
    }else{
@@ -245,7 +246,19 @@
                                          
                                     </div>
                                   </div>                                             
-                                  </div>
+                                </div>
+
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                      <label class="bmd-label-floating">Final Project:</label>  
+                                      <tr>
+                                        <td><?php echo $accept; ?></a></td>
+                                      </tr>  
+                                    </div>
+                                  </div>                                             
+                                </div>
+
                                </form>
                               </div>
                             </div>
