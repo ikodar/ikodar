@@ -121,7 +121,26 @@ $user_type  =  $row['user_type'];
    <div class="container-fluid">
      <div class="navbar-wrapper">
        <a class="navbar-brand" href="#pablo">
-       <?php echo $row['name']; ?>
+       <?php 
+                  
+                  $query = "SELECT * FROM projects where pid='$pid'";
+                  $results = $conn->query($query);
+                  if ($results->num_rows > 0) {
+                  //output data of each row
+                  while ($row = $results->fetch_assoc()) { 
+                   { ?>			
+                        <tr>
+                            <td><?php echo $row['name']; ?></a></td>
+                            
+                            
+                        </tr>
+                    <?php   }
+                      }
+    
+                        }else{
+                      echo "0 results";
+                      }
+                    ?>
      </div>
      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
        <span class="sr-only">Toggle navigation</span>
