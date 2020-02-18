@@ -8,6 +8,10 @@
     $_SESSION["pid"]=$_POST["pid"];
     header("location: detail.php");
   }
+  if(isset($_POST["pid"])){
+    $_SESSION["pid"]=$_POST["pid"];
+    header("location: detail.php");
+  }
   }
  
   //view name on top
@@ -164,11 +168,11 @@ $user_type  =  $row['user_type'];
                             <thead class="thead-dark text-primary">
                               <tr>
                               <th scope="col">PROJECT ID</th>
-                              <th scope="col">PROJECT NAME</th>
-                                    <th scope="col">BIDS</th>
+                              <th class="px-5" scope="col">PROJECT NAME</th>
+                                
                                     <th scope="col">EMPLOYER</th>
                                     <th scope="col">AWARDED BID</th>
-                                  
+                                    <th scope="col">FEEDBACK</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -183,23 +187,36 @@ $user_type  =  $row['user_type'];
                     <tr>
                     <td><?php $pid= $row['pid']; ?></td>
                         <td><?php $name=$row['name']; ?></td>
-                        <td> <?php
-                           $query = "SELECT COUNT(Bid) FROM bid WHERE pid=$pid";
-                            $results1 = $conn->query($query);
-                            $bidcount= $results1->fetch_assoc()['COUNT(Bid)'];?></td>
-
                         <td><?php $bid= $row['Bid']; ?></td>
                         <td><?php $client=$row['client']; ?></td>
+                        
+                        <td>    <?php 
+					    //retrieve data from project table
+              $query = "SELECT * FROM feedback where pid='$pid' AND email='$email'";
+              $results = $conn->query($query);
+              if ($results->num_rows > 0){
+                //output data of each row
+                while ($row = $results->fetch_assoc()) { 
+                     ?>	
+                     <?php $rate= $row['rate']; ?></td>
+                     <?php   
+                  }
+
+                    }else{
+                  echo "0 results";
+                  }
+                ?>
+                     </td>
+                       
                 </tr>
                <?php echo '
             
                     <tr>
                     <td>'.$pid.'</td>
                     <td><input type="submit" class="btn btn-link btn-lg" value="'.$name.'"></td>
-                    <td>'.$bidcount.'</td>
                     <td>'.$client.'</td>
-                    <td>$'.$bid.' USD</td>
-                    
+                    <td class="px-5">$'.$bid.' USD</td>
+                    <td> <span class="fa fa-star checked" style="color: orange;"></span>'.$rate.'/5</td>
                    
                     </tr>
                 ';?>

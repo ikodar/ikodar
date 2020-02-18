@@ -8,6 +8,7 @@
 
   if(isset($_POST["pid"])){
     $_SESSION["pid"]=$_POST["pid"];
+    
   }
  
   //view name on top
@@ -163,12 +164,12 @@ $user_type  =  $row['user_type'];
                           <table class="table">
                             <thead class="thead-dark text-primary">
                               <tr>
-                                <th width="18%">PROJECT ID</th>
-                                <th width="18%">PROJECT NAME</th>
+                                <th width="16%">PROJECT ID</th>
+                                <th class="px-5" width="10%">PROJECT NAME</th>
                                 <th width="16%">BIDS</th>
                                 <th width="16%">MY BID</th>
                                 <th width="16%">AVG BID</th>
-                                <th width="18%">BID END DATE</th>
+                                <th width="16%">BID END DATE</th>
                                 <th width="16%">ACTION</th>
                               </tr>
                             </thead>
@@ -203,8 +204,8 @@ $user_type  =  $row['user_type'];
             <form action="" method="post">
             <input type="hidden" name="pid" value="'.$pid.'">
                     <tr>
-                    <td>'.$pid.'</td>
-                    <td><input  action="detail.php" type="submit" class="btn btn-link btn-lg" value="'.$name.'"></td>
+                    <td class="px-5">'.$pid.'</td>
+                    <td><a href="detail.php" type="submit" class="btn btn-link btn-lg">'.$name.'</a></td>
                     <td>'.$bidcount.'</td>
                     <td>$'.$bid.' USD</td>
                     <td>$'.$bidavg.'USD</td>
