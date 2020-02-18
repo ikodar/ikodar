@@ -325,7 +325,7 @@ function showSlides() {
 					     <table class="table">
                <thead class="thead-dark text-primary" >
                  <tr >
-                   <th width="30px" style="font-size:15px">IT Individual</th>
+                   <th width="30px" style="font-size:15px">Proj</th>
                    <th width="20px" style="font-size:15px">No of Completed Projects</th>
                    <th width="30px"style="font-size:15px">Ratings</th>
                    
@@ -333,9 +333,9 @@ function showSlides() {
                </thead>
                <tbody>
                <?php 
-         $query = "SELECT feedback.*, projects.*
+         $query = "SELECT projects.pid,projects.name,projects.status,projects.IT,feedback.pid,feedback.rate
                   FROM projects
-                  INNER JOIN feedback ON projects.IT = feedback.email;";
+                  INNER JOIN feedback ON feedback.pid = projects.pid";
 
      $results2 = $conn->query($query);
      if ($results2->num_rows > 0) {
@@ -343,9 +343,20 @@ function showSlides() {
      while ($row = $results2->fetch_assoc()) { 
       { ?>			
            <tr>
-               <td width="30px" ><?php echo $row['IT']; ?></a></td>
+               <td width="30px" ><?php 
+               
+               $query = "SELECT projects.pid,projects.name,projects.status,projects.IT
+                  FROM projects
+                  INNER JOIN user ON feedback.pid = projects.pid";
+               
+               
+               
+               echo $row['IT']; ?></a></td>
+
+
+               
                <td width="20px" ><?php 
-      $eml=['email'];
+      $eml=['IT'];
       $query = "SELECT COUNT(status) FROM projects WHERE status='completed' AND IT='$eml'";
       $result = $conn->query($query);
       $count = $result->fetch_assoc()['COUNT(status)'];
