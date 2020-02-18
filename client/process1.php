@@ -47,10 +47,10 @@ function accept(){
 	$pid=  $_SESSION['pid'];
 	
 
-    
+    if($IT==""){
 	// form validation: ensure that the form is correctly filled
 
-	// register user if there are no errors in the form
+	// award bid if there are no errors in the form
 	$query = "UPDATE projects 
               SET IT = '$IT', status = 'open' WHERE pid = '$pid'";
 
@@ -61,6 +61,9 @@ function accept(){
 	} else {
 	   echo "Error: " . $query . "<br>" . $conn->error;
 	}
+	}else{
+		echo "<script type= 'text/javascript'>alert('Can not award maltiple bids');</script>";
+	}	
 
 }
 

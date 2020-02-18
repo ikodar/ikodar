@@ -113,42 +113,73 @@
               <thead class="thead-dark text-primary">
                 <tr>
                   <th width="18%">ID</th>
-                  
                   <th width="18%">Email</th>
                   <th width="18%">Message</th>
+                  <th width="18%">Status</th>
                   <th width="18%">Action</th>
                 </tr>
               </thead>
               <tbody>
-                <?php 
-                  //retrieve data from project table
-                  $query = "SELECT * FROM helps";
-                  $results = $conn->query($query);
-                  if ($results->num_rows > 0){
-                    //output data of each row
-                    while ($row = $results->fetch_assoc()) {  ?>
-                          <form action="reply.php"	method="post">
-                            <?php $email=$row['email'];
-                              $message=$row['message'];?>			
-                          <tr>
-                              <td><?php echo $row['mid']; ?></td>
-                              <td><?php echo $row['email']; ?></td>
-                              <td><?php echo substr($row['message'],0,60)."..."; ?></td>
-                              <td>
-                                <div class="input-group">
-                                  <input type="hidden" name="email" value="<?php echo $email; ?>">
-                                  <input type="hidden" name="message" value="<?php echo $message; ?>">
-                                  <input type="submit"  class="btn btn-link" value="Reply">
-                                </div>
-                              </td>
-                          </tr>
-                          </form>
-                    <?php }
-
-                  }else{
-                    echo "0 results";
-                  }
-                    ?>
+              <?php 
+                          //retrieve data from project table
+                          $query = "SELECT * FROM helps";
+                          $results = $conn->query($query);
+                          if ($results->num_rows > 0){
+                            //output data of each row
+                            while ($row = $results->fetch_assoc()) { 
+                              if ($row['status']=="new"){  	
+                                   $email=$row['email'];
+                                   $message=$row['message'];?>
+                                  <tr>
+                                  <form action="reply.php"	method="post">
+                                      <td><?php echo $row['mid']; ?></td>
+                                      <td><?php echo $row['email']; ?></td>
+                                      <td><?php echo substr($row['message'],0,50)."..."; ?></td>
+                                      <td><?php echo $row['status']; ?></td>
+                                      <td>
+                                        <div class="input-group">
+                                          <input type="hidden" name="email" value="<?php echo $email; ?>">
+                                          <input type="hidden" name="message" value="<?php echo $message; ?>">
+                                          <input type="submit" class="btn btn-link" value="View">
+                                        </div>
+                                      </td>
+                                  </form>
+                                  </tr>
+                            <?php }
+                            }
+                          }else{
+                            echo "0 results";
+                          }
+                          //retrieve data from project table
+                          $query = "SELECT * FROM helps";
+                          $results = $conn->query($query);
+                          if ($results->num_rows > 0){
+                            //output data of each row
+                            while ($row = $results->fetch_assoc()) { 
+                              if ($row['status']=="replied"){  	
+                                $email=$row['email'];
+                                $message=$row['message'];?>
+                               <tr>
+                               <form action="reply.php"	method="post">
+                                   <td><?php echo $row['mid']; ?></td>
+                                   <td><?php echo $row['email']; ?></td>
+                                   <td><?php echo substr($row['message'],0,50)."..."; ?></td>
+                                   <td><?php echo $row['status']; ?></td>
+                                   <td>
+                                     <div class="input-group">
+                                       <input type="hidden" name="email" value="<?php echo $email; ?>">
+                                       <input type="hidden" name="message" value="<?php echo $message; ?>">
+                                       <input type="submit" class="btn btn-link" value="View">
+                                     </div>
+                                   </td>
+                               </form>
+                               </tr>
+                         <?php }
+                            }
+                          }else{
+                            echo "0 results";
+                          }
+                            ?>
               </tbody>
             </table>
       <!--end retrieve data-->

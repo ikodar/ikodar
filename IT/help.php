@@ -1,11 +1,10 @@
 <?php 
-
-  include_once 'connection.php';
-  include('process2.php');
-  if (!isLoggedIn()) {
-    $_SESSION['msg'] = "You must log in first";
-    header('location: ../login.php');
+	include('functions.php');
+	if (!isLoggedIn()) {
+	$_SESSION['msg'] = "You must log in first";
+	header('location: ../login.php');
   }
+
   //view name on top
 $email=$_SESSION['email'];
 $sql = "SELECT * FROM users WHERE email='$email'";
@@ -53,20 +52,26 @@ $user_type  =  $row['user_type'];
      </li>
 
      <li class="nav-item active">
-       <a class="nav-link" href="./projects.php">         
+       <a class="nav-link" href="./active.php">         
          <p>My Projects</p>
        </a>
      </li>
      
      <li class="nav-item active">
-       <a class="nav-link" href="./profile.php">
+       <a class="nav-link" href="./myprofile.php">
          <p>My Profile</p>
        </a>
      </li>
 
      <li class="nav-item active">
-       <a class="nav-link" href="./payments.php">
-         <p>Payments</p>
+       <a class="nav-link" href="./income.php">
+         <p>Income</p>
+       </a>
+     </li> 
+
+     <li class="nav-item active">
+       <a class="nav-link" href="./feedbacks.php">
+         <p>Feedback</p>
        </a>
      </li>    
    </ul>
@@ -101,7 +106,7 @@ $user_type  =  $row['user_type'];
             </li>
          
             <li class="nav-item"> 
-              <a class="nav-link" href="process.php?logout='1'">Logout</a>
+              <a class="nav-link" href="functions.php?logout='1'">Logout</a>
             </li>
           </li>
         </ul>
