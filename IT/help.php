@@ -53,20 +53,26 @@ $user_type  =  $row['user_type'];
      </li>
 
      <li class="nav-item active">
-       <a class="nav-link" href="./projects.php">         
+       <a class="nav-link" href="./active.php">         
          <p>My Projects</p>
        </a>
      </li>
      
      <li class="nav-item active">
-       <a class="nav-link" href="./profile.php">
+       <a class="nav-link" href="./myprofile.php">
          <p>My Profile</p>
        </a>
      </li>
 
      <li class="nav-item active">
-       <a class="nav-link" href="./payments.php">
-         <p>Payments</p>
+       <a class="nav-link" href="./income.php">
+         <p>Income</p>
+       </a>
+     </li> 
+
+     <li class="nav-item active">
+       <a class="nav-link" href="./feedbacks.php">
+         <p>Feedback</p>
        </a>
      </li>    
    </ul>
