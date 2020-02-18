@@ -16,13 +16,14 @@
   }
 
   //view name on top
-  $email=$_SESSION['email'];
-  $sql = "SELECT * FROM users WHERE email='$email'";
-	$results=$conn->query($sql);
-  $row = $results->fetch_assoc();
+$email=$_SESSION['email'];
+$sql = "SELECT * FROM users WHERE email='$email'";
+$results=$conn->query($sql);
+$row = $results->fetch_assoc();
 
-  $firstname  =  $row['firstname'];
-  $lastname  =  $row['lastname'];
+$firstname  =  $row['firstname'];
+$lastname  =  $row['lastname'];
+$user_type  =  $row['user_type'];
   
 ?>
 
@@ -113,63 +114,74 @@
  <!-- End Navbar -->
 
 
-        <div class="content">
+ <div class="content">
          <div class="container-fluid">
           <div class="card-body">
-          <h4 class="card-title" style="font-size:20px"><b>Payment Details</b></h4>
-            
-              
-                
-                  
+                          
                 <div class="content">
                   <div class="container-fluid">
                     <div class="row">
                       <div class="col-md-12">
                          <div class="card">
                             <div class="card-header card-header-primary" style="font-size:20px">
-                               
-                            <?php
+                               <!--name-->
+                               <p>Project Name : 
+                               <?php 
+                  
                   $query = "SELECT * FROM projects where pid='$pid'";
-              $results = $conn->query($query);
-              if ($results->num_rows > 0) {
-              //output data of each row
-              while ($row = $results->fetch_assoc()) { 
-               { ?>			
-                    <tr>
-                        <td><?php echo $row['name']; ?></a></td>
-                    </tr>
-                <?php   }
-                  }
-                    }else{
-                  echo "0 results";
-                  }
+                  $result = $conn->query($query);
+                  if ($result->num_rows > 0) {
+                  //output data of each row
+                  while ($row = $result->fetch_assoc()) { 
+                   { ?>			
+                        <tr>
+                            <td><?php echo $row['name']; ?></a></td>
+                            
+                            
+                        </tr>
+                    <?php   }
+                      }
+    
+                        }else{
+                      echo "0 results";
+                      }
+                    ?>
+                </p>
+            <!-- hourly rate-->
+            <p>Full amount : 
+                <?php
+                  //view amount to calculate total 
+                  $sql2 = "SELECT amount FROM projects where pid='$pid'";
+                  $results2=$conn->query($sql2);
+                  $row2 = $results2->fetch_assoc();
+                  $am  =  $row2['amount'];
+                  echo $am;
                 ?>
-
+                </p>
                             </div>
                              <div class="card-body">
                              
-                              <form>
+                              <form >
                      
                               <table class="table">
                         <thead class="thead-dark text-primary" >
                           <tr >
-                            <th width="18%" style="font-size:15px">TASK ID</th>
-                            <th width="18%"style="font-size:15px">TASK NAME</th>
-                            <th width="16%"style="font-size:15px">HOUR</th>
+                            <th width="10px" style="font-size:15px">TASK ID</th>
+                            <th width="30px"style="font-size:15px">TASK NAME</th>
+                           
                           </tr>
                         </thead>
                         <tbody>
                         <?php 
                   $query = "SELECT * FROM tasks where pid='$pid'";
-              $results = $conn->query($query);
-              if ($results->num_rows > 0) {
+              $results2 = $conn->query($query);
+              if ($results2->num_rows > 0) {
               //output data of each row
-              while ($row = $results->fetch_assoc()) { 
+              while ($row = $results2->fetch_assoc()) { 
                { ?>			
                     <tr>
-                        <td><?php echo $row['tid']; ?></a></td>
-                        <td><?php echo $row['task']; ?></a></td>
-                        <td><?php echo $row['hour']; ?></a></td>
+                        <td width="10px" ><?php echo $row['tid']; ?></a></td>
+                        <td width="30px" ><?php echo $row['task']; ?></a></td>
                         
                     </tr>
                 <?php   }
@@ -186,23 +198,26 @@
 
                       <table class="table" >
                     <tbody>
-                    <td></td>
-                  <td>Total</td>
-                  <td>
+                    <td width="10px"  ></td>
+                  <td width="30px" >Total Amount</td>
+                  <td width="20px" >
                   <?php 
-                    $eml=$_SESSION['email'];
-                    $query = "SELECT SUM(hour) FROM tasks where pid='$pid'";
-                    $result = $conn->query($query);
-                    $sum = $result->fetch_assoc()['SUM(hour)'];
-
-      echo $sum;
+                    //view amount to calculate total 
+                  $sql2 = "SELECT amount FROM projects where pid='$pid'";
+                  $results2=$conn->query($sql2);
+                  $row2 = $results2->fetch_assoc();
+                  $am  =  $row2['amount'];
+                  echo $am;
                   
-      ?>
+                  ?>
                   </td>
                   
                   
                       </tbody>
+                      
                     </table>
+                      
+                    <a class="btn btn-primary" href="paymentsFull.php" role="button" name="back_btn">BACK</a>
                                 </form>
                               </div>
                             </div>
@@ -210,7 +225,6 @@
                         </div>
                       </div>
                     </div>
- 
 
 
 <!--   Core JS Files   -->

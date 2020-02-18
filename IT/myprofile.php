@@ -18,9 +18,9 @@
 	$city = $row['city'];
 	$country = $row['country'];
 	$postalcode = $row['postalcode'];
-	$about = $row['about'];
-
- 
+  $about = $row['about'];
+  
+  $user_type  =  $row['user_type'];
 ?>
  <!DOCTYPE html>
  <html lang="en">
@@ -213,8 +213,16 @@
                          </div>
                        </div>
                      </div>
+                     <div class="row">
+                       <div class="col-md-8">
+                         <div class="form-group">
+                         <p>If you want to delete your account <a href="myPrflDelete.php">Click here </a></p>
+                         
+                         </div>
+                       </div>
+                     </div>
                      
-                     <input class="btn btn-primary pull-right" type="submit" name="save_btn" value="SAVE">
+                     
                      <input class="btn btn-primary pull-right" type="submit" name="delete_btn" value="DELETE"> 
                      <input class="btn btn-primary pull-right" type="submit" name="update_btn" value="UPDATE">
                      <div class="clearfix"></div>

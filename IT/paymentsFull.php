@@ -134,7 +134,7 @@ ikodar
       <div class="card">
         <div class="card-header card-header-primary">
         <!--head line cart-->
-          <h4 class="card-title">Pending Income From Fixed Basis Projects 
+          <h4 class="card-title">Pending Income - Fixed Basis Projects 
       <i class="fa fa-shopping-cart"></i> -<b>
       <?php 
       $eml=$_SESSION['email'];

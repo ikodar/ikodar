@@ -1,6 +1,6 @@
 <?php 
   
-  include('profileProcess.php');
+  include('processMyprfl.php');
 	if (!isLoggedIn()) {
 	$_SESSION['msg'] = "You must log in first";
 	header('location: ../login.php');
@@ -68,23 +68,23 @@
              </a>
              </li>
              <li class="nav-item active  ">
-               <a class="nav-link" href="./projects.php">
+               <a class="nav-link" href="./active.php">
                  <!--<i class="material-icons">dashboard</i>-->
                  <p>My Projects</p>
                </a>
  
            </li>
            <li class="nav-item active">
-             <a class="nav-link" href="./profile.php">
+             <a class="nav-link" href="./myprofile.php">
                <!--<i class="material-icons">bubble_chart</i>-->
                <p>My Profile</p>
              </a>
            </li>
           </li>
            <li class="nav-item active">
-             <a class="nav-link" href="./payments.php">
+             <a class="nav-link" href="./income.php">
                <!--<i class="material-icons">location_ons</i>-->
-               <p>Payments</p>
+               <p>Income</p>
              </a>
            </li>
          </ul>
@@ -95,7 +95,7 @@
        <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
          <div class="container-fluid">
            <div class="navbar-wrapper">
-             
+             <a class="navbar-brand" href="#pablo">My Projects</a>
            </div>
            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
              <span class="sr-only">Toggle navigation</span>
@@ -105,12 +105,27 @@
            </button>
            <div class="collapse navbar-collapse justify-content-end">
              <form class="navbar-form">
-               
+               <div class="input-group no-border">
+                 <input type="text" value="" class="form-control" placeholder="Search...">
+                 <!--<button type="submit" class="btn btn-white btn-round btn-just-icon">
+                   <i class="material-icons">search</i>-->
+                   <div class="ripple-container"></div>
+                 </button>
+               </div>
              </form>
              <ul class="navbar-nav">
-               
+               <li class="nav-item">
+                 <a class="nav-link" href="#pablo">
+                   <!--<i class="material-icons">Dashboard</i>-->
+                   <p class="d-lg-none d-md-block">
+                     Dashboard
+                   </p>
+                 </a>
+               </li>
 
-               
+               <li class="nav-item">
+                 <a class="nav-link" href="contactus.php">Contact Us</a>
+               </li>
                <li class="nav-item">
                  <a class="nav-link" href="aboutus.php">About Us</a>
                </li>
@@ -118,7 +133,7 @@
                  <a class="nav-link" href="help.php">Help</a>
                </li>
                <li class="nav-item"> 
-                 <a class="nav-link" href="profileProcess.php?logout='1'">Logout</a>
+                 <a class="nav-link" href="processMyprfl.php?logout='1'">Logout</a>
                </li>
              </ul>
            </div>
@@ -132,11 +147,11 @@
              <div class="col-md-8">
                <div class="card">
                  <div class="card-header card-header-primary">
-                   <h4 class="card-title">Delete your account</h4>
+                   <h4 class="card-title">Complete Your Profile</h4>
                    
                  </div>
                  <div class="card-body">
-                   <form method="post" action=""  >
+                   <form method="post" action="../index.php"  >
                      <div class="row">
                        <div class="col-md-4">
                          <div class="form-group">
@@ -161,8 +176,8 @@
                      <div class="row">
                        <div class="col-md-8">
                          <div class="form-group">
-                         <h4 style="color:red;">Warning!</h4>
-                         <p>If you have open projects you can not delete your account </p>
+                         <h3 style="color:red;">Warning!</h3>
+                         <p>If you want to delete your account </p>
                          
                          </div>
                        </div>
