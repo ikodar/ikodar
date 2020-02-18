@@ -7,13 +7,17 @@
     header('location: ../login.php');
   }
 
+  if(isset($_POST['pid'])){
+    $_SESSION['pid']=$_POST['pid'];
+    //header('location: paymentHInfo.php');
+  }
   if(isset($_SESSION["pid"])){
-    $pid=$_SESSION["pid"];
-  }
-  else{
-    $pid="";
-    //header("location: index.php");
-  }
+  $pid=$_SESSION["pid"];
+}
+else{
+  $pid="";
+  //header("location: index.php");
+}
 
   //view name on top
 $email=$_SESSION['email'];
@@ -48,18 +52,17 @@ $user_type  =  $row['user_type'];
  <a class="simple-text logo-normal">
         i-කෝඩර්
         </a>
-        <a class="simple-text logo-normal">Hi</a>
-        <a class="simple-text logo-normal"><?php echo $firstname?></a>
-        <a class="simple-text logo-normal">(<?php echo $user_type?>)</a>
- </div>
- <div class="sidebar-wrapper">
- <ul class="nav">
+        <a class="simple-text logo-normal">Hi <?php echo $firstname?> (<?php echo $user_type?>)</a>
+       </div>
+       
+       <div class="sidebar-wrapper">
+         <ul class="nav">
            <li class="nav-item active  ">
              <a class="nav-link" href="./home.php">
                <!--<i class="material-icons">dashboard</i>-->
                <p>Dashboard</p>
              </a>
-             </li>
+ 
              <li class="nav-item active  ">
                <a class="nav-link" href="./active.php">
                  <!--<i class="material-icons">dashboard</i>-->
@@ -80,28 +83,45 @@ $user_type  =  $row['user_type'];
                <p>Income</p>
              </a>
            </li>
+           <li class="nav-item active">
+             <a class="nav-link" href="./feedback.php">
+               <!--<i class="material-icons">bubble_chart</i>-->
+               <p>Feedback</p>
+             </a>
+           </li>
+          </li>
          </ul>
- </div>
-</div>
-<div class="main-panel">
- <!-- Navbar -->
- <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
-   <div class="container-fluid">
-     
-     <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-       <span class="sr-only">Toggle navigation</span>
-       <span class="navbar-toggler-icon icon-bar"></span>
-       <span class="navbar-toggler-icon icon-bar"></span>
-       <span class="navbar-toggler-icon icon-bar"></span>
-     </button>
-     <div class="collapse navbar-collapse justify-content-end">
-       
-     <ul class="navbar-nav">
+       </div>
+     </div>
+     <div class="main-panel">
+       <!-- Navbar -->
+       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+         <div class="container-fluid">
+           <div class="navbar-wrapper">
+             <a class="navbar-brand" href="#pablo">Income</a>
+           </div>
+           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+             <span class="sr-only">Toggle navigation</span>
+             <span class="navbar-toggler-icon icon-bar"></span>
+             <span class="navbar-toggler-icon icon-bar"></span>
+             <span class="navbar-toggler-icon icon-bar"></span>
+           </button>
+           <div class="collapse navbar-collapse justify-content-end">
+             <form class="navbar-form">
+               <div class="input-group no-border">
+                
+                 <!--<button type="submit" class="btn btn-white btn-round btn-just-icon">
+                   <i class="material-icons">search</i>-->
+                   <div class="ripple-container"></div>
+                 </button>
+               </div>
+             </form>
+             <ul class="navbar-nav">
                <li class="nav-item">
                  <a class="nav-link" href="#pablo">
                    <!--<i class="material-icons">Dashboard</i>-->
                    <p class="d-lg-none d-md-block">
-                    
+                     Income
                    </p>
                  </a>
                </li>
@@ -113,12 +133,12 @@ $user_type  =  $row['user_type'];
                  <a class="nav-link" href="help.php">Help</a>
                </li>
                <li class="nav-item"> 
-                 <a class="nav-link" href="processMyprfl.php?logout='1'">Logout</a>
+                 <a class="nav-link" href="functions.php?logout='1'">Logout</a>
                </li>
              </ul>
-      </div>
-    </div>
-  </nav>
+           </div>
+         </div>
+       </nav>
  <!-- End Navbar -->
 
 
@@ -163,7 +183,8 @@ $user_type  =  $row['user_type'];
                   $results2=$conn->query($sql2);
                   $row2 = $results2->fetch_assoc();
                   $am  =  $row2['amount'];
-                  echo $am;
+                  $a=$am-(($am/100)*10);
+                  echo $a;
                 ?>
                 </p>
                             </div>
@@ -215,7 +236,8 @@ $user_type  =  $row['user_type'];
                   $results2=$conn->query($sql2);
                   $row2 = $results2->fetch_assoc();
                   $am  =  $row2['amount'];
-                  echo $am;
+                  $a=$am-(($am/100)*10);
+                  echo $a;
                   
                   ?>
                   </td>
