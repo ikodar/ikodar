@@ -148,6 +148,14 @@
                                   </tr>
                             <?php }
                             }
+                          }else{
+                            echo "0 results";
+                          }
+                          //retrieve data from project table
+                          $query = "SELECT * FROM messages";
+                          $results = $conn->query($query);
+                          if ($results->num_rows > 0){
+                            //output data of each row
                             while ($row = $results->fetch_assoc()) { 
                               if ($row['status']=="replied"){  	
                                 $email=$row['email'];
