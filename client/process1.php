@@ -45,9 +45,12 @@ function accept(){
 	
 	$IT =  $_POST['IT'];
 	$pid=  $_SESSION['pid'];
-	
+	$sql="SELECT IT FROM projects WHERE pid='$pid'";
+	$results=$conn->query($sql);
+	$ITcheck=$results->fetch_assoc()['IT'];
 
-    if($IT==""){
+
+    if($ITcheck==""){
 	// form validation: ensure that the form is correctly filled
 
 	// award bid if there are no errors in the form
