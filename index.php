@@ -30,7 +30,7 @@
             <h4 style="color: white;">i-කෝඩර්</h4>
         </div>
           <ul class="nav navbar-nav navbar-right" >
-            <li style="padding-left:20px;"><a href="#page-top">Home</a></li>
+            <li style="padding-left:20px;"><a href="#home">Home</a></li>
             <li style="padding-left:20px;"><a href="#about">About Us</a></li>
             <li style="padding-left:20px;"><a href="#contact">Contact us</a></li>
             <li style="padding-left:20px;"><a href="login.php">Sign in</a></li>
@@ -39,13 +39,13 @@
       </div>
     </nav>
     <!-- End of navigation bar-->
-
+<section id="home">
 <div class="container-fluid bg-1 text-center">
     <div class="row header">
 	<div class="col-lg-4">
 			<div class="container text-center" style = "padding-top: 70px;">
         <h3>i-කෝඩර් We Connect You All</h3>
-        <h4>Welcome To Freelancing and Crowdsourcing !</h4><br/>
+        <h4>Welcome To Freelancing !</h4><br/>
 				<p>Remember, time is money. Use it properly. Do not waste your time thinking when others are getting things done here.</p>
 				<a href="Register.php" class="btn btn-warning btn-lg">It's Free!! Join Now!!!</a>
 				<p></p>
@@ -98,9 +98,9 @@
     </div>
     </div>
     </div>
+ </section>   
     
-    
-
+<section id="about">
   <div style="background:#cce5ff" id="how">
 <div class="container fluid text-center" style="padding:5%;">
 <div class="row header">
@@ -121,7 +121,7 @@
 	</div>
 </div>
 </div>
-
+</section>
 <!--Popular Categories-->
 <div class="container-fluid bg-4 text-center" style="padding:4%;" id="category">
 	<h1 class="card header2" style="background:#2183aa">Popular Categories</h1>
