@@ -243,21 +243,21 @@ img {vertical-align: middle;}
 <div class="mySlides fade">
   <div class="numbertext">    </div>
   <img src="./img/design.jpg" style="height:300px; width:100%">
-  <a href="homeR1Sdes.php">
+  
   <div class="text" >Software Design Projects</div></a>
 </div>
 
 <div class="mySlides fade">
   <div class="numbertext">    </div>
   <img src="./img/deve.jpg" style="height:300px; width:100%">
-  <a href="homeR1Sdev.php">
+  
   <div class="text">Software Development Projects</div></a>
 </div>
 
 <div class="mySlides fade">
   <div class="numbertext">    </div>
   <img src="./img/mng.jpg" style="height:300px; width:100%">
-  <a href="homeR1Gdes.php">
+  
   <div class="text">Graphic Design Projects</div></a>
 </div>
 
@@ -325,16 +325,17 @@ function showSlides() {
 					     <table class="table">
                <thead class="thead-dark text-primary" >
                  <tr >
-                   <th width="10px" style="font-size:15px">IT Individual</th>
-                   <th width="20px"style="font-size:15px">Completed Projects</th>
-                   <th width="20px"style="font-size:15px">Monthly Income</th>
+                   <th width="30px" style="font-size:15px">IT Individual</th>
+                   <th width="20px" style="font-size:15px">No of Completed Projects</th>
+                   <th width="30px"style="font-size:15px">Ratings</th>
+                   
                  </tr>
                </thead>
                <tbody>
                <?php 
-         $query = "SELECT users.*, projects.*
+         $query = "SELECT feedback.*, projects.*
                   FROM projects
-                  INNER JOIN users ON projects.IT = users.email;";
+                  INNER JOIN feedback ON projects.IT = feedback.email;";
 
      $results2 = $conn->query($query);
      if ($results2->num_rows > 0) {
@@ -342,8 +343,8 @@ function showSlides() {
      while ($row = $results2->fetch_assoc()) { 
       { ?>			
            <tr>
-               <td width="10px" ><?php echo $row['email']; ?></a></td>
-               <td width="30px" ><?php 
+               <td width="30px" ><?php echo $row['IT']; ?></a></td>
+               <td width="20px" ><?php 
       $eml=['email'];
       $query = "SELECT COUNT(status) FROM projects WHERE status='completed' AND IT='$eml'";
       $result = $conn->query($query);
