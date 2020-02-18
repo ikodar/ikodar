@@ -2,7 +2,12 @@
 	include('functions.php');
 	if (!isLoggedIn()) {
 	$_SESSION['msg'] = "You must log in first";
-	header('location: ../login.php');
+  header('location: ../login.php');
+  
+  if(isset($_POST["pid"])){
+    $_SESSION["pid"]=$_POST["pid"];
+    header("location: detail.php");
+  }
   }
  
 ?>
@@ -183,7 +188,7 @@
             
                     <tr>
                     <td>'.$pid.'</td>
-                    <td>'.$name.'</td>
+                    <td><input type="submit" class="btn btn-link btn-lg" value="'.$name.'"></td>
                     <td>'.$bidcount.'</td>
                     <td>$'.$client.'USD</td>
                     <td>$'.$bid.' USD</td>

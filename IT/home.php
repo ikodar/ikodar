@@ -44,9 +44,6 @@
      <a class="simple-text logo-normal">
         i-කෝඩර්
         </a>
-        <a class="simple-text logo-normal">Hi</a>
-        <a class="simple-text logo-normal"><?php echo $firstname?></a>
-        <a class="simple-text logo-normal">(<?php echo $user_type?>)</a>
        </div>
        
        <div class="sidebar-wrapper">
@@ -142,7 +139,8 @@
       <div class="content">
           <div class="container-fluid">
           <div class="row">
-             <div class="col-md-9">
+             <div class="col-md-8">
+             <br/>
             <div class="card">
               <div class="card-header card-header-primary">
                 <h4 class="card-title">Recent Projects</h4>
@@ -192,31 +190,47 @@
             </div> 
           </div>
        </div>
-       <div class="col-md-3">
+       <div class="col-md-4">
               <div class="card card-profile">
               <div class="card-header card-header-primary">
-                <h4 class="card-title">Welcome back, <?php echo $_SESSION['email'];?></h4>
+                <h4 class="card-title">Reputation</h4>
               </div>
                 <div class="card-body">
                 
-                <div class="card" >
-			<div class="panel panel-success">
-        <div class="panel-heading "style="background-color:#89b9ce;">Ratings</div>
-        <div class="panel-body"></div>
-      </div>
-      </div>
+        <?php
+        $email=$_SESSION['email'];
+
+        $query = "SELECT * FROM feedback";
+        $results = $conn->query($query);
+        if ($results->num_rows > 0){
+          //output data of each row
+          while ($row = $results->fetch_assoc()) { 
+              if ($row['email']==$_SESSION['email']){ ?>	
+                  <?php 
+                  
+        $query = "SELECT ROUND( AVG(rate),2 ) AS Average FROM feedback";
+                            $results1 = $conn->query($query);
+                           echo $rtavg= $results1->fetch_assoc()['Average'];?>/5 <br/>
+
+      ( <?php $query = "SELECT COUNT(review) FROM feedback WHERE pid=$pid";
+                            $results1 = $conn->query($query);
+                          echo $rewcount= $results1->fetch_assoc()['COUNT(review)'];?> Reviews)
+                        
+                <?php   }
+                  }
+
+                    }else{
+                  echo "0 results";
+                  }
+                ?>
+                        
+                        
       
-      <div class="card" >
-			<div class="panel panel-success">
-			  <div class="panel-heading" style="background-color:#89b9ce;">Reviews</div>
-			  <div class="panel-body"></div>
-      </div>
       </div>
       
     </div>
-    
-    
-                </div>
+    <br/>
+                
                 <!--My Wallet-->
 		<div class="card">
     <div class="card-header card-header-primary">
@@ -226,9 +240,10 @@
       <div class="card-body">
                 
 			<ul class="list-group">
-			  <li class="list-group-item">Balance: $0.0</li>
-			  <li class="list-group-item">Hourly Rate: $0.0</li>
-			  <li class="list-group-item">Payment Method: </li>
+			  <li class="list-group-item">Total Income: $</li>
+        <li class="list-group-item">Average Income:$ </li>
+			  <li class="list-group-item">Hourly Rate: $</li>
+		
 			</ul>
     </div>
     </div>

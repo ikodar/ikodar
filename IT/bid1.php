@@ -5,30 +5,46 @@
 	header('location: ../login.php');
   }
  
-  if(isset($_SESSION["pid"])){
-    $pid=$_SESSION["pid"];
-  }
-  else{
-    $pid="";
-    //header("location: index.php");
-  } 
+  
+if(isset($_SESSION["pid"])){
+  $pid=$_SESSION["pid"];
+}
+else{
+  $pid="";
+  //header("location: index.php");
+}
 
+ //view name on top
+ $email=$_SESSION['email'];
+ $sql = "SELECT * FROM users WHERE email='$email'";
+ $results=$conn->query($sql);
+ $row = $results->fetch_assoc();
+ 
+ $firstname  =  $row['firstname'];
+ $lastname  =  $row['lastname'];
 
-   $query = "SELECT * FROM projects INNER JOIN feedback ON projects.pid= feedback.pid";
-   $results = $conn->query($query);
-   if ($results->num_rows > 0) {
-      //output data of each row
-      while ($row = $results->fetch_assoc()) { if ($row['IT']==$_SESSION['email']){ ?>
-       <?php $pid = $row ['pid'];
-        $name = $row ['name'];
-        $rate = $row['rate'];
-        $review= $row['review'];
-        $client = $row['client'];
-      }
+ 
+ $query = "SELECT * FROM projects where pid='$pid'";
+ $results = $conn->query($query);
+ if ($results->num_rows > 0) {
+    //output data of each row
+    while ($row = $results->fetch_assoc()) { 
+      $name = $row ['name'];
+      $type = $row['type'];
+      $description = $row['description'];
+      $biddate = $row['biddate'];
+      $deadline = $row['deadline'];
+      $amount = $row['amount'];
+      $client = $row['client'];
+      $link = $row['link'];
+      $accept = $row['accept'];
     }
-   }else{
-       echo "0 results";
-   }
+
+ }else{
+     echo "0 results";
+ }
+
+
 ?>
  <!DOCTYPE html>
  <html lang="en">
@@ -59,9 +75,12 @@
          Tip 2: you can also add an image using data-image tag
      -->
      <div class="logo">
-         <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-           ikodar
-         </a>
+     <a class="simple-text logo-normal">
+        i-කෝඩර්
+        </a>
+        <a class="simple-text logo-normal">Hi</a>
+        <a class="simple-text logo-normal"><?php echo $firstname?></a>
+        <a class="simple-text logo-normal">(<?php echo $user_type?>)</a>
        </div>
        
        <div class="sidebar-wrapper">
@@ -151,26 +170,13 @@
            <div class="row">
              <div class="col-md-10">
 
-
-                   <div class="card">
+             <div class="card">
                  <div class="card-header card-header-primary">
-                   <h4 class="card-title">Feedbacks</h4>
+                   <h4 class="card-title">Project Details</h4>
+                
                  </div>
+
                  <div class="card-body">
-
-
-                 <div class="row">
-                                   <div class="col-md-6">
-                                     <div class="form-group">
-                                        <label class="bmd-label-floating">Project ID : </label> 
-                                          <tr>
-                                            <td><?php echo $pid; ?></a></td>    
-                                          </tr>               
-                                        </div>
-                                      </div>                                             
-                                    </div>
-
-                 
                                  <div class="row">
                                    <div class="col-md-6">
                                      <div class="form-group">
@@ -182,7 +188,17 @@
                                       </div>                                             
                                     </div>
 
-                                   
+                                   <div class="row">
+                                     <div class="col-md-6">
+                                       <div class="form-group">
+                                          <label class="bmd-label-floating">Project Type:</label>   
+                                         		<tr>
+                                                <td><?php echo $type; ?></a></td>    
+                                              </tr>                     
+                                          </div>
+                                        </div>                      
+                                      </div>
+
                                     <div class="row">
                                       <div class="col-md-6">
                                         <div class="form-group">
@@ -197,22 +213,46 @@
                                     <div class="row">
                                       <div class="col-md-4">
                                         <div class="form-group">
-                                          <label class="bmd-label-floating">Rating:</label>  
+                                          <label class="bmd-label-floating">Amount:</label>  
                                             <tr>
-                                              <td><?php echo $rate ?>/5</a></td>    
+                                              <td><?php echo $amount ?></a></td>    
                                             </tr>
                                         </div>
                                       </div>
                                     <div class="col-md-4">
                                       <div class="form-group">
-                                        <label class="bmd-label-floating">Review:</label>  
+                                        <label class="bmd-label-floating">Bid End Date:</label>  
                                           <tr>
-                                            <td><?php echo $review ?></a></td>     
+                                            <td><?php echo $biddate ?></a></td>     
                                           </tr>                      
                                         </div>
                                       </div>
                                     <div class="col-md-4">
-                                   
+                                      <div class="form-group">
+                                        <label class="bmd-label-floating">Deadline:</label>
+                                          <tr>
+                                            <td><?php echo $deadline; ?></a></td>    
+                                          </tr>                          
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="row">
+                                      <div class="col-md-12">
+                                        <div class="form-group">
+                                          <label>Description:</label>			
+                                            <tr>
+                                              <td><?php echo $description; ?></a></td>
+                                            </tr>                        
+                                        </div>
+                                      </div>
+
+                                    </div>
+
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                      <label class="bmd-label-floating">Shedule:</label>  
 
                                     </div>
                                   </div>                                             
@@ -221,7 +261,64 @@
                               </div>
                             </div>
                           </div>
+                     
+             <div class="col-md-10">
+
+                   <div class="card">
+                 <div class="card-header card-header-primary">
+                   <h4 class="card-title">Place a bid on this project</h4>
+                 </div>
+                 <div class="card-body">
+
+                   <form action="active.php" method="post" class="was-validated">
+                   <input type="hidden" name="pid" value="<?=$pid;?>">
+                   
+                   <h1 style="font-size:17px;"><b>Bid Details</b></h>
+                   <div class="row">
+                   <div class="col-md-5">
+                        <label style="margin-top:8px;">Bid Amount:</label>
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" style="background-color:#d3d3d3; border: 1px solid #bdbdbd; padding:5px;">$</span>
+                          </div>
+                          <input name="bid" input type="number" min="1" step="any"  class="form-control" aria-label="Amount (to the nearest dollar)" style="border: 1px solid #bdbdbd;"  placeholder="Enter bid amount" required>
+                          <div class="input-group-append"> 
+                          <span class="input-group-text" style="background-color:#d3d3d3; border: 1px solid #bdbdbd; padding:3px;">USD</span>
+                            
+                          </div>
+                          <div class="invalid-feedback">Please enter a value.</div>
                         </div>
+                        </div>
+
+                        <div class="col-md-5">
+                        <label style="margin-top:8px;">This project will be delivered in:</label>
+                        <div class="input-group mb-3">
+                          <input name="days" type="number" min="1" class="form-control" style="border: 1px solid #bdbdbd;"  placeholder="Enter number of days" Fnequired>
+                          <div class="input-group-append">
+                            <span class="input-group-text" style="background-color:#d3d3d3; border: 1px solid #bdbdbd; padding:3px">Days</span>
+                          </div>
+                          <div class="invalid-feedback">Please enter number of days.</div>
+                        </div>
+                      
+                        </div>
+                        </div>
+          
+                        <div class="row">
+                       <div class="col-md-10">
+                         <div class="form-group">
+                           <label>Describe Your Proposal:</label>
+                           <div class="form-group" >
+                             <textarea name="proposal" class="form-control" rows="5" style="border: 1px solid #bdbdbd;"  placeholder="what makes you best candidate for this project?" required></textarea>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                     <button name="update_btn" type="submit" class="btn btn-primary pull-right">Update Bid</button>
+                     <div class="clearfix"></div>
+                   </form>
+                 </div>
+               </div>
+             </div>
 
                  </div>
                </div>
