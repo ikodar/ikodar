@@ -6,6 +6,17 @@
         $_SESSION['msg'] = "You must log in first";
         header('location: ../login.php');
       }
+
+      if(isset($_POST["view_btn"])){
+        $_SESSION["pid"]=$_POST["pid"];
+        header("location: details.php");
+      }
+
+      if(isset($_POST["pid"])){
+        $_SESSION["pid"]=$_POST["pid"];
+        header("location: details.php");
+      }
+
       //view name on top
 $email=$_SESSION['email'];
 $sql = "SELECT * FROM users WHERE email='$email'";
@@ -131,7 +142,8 @@ $user_type  =  $row['user_type'];
                           <tr>
                             <th width="18%">PROJECT ID</th>
                             <th width="18%">PROJECT NAME</th>
-                            <th width="16%">MORE</th>
+                            <th width="18%">Description</th>
+                            <th width="16%">ACTION</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -142,12 +154,20 @@ $user_type  =  $row['user_type'];
                             if ($results->num_rows > 0) {
                             //output data of each row
                             while ($row = $results->fetch_assoc()) { 
-                              $date=date("Y-m-d");	
-                              if ($date<$row['biddate']){ ?>			
+                             	  if ($row['status']=="past"){ 
+                                   $pid=$row['pid'];?>			
                                   <tr>
+                                  <form action="details.php" method="post">
                                       <td><?php echo $row['pid']; ?></td>
                                       <td><?php echo $row['name']; ?></td>
-                                      <td><a class="btn btn-primary" href="details.php" role="button" name="view_btn">View</a>
+                                      <td><?php echo substr($row['description'],0,60)."..."; ?></td>
+                                      <td>
+                                        <div class="input-group">
+                                          <input type="hidden" name="pid" value="<?php echo $pid; ?>">
+                                          <input type="submit" name="view_btn" class="btn btn-primary" value="View">
+                                        </div>
+                                      </td>
+                                  </form>
                                   </tr>
                               <?php 
                                 }
