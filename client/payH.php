@@ -203,13 +203,13 @@ span.price {
       
        <!-- payment -->
       <h2>PAY</h2>
-<p>   </p>
-<div class="row">
-  <div class="col-60">
-    <div class="container">
-      <form method="post" action="">
-      <input type="hidden" name="pid" value="<?=$pid;?>">
-        <div class="row">
+      <p>   </p>
+      <div class="row">
+        <div class="col-60">
+          <div class="container">
+            <form method="post" action="">
+            <input type="hidden" name="pid" value="<?=$pid;?>">
+              <div class="row">
           
             
             <label for="fname"><i class="fa fa-user"></i> Full Name</label>
@@ -240,7 +240,7 @@ span.price {
                     echo $tot;
 
                   
-                  ?>
+                  ?> 
                 
              ">
           
