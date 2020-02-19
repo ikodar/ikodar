@@ -17,10 +17,10 @@ function feedback(){
 	// receive all input values from the form.
     // defined below to escape form values
 
-$rate= $_POST['star'];
+	$rate= $_POST['star'];
 	$review =  $_POST['review'];
 	$email = $_POST['IT'];
-	$pid =  $_POST['pid'];
+	$pid =  $_SESSION['pid'];
 	
 
 		
