@@ -91,11 +91,15 @@ function acceptproject(){
 
 	$sql="UPDATE projects SET status='completed', accept='accepted' WHERE pid='$pid'";
 
-	if($conn->query($sql)==TRUE){
-		echo  "<script> alert('Project updated.');</script>";
-		header('location: payments.php');
+	if($link==""){
+		echo "<script> alert('No link, cannot accept.'); </script>";
 	}else{
-		echo "Error: " . $sql . "<br>" . $conn->error;
+		if($conn->query($sql)==TRUE){
+			echo  "<script> alert('Project updated.');</script>";
+			header('location: payments.php');
+		}else{
+			echo "Error: " . $sql . "<br>" . $conn->error;
+		}
 	}
 }
 
