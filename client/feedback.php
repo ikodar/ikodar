@@ -1,5 +1,5 @@
 <?php 
-    include('process.php');
+    include('functions.php');
     include('fbkaction.php');
 	if (!isLoggedIn()) {
 	$_SESSION['msg'] = "You must log in first";
@@ -119,9 +119,10 @@ input.star:checked ~ .rev-box{
          Tip 2: you can also add an image using data-image tag
      -->
      <div class="logo">
-        <a class="simple-text logo-normal">
-        i-කෝඩර්
-        </a>
+         <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+           ikodar
+         </a>
+       </div>
        
        <div class="sidebar-wrapper">
          <ul class="nav">
@@ -132,23 +133,23 @@ input.star:checked ~ .rev-box{
              </a>
  
              <li class="nav-item active  ">
-               <a class="nav-link" href="./projects.php">
+               <a class="nav-link" href="./active.php">
                  <!--<i class="material-icons">dashboard</i>-->
                  <p>My Projects</p>
                </a>
  
            </li>
            <li class="nav-item active">
-             <a class="nav-link" href="./profile.php">
+             <a class="nav-link" href="./myprofile.php">
                <!--<i class="material-icons">bubble_chart</i>-->
                <p>My Profile</p>
              </a>
            </li>
           </li>
            <li class="nav-item active">
-             <a class="nav-link" href="./payments.php">
+             <a class="nav-link" href="./income.php">
                <!--<i class="material-icons">location_ons</i>-->
-               <p>Payments</p>
+               <p>Income</p>
              </a>
            </li>
          </ul>
@@ -159,7 +160,7 @@ input.star:checked ~ .rev-box{
        <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
          <div class="container-fluid">
            <div class="navbar-wrapper">
-             <a class="navbar-brand" href="#pablo">Feedback</a>
+             <a class="navbar-brand" href="#pablo">My Projects</a>
            </div>
            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
              <span class="sr-only">Toggle navigation</span>
@@ -181,7 +182,7 @@ input.star:checked ~ .rev-box{
                  <a class="nav-link" href="#pablo">
                    <!--<i class="material-icons">Dashboard</i>-->
                    <p class="d-lg-none d-md-block">
-                     
+                     Dashboard
                    </p>
                  </a>
                </li>
@@ -193,7 +194,7 @@ input.star:checked ~ .rev-box{
                  <a class="nav-link" href="help.php">Help</a>
                </li>
                <li class="nav-item"> 
-                 <a class="nav-link" href="process.php?logout='1'">Logout</a>
+                 <a class="nav-link" href="functions.php?logout='1'">Logout</a>
                </li>
              </ul>
            </div>

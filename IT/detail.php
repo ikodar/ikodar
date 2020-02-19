@@ -25,6 +25,7 @@
         $biddate = $row['biddate'];
         $deadline = $row['deadline'];
         $amount = $row['amount'];
+        $payment = $row['payment'];
         $client = $row['client'];
         $link = $row['link'];
         $accept = $row['accept'];
@@ -217,6 +218,7 @@ $user_type  =  $row['user_type'];
                                           <label class="bmd-label-floating">Amount:</label>  
                                             <tr>
                                               <td><?php echo $amount ?></a></td>    
+                                              <?php  echo $payment; ?>  
                                             </tr>
                                         </div>
                                       </div>

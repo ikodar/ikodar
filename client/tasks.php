@@ -19,8 +19,9 @@
   if(isset($_POST['task_btn'])){
 
     //update the status and acception of the project and redirect to payment page
-    if($row['tid']== "$tid"){
-    $sql="UPDATE tasks SET accept = 'accepted' WHERE tid = $tid'";
+    $tid=$_POST['tid'];
+    $link=$_POST['link'];
+    $sql="UPDATE tasks SET accept = 'accepted',link='$link' WHERE tid = '$tid'";
     if ($conn->query($sql) === TRUE) {
       echo "Link submitted successfully.";
       header('location: tasks.php');
@@ -29,9 +30,6 @@
   }
     
 
-  }else{
-    echo "Error: " . $sql . "<br>" . $conn->error;
-  }
 }
 
 //view name on top
@@ -260,13 +258,14 @@ $user_type  =  $row['user_type'];
                   $results = $conn->query($query);
                     if ($results->num_rows > 0){
                     //output data of each row
-                     while ($row = $results->fetch_assoc()) { ?>	
+                     while ($row = $results->fetch_assoc()) { 
+                            $link=$row['link'];?>	
                           <form action ="tasks.php"	method="post" class="was-validated">
                           
                           <tr>
                               <input type="hidden" name="tid" value="<?php echo $row['tid']?>"> 
                               <td><?php echo $row['task']; ?></td>
-                              <td><input name="link" type="text" class="form-control" value="<?php echo $row['link'];?>"></td>
+                              <td><input name="link" type="text" class="form-control" value="<?php echo $link;?>"></td>
                               <td> <button type="submit"  class="btn btn-primary pull-right" name="task_btn">Accept</button></td>
                          </tr>
                           </form>
