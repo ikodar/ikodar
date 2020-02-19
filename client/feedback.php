@@ -14,7 +14,15 @@
     //header("location: index.php");
   }
   
+  //view name on top
+$email=$_SESSION['email'];
+$sql = "SELECT * FROM users WHERE email='$email'";
+$results=$conn->query($sql);
+$row = $results->fetch_assoc();
 
+$firstname  =  $row['firstname'];
+$lastname  =  $row['lastname'];
+$user_type  =  $row['user_type'];
   
 ?>
  <!DOCTYPE html>
@@ -122,6 +130,9 @@ input.star:checked ~ .rev-box{
          <a href="http://www.creative-tim.com" class="simple-text logo-normal">
            ikodar
          </a>
+         <a class="simple-text logo-normal">Hi</a>
+        <a class="simple-text logo-normal"><?php echo $firstname?></a>
+        <a class="simple-text logo-normal">(<?php echo $user_type?>)</a>
        </div>
        
        <div class="sidebar-wrapper">
@@ -133,23 +144,23 @@ input.star:checked ~ .rev-box{
              </a>
  
              <li class="nav-item active  ">
-               <a class="nav-link" href="./active.php">
+               <a class="nav-link" href="./projects.php">
                  <!--<i class="material-icons">dashboard</i>-->
                  <p>My Projects</p>
                </a>
  
            </li>
            <li class="nav-item active">
-             <a class="nav-link" href="./myprofile.php">
+             <a class="nav-link" href="./profile.php">
                <!--<i class="material-icons">bubble_chart</i>-->
                <p>My Profile</p>
              </a>
            </li>
           </li>
            <li class="nav-item active">
-             <a class="nav-link" href="./income.php">
+             <a class="nav-link" href="./payments.php">
                <!--<i class="material-icons">location_ons</i>-->
-               <p>Income</p>
+               <p>Payments</p>
              </a>
            </li>
          </ul>
