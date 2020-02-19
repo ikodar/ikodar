@@ -18,7 +18,7 @@ $user_type  =  $row['user_type'];
 
   
   //piechart
-  $qry = "SELECT status, count(*) as number FROM projects WHERE status IN (completed AS pending ,past ) GROUP BY status ";
+  $qry = "SELECT status, count(status='completed',status='past') as number FROM projects";
   $result = $conn->query($qry);
 
   
@@ -84,18 +84,17 @@ $user_type  =  $row['user_type'];
         i-කෝඩර්
         </a>
         
-        <a class="simple-text logo-normal">Hi</a>
-        <a class="simple-text logo-normal"><?php echo $firstname?></a>
-        <a class="simple-text logo-normal">(<?php echo $user_type?>)</a>
-      </div>
-      <div class="sidebar-wrapper">
- <ul class="nav">
+        <a class="simple-text logo-normal">Hi <?php echo $firstname?> (<?php echo $user_type?>)</a>
+       </div>
+       
+       <div class="sidebar-wrapper">
+         <ul class="nav">
            <li class="nav-item active  ">
              <a class="nav-link" href="./home.php">
                <!--<i class="material-icons">dashboard</i>-->
                <p>Dashboard</p>
              </a>
-             </li>
+ 
              <li class="nav-item active  ">
                <a class="nav-link" href="./active.php">
                  <!--<i class="material-icons">dashboard</i>-->
@@ -116,34 +115,49 @@ $user_type  =  $row['user_type'];
                <p>Income</p>
              </a>
            </li>
+           <li class="nav-item active">
+             <a class="nav-link" href="./feedback.php">
+               <!--<i class="material-icons">bubble_chart</i>-->
+               <p>Feedback</p>
+             </a>
+           </li>
+          </li>
          </ul>
- </div>
-</div>
-<div class="main-panel">
- <!-- Navbar -->
- <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
-   <div class="container-fluid">
-     <div class="navbar-wrapper">
-       <a class="navbar-brand" href="#pablo"></a>
+       </div>
      </div>
-     <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-       <span class="sr-only">Toggle navigation</span>
-       <span class="navbar-toggler-icon icon-bar"></span>
-       <span class="navbar-toggler-icon icon-bar"></span>
-       <span class="navbar-toggler-icon icon-bar"></span>
-     </button>
-     <div class="collapse navbar-collapse justify-content-end">
-       <form class="navbar-form"> 
-       </form>
-       <ul class="navbar-nav">
+     <div class="main-panel">
+       <!-- Navbar -->
+       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+         <div class="container-fluid">
+           <div class="navbar-wrapper">
+             <a class="navbar-brand" href="#pablo">Income</a>
+           </div>
+           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+             <span class="sr-only">Toggle navigation</span>
+             <span class="navbar-toggler-icon icon-bar"></span>
+             <span class="navbar-toggler-icon icon-bar"></span>
+             <span class="navbar-toggler-icon icon-bar"></span>
+           </button>
+           <div class="collapse navbar-collapse justify-content-end">
+             <form class="navbar-form">
+               <div class="input-group no-border">
+                
+                 <!--<button type="submit" class="btn btn-white btn-round btn-just-icon">
+                   <i class="material-icons">search</i>-->
+                   <div class="ripple-container"></div>
+                 </button>
+               </div>
+             </form>
+             <ul class="navbar-nav">
                <li class="nav-item">
                  <a class="nav-link" href="#pablo">
                    <!--<i class="material-icons">Dashboard</i>-->
                    <p class="d-lg-none d-md-block">
-                    
+                     Income
                    </p>
                  </a>
                </li>
+
                <li class="nav-item">
                  <a class="nav-link" href="aboutus.php">About Us</a>
                </li>
@@ -151,12 +165,12 @@ $user_type  =  $row['user_type'];
                  <a class="nav-link" href="help.php">Help</a>
                </li>
                <li class="nav-item"> 
-                 <a class="nav-link" href="processMyprfl.php?logout='1'">Logout</a>
+                 <a class="nav-link" href="functions.php?logout='1'">Logout</a>
                </li>
              </ul>
-     </div>
-   </div>
- </nav>
+           </div>
+         </div>
+       </nav>
       <!-- End Navbar
       style="height:40px; width:40px; margin:0;" -->
       
@@ -264,7 +278,7 @@ echo "<script>
           <div class="col-md-9">
             <div class="card">
               <div class="card-header card-header-primary">
-                <h4 class="card-title">Recent IT Individuals</h4>
+                <h4 class="card-title">Income</h4>
               </div>
                 <div class="card-body">
                   <div class="row">    
@@ -274,19 +288,17 @@ echo "<script>
                <thead class="thead-dark text-primary" >
                  <tr >
                    
-                   <th width="20px" style="font-size:15px">project Type</th>
-                   <th width="20px" style="font-size:15px">IT Individual</th>
-                   <th width="20px"style="font-size:15px">Ratings</th>
-                   <th width="20px"style="font-size:15px">Reviews</th>
+                   <th width="20px" style="font-size:15px">project Name</th>
+                   <th width="20px" style="font-size:15px">client</th>
+                   <th width="20px"style="font-size:15px">Payment Type</th>
+                   <th width="20px"style="font-size:15px">Income</th>
 
                    
                  </tr>
                </thead>
                <tbody>
                <?php 
-         $query = "SELECT projects.*,feedback.*
-                  FROM projects 
-                  INNER JOIN feedback ON feedback.pid = projects.pid ";
+         $query = "SELECT * FROM projects WHERE status='past'" ;
 
      $results2 = $conn->query($query);
      if ($results2->num_rows > 0) {
@@ -294,10 +306,10 @@ echo "<script>
      while ($row = $results2->fetch_assoc()) { 
       { ?>			
            <tr>
-              <td><?php echo $row['type'];?></td>
-              <td><?php echo $row['email'];?></td>
-              <td><?php echo $row['rate'];?></td>
-              <td><?php echo $row['review'];?></td>
+              <td><?php echo $row['name'];?></td>
+              <td><?php echo $row['client'];?></td>
+              <td><?php echo $row['payment'];?></td>
+              <td><?php echo $row['ITincome'];?></td>
 
        <?php   }
          }
