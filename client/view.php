@@ -185,7 +185,23 @@ $user_type  =  $row['user_type'];
                                    <div class="col-md-6">
                                      <div class="form-group">
                                         <label class="bmd-label-floating">Ratings: </label> 
-                                                               
+                                        <?php 
+                                          $query = "SELECT * FROM feedback WHERE pid='$pid'";
+                                          $results = $conn->query($query);
+                                          if ($results->num_rows > 0) {
+                                          //output data of each row
+                                            while ($row = $results->fetch_assoc()) { 
+                                            { ?>			
+                                            <tr>
+                                              <td><?php echo $row['rate']; ?></a></td>   
+                                            </tr>
+                                            <?php   }
+                                            }
+     
+                                            }else{
+                                              echo "0 results";
+                                            }
+                                            ?>                 
                                         </div>
                                       </div>                                             
                                     </div>
@@ -194,7 +210,23 @@ $user_type  =  $row['user_type'];
                                      <div class="col-md-6">
                                        <div class="form-group">
                                           <label class="bmd-label-floating">Reviews:</label>   
-                                                           
+                                          <?php 
+                                            $query = "SELECT * FROM feedback WHERE pid='$pid'";
+                                            $results = $conn->query($query);
+                                              if ($results->num_rows > 0) {
+                                              //output data of each row
+                                                while ($row = $results->fetch_assoc()) { 
+                                              { ?>			
+                                              <tr>
+                                                <td><?php echo $row['review']; ?></a></td>   
+                                              </tr>
+                                              <?php   }
+                                              }
+     
+                                              }else{
+                                                echo "0 results";
+                                              }
+                                              ?>                     
                                           </div>
                                         </div>                      
                                       </div>
