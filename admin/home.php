@@ -38,55 +38,6 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>Dashboard</title>
-
-  <!-- including links and necessary deatils for the pie chart-->
-  <script type="text/javascript" src="http://www.gstatic.com/charts/loader.js"></script>
-  <script type="text/javascript">
-    google.charts.load('current',{'packages':['corechart']});
-    //for the piechart
-    google.charts.setOnLoadCallback(drawChart);
-    function drawChart(){
-      var data = google.visualization.arrayToDataTable([
-        ['Type','Number'],
-        <?php 
-            while($row = mysqli_fetch_array($results)){
-              echo "['".$row["type"]."',".$row["number"]."],";
-
-            }
-        ?>
-      ]);
-      var option:{
-        title:'Percentage of Project types',
-        pieHole:0.4
-      };
-      var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-      chart.draw(data, options);
-
-    } 
-
-    //for the line chart
-    google.charts.setOnLoadCallback(drawChart2);
-    function drawChart2() {
-        var data = google.visualization.arrayToDataTable([
-          ['Year', 'Sales', 'Expenses'],
-          ['2004',  1000,      400],
-          ['2005',  1170,      460],
-          ['2006',  660,       1120],
-          ['2007',  1030,      540]
-        ]);
-
-        var options = {
-          title: 'Company Performance',
-          curveType: 'function',
-          legend: { position: 'bottom' }
-        };
-
-        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-
-        chart.draw(data, options);
-      }
-  </script>
-
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!-- Fonts & icons -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
