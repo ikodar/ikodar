@@ -94,7 +94,8 @@ $user_type  =  $row['user_type'];
        <form class="navbar-form">        
        </form>
        <ul class="navbar-nav">         
-         <li class="nav-item dropdown">        
+         <li class="nav-item dropdown">
+         
             <li class="nav-item">
               <a class="nav-link" href="aboutus.php">About Us</a>
             </li>

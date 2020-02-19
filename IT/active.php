@@ -121,8 +121,7 @@ $user_type  =  $row['user_type'];
                    </p>
                  </a>
                </li>
-
-               
+              
                <li class="nav-item">
                  <a class="nav-link" href="aboutus.php">About Us</a>
                </li>
