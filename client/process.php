@@ -93,6 +93,7 @@ function acceptproject(){
 
 	if($link==""){
 		echo "<script> alert('No link, cannot accept.'); </script>";
+		header('location: details.php');
 	}else{
 		if($conn->query($sql)==TRUE){
 			echo  "<script> alert('Project updated.');</script>";
