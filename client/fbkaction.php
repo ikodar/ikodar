@@ -8,7 +8,18 @@ include ('connection.php');
 if (isset($_POST['submit'])) {
 	feedback();
 }
-
+$query = "SELECT * FROM projects";
+$results = $conn->query($query);
+if ($results->num_rows > 0) {
+   //output data of each row
+   while ($row = $results->fetch_assoc()) { if ($row['IT']==$_SESSION['email']){ ?>
+	<?php 
+	 $email = $row['IT'];
+   }
+ }
+}else{
+	echo "0 results";
+}
 
 function feedback(){
 	// call these variables with the global keyword to make them available in function
