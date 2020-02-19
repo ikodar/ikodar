@@ -121,11 +121,7 @@ $user_type  =  $row['user_type'];
                      Dashboard
                    </p>
                  </a>
-               </li>
-               <li class="nav-item">
-                 <a class="nav-link" href="notification.php">Notification</a>
-               </li>
-              
+               </li>          
 
                <li class="nav-item">
                  <a class="nav-link" href="contactus.php">Contact Us</a>

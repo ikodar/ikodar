@@ -6,7 +6,7 @@
   
   }
 
-  //retrieve current data 
+  //retrieve current data of the specific user 
   $email=$_POST['email'];
 
   $sql = "SELECT * FROM users WHERE email='$email'";
@@ -20,6 +20,13 @@
   $country = $row['country'];
   $postalcode = $row['postalcode'];
   $about = $row['about'];
+  $type = $row['user_type'];
+
+  $query = "SELECT ROUND( AVG(rate) ) AS Average FROM feedback where email='$email'";
+  $results1 = $conn->query($query);
+  $rate= $results1->fetch_assoc()['Average'];
+
+
 
 ?>
  <!DOCTYPE html>
@@ -127,12 +134,14 @@
                        </div>
                        <div class="col-md-6">
                          <div class="form-group">
-                           <label class="bmd-label-floating" >Rating</label>
-                           <?php 
-                            $sql1= "SELECT AVG(rate) FROM feedback WHERE email='$email'";
-                            $results1=$conn->query($sql);
-                            $rate=$results1->fetch_assoc()['AVG(rate)'];
-                            echo $rate;?>
+                           <label class="bmd-label-floating" >User Type:</label>
+                           <?php echo $type;?>
+                         </div>
+                       </div>
+                       <div class="col-md-6">
+                         <div class="form-group">
+                           <label class="bmd-label-floating" >Rating:</label>
+                           <?php echo $rate;?>
                          </div>
                        </div>
                      </div>
