@@ -87,11 +87,18 @@ function satisfytask(){
     // defined below to escape form values
 
 	$pid =  $_POST['pid'];
+	$tid = $_POST['tid'];
+	$sql="SELECT link FROM tasks WHERE pid='$pid' AND tid='$tid'";
+	$results=$conn->query($sql);
+	$linkcheck=$results->fetch_assoc()['link'];
+
 	
 
-
+	if($linkcheck==""){
+		echo "<script type= 'text/javascript'>alert('Task is not completed');</script>";
 	// register user if there are no errors in the form
-	if (count($errors) == 0) {
+	}else{
+		if (count($errors) == 0) {
 		
 		$query = "INSERT INTO tasks (accept,pid) 
 				  VALUES('accepted','$pid')";
@@ -100,6 +107,7 @@ function satisfytask(){
 		} else {
 		    echo "Error: " . $query . "<br>" . $conn->error;
 		}
+	}
 	}
 	$conn->close();
 }

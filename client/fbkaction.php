@@ -26,11 +26,14 @@ function feedback(){
 	global $conn, $rate, $review, $pid, $email;
 
 	// receive all input values from the form.
-    // defined below to escape form values
+	// defined below to escape form values
+	
+	$sql1="SELECT IT FROM projects WHERE pid='$pid'";
+	$results1=$conn->query($sql1);
+	$email=$results1->fetch_assoc()['IT'];
 
 	$rate= $_POST['star'];
 	$review =  $_POST['review'];
-	$email = $_POST['IT'];
 	$pid =  $_SESSION['pid'];
 	
 
