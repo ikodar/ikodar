@@ -72,44 +72,5 @@ function addtask(){
 	$conn->close();
 }
 
-// call the satisfy() function if accepted is clicked
-if (isset($_POST['satisfy'])) {
-	satisfytask();
-	header("Location:tasks.php");
-}
-
-// POST PROJECTS
-function satisfytask(){
-	// call these variables with the global keyword to make them available in function
-	global $conn, $errors, $accept,$pid;
-
-	// receive all input values from the form.
-    // defined below to escape form values
-
-	$pid =  $_POST['pid'];
-	$tid = $_POST['tid'];
-	$sql="SELECT link FROM tasks WHERE pid='$pid' AND tid='$tid'";
-	$results=$conn->query($sql);
-	$linkcheck=$results->fetch_assoc()['link'];
-
-	
-
-	if($linkcheck==""){
-		echo "<script type= 'text/javascript'>alert('Task is not completed');</script>";
-	// register user if there are no errors in the form
-	}else{
-		if (count($errors) == 0) {
-		
-		$query = "INSERT INTO tasks (accept,pid) 
-				  VALUES('accepted','$pid')";
-		if ($conn->query($query) === TRUE) {
-		    echo "New record created successfully";
-		} else {
-		    echo "Error: " . $query . "<br>" . $conn->error;
-		}
-	}
-	}
-	$conn->close();
-}
 
 ?>

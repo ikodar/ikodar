@@ -15,12 +15,12 @@
     $pid="";
     //header("location: index.php");
   }
-
+  $tid="";
   if(isset($_POST['task_btn'])){
 
     //update the status and acception of the project and redirect to payment page
     if($row['tid']== "$tid"){
-    $sql="INSERT INTO tasks(accept) VALUES('accepted')";
+    $sql="UPDATE tasks SET accept = 'accepted' WHERE tid = $tid'";
     if ($conn->query($sql) === TRUE) {
       echo "Link submitted successfully.";
       header('location: tasks.php');
