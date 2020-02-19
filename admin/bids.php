@@ -25,9 +25,7 @@
      echo "0 results";
  }
 
- if(isset($_POST['viewbid_btn'])){
-  $_SESSION['IT']=$_POST['IT'];
-}
+
 
 ?>
 
@@ -183,7 +181,7 @@
                                           <td>
                                             <div class="input-group">
                                               <input type="hidden" name="IT" value="<?php echo $IT;?>">
-                                              <a class="btn btn-link" href="viewbid.php" role="button" name="viewbid_btn">View</a>
+                                              <input type="submit" name="viewproject_btn" class="btn btn-link" value="View">
                                             </div>
                                           </td>
                                           </form>

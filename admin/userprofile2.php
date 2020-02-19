@@ -20,6 +20,7 @@
   $country = $row['country'];
   $postalcode = $row['postalcode'];
   $about = $row['about'];
+  $type = $row['user_type'];
 
 ?>
  <!DOCTYPE html>
@@ -123,6 +124,12 @@
                          <div class="form-group">
                            <label class="bmd-label-floating" >Email address: </label>
                            <?php echo $email;?>
+                         </div>
+                       </div>
+                       <div class="col-md-6">
+                         <div class="form-group">
+                           <label class="bmd-label-floating" >User Type:</label>
+                           <?php echo $type;?>
                          </div>
                        </div>
                       </div>

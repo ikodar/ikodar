@@ -6,14 +6,7 @@
   }
 
   $IT = $pid = $bid = $days = $proposal = $name ="";
-  
-  if(isset($_SESSION["IT"])){
-    $IT=$_SESSION["IT"];
-  }
-  else{
-    $IT="";
-  }
-
+ 
   if(isset($_SESSION["pid"])){
     $pid=$_SESSION["pid"];
   }
@@ -34,6 +27,8 @@
      echo "0 results";
  }
 
+ //getting posted IT individual's email
+ $IT=$_POST['IT'];
 
    //retrieve bid details
    $sql = "SELECT * FROM bid WHERE pid = '$pid' AND email = '$IT'";
@@ -43,10 +38,10 @@
    $days = $row['Days'];
    $proposal = $row['Proposal'];
 
-   //average rating of the individual
-   $query = "SELECT ROUND( AVG(rate),2 ) AS Average FROM feedback WHERE email='$IT'";
-   $results1 = $conn->query($query);
-   $rate= $results1->fetch_assoc()['Average'];
+  //retrieve average rating of the user
+  $query = "SELECT ROUND( AVG(rate) ) AS Average FROM feedback where email='$IT'";
+  $results1 = $conn->query($query);
+  $rate= $results1->fetch_assoc()['Average'];
 
 ?>
 

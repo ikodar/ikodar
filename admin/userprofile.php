@@ -22,6 +22,8 @@
   $about = $row['about'];
   $type = $row['user_type'];
 
+
+  //retrieve average rating of the user
   $query = "SELECT ROUND( AVG(rate) ) AS Average FROM feedback where email='$email'";
   $results1 = $conn->query($query);
   $rate= $results1->fetch_assoc()['Average'];
